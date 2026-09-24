@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-nourdoc-teal: #507D88;
+  --color-nourdoc-teal-hover: #3F646D;
+  --color-nourdoc-teal-dark: #2C4950;
+  --color-nourdoc-teal-light: #EBF3F5;
+  --color-nourdoc-teal-surface: #F4F9FA;
+  
+  --color-nourdoc-light-teal: #7AB1BF;
+  --color-nourdoc-light-teal-hover: #649CA9;
+  --color-nourdoc-light-teal-light: #F0F7F9;
+  
+  --color-nourdoc-dark: #0F172A;
+  --color-nourdoc-dark-card: #1E293B;
+  --color-nourdoc-dark-hover: #334155;
+
+  --font-sans: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  --shadow-teal-glow: 0 10px 25px -5px rgba(80, 125, 136, 0.25);
+  --shadow-card-hover: 0 14px 30px -4px rgba(80, 125, 136, 0.15);
+}
+
+:root {
+  font-family: var(--font-sans);
+  color-scheme: light;
+  color: #0F172A;
+  background-color: #FFFFFF;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #FFFFFF;
+  color: #0F172A;
+}
+
+/* Accessible focus ring */
+*:focus-visible {
+  outline: 2px solid #507D88;
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference override */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

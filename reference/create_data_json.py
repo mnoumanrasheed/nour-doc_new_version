@@ -1,0 +1,959 @@
+import json
+import os
+
+data = {
+  "brand": {
+    "name": "NourDoc",
+    "tagline": "Ambient Clinical Intelligence for Modern Healthcare",
+    "masterBrandStatement": "Listen to the Patient. Let AI Handle the Paperwork.",
+    "subTagline": "AI-assisted clinical documentation. Enterprise-scale processing. Flexible deployment.",
+    "appStoreUrl": "https://play.google.com/store/apps/details?id=com.m3hive.medicalai&pli=1",
+    "emails": {
+      "sales": "hello@nur-doc.com",
+      "support": "support@nur-doc.com",
+      "partnerships": "hello@nur-doc.com",
+      "investors": "hello@nur-doc.com"
+    },
+    "hierarchy": {
+      "level1": {
+        "title": "LEVEL 1 — CLINICIAN",
+        "role": "AI Clinical Documentation Assistant",
+        "path": "Android → Free Trial → Starter → Professional",
+        "description": "Point-of-Care Ambient Capture & SOAP Note Generation"
+      },
+      "level2": {
+        "title": "LEVEL 2 — HEALTHCARE ORGANIZATION",
+        "role": "Ambient Clinical Intelligence Platform",
+        "path": "Cloud → Enterprise → On-Premises → EHR/EMR/HIMS",
+        "description": "Clinical Governance, Departmental Workflows, System Integration"
+      },
+      "level3": {
+        "title": "LEVEL 3 — HEALTHCARE OPERATIONS",
+        "role": "Enterprise Clinical Information Processing Platform",
+        "path": "Batch Processing → 1M+ encounters/day architecture → ICD-10 + CPT → Multiple Formats → Coding/Billing → Claims/Clearance → Integration",
+        "description": "High-Volume Batch Processing & Revenue Cycle Intelligence"
+      }
+    }
+  },
+  "navigation": [
+    { "title": "Home", "path": "/" },
+    { "title": "Why NourDoc", "path": "/why-nourdoc" },
+    { "title": "Product", "path": "/product" },
+    { "title": "Benefits", "path": "/benefits" },
+    { "title": "Security & Compliance", "path": "/security-compliance" },
+    { "title": "Subscription", "path": "/subscription" },
+    { "title": "Medical Coding & Billing", "path": "/medical-coding-billing" },
+    { "title": "Integrations & Deployment", "path": "/integrations-deployment" },
+    { "title": "Partners & Collaborators", "path": "/partners-collaborators" },
+    { "title": "About & Contact", "path": "/about-contact" }
+  ],
+  "pages": {
+    "home": {
+      "id": "home",
+      "route": "/",
+      "metaTitle": "NourDoc — Ambient Clinical Intelligence for Modern Healthcare",
+      "metaDescription": "NourDoc transforms clinical conversations and notes into structured, actionable healthcare information from point of care to enterprise batch scale.",
+      "hero": {
+        "h1": "Let AI Handle the Documentation. Let Doctors Focus on Care.",
+        "description": "NourDoc is a cloud-native Ambient Clinical Intelligence platform that transforms clinical conversations and notes into structured, actionable healthcare information.\n\nFrom a clinician using the NourDoc Android app to an enterprise processing millions of encounters, NourDoc helps reduce administrative workload and turn clinical information into structured documentation, coding support and downstream-ready data.",
+        "primaryCta": { "label": "TRY NOURDOC FREE", "type": "app" },
+        "secondaryCta": { "label": "BOOK A DEMO", "type": "demo" },
+        "badge": "AI-assisted clinical documentation. Enterprise-scale processing. Flexible deployment."
+      },
+      "theProblem": {
+        "eyebrow": "THE PROBLEM",
+        "h2": "Healthcare Has an Administrative Burden Problem",
+        "lead": "Every clinical encounter creates valuable information. But turning that information into useful documentation can require significant manual effort.",
+        "roles": [
+          { "role": "Clinicians", "action": "document." },
+          { "role": "Coders", "action": "review." },
+          { "role": "Billing teams", "action": "process." },
+          { "role": "Administrators", "action": "reconcile." },
+          { "role": "Healthcare organizations", "action": "move information between systems." }
+        ],
+        "conclusion": "NourDoc brings AI into the information workflow. Let AI assist with the administrative work. Let healthcare professionals focus on the clinical work."
+      },
+      "pipeline": {
+        "eyebrow": "FROM CONVERSATION TO CLINICAL INTELLIGENCE",
+        "h2": "One Platform. Multiple Healthcare Workflows.",
+        "steps": [
+          { "step": "01", "title": "Clinical Conversation / Voice / Notes", "desc": "Capture natural clinical interactions or voice recordings." },
+          { "step": "02", "title": "AI Transcription & Clinical Understanding", "desc": "Convert speech and extract medical entity relationships." },
+          { "step": "03", "title": "Structured Clinical Documentation", "desc": "Generate structured SOAP notes and comprehensive clinical records." },
+          { "step": "04", "title": "ICD-10 & CPT Coding Assistance", "desc": "Support diagnostic and procedural coding workflows." },
+          { "step": "05", "title": "Multiple Output Formats", "desc": "Format outputs for JSON, XML, CSV, PDF, and integration payloads." },
+          { "step": "06", "title": "EHR / EMR / HIMS / Coding / Billing Workflows", "desc": "Seamless ingestion into enterprise healthcare systems of record." }
+        ]
+      },
+      "appSection": {
+        "eyebrow": "START WITH YOUR PHONE",
+        "h2": "Your AI Clinical Documentation Assistant — In Your Pocket",
+        "description": "Experience NourDoc through the Android app. Record a consultation, let NourDoc process the conversation, review the generated documentation and continue with your clinical workflow.",
+        "cta": { "label": "TRY FREE", "type": "app" }
+      },
+      "scaleSection": {
+        "eyebrow": "FROM ONE CLINICIAN TO ENTERPRISE SCALE",
+        "h2": "Built to Scale With Healthcare",
+        "description": "NourDoc is designed as a scalable healthcare AI platform capable of supporting high-volume clinical information processing.\n\nIts enterprise architecture is designed to entertain 1+ million clinical encounters per day in appropriately configured environments.",
+        "cards": [
+          {
+            "type": "Point-of-Care Documentation",
+            "tagline": "One clinician. One consultation. One intelligent clinical note."
+          },
+          {
+            "type": "Enterprise Batch Processing",
+            "tagline": "Thousands or millions of encounters processed through scalable workflows."
+          }
+        ]
+      },
+      "deploymentSection": {
+        "eyebrow": "FLEXIBLE DEPLOYMENT",
+        "h2": "Cloud-Native by Design. On-Premises When Required.",
+        "description": "NourDoc is built for modern cloud environments while also supporting organizations with specific infrastructure, governance or deployment requirements.",
+        "options": ["Cloud", "On-Premises", "Enterprise / Hybrid"]
+      },
+      "finalCta": {
+        "eyebrow": "FINAL CTA",
+        "h2": "Give Clinicians Their Time Back.",
+        "primaryCta": { "label": "TRY NOURDOC FREE", "type": "app" },
+        "secondaryCta": { "label": "BOOK A DEMO", "type": "demo" }
+      }
+    },
+    "whyNourDoc": {
+      "id": "why-nourdoc",
+      "route": "/why-nourdoc",
+      "metaTitle": "Why NourDoc — Intelligent Clinical Workflows",
+      "metaDescription": "Healthcare technology should reduce administrative work — not add to it. Discover why clinicians and healthcare organizations choose NourDoc.",
+      "hero": {
+        "h1": "Healthcare Technology Should Reduce Administrative Work — Not Add to It",
+        "lead": "Clinicians should be able to focus on patients, diagnosis and care. Yet modern healthcare requires extensive documentation, coding, reporting and information management.",
+        "conclusion": "NourDoc brings AI into these workflows to help reduce repetitive administrative effort."
+      },
+      "forClinicians": {
+        "eyebrow": "FOR CLINICIANS",
+        "h2": "Be Present. Document Smarter.",
+        "points": [
+          {
+            "title": "Spend Less Time Typing",
+            "desc": "Let AI transform natural conversations into structured documentation."
+          },
+          {
+            "title": "Stay Focused on the Patient",
+            "desc": "Reduce the need to continuously switch attention between the patient and the screen."
+          },
+          {
+            "title": "Review Instead of Reconstruct",
+            "desc": "NourDoc generates documentation that clinicians can review, edit and approve."
+          }
+        ]
+      },
+      "forOrganizations": {
+        "eyebrow": "FOR HEALTHCARE ORGANIZATIONS",
+        "h2": "Move From Manual Documentation to Intelligent Workflows",
+        "lead": "NourDoc can support:",
+        "bullets": [
+          "Clinical documentation",
+          "Medical coding",
+          "Billing preparation",
+          "Clinical data processing",
+          "Record management",
+          "EHR / EMR / HIMS workflows",
+          "High-volume encounter processing",
+          "Batch processing"
+        ]
+      },
+      "theBiggerOpportunity": {
+        "eyebrow": "THE BIGGER OPPORTUNITY",
+        "h2": "Documentation Is Only the Beginning",
+        "lead": "A clinical conversation contains much more than a note. It can contain:",
+        "nodes": [
+          "Symptoms", "History", "Findings", "Assessment", "Treatment Plans", "Diagnoses", "Procedures", "Clinical Terminology", "Coding Information"
+        ],
+        "conclusion": "NourDoc is designed to transform this information into structured digital intelligence that can move into downstream healthcare workflows."
+      },
+      "humanInTheLoop": {
+        "eyebrow": "HUMAN-IN-THE-LOOP",
+        "h2": "AI Assists. Professionals Remain in Control.",
+        "description": "NourDoc is designed as an assistive technology. AI generates and structures information. Qualified professionals review, validate and finalize information according to their organization's workflow and applicable requirements.\n\nThe objective is not to replace clinical judgment. The objective is to give clinical judgment more time and better-organized information."
+      },
+      "cta": {
+        "h2": "Let AI Take Care of More of the Administrative Work.",
+        "primaryCta": { "label": "TRY NOURDOC", "type": "app" },
+        "secondaryCta": { "label": "BOOK A DEMO", "type": "demo" }
+      }
+    },
+    "product": {
+      "id": "product",
+      "route": "/product",
+      "metaTitle": "NourDoc Product — Ambient Clinical Intelligence Platform",
+      "metaDescription": "Explore NourDoc's full capability suite: ambient capture, clinical NLP, SOAP generation, ICD-10 & CPT assistance, and EHR integration.",
+      "hero": {
+        "h1": "Meet NourDoc",
+        "subtitle": "Ambient Clinical Intelligence for the Complete Documentation Workflow",
+        "description": "NourDoc combines AI-powered speech processing, clinical language understanding, structured documentation, coding assistance and healthcare-system integration."
+      },
+      "coreCapabilities": {
+        "eyebrow": "CORE CAPABILITIES",
+        "h2": "Comprehensive Capabilities for Modern Clinical Workflows",
+        "items": [
+          {
+            "id": "ambient-capture",
+            "title": "Ambient Clinical Capture",
+            "description": "Capture natural doctor–patient conversations without requiring clinicians to interrupt their consultation workflow."
+          },
+          {
+            "id": "ai-transcription",
+            "title": "AI Transcription",
+            "description": "Convert spoken clinical conversations into structured text."
+          },
+          {
+            "id": "clinical-nlp",
+            "title": "Clinical Language Processing",
+            "description": "Identify and organize clinically relevant information from conversations and notes."
+          },
+          {
+            "id": "soap-doc",
+            "title": "SOAP Documentation",
+            "description": "Generate structured: Subjective → Objective → Assessment → Plan documentation."
+          },
+          {
+            "id": "icd-10",
+            "title": "ICD-10 Assistance",
+            "description": "Support diagnosis documentation and ICD-10-oriented workflows."
+          },
+          {
+            "id": "cpt",
+            "title": "CPT Assistance",
+            "description": "Support procedure and service documentation workflows involving CPT."
+          },
+          {
+            "id": "clinician-review",
+            "title": "Clinician Review",
+            "description": "Review, edit and validate AI-generated documentation before finalization."
+          },
+          {
+            "id": "structured-output",
+            "title": "Structured Output",
+            "description": "Make processed information available in multiple formats for downstream processing."
+          }
+        ]
+      },
+      "multipleInputs": {
+        "eyebrow": "MULTIPLE INPUTS",
+        "h2": "Work With the Information You Already Have",
+        "lead": "NourDoc can be configured to process:",
+        "inputs": [
+          "Live Clinical Conversations",
+          "Recorded Voice",
+          "Existing Clinical Notes",
+          "Transcripts",
+          "Structured Clinical Data"
+        ],
+        "conclusion": "This allows NourDoc to support both point-of-care and enterprise processing environments."
+      },
+      "deployment": {
+        "eyebrow": "FLEXIBLE DEPLOYMENT",
+        "h2": "Cloud-Native. Enterprise-Ready. Deployment-Flexible.",
+        "cards": [
+          {
+            "title": "Cloud",
+            "desc": "Scalable, centrally managed healthcare AI."
+          },
+          {
+            "title": "On-Premises",
+            "desc": "Deployment within an organization's own infrastructure where required."
+          },
+          {
+            "title": "Hybrid",
+            "desc": "Integration between NourDoc and existing enterprise environments."
+          }
+        ]
+      },
+      "integrationReady": {
+        "eyebrow": "INTEGRATION-READY",
+        "h2": "Designed to Connect With Healthcare Systems",
+        "description": "NourDoc can provide integration capabilities for leading:\n\n• EHR — Electronic Health Records\n• EMR — Electronic Medical Records\n• HIMS — Hospital Information Management Systems\n\nalong with coding, billing, telemedicine and other healthcare technology platforms."
+      },
+      "cta": {
+        "h2": "See NourDoc in Action.",
+        "primaryCta": { "label": "TRY NOURDOC", "type": "app" },
+        "secondaryCta": { "label": "BOOK A DEMO", "type": "demo" }
+      }
+    },
+    "benefits": {
+      "id": "benefits",
+      "route": "/benefits",
+      "metaTitle": "NourDoc Benefits — Clinical Time & Operational Efficiency",
+      "metaDescription": "More clinical time, less administrative friction. Explore benefits for clinicians, practices, hospitals, billing organizations, and patients.",
+      "hero": {
+        "h1": "More Clinical Time. Less Administrative Friction.",
+        "lead": "NourDoc creates value across the healthcare ecosystem."
+      },
+      "stakeholders": {
+        "clinicians": {
+          "title": "FOR CLINICIANS",
+          "items": [
+            { "title": "More Patient Focus", "desc": "Spend more of the consultation engaging with the patient." },
+            { "title": "Less Documentation Burden", "desc": "Reduce repetitive note-taking and post-consultation documentation." },
+            { "title": "Faster Clinical Records", "desc": "Transform conversations into structured documentation." },
+            { "title": "Coding Assistance", "desc": "Support ICD-10 and CPT-oriented workflows." }
+          ]
+        },
+        "practices": {
+          "title": "FOR PRACTICES",
+          "items": [
+            { "title": "Consistent Documentation", "desc": "Create standardized AI-assisted documentation workflows." },
+            { "title": "Operational Efficiency", "desc": "Reduce repetitive administrative processes." },
+            { "title": "Scalable Workflows", "desc": "Support growing consultation volumes without proportionally increasing documentation effort." }
+          ]
+        },
+        "hospitals": {
+          "title": "FOR HOSPITALS",
+          "items": [
+            { "title": "Enterprise Scale", "desc": "Support high-volume clinical documentation environments." },
+            { "title": "System Integration", "desc": "Connect with EHR, EMR and HIMS environments." },
+            { "title": "Flexible Deployment", "desc": "Use cloud-native infrastructure or configure on-premises deployments where required." }
+          ]
+        },
+        "codingBilling": {
+          "title": "FOR CODING & BILLING ORGANIZATIONS",
+          "items": [
+            { "title": "Process Clinical Information at Scale", "desc": "NourDoc's batch-processing capability is designed to process large volumes of voice and clinical documentation." },
+            { "title": "Structured Coding Support", "desc": "Transform clinical information into structured outputs supporting ICD-10 and CPT workflows." },
+            { "title": "Downstream-Ready Outputs", "desc": "Make information available in formats suitable for onward processing, review, coding, billing and clearance workflows." }
+          ]
+        },
+        "patients": {
+          "title": "FOR PATIENTS",
+          "h2": "A More Human Consultation",
+          "desc": "When clinicians spend less time looking at screens and typing, there is more opportunity for direct human interaction."
+        }
+      },
+      "resultCta": {
+        "eyebrow": "THE RESULT",
+        "h2": "AI Handles More of the Information Work.",
+        "sub": "Healthcare professionals stay focused on healthcare.",
+        "primaryCta": { "label": "TRY NOURDOC", "type": "app" },
+        "secondaryCta": { "label": "BOOK A DEMO", "type": "demo" }
+      }
+    },
+    "security": {
+      "id": "security-compliance",
+      "route": "/security-compliance",
+      "metaTitle": "Security & Compliance — Trusted Healthcare AI | NourDoc",
+      "metaDescription": "Healthcare AI requires trust. Discover NourDoc's security by design, cloud-native scalability, on-premises governance, and responsible AI principles.",
+      "hero": {
+        "h1": "Healthcare AI Requires Trust",
+        "lead": "Clinical conversations and medical records contain sensitive information.\n\nNourDoc is being developed with security, privacy, access control, governance and responsible AI principles at the center of the platform."
+      },
+      "securityByDesign": {
+        "eyebrow": "SECURITY BY DESIGN",
+        "h2": "Pillars of Clinical Data Protection",
+        "pillars": [
+          { "title": "Controlled Access", "desc": "Support appropriate authentication and authorization mechanisms." },
+          { "title": "Data Governance", "desc": "Support organizational policies for data handling, retention and access." },
+          { "title": "Secure Processing", "desc": "Designed for controlled processing of healthcare information across supported deployment environments." },
+          { "title": "Auditability", "desc": "Enterprise deployments can be configured around appropriate monitoring and audit requirements." }
+        ]
+      },
+      "cloudNative": {
+        "eyebrow": "CLOUD-NATIVE",
+        "h2": "Built for Modern Healthcare Infrastructure",
+        "lead": "NourDoc's cloud-native architecture is designed to support:",
+        "bullets": [
+          "Scalability",
+          "Centralized management",
+          "Integration",
+          "Continuous platform evolution",
+          "Enterprise workloads",
+          "High-volume processing"
+        ]
+      },
+      "onPremises": {
+        "eyebrow": "ON-PREMISES",
+        "h2": "When Your Data Environment Requires More Control",
+        "lead": "Some healthcare organizations have specific requirements relating to:",
+        "bullets": [
+          "Infrastructure ownership",
+          "Data residency",
+          "Internal governance",
+          "Network architecture",
+          "Organizational policies",
+          "Deployment control"
+        ],
+        "conclusion": "For such environments, NourDoc can be configured for on-premises deployment."
+      },
+      "responsibleAi": {
+        "eyebrow": "RESPONSIBLE AI",
+        "h2": "AI Generates. Professionals Review.",
+        "description": "NourDoc is designed to keep appropriate human oversight within clinical workflows.\n\nAI-generated documentation and coding-related outputs should be reviewed and validated according to the organization's policies and applicable professional requirements."
+      },
+      "compliance": {
+        "eyebrow": "COMPLIANCE",
+        "h2": "Designed for Different Healthcare Markets",
+        "description": "Healthcare privacy, security and compliance requirements differ by country, organization and deployment model.\n\nNourDoc works with organizations to determine the appropriate technical, contractual and governance configuration for their operating environment.\n\nSecurity and compliance are part of the deployment conversation — not an afterthought."
+      },
+      "cta": {
+        "h2": "Build Trusted Healthcare AI With NourDoc.",
+        "secondaryCta": { "label": "BOOK A DEMO", "type": "demo" }
+      }
+    },
+    "subscription": {
+      "id": "subscription",
+      "route": "/subscription",
+      "metaTitle": "NourDoc Subscriptions — Plans for Clinicians & Enterprises",
+      "metaDescription": "Explore NourDoc subscription tiers: Free trial on Android, Starter for solo clinicians, Professional for practice teams, and Custom Enterprise.",
+      "hero": {
+        "h1": "NourDoc for Every Stage of Healthcare",
+        "lead": "Start with a free trial.\nScale with your practice.\nDeploy across your organization.\nProcess healthcare information at enterprise scale."
+      },
+      "tiers": [
+        {
+          "id": "free",
+          "name": "FREE",
+          "badge": "Experience NourDoc",
+          "subtitle": "For clinicians who want to experience AI-assisted clinical documentation.",
+          "includesLabel": "Includes",
+          "features": [
+            "Android application",
+            "Free trial",
+            "AI-assisted transcription",
+            "Clinical documentation",
+            "SOAP note generation",
+            "Basic usage allowance",
+            "Document export"
+          ],
+          "cta": { "label": "TRY NOURDOC FREE", "type": "app" }
+        },
+        {
+          "id": "starter",
+          "name": "STARTER",
+          "badge": "For Individual Clinicians",
+          "subtitle": "For clinicians who regularly need AI-assisted documentation.",
+          "includesLabel": "Includes",
+          "features": [
+            "Expanded processing allowance",
+            "AI transcription",
+            "SOAP documentation",
+            "Clinical documentation workflows",
+            "ICD-10 assistance",
+            "CPT assistance",
+            "Document export",
+            "Standard support"
+          ],
+          "cta": { "label": "CHOOSE STARTER", "type": "route", "target": "/about-contact?topic=Subscription" }
+        },
+        {
+          "id": "professional",
+          "name": "PROFESSIONAL",
+          "badge": "For Practices & Teams",
+          "subtitle": "For growing healthcare practices and professional teams.",
+          "includesLabel": "Includes",
+          "featuresPrefix": "Everything in Starter, plus:",
+          "features": [
+            "Higher processing limits",
+            "Team workflows",
+            "Advanced documentation",
+            "Enhanced coding support",
+            "Consultation management",
+            "Workflow configuration",
+            "Integration options",
+            "Priority support"
+          ],
+          "cta": { "label": "CHOOSE PROFESSIONAL", "type": "route", "target": "/about-contact?topic=Subscription" }
+        },
+        {
+          "id": "enterprise",
+          "name": "ENTERPRISE",
+          "badge": "For Hospitals & Healthcare Organizations",
+          "subtitle": "For organizations requiring scale, integration and deployment flexibility.",
+          "includesLabel": "Includes",
+          "features": [
+            "High-volume processing",
+            "Enterprise batch processing",
+            "Medical coding & billing workflows",
+            "ICD-10 & CPT support",
+            "EHR / EMR / HIMS integration",
+            "Enterprise administration",
+            "Advanced security controls",
+            "Cloud deployment",
+            "On-premises configuration",
+            "Custom workflows",
+            "Dedicated support",
+            "Enterprise integration"
+          ],
+          "cta": { "label": "TALK TO ENTERPRISE", "type": "route", "target": "/about-contact?topic=Enterprise+Deployment" }
+        }
+      ],
+      "customEnterprise": {
+        "eyebrow": "CUSTOM ENTERPRISE",
+        "h2": "Your Volume. Your Workflow. Your Infrastructure.",
+        "description": "Enterprise healthcare environments often have unique requirements. NourDoc can be configured around:",
+        "aspects": [
+          "Encounter Volume",
+          "Processing Requirements",
+          "Integration Architecture",
+          "Deployment Model",
+          "Output Formats",
+          "Security & Governance"
+        ],
+        "cta": { "label": "CONTACT ENTERPRISE SALES", "type": "route", "target": "/about-contact?topic=Enterprise+Deployment" }
+      },
+      "cta": {
+        "h2": "Start Small. Scale When You're Ready.",
+        "primaryCta": { "label": "TRY NOURDOC FREE", "type": "app" },
+        "secondaryCta": { "label": "BOOK A DEMO", "type": "demo" }
+      }
+    },
+    "medicalCoding": {
+      "id": "medical-coding-billing",
+      "route": "/medical-coding-billing",
+      "metaTitle": "Medical Coding & Billing — Enterprise Batch Processing | NourDoc",
+      "metaDescription": "From clinical voice & notes to claim-ready documentation. Scalable enterprise batch processing designed to entertain 1M+ clinical encounters per day.",
+      "hero": {
+        "h1": "From Clinical Voice & Notes to Claim-Ready Documentation",
+        "badge": "NourDoc Enterprise Batch Processing",
+        "description": "NourDoc extends beyond point-of-care documentation.\n\nIts enterprise batch-processing capability is designed to help medical coding, billing and healthcare operations organizations process large volumes of clinical information."
+      },
+      "enterpriseChallenge": {
+        "eyebrow": "THE ENTERPRISE CHALLENGE",
+        "h2": "Processing Massive Clinical Volume",
+        "lead": "Medical coding and billing organizations may receive large volumes of:",
+        "inputs": [
+          "Voice Recordings",
+          "Clinical Notes",
+          "Consultation Transcripts",
+          "Medical Documentation",
+          "Digital Records"
+        ],
+        "conclusion": "Converting these inputs into structured, reviewable and coding-oriented information can be resource-intensive.\n\nNourDoc is designed to automate and accelerate this information-processing layer."
+      },
+      "enterpriseScale": {
+        "eyebrow": "ENTERPRISE-SCALE PROCESSING",
+        "h2": "Designed to Entertain 1+ Million Clinical Encounters Per Day",
+        "statNumber": "1M+",
+        "statLabel": "Clinical Encounters / Day",
+        "statSub": "Designed for appropriately configured enterprise environments",
+        "description": "NourDoc's platform architecture is designed to entertain 1+ million clinical encounters per day in appropriately configured enterprise environments.\n\nThis capability is intended for organizations where individual encounter processing is not enough. Process thousands — or millions — of encounters through scalable workflows."
+      },
+      "batchPipeline": {
+        "eyebrow": "THE BATCH PROCESSING PIPELINE",
+        "h2": "From Voice or Notes to Downstream Processing",
+        "stages": [
+          {
+            "num": "01",
+            "title": "INPUT",
+            "items": ["Voice", "Clinical Notes", "Transcripts", "Existing Documentation"]
+          },
+          {
+            "num": "02",
+            "title": "AI PROCESSING",
+            "items": ["Speech-to-Text", "Clinical Language Processing", "Clinical Structuring"]
+          },
+          {
+            "num": "03",
+            "title": "DOCUMENTATION",
+            "items": ["SOAP Notes", "Clinical Summaries", "Structured Clinical Information"]
+          },
+          {
+            "num": "04",
+            "title": "CODING SUPPORT",
+            "items": ["ICD-10", "CPT", "Clinical Terminology", "Coding-Oriented Information"]
+          },
+          {
+            "num": "05",
+            "title": "OUTPUT",
+            "items": ["Structured Data", "Documents", "APIs", "Integration Payloads", "Organization-Specific Formats"]
+          },
+          {
+            "num": "06",
+            "title": "DOWNSTREAM WORKFLOW",
+            "items": ["Medical Coding", "Medical Billing", "Claims Preparation", "Clearance", "EHR / EMR / HIMS"]
+          }
+        ]
+      },
+      "outputFormats": {
+        "eyebrow": "MULTIPLE OUTPUT FORMATS",
+        "h2": "Your Data. Your Workflow.",
+        "description": "NourDoc can make processed information available in multiple formats depending on downstream requirements.\n\nOutput options can include:",
+        "formats": [
+          "JSON",
+          "XML",
+          "CSV",
+          "PDF",
+          "Structured clinical data",
+          "Text-based documentation",
+          "API responses",
+          "Integration-specific payloads",
+          "Organization-specific formats"
+        ],
+        "conclusion": "Don't force your organization to redesign its workflow to use NourDoc. Make NourDoc's output work with the workflow you already have."
+      },
+      "rcmLayer": {
+        "eyebrow": "CODING & BILLING",
+        "h2": "A Clinical Intelligence Layer for Revenue Cycle Workflows",
+        "lead": "NourDoc can support organizations involved in:",
+        "areas": [
+          "Medical Coding",
+          "Medical Billing",
+          "Revenue Cycle Management",
+          "Claims Preparation",
+          "Healthcare BPO",
+          "Clinical Documentation Processing"
+        ],
+        "conclusion": "The platform can transform unstructured clinical information into structured, reviewable information that can be passed into existing coding, billing and clearance workflows."
+      },
+      "humanReview": {
+        "eyebrow": "HUMAN REVIEW",
+        "h2": "AI-Assisted. Professionally Validated.",
+        "description": "NourDoc accelerates information processing while enabling coding, billing and claims professionals to review and validate outputs according to their organizational procedures and applicable requirements."
+      },
+      "cta": {
+        "h2": "Processing Healthcare Information at Enterprise Scale?",
+        "lead": "Let's discuss your volume, workflow, integration and deployment requirements.",
+        "primaryCta": { "label": "BOOK AN ENTERPRISE DEMO", "type": "demo" },
+        "secondaryCta": { "label": "TALK TO OUR TEAM", "type": "route", "target": "/about-contact?topic=Batch+Processing" }
+      }
+    },
+    "integrations": {
+      "id": "integrations-deployment",
+      "route": "/integrations-deployment",
+      "metaTitle": "Integrations & Deployment — Healthcare Systems | NourDoc",
+      "metaDescription": "Designed to fit into your healthcare ecosystem. Connect NourDoc to EHR, EMR, HIMS, and deploy across Cloud, On-Premises, or Hybrid.",
+      "hero": {
+        "h1": "Designed to Fit Into Your Healthcare Ecosystem",
+        "lead": "NourDoc is not intended to operate as an isolated documentation application. It is designed as a clinical intelligence layer that can connect with the systems healthcare organizations already use."
+      },
+      "coreSystems": {
+        "eyebrow": "EHR / EMR / HIMS",
+        "h2": "Connect Clinical Intelligence to Your Systems of Record",
+        "lead": "NourDoc can offer integration capabilities for leading:",
+        "cards": [
+          {
+            "name": "EHR",
+            "title": "Electronic Health Record systems",
+            "desc": "Connect clinical intelligence to longitudinal patient health records."
+          },
+          {
+            "name": "EMR",
+            "title": "Electronic Medical Record systems",
+            "desc": "Feed structured encounter notes and diagnoses directly into clinical records."
+          },
+          {
+            "name": "HIMS",
+            "title": "Hospital Information Management Systems",
+            "desc": "Synchronize documentation with enterprise hospital management workflows."
+          }
+        ],
+        "conclusion": "Integration can be designed around the technical architecture and capabilities of the target system."
+      },
+      "apiConnectivity": {
+        "eyebrow": "API & DATA CONNECTIVITY",
+        "h2": "Build NourDoc Into Your Workflow",
+        "lead": "Enterprise environments can use integration interfaces to move information between NourDoc and other healthcare systems.",
+        "pointOfCareFlow": {
+          "title": "Point-of-Care Workflow",
+          "steps": [
+            "Patient / Encounter Data",
+            "NourDoc",
+            "Clinical Documentation",
+            "ICD-10 / CPT Information",
+            "EHR / EMR / HIMS"
+          ]
+        },
+        "batchFlow": {
+          "title": "Enterprise Batch Workflow",
+          "steps": [
+            "Existing Clinical Records",
+            "NourDoc Batch Processing",
+            "Structured Output",
+            "Coding / Billing / Claims Workflow"
+          ]
+        }
+      },
+      "outputFlexibility": {
+        "eyebrow": "OUTPUT FLEXIBILITY",
+        "h2": "One Platform. Multiple Downstream Destinations.",
+        "description": "NourDoc can make information available through multiple output mechanisms and formats according to organizational requirements.\n\nThis enables downstream processing by:",
+        "destinations": [
+          "Healthcare systems",
+          "Coding companies",
+          "Billing companies",
+          "Revenue cycle organizations",
+          "Data platforms",
+          "Analytics systems",
+          "Internal applications"
+        ]
+      },
+      "deploymentOptions": {
+        "eyebrow": "DEPLOYMENT OPTIONS",
+        "h2": "Cloud-Native. On-Premises When Required.",
+        "options": [
+          {
+            "name": "CLOUD",
+            "desc": "For organizations seeking scalable cloud-based deployment."
+          },
+          {
+            "name": "ON-PREMISES",
+            "desc": "For organizations requiring deployment within their own infrastructure."
+          },
+          {
+            "name": "HYBRID",
+            "desc": "For organizations requiring a combination of cloud services and existing infrastructure."
+          }
+        ]
+      },
+      "enterpriseArchitecture": {
+        "eyebrow": "ENTERPRISE ARCHITECTURE",
+        "h2": "Built for Scale",
+        "lead": "NourDoc's architecture is designed to support:",
+        "bullets": [
+          "High-volume clinical processing",
+          "Batch workflows",
+          "API integration",
+          "Enterprise user management",
+          "Multiple output formats",
+          "EHR / EMR / HIMS connectivity",
+          "Flexible deployment",
+          "Large-scale encounter processing"
+        ]
+      },
+      "cta": {
+        "h2": "Let's Connect NourDoc to Your Healthcare Ecosystem.",
+        "primaryCta": { "label": "BOOK A TECHNICAL DEMO", "type": "demo" }
+      }
+    },
+    "partners": {
+      "id": "partners-collaborators",
+      "route": "/partners-collaborators",
+      "metaTitle": "Partners & Collaborators — Global Healthcare AI | NourDoc",
+      "metaDescription": "Built through global collaboration: Canadian ownership, Pakistani engineering, Finnish research, and healthcare collaborators worldwide.",
+      "hero": {
+        "h1": "Built Through Global Collaboration",
+        "lead": "The future of healthcare AI requires more than software engineering.\n\nIt requires clinical insight, research, healthcare experience and international collaboration."
+      },
+      "globalCollaboration": {
+        "eyebrow": "A GLOBAL HEALTHCARE AI COLLABORATION",
+        "h2": "Canadian Ownership. Pakistani Engineering. Finnish Research & Healthcare Perspectives.",
+        "lead": "NourDoc brings together complementary capabilities across borders.",
+        "pillars": [
+          {
+            "title": "Canadian Ownership & Global Positioning",
+            "desc": "An international foundation for product growth, partnerships and healthcare-market development."
+          },
+          {
+            "title": "Pakistani Engineering",
+            "desc": "NourDoc is developed by an experienced Pakistani technology team with expertise across:",
+            "skills": [
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Software Engineering",
+              "Data Engineering",
+              "Healthcare Technology",
+              "Cloud Platforms",
+              "Generative AI",
+              "Intelligent Automation"
+            ]
+          },
+          {
+            "title": "Finnish Research & Healthcare Perspectives",
+            "desc": "Research and healthcare perspectives contribute to product evolution, evaluation and clinical relevance."
+          },
+          {
+            "title": "Healthcare Collaborators",
+            "desc": "Clinicians, institutions and healthcare organizations help bring real-world healthcare requirements into the development process."
+          }
+        ]
+      },
+      "opportunities": {
+        "eyebrow": "COLLABORATION OPPORTUNITIES",
+        "h2": "Partner With NourDoc",
+        "cards": [
+          {
+            "title": "Clinical Collaboration",
+            "desc": "Evaluate NourDoc in real-world clinical environments."
+          },
+          {
+            "title": "Research Collaboration",
+            "desc": "Study ambient clinical intelligence, documentation and healthcare AI."
+          },
+          {
+            "title": "Technology Integration",
+            "desc": "Connect NourDoc with healthcare systems and platforms."
+          },
+          {
+            "title": "Commercial Partnership",
+            "desc": "Bring NourDoc into new healthcare markets."
+          },
+          {
+            "title": "Enterprise Deployment",
+            "desc": "Deploy NourDoc across hospitals, healthcare networks and organizations."
+          },
+          {
+            "title": "Coding & Billing Partnership",
+            "desc": "Use NourDoc's batch-processing capabilities within medical coding, billing and revenue-cycle workflows."
+          }
+        ]
+      },
+      "buildWithHealthcare": {
+        "eyebrow": "BUILD WITH HEALTHCARE",
+        "h2": "Technology With Real-World Healthcare Input",
+        "description": "Healthcare AI becomes more useful when technology teams, researchers, clinicians and healthcare organizations work together.\n\nBuild with healthcare. Not just for healthcare."
+      },
+      "cta": {
+        "h2": "Let's Build the Next Generation of Healthcare AI Together.",
+        "primaryCta": { "label": "PARTNER WITH US", "type": "route", "target": "/about-contact?topic=Partnership" },
+        "secondaryCta": { "label": "BOOK A DEMO", "type": "demo" }
+      }
+    },
+    "aboutContact": {
+      "id": "about-contact",
+      "route": "/about-contact",
+      "metaTitle": "About & Contact — Connect with NourDoc",
+      "metaDescription": "Making healthcare technology more human. Connect with our team for trials, subscriptions, enterprise deployment, coding & billing, or partnerships.",
+      "hero": {
+        "h1": "Making Healthcare Technology More Human",
+        "lead": "NourDoc began with a simple idea:\n\nHealthcare professionals should spend more time listening, thinking and caring — and less time documenting.\n\nWe are building technology to help make that possible."
+      },
+      "whoWeAre": {
+        "eyebrow": "WHO WE ARE",
+        "h2": "A Global Healthcare AI Initiative",
+        "description": "NourDoc is developed by M3 Hive, an AI and technology company with deep expertise in artificial intelligence, machine learning, data engineering, software development and intelligent automation.\n\nNourDoc brings this engineering capability together with international healthcare, research and commercial perspectives."
+      },
+      "ourMission": {
+        "eyebrow": "OUR MISSION",
+        "h2": "Give Time Back to Healthcare Professionals",
+        "description": "Our mission is to build intelligent healthcare systems that reduce administrative friction, improve access to clinical information and help healthcare professionals focus on patient care."
+      },
+      "ourVision": {
+        "eyebrow": "OUR VISION",
+        "h2": "From Documentation to Clinical Intelligence",
+        "today": {
+          "label": "Today",
+          "flow": "Conversation → Documentation"
+        },
+        "expanding": {
+          "label": "Expanding Into",
+          "flow": "Conversation → Documentation → Coding → Integration → Intelligence → Action"
+        },
+        "conclusion": "We see Ambient Clinical Intelligence as a foundation for a broader transformation of healthcare information workflows."
+      },
+      "contactIntro": {
+        "eyebrow": "CONTACT",
+        "h2": "Let's Talk About Your Healthcare Workflow",
+        "lead": "Whether you are:",
+        "audiences": [
+          "A clinician",
+          "A medical practice",
+          "A hospital",
+          "A healthcare network",
+          "A medical coding company",
+          "A billing organization",
+          "An EHR / EMR / HIMS provider",
+          "A technology partner",
+          "A research institution",
+          "A distribution partner"
+        ],
+        "conclusion": "We would like to understand what you are trying to solve."
+      },
+      "contactForm": {
+        "eyebrow": "CONTACT FORM",
+        "title": "Send Us a Message",
+        "fields": [
+          { "name": "name", "label": "Name", "type": "text", "required": True },
+          { "name": "organization", "label": "Organization", "type": "text", "required": True },
+          { "name": "role", "label": "Role / Position", "type": "text", "required": True },
+          { "name": "country", "label": "Country", "type": "text", "required": True },
+          { "name": "email", "label": "Email", "type": "email", "required": True },
+          { "name": "phone", "label": "Phone", "type": "tel", "required": False },
+          {
+            "name": "topic",
+            "label": "What would you like to discuss?",
+            "type": "select",
+            "required": True,
+            "options": [
+              "Try NourDoc",
+              "Subscription",
+              "Enterprise Deployment",
+              "Medical Coding & Billing",
+              "Batch Processing",
+              "EHR / EMR / HIMS Integration",
+              "Research Collaboration",
+              "Partnership",
+              "Other"
+            ]
+          },
+          { "name": "message", "label": "Message", "type": "textarea", "required": True }
+        ],
+        "submitLabel": "SEND MESSAGE",
+        "unconfiguredNotice": "Your message was not sent because form delivery is not configured.",
+        "demoNotice": "To schedule a platform demo, submit your requirements below or email our Sales team directly at hello@nur-doc.com."
+      },
+      "finalCta": {
+        "eyebrow": "FINAL CTA",
+        "h2": "Your Consultation Should Be About the Patient.",
+        "sub": "Let AI Help With the Administrative Work.",
+        "primaryCta": { "label": "TRY NOURDOC FREE", "type": "app" },
+        "secondaryCta": { "label": "BOOK A DEMO", "type": "demo" }
+      },
+      "enterpriseCallout": {
+        "title": "Enterprise?",
+        "description": "Need batch processing, medical coding & billing workflows, EHR/EMR/HIMS integration or on-premises deployment?",
+        "cta": { "label": "TALK TO OUR ENTERPRISE TEAM", "type": "formSelect", "topic": "Enterprise Deployment" }
+      }
+    }
+  },
+  "footer": {
+    "brand": {
+      "name": "NOURDOC",
+      "tagline": "Ambient Clinical Intelligence for Modern Healthcare",
+      "summary": "AI-assisted clinical documentation. Enterprise-scale processing. Flexible deployment.",
+      "masterStatement": "Listen to the Patient. Let AI Handle the Paperwork."
+    },
+    "columns": [
+      {
+        "title": "Platform",
+        "links": [
+          { "label": "Ambient Clinical Intelligence", "path": "/product" },
+          { "label": "AI Documentation", "path": "/product" },
+          { "label": "ICD-10 & CPT Assistance", "path": "/product" },
+          { "label": "Batch Processing", "path": "/medical-coding-billing" },
+          { "label": "Medical Coding & Billing", "path": "/medical-coding-billing" },
+          { "label": "EHR / EMR / HIMS Integration", "path": "/integrations-deployment" }
+        ]
+      },
+      {
+        "title": "Deployment",
+        "links": [
+          { "label": "Cloud Native", "path": "/security-compliance" },
+          { "label": "On-Premises", "path": "/security-compliance" },
+          { "label": "Enterprise", "path": "/integrations-deployment" },
+          { "label": "Hybrid", "path": "/integrations-deployment" }
+        ]
+      },
+      {
+        "title": "Get Started",
+        "links": [
+          { "label": "Try NourDoc Free", "path": "https://play.google.com/store/apps/details?id=com.m3hive.medicalai&pli=1", "external": True },
+          { "label": "Book a Demo", "path": "/about-contact?intent=bookDemo&topic=Other" },
+          { "label": "Talk to Enterprise", "path": "/about-contact?topic=Enterprise+Deployment" }
+        ]
+      },
+      {
+        "title": "Contact Directory",
+        "links": [
+          { "label": "Sales: hello@nur-doc.com", "path": "mailto:hello@nur-doc.com", "external": True },
+          { "label": "Support: support@nur-doc.com", "path": "mailto:support@nur-doc.com", "external": True },
+          { "label": "Partnerships: hello@nur-doc.com", "path": "mailto:hello@nur-doc.com", "external": True },
+          { "label": "Investors: hello@nur-doc.com", "path": "mailto:hello@nur-doc.com", "external": True }
+        ]
+      }
+    ]
+  }
+}
+
+out_path = r"d:\nourdoc-website\src\data.json"
+os.makedirs(os.path.dirname(out_path), exist_ok=True)
+with open(out_path, "w", encoding="utf-8") as f:
+    json.dump(data, f, indent=2, ensure_ascii=False)
+print(f"Created {out_path} successfully!")
