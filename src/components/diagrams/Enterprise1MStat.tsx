@@ -133,7 +133,7 @@ export const Enterprise1MStat: React.FC = () => {
 
             <div className="mt-4 pt-3 border-t border-slate-700/40 flex items-center justify-between text-[11px] text-slate-400">
               <span>Output: JSON • XML • CSV • PDF • API</span>
-              <span className="text-[#7AB1BF] font-mono">100% Audit-Ready</span>
+              <span className="text-[#7AB1BF] font-mono">Downstream-Ready</span>
             </div>
           </div>
         </div>

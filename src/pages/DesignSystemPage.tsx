@@ -4,8 +4,15 @@ import { Button } from '../components/common/Button';
 import { Badge } from '../components/common/Badge';
 import { Card } from '../components/common/Card';
 import { SectionHeading } from '../components/common/SectionHeading';
-import { EditorialPhotoFrame } from '../components/common/EditorialPhotoFrame';
 import { AIEngineVisual } from '../components/diagrams/AIEngineVisual';
+import { 
+  ClinicalDialogueVisual, 
+  AdministrativeBurdenVisual, 
+  ClinicalAdvantageVisual, 
+  PracticeWorkflowVisual, 
+  MedicalCodingVisual,
+  CollaborationExchangeVisual 
+} from '../components/visuals/ClinicalVisuals';
 import logoImg from '../assets/logo.png';
 import { CheckCircle2, AlertCircle, ShieldCheck } from 'lucide-react';
 
@@ -240,30 +247,18 @@ export const DesignSystemPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. Editorial Photo Frames (Composition-Safe Development Frames) */}
+      {/* 6. Custom SVG/CSS Clinical Visuals Showcase */}
       <section className="space-y-6">
         <h2 className="text-xl font-black text-slate-900 tracking-tight">
-          6. Editorial Photo Frames (Safe Placeholders for Unsupplied Photography)
+          6. Code-Native Clinical Visuals & Diagrams (SVG/CSS Architecture)
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <EditorialPhotoFrame
-            alt="Doctor in focused consultation with patient"
-            label="Home Hero (16:9)"
-            requiredPhotoSpec="Doctor seated across from patient in warm ambient clinic lighting, in active eye contact."
-            aspectRatio="16/9"
-          />
-          <EditorialPhotoFrame
-            alt="Clinician holding tablet in exam room"
-            label="Why NourDoc (4:3)"
-            requiredPhotoSpec="Clinician reviewing structured note draft on mobile tablet without keyboard distraction."
-            aspectRatio="4/3"
-          />
-          <EditorialPhotoFrame
-            alt="Certified medical coding specialist"
-            label="Benefits Persona (1:1)"
-            requiredPhotoSpec="Medical billing/coding professional verifying claim-ready ICD-10 batch outputs."
-            aspectRatio="1/1"
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <ClinicalDialogueVisual />
+          <CollaborationExchangeVisual />
+          <PracticeWorkflowVisual />
+          <MedicalCodingVisual />
+          <AdministrativeBurdenVisual />
+          <ClinicalAdvantageVisual />
         </div>
       </section>
 

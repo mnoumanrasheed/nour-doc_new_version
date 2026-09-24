@@ -174,8 +174,8 @@ export const Hero: React.FC<HeroProps> = ({
                   </div>
 
                   <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-500">
-                    <span>Clinician in full review control</span>
-                    <span className="text-[#507D88] font-bold">100% Assistive</span>
+                    <span>AI Assists. Professionals Remain in Control.</span>
+                    <span className="text-[#507D88] font-bold">Assistive AI</span>
                   </div>
                 </div>
               </div>

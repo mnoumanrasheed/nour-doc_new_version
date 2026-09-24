@@ -3,7 +3,7 @@ import React from 'react';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { CapabilitiesGrid } from '../components/sections/CapabilitiesGrid';
 import { AIEngineVisual } from '../components/diagrams/AIEngineVisual';
-import { EditorialPhotoFrame } from '../components/common/EditorialPhotoFrame';
+import { ClinicalDialogueVisual } from '../components/visuals/ClinicalVisuals';
 import { Button } from '../components/common/Button';
 import { Card } from '../components/common/Card';
 import { GlobalCTA } from '../components/sections/GlobalCTA';
@@ -86,13 +86,7 @@ export const ProductPage: React.FC = () => {
 
             {/* Right: Dual Editorial Visual (Consultation Frame + Conceptual SOAP UI) */}
             <div className="lg:col-span-6 space-y-4">
-              {/* Consultation Photo Placeholder Frame */}
-              <EditorialPhotoFrame
-                alt="Clinician in focused consultation with patient"
-                label="Point-of-Care Dialogue"
-                requiredPhotoSpec="Doctor in direct eye contact with patient during clinical exam. Ambient microphone unobtrusive."
-                aspectRatio="16/9"
-              />
+              <ClinicalDialogueVisual />
 
               {/* Generic Conceptual Documentation Interface Frame */}
               <div className="rounded-2xl bg-white border border-slate-200/90 shadow-lg p-5 sm:p-6 space-y-3 relative overflow-hidden">

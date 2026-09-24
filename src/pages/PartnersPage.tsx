@@ -6,7 +6,7 @@ import { GlobalCollabMap } from '../components/diagrams/GlobalCollabMap';
 import { Card } from '../components/common/Card';
 import { Badge } from '../components/common/Badge';
 import { GlobalCTA } from '../components/sections/GlobalCTA';
-import { EditorialPhotoFrame } from '../components/common/EditorialPhotoFrame';
+import { CollaborationExchangeVisual } from '../components/visuals/ClinicalVisuals';
 import {
   Stethoscope,
   Microscope,
@@ -279,15 +279,9 @@ export const PartnersPage: React.FC = () => {
       {/* 5. Editorial Clinical Collaboration Frame & "Build With Healthcare" */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Left: Approved / Composition-Safe Editorial Photo Frame */}
+          {/* Left: Cross-Border Clinical Exchange Visual */}
           <div className="lg:col-span-5">
-            <EditorialPhotoFrame
-              aspectRatio="4/3"
-              alt="International clinical and technology research team collaborating in a bright modern environment"
-              label="International Collaboration Photography"
-              requiredPhotoSpec="Show researchers and clinicians reviewing algorithmic workflow models in a bright, modern medical environment. Authentic clinical setting, no flags next to faces; models are for illustrative representation only."
-              className="shadow-md"
-            />
+            <CollaborationExchangeVisual />
           </div>
 
           {/* Right: Build With Healthcare Callout Card */}

@@ -4,7 +4,7 @@ import { Hero } from '../components/sections/Hero';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { ContactForm } from '../components/forms/ContactForm';
 import { Card } from '../components/common/Card';
-import { EditorialPhotoFrame } from '../components/common/EditorialPhotoFrame';
+import { ClinicalDialogueVisual } from '../components/visuals/ClinicalVisuals';
 import { GlobalCTA } from '../components/sections/GlobalCTA';
 import {
   HeartHandshake,
@@ -35,13 +35,7 @@ export const AboutContactPage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-6">
-            <EditorialPhotoFrame
-              aspectRatio="16/9"
-              alt="Physician and patient engaged in a human-centered, technology-assisted consultation"
-              label="Human-Centered Healthcare Photography"
-              requiredPhotoSpec="Physician listening attentively to a patient in a bright, modern clinical setting with soft natural lighting. The physician is fully engaged with the patient rather than looking at a computer screen. Subtle Ambient AI interface in background."
-              className="shadow-lg"
-            />
+            <ClinicalDialogueVisual />
           </div>
           <div className="lg:col-span-6 space-y-4">
             <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#507D88] uppercase tracking-widest bg-[#EBF3F5] px-3.5 py-1.5 rounded-full">

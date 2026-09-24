@@ -33,7 +33,7 @@ const downstreamTargets = [
   },
   {
     title: 'EHR / EMR / HIMS Systems',
-    desc: 'HL7 & FHIR Interoperable Ingestion',
+    desc: 'Target System Interoperability',
     icon: Network,
   },
   {

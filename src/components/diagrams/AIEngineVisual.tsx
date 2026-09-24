@@ -76,7 +76,7 @@ const engineStages: StageInfo[] = [
     subtitle: 'Interoperable Integration',
     icon: Share2,
     description: 'Exports finalized documentation and codes into hospital EHR, EMR, HIMS, or clearinghouse systems.',
-    technicalDetails: ['HL7 / FHIR compliance', 'JSON / PDF / CSV payloads', 'Zero manual re-entry'],
+    technicalDetails: ['EHR / EMR / HIMS integration', 'JSON / PDF / CSV payloads', 'Downstream-ready export'],
   },
 ];
 

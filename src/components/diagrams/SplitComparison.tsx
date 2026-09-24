@@ -1,7 +1,7 @@
 // src/components/diagrams/SplitComparison.tsx
 import React from 'react';
 import { XCircle, CheckCircle2, Clock, HeartHandshake } from 'lucide-react';
-import { EditorialPhotoFrame } from '../common/EditorialPhotoFrame';
+import { AdministrativeBurdenVisual, ClinicalAdvantageVisual } from '../visuals/ClinicalVisuals';
 
 export const SplitComparison: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ export const SplitComparison: React.FC = () => {
               <Clock className="w-4 h-4 text-slate-400" />
               The Administrative Burden
             </div>
-            <h3 className="text-lg font-bold text-slate-900 mb-4">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-4">
               Typing, Screen Switching & Paperwork
             </h3>
 
@@ -38,12 +38,7 @@ export const SplitComparison: React.FC = () => {
             </ul>
           </div>
 
-          <EditorialPhotoFrame
-            alt="Clinician typing notes late after clinical hours"
-            label="Visual PDF Reference: The Burden"
-            requiredPhotoSpec="Clinician seated at cluttered desk in evening light, looking at computer monitor with typing burden. Authentic clinic setting."
-            aspectRatio="16/9"
-          />
+          <AdministrativeBurdenVisual />
         </div>
 
         {/* Right: Clinical Focus with NourDoc (After) */}
@@ -53,7 +48,7 @@ export const SplitComparison: React.FC = () => {
               <HeartHandshake className="w-4 h-4 text-[#507D88]" />
               The NourDoc Advantage
             </div>
-            <h3 className="text-lg font-bold text-[#507D88] mb-4">
+            <h3 className="text-lg sm:text-xl font-bold text-[#507D88] mb-4">
               Direct Patient Engagement & Ambient Intelligence
             </h3>
 
@@ -77,12 +72,7 @@ export const SplitComparison: React.FC = () => {
             </ul>
           </div>
 
-          <EditorialPhotoFrame
-            alt="Doctor in focused dialogue with patient"
-            label="Visual PDF Reference: Patient Focus"
-            requiredPhotoSpec="Clinician smiling and in active, compassionate eye contact with patient during consultation. Ambient technology unobtrusive in background."
-            aspectRatio="16/9"
-          />
+          <ClinicalAdvantageVisual />
         </div>
       </div>
     </div>

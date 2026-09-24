@@ -2,8 +2,12 @@
 import React from 'react';
 import { Hero } from '../components/sections/Hero';
 import { Card } from '../components/common/Card';
-import { EditorialPhotoFrame } from '../components/common/EditorialPhotoFrame';
 import { GlobalCTA } from '../components/sections/GlobalCTA';
+import { 
+  ClinicalDialogueVisual, 
+  PracticeWorkflowVisual, 
+  MedicalCodingVisual 
+} from '../components/visuals/ClinicalVisuals';
 import { 
   Stethoscope, 
   Building, 
@@ -90,12 +94,7 @@ export const BenefitsPage: React.FC = () => {
           </div>
 
           <div className="lg:col-span-5">
-            <EditorialPhotoFrame
-              alt="Physician in direct eye contact with patient during examination"
-              label="Clinician Engagement"
-              requiredPhotoSpec="Doctor seated in exam room, making warm eye contact with patient without typing distraction."
-              aspectRatio="4/3"
-            />
+            <ClinicalDialogueVisual />
           </div>
         </div>
       </section>
@@ -104,12 +103,7 @@ export const BenefitsPage: React.FC = () => {
       <section id="practices" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-5 order-2 lg:order-1">
-            <EditorialPhotoFrame
-              alt="Medical practice leadership reviewing clinical workflow schedules"
-              label="Practice Operations"
-              requiredPhotoSpec="Practice manager and head nurse reviewing consultation efficiency in clinic hallway."
-              aspectRatio="4/3"
-            />
+            <PracticeWorkflowVisual />
           </div>
 
           <div className="lg:col-span-7 space-y-6 order-1 lg:order-2">
@@ -212,12 +206,7 @@ export const BenefitsPage: React.FC = () => {
           </div>
 
           <div className="lg:col-span-5">
-            <EditorialPhotoFrame
-              alt="Certified professional medical coder reviewing claim-ready ICD-10 batch outputs"
-              label="Revenue Cycle Specialists"
-              requiredPhotoSpec="Certified coding specialist verifying clinical records on dual monitors in medical office."
-              aspectRatio="4/3"
-            />
+            <MedicalCodingVisual />
           </div>
         </div>
       </section>
