@@ -27,12 +27,13 @@ export const SecurityPage: React.FC = () => {
 
   return (
     <div className="space-y-16 md:space-y-24">
-      {/* 1. Hero Section with Cautious Trust Statement */}
+      {/* 1. Hero Section with Secure Infrastructure Photography Background */}
       <Hero
         h1={page.hero.h1}
         description={page.hero.lead}
         primaryCta={page.cta.secondaryCta}
         showVisual={false}
+        backgroundImage="/images/hero/hero_security.jpg"
       />
 
       {/* 2. Security by Design (4 Core Pillars) */}

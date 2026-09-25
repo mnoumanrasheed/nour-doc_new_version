@@ -10,12 +10,13 @@ export const ContactPage: React.FC = () => {
 
   return (
     <div className="space-y-16 md:space-y-24">
-      {/* 1. Page Hero: Contact & Book a Demo */}
+      {/* 1. Page Hero: Contact & Book a Demo with Executive Consultation Background */}
       <Hero
         badge="CONTACT & BOOK A DEMO"
         h1={page.hero.h1}
         description={page.hero.lead}
         showVisual={false}
+        backgroundImage="/images/hero/hero_contact.jpg"
       />
 
       {/* 2. Interactive Contact Form, 4 Official Email Channels, and Audience Breakdown */}

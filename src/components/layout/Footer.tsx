@@ -123,6 +123,14 @@ export const Footer: React.FC = () => {
             <Link to="/contact" className="hover:text-slate-300 transition-colors">
               Contact & Demo
             </Link>
+            <a
+              href="/images/IMAGE_CREDITS.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-slate-300 transition-colors"
+            >
+              Image Credits
+            </a>
             <span>Canadian Ownership • Pakistani Engineering • Finnish Research</span>
           </div>
         </div>

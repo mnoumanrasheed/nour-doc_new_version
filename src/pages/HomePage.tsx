@@ -7,7 +7,7 @@ import { SectionHeading } from '../components/common/SectionHeading';
 import { Card } from '../components/common/Card';
 import { Button } from '../components/common/Button';
 import { GlobalCTA } from '../components/sections/GlobalCTA';
-import { Smartphone, Cloud, Server, Cpu, ShieldCheck } from 'lucide-react';
+import { Smartphone, Cloud, Server, ShieldCheck } from 'lucide-react';
 import contentData from '../data.json';
 
 export const HomePage: React.FC = () => {
@@ -16,7 +16,7 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="space-y-16 md:space-y-24">
-      {/* 1. Hero Section */}
+      {/* 1. Hero Section with Authentic Editorial Healthcare Photography */}
       <Hero
         badge={page.hero.badge}
         h1={page.hero.h1}
@@ -24,6 +24,7 @@ export const HomePage: React.FC = () => {
         primaryCta={page.hero.primaryCta}
         secondaryCta={page.hero.secondaryCta}
         showVisual={true}
+        backgroundImage="/images/hero/hero_home.jpg"
       />
 
       {/* 2. The Problem Section */}
@@ -90,29 +91,43 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="w-full max-w-xs rounded-3xl bg-slate-900 p-4 shadow-2xl border-4 border-slate-800 text-white">
-                <div className="flex justify-between items-center text-[10px] text-slate-400 pb-3 border-b border-slate-800">
-                  <span className="flex items-center gap-1">
-                    <Smartphone className="w-3.5 h-3.5 text-[#7AB1BF]" />
-                    Android App
-                  </span>
-                  <span>v1.0 Ready</span>
-                </div>
-                <div className="py-6 text-center space-y-3">
-                  <div className="w-12 h-12 rounded-full bg-[#507D88]/30 text-[#7AB1BF] flex items-center justify-center mx-auto">
-                    <Cpu className="w-6 h-6 animate-pulse" />
+            <div className="lg:col-span-5 flex justify-center relative">
+              {/* Contextual Clinical Photography & App UI Card */}
+              <div className="relative w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-white group">
+                <div className="h-44 w-full relative overflow-hidden">
+                  <img
+                    src="/images/sections/home_app_doctor.jpg"
+                    alt="Clinician using NourDoc mobile ambient assistant"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+                  <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
+                    <span className="text-xs font-bold flex items-center gap-1.5">
+                      <Smartphone className="w-3.5 h-3.5 text-[#7AB1BF]" />
+                      Point-of-Care Assistant
+                    </span>
+                    <span className="text-[10px] font-mono text-[#7AB1BF] bg-slate-900/80 px-2 py-0.5 rounded border border-slate-700">
+                      Android v1.0
+                    </span>
                   </div>
-                  <div className="text-xs font-bold">Ambient Consultation</div>
-                  <div className="text-[11px] text-slate-400 bg-slate-800/80 p-3 rounded-xl border border-slate-700/60 text-left font-mono">
-                    <span className="text-emerald-400">✓ Subjective</span><br />
-                    <span className="text-emerald-400">✓ Objective</span><br />
-                    <span className="text-emerald-400">✓ Assessment</span><br />
-                    <span className="text-emerald-400">✓ Plan</span>
-                  </div>
                 </div>
-                <div className="pt-2 border-t border-slate-800 text-center">
-                  <span className="text-[10px] text-[#7AB1BF] font-mono">Google Play Available</span>
+
+                <div className="p-5 bg-slate-900 text-white space-y-3">
+                  <div className="flex items-center justify-between text-xs pb-2 border-b border-slate-800">
+                    <span className="text-slate-300 font-semibold">Live Consultation Stream</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold">SOAP READY</span>
+                  </div>
+                  <div className="text-[11px] text-slate-300 bg-slate-950/80 p-3 rounded-xl border border-slate-800 font-mono space-y-1">
+                    <div className="text-emerald-400">✓ Subjective & Chief Complaint</div>
+                    <div className="text-emerald-400">✓ Objective Examination</div>
+                    <div className="text-emerald-400">✓ Clinical Assessment</div>
+                    <div className="text-emerald-400">✓ Care & Treatment Plan</div>
+                  </div>
+                  <div className="pt-1 flex items-center justify-between text-[10px] text-slate-400">
+                    <span>Google Play Available</span>
+                    <span className="text-[#7AB1BF] font-mono font-bold">Try Free</span>
+                  </div>
                 </div>
               </div>
             </div>

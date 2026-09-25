@@ -135,7 +135,7 @@ export const PartnersPage: React.FC = () => {
 
   return (
     <div className="space-y-16 md:space-y-24">
-      {/* 1. Page Hero */}
+      {/* 1. Page Hero with Global Healthcare Collaboration Background */}
       <Hero
         badge="GLOBAL HEALTHCARE AI COLLABORATION"
         h1={page.hero.h1}
@@ -151,6 +151,7 @@ export const PartnersPage: React.FC = () => {
           target: '/contact?intent=bookDemo&topic=Other',
         }}
         showVisual={false}
+        backgroundImage="/images/hero/hero_partners.jpg"
       />
 
       {/* 2. Global Map & Geographic Typography */}
@@ -161,6 +162,17 @@ export const PartnersPage: React.FC = () => {
       {/* 3. Pakistani Engineering (M3 Hive) Deep Dive */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-slate-900 text-white p-8 sm:p-12 border border-slate-800 shadow-xl relative overflow-hidden">
+          {/* Contextual Engineering Team Photography Background Tint */}
+          <div className="absolute inset-0 z-0 pointer-events-none opacity-15">
+            <img
+              src="/images/sections/about_pakistan.jpg"
+              alt=""
+              aria-hidden="true"
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
+            />
+          </div>
+
           <div className="relative z-10">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 pb-6 border-b border-slate-800">
               <div>

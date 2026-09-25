@@ -33,13 +33,14 @@ export const BenefitsPage: React.FC = () => {
 
   return (
     <div className="space-y-16 md:space-y-24">
-      {/* 1. Hero Section */}
+      {/* 1. Hero Section with Authentic Editorial Healthcare Montage Background */}
       <Hero
         h1={page.hero.h1}
         description={page.hero.lead}
         primaryCta={page.resultCta.primaryCta}
         secondaryCta={page.resultCta.secondaryCta}
         showVisual={false}
+        backgroundImage="/images/hero/hero_benefits.jpg"
       />
 
       {/* Stakeholder Quick-Scan Navigation Bar */}
@@ -93,7 +94,19 @@ export const BenefitsPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 space-y-4">
+            <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 h-48 w-full relative">
+              <img
+                src="/images/sections/benefit_clinician.jpg"
+                alt="Clinician conducting patient-centered examination"
+                className="w-full h-full object-cover object-top"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+              <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-white font-bold">
+                Clinical Presence & Focused Care
+              </div>
+            </div>
             <ClinicalDialogueVisual />
           </div>
         </div>
@@ -102,7 +115,19 @@ export const BenefitsPage: React.FC = () => {
       {/* 3. For Practices */}
       <section id="practices" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-5 order-2 lg:order-1">
+          <div className="lg:col-span-5 order-2 lg:order-1 space-y-4">
+            <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 h-48 w-full relative">
+              <img
+                src="/images/sections/benefit_practice.jpg"
+                alt="Medical practice team collaborating in modern healthcare clinic"
+                className="w-full h-full object-cover object-center"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+              <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-white font-bold">
+                Team & Practice Workflow Efficiency
+              </div>
+            </div>
             <PracticeWorkflowVisual />
           </div>
 
@@ -139,8 +164,19 @@ export const BenefitsPage: React.FC = () => {
 
       {/* 4. For Hospitals */}
       <section id="hospitals" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
-        <div className="rounded-3xl bg-slate-900 text-white p-8 sm:p-12 lg:p-16 border border-slate-800 shadow-2xl space-y-8">
-          <div className="flex items-center gap-3">
+        <div className="rounded-3xl bg-slate-900 text-white p-8 sm:p-12 lg:p-16 border border-slate-800 shadow-2xl space-y-8 relative overflow-hidden">
+          {/* Subtle background photo tint */}
+          <div className="absolute inset-0 z-0 pointer-events-none opacity-10">
+            <img
+              src="/images/sections/benefit_hospital.jpg"
+              alt=""
+              aria-hidden="true"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+
+          <div className="relative z-10 flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-[#507D88]/30 text-[#7AB1BF] flex items-center justify-center">
               <Hospital className="w-5 h-5" />
             </div>
@@ -150,7 +186,7 @@ export const BenefitsPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6">
             {s.hospitals.items.map((item, idx) => (
               <div
                 key={idx}
@@ -205,7 +241,19 @@ export const BenefitsPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 space-y-4">
+            <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 h-48 w-full relative">
+              <img
+                src="/images/sections/benefit_coding.jpg"
+                alt="Certified medical coding and clinical documentation specialist"
+                className="w-full h-full object-cover object-center"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+              <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-white font-bold">
+                Batch Coding & RCM Workflows
+              </div>
+            </div>
             <MedicalCodingVisual />
           </div>
         </div>
@@ -213,7 +261,7 @@ export const BenefitsPage: React.FC = () => {
 
       {/* 6. For Patients */}
       <section id="patients" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
-        <div className="rounded-3xl bg-gradient-to-br from-[#EBF3F5] via-white to-slate-50 border-2 border-[#507D88]/20 p-8 sm:p-12 lg:p-16 text-center max-w-4xl mx-auto shadow-sm space-y-6">
+        <div className="rounded-3xl bg-gradient-to-br from-[#EBF3F5] via-white to-slate-50 border-2 border-[#507D88]/20 p-8 sm:p-12 lg:p-16 text-center max-w-4xl mx-auto shadow-sm space-y-6 relative overflow-hidden">
           <div className="w-14 h-14 rounded-2xl bg-white text-[#507D88] flex items-center justify-center mx-auto shadow-sm border border-[#507D88]/20">
             <Heart className="w-7 h-7 text-[#507D88]" />
           </div>
@@ -228,6 +276,19 @@ export const BenefitsPage: React.FC = () => {
           <p className="text-sm sm:text-base text-slate-700 leading-relaxed max-w-2xl mx-auto font-medium">
             {s.patients.desc}
           </p>
+
+          <div className="max-w-xl mx-auto h-48 rounded-2xl overflow-hidden shadow-sm border border-slate-200 relative mt-4">
+            <img
+              src="/images/sections/benefit_patient.jpg"
+              alt="Compassionate doctor-patient consultation with direct eye contact"
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+            <div className="absolute bottom-2.5 left-4 text-xs font-mono text-emerald-300 font-bold">
+              Uninterrupted Human Healthcare
+            </div>
+          </div>
         </div>
       </section>
 

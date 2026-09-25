@@ -22,12 +22,13 @@ export const AboutPage: React.FC = () => {
 
   return (
     <div className="space-y-16 md:space-y-24">
-      {/* 1. Page Hero: Human First */}
+      {/* 1. Page Hero: Human First with Clinical Dialogue Background */}
       <Hero
         badge="ABOUT NOURDOC"
         h1={page.hero.h1}
         description={page.hero.lead}
         showVisual={false}
+        backgroundImage="/images/hero/hero_about.jpg"
       />
 
       {/* 2. Hero Human-Centered Editorial Visual Frame */}
@@ -145,14 +146,24 @@ export const AboutPage: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 relative z-10">
             {/* Canada Panel */}
-            <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between overflow-hidden group">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center mb-4">
-                  <Globe2 className="w-5 h-5" />
+                <div className="h-36 w-full rounded-xl overflow-hidden mb-4 relative">
+                  <img
+                    src="/images/sections/about_canada.jpg"
+                    alt="Canadian healthcare ownership and governance"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+                  <div className="absolute top-2.5 left-2.5 w-8 h-8 rounded-lg bg-white/90 text-[#507D88] flex items-center justify-center shadow-xs">
+                    <Globe2 className="w-4 h-4" />
+                  </div>
+                  <div className="absolute bottom-2 left-3 text-[10px] font-mono uppercase tracking-wider text-white font-bold">
+                    Region: North America
+                  </div>
                 </div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#507D88] block mb-1">
-                  Region: North America
-                </span>
+
                 <h3 className="text-base font-bold text-slate-900 mb-2">
                   Canadian Ownership & Global Positioning
                 </h3>
@@ -167,14 +178,24 @@ export const AboutPage: React.FC = () => {
             </div>
 
             {/* Pakistan Panel */}
-            <div className="bg-white rounded-2xl p-6 border-2 border-[#507D88]/30 shadow-md flex flex-col justify-between">
+            <div className="bg-white rounded-2xl p-6 border-2 border-[#507D88]/30 shadow-md flex flex-col justify-between overflow-hidden group">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-[#507D88] text-white flex items-center justify-center mb-4">
-                  <Code2 className="w-5 h-5" />
+                <div className="h-36 w-full rounded-xl overflow-hidden mb-4 relative">
+                  <img
+                    src="/images/sections/about_pakistan.jpg"
+                    alt="Pakistani AI and software engineering team at M3 Hive"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+                  <div className="absolute top-2.5 left-2.5 w-8 h-8 rounded-lg bg-[#507D88] text-white flex items-center justify-center shadow-xs">
+                    <Code2 className="w-4 h-4" />
+                  </div>
+                  <div className="absolute bottom-2 left-3 text-[10px] font-mono uppercase tracking-wider text-emerald-300 font-bold">
+                    Engineering Center: M3 Hive
+                  </div>
                 </div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#507D88] block mb-1">
-                  Engineering Center: M3 Hive
-                </span>
+
                 <h3 className="text-base font-bold text-slate-900 mb-2">
                   Pakistani Engineering (M3 Hive)
                 </h3>
@@ -189,14 +210,24 @@ export const AboutPage: React.FC = () => {
             </div>
 
             {/* Finland Panel */}
-            <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between overflow-hidden group">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center mb-4">
-                  <Microscope className="w-5 h-5" />
+                <div className="h-36 w-full rounded-xl overflow-hidden mb-4 relative">
+                  <img
+                    src="/images/sections/about_finland.jpg"
+                    alt="Finnish clinical research and healthcare evaluation laboratory"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+                  <div className="absolute top-2.5 left-2.5 w-8 h-8 rounded-lg bg-white/90 text-[#507D88] flex items-center justify-center shadow-xs">
+                    <Microscope className="w-4 h-4" />
+                  </div>
+                  <div className="absolute bottom-2 left-3 text-[10px] font-mono uppercase tracking-wider text-white font-bold">
+                    Region: Europe / Nordics
+                  </div>
                 </div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#507D88] block mb-1">
-                  Region: Europe / Nordics
-                </span>
+
                 <h3 className="text-base font-bold text-slate-900 mb-2">
                   Finnish Research & Healthcare Perspectives
                 </h3>

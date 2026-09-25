@@ -52,13 +52,14 @@ export const SubscriptionPage: React.FC = () => {
 
   return (
     <div className="space-y-16 md:space-y-24">
-      {/* 1. Hero */}
+      {/* 1. Hero with Clinical Practice Photography Background */}
       <Hero
         h1={page.hero.h1}
         description={page.hero.lead}
         primaryCta={page.cta.primaryCta}
         secondaryCta={page.cta.secondaryCta}
         showVisual={false}
+        backgroundImage="/images/hero/hero_subscription.jpg"
       />
 
       {/* 2. Four Tier Cards (Free / Starter / Professional / Enterprise) */}

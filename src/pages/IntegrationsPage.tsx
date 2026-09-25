@@ -39,12 +39,13 @@ export const IntegrationsPage: React.FC = () => {
 
   return (
     <div className="space-y-16 md:space-y-24">
-      {/* 1. Hero */}
+      {/* 1. Hero with Healthcare Systems & Network Integration Photography */}
       <Hero
         h1={page.hero.h1}
         description={page.hero.lead}
         primaryCta={page.cta.primaryCta}
         showVisual={false}
+        backgroundImage="/images/hero/hero_integrations.jpg"
       />
 
       {/* 2. Core Systems (EHR / EMR / HIMS Definitions) */}

@@ -12,6 +12,9 @@ interface HeroProps {
   primaryCta?: { label: string; type: string; target?: string };
   secondaryCta?: { label: string; type: string; target?: string };
   showVisual?: boolean;
+  backgroundImage?: string;
+  heroImage?: string;
+  heroImageAlt?: string;
 }
 
 export const Hero: React.FC<HeroProps> = ({
@@ -22,6 +25,9 @@ export const Hero: React.FC<HeroProps> = ({
   primaryCta,
   secondaryCta,
   showVisual = true,
+  backgroundImage,
+  heroImage,
+  heroImageAlt = 'NourDoc Healthcare Consultation',
 }) => {
   const appStoreUrl = contentData.brand.appStoreUrl;
 
@@ -74,14 +80,40 @@ export const Hero: React.FC<HeroProps> = ({
 
   return (
     <section className="hero-100vsh relative overflow-hidden flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
-      {/* Subtle Background Glow */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#507D88]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 left-0 w-80 h-80 bg-[#7AB1BF]/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Background Photography Layer (Full Opacity + Directional Scrim) */}
+      {backgroundImage && (
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <img
+            src={backgroundImage}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full object-cover object-center lg:object-right select-none"
+            loading="eager"
+          />
+          {/* Directional Horizontal Scrim on Desktop: solid white on far left behind text, fading to transparent on right so photo subject is 100% visible */}
+          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-white via-white/85 via-45% to-transparent" />
+          
+          {/* Directional Scrim on Tablet / Mobile: ensures high text contrast while keeping photo recognizable */}
+          <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-white/95 via-white/85 to-white/40" />
+
+          {/* Subtle Top & Bottom Edge Vignettes */}
+          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/80 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/80 to-transparent" />
+        </div>
+      )}
+
+      {/* Subtle Background Glow (when no photo background is used) */}
+      {!backgroundImage && (
+        <>
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#507D88]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-1/3 left-0 w-80 h-80 bg-[#7AB1BF]/10 rounded-full blur-3xl pointer-events-none" />
+        </>
+      )}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
         <div className={`grid grid-cols-1 ${showVisual ? 'lg:grid-cols-12' : ''} gap-12 items-center`}>
           {/* Hero Text Content */}
-          <div className={`${showVisual ? 'lg:col-span-7' : 'max-w-3xl mx-auto text-center'}`}>
+          <div className={`${showVisual ? 'lg:col-span-7' : backgroundImage ? 'max-w-2xl text-left' : 'max-w-3xl mx-auto text-center'}`}>
             {badge && (
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#EBF3F5] text-[#507D88] border border-[#507D88]/20 mb-6 shadow-sm">
                 <Sparkles className="w-3.5 h-3.5 text-[#507D88]" />
@@ -107,7 +139,7 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* CTAs */}
             {(primaryCta || secondaryCta) && (
-              <div className={`flex flex-wrap items-center gap-4 ${!showVisual ? 'justify-center' : ''}`}>
+              <div className={`flex flex-wrap items-center gap-4 ${!showVisual && !backgroundImage ? 'justify-center' : ''}`}>
                 {renderCtaButton(primaryCta, true)}
                 {renderCtaButton(secondaryCta, false)}
               </div>
@@ -118,8 +150,30 @@ export const Hero: React.FC<HeroProps> = ({
           {showVisual && (
             <div className="lg:col-span-5">
               <div className="relative mx-auto max-w-md lg:max-w-none">
-                {/* Clinical Intelligence UI Frame */}
-                <div className="relative rounded-3xl bg-white border border-slate-200/90 shadow-2xl p-6 overflow-hidden">
+                {heroImage ? (
+                  <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl bg-white group">
+                    <div className="h-64 sm:h-72 w-full relative">
+                      <img
+                        src={heroImage}
+                        alt={heroImageAlt}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="eager"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
+                      <div className="absolute bottom-4 left-4 right-4 text-white">
+                        <div className="text-xs font-bold flex items-center gap-1.5 mb-1">
+                          <Stethoscope className="w-3.5 h-3.5 text-[#7AB1BF]" />
+                          Ambient Consultation Active
+                        </div>
+                        <div className="text-[11px] text-slate-300 font-mono">
+                          Natural Dialogue → Structured SOAP Note
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  /* Clinical Intelligence UI Frame */
+                  <div className="relative rounded-3xl bg-white border border-slate-200/90 shadow-2xl p-6 overflow-hidden">
                   <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 rounded-lg bg-[#EBF3F5] text-[#507D88] flex items-center justify-center">
@@ -178,6 +232,7 @@ export const Hero: React.FC<HeroProps> = ({
                     <span className="text-[#507D88] font-bold">Assistive AI</span>
                   </div>
                 </div>
+                )}
               </div>
             </div>
           )}
