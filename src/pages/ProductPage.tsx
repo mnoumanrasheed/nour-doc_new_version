@@ -3,7 +3,6 @@ import React from 'react';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { CapabilitiesGrid } from '../components/sections/CapabilitiesGrid';
 import { AIEngineVisual } from '../components/diagrams/AIEngineVisual';
-import { ClinicalDialogueVisual } from '../components/visuals/ClinicalVisuals';
 import { Button } from '../components/common/Button';
 import { Card } from '../components/common/Card';
 import { GlobalCTA } from '../components/sections/GlobalCTA';
@@ -19,7 +18,7 @@ import {
   Cpu, 
   CheckCircle2, 
   ShieldCheck,
-  Tag
+  Sparkles
 } from 'lucide-react';
 import contentData from '../data.json';
 
@@ -32,18 +31,18 @@ export const ProductPage: React.FC = () => {
   return (
     <div className="space-y-16 md:space-y-24">
       {/* 1. Editorial Split Hero combining Consultation & Conceptual Documentation UI */}
-      <section className="relative overflow-hidden min-h-[calc(100svh-68px)] sm:min-h-[calc(100svh-76px)] flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
+      <section className="hero-100vsh relative overflow-hidden flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left: Product Hero Information */}
             <div className="lg:col-span-6 space-y-6">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#EBF3F5] text-[#507D88] border border-[#507D88]/20 shadow-xs">
-                <Cpu className="w-3.5 h-3.5 text-[#507D88]" />
-                <span>Complete Clinical Documentation Workflow</span>
-              </span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#EBF3F5] text-[#507D88] border border-[#507D88]/20 shadow-xs">
+                <Sparkles className="w-3.5 h-3.5 text-[#507D88]" />
+                <span>Complete Clinical Documentation Engine</span>
+              </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
-                {page.hero.h1}
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">
+                Meet <span className="bg-gradient-to-r from-[#507D88] to-[#3B5C64] bg-clip-text text-transparent">NourDoc</span>
               </h1>
 
               <p className="text-lg sm:text-xl font-bold text-[#507D88] leading-snug">
@@ -84,56 +83,96 @@ export const ProductPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right: Dual Editorial Visual (Consultation Frame + Conceptual SOAP UI) */}
-            <div className="lg:col-span-6 space-y-4">
-              <ClinicalDialogueVisual />
+            {/* Right: Single Cohesive Ultra-Premium Ambient Clinical Intelligence Frame */}
+            <div className="lg:col-span-6">
+              <div className="relative rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900/95 to-[#0B171C] text-white p-6 sm:p-7 border border-slate-800/90 shadow-2xl overflow-hidden ring-1 ring-white/10">
+                {/* Ambient glow effects */}
+                <div className="absolute top-0 right-0 w-72 h-72 bg-[#507D88]/20 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#7AB1BF]/15 rounded-full blur-3xl pointer-events-none" />
 
-              {/* Generic Conceptual Documentation Interface Frame */}
-              <div className="rounded-2xl bg-white border border-slate-200/90 shadow-lg p-5 sm:p-6 space-y-3 relative overflow-hidden">
-                <div className="flex items-center justify-between pb-3 border-b border-slate-100 text-xs">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                    <span className="font-bold text-slate-800">Conceptual Documentation Preview</span>
+                {/* Top Status Header */}
+                <div className="relative z-10 flex items-center justify-between pb-4 mb-4 border-b border-slate-800/80">
+                  <div className="flex items-center gap-2.5">
+                    <span className="relative flex h-2.5 w-2.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+                    </span>
+                    <div>
+                      <div className="text-xs font-mono font-bold text-slate-100 uppercase tracking-wider">
+                        Ambient Consultation Active
+                      </div>
+                      <div className="text-[10px] text-emerald-400 font-mono">
+                        Live Speech Stream • Encrypted TLS 1.3
+                      </div>
+                    </div>
                   </div>
-                  <span className="text-[10px] font-mono text-slate-400 bg-slate-50 px-2 py-0.5 rounded border border-slate-200/60">
-                    Schematic Mockup
+                  <span className="text-[10px] font-mono text-[#7AB1BF] bg-[#507D88]/20 px-2.5 py-1 rounded-md border border-[#507D88]/40">
+                    NourDoc Engine
                   </span>
                 </div>
 
-                {/* Labeled SOAP Structure */}
-                <div className="grid grid-cols-2 gap-2 text-[11px]">
-                  <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-100">
-                    <span className="font-mono font-bold text-[#507D88] block text-[10px] uppercase">Subjective</span>
-                    <span className="text-slate-600">Chief complaint & symptom timeline</span>
+                {/* Natural Speech Capture & Audio Waveform */}
+                <div className="relative z-10 space-y-3.5">
+                  <div className="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800/90 space-y-2.5">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="flex items-center gap-2 font-bold text-slate-200">
+                        <Mic className="w-3.5 h-3.5 text-[#7AB1BF]" />
+                        Natural Dialogue Input
+                      </span>
+                      <span className="text-[10px] font-mono text-[#7AB1BF] font-semibold">
+                        SPEECH WAVEFORM
+                      </span>
+                    </div>
+
+                    {/* Gradient Equalizer Waveform */}
+                    <div className="h-7 flex items-center justify-between gap-1 px-2.5 py-1 bg-slate-900/90 rounded-lg border border-slate-800">
+                      {[40, 75, 30, 90, 60, 100, 45, 80, 55, 95, 35, 70, 85, 40, 90, 65, 30, 80, 50, 95, 60, 40, 75, 85, 50, 90].map((h, i) => (
+                        <div
+                          key={i}
+                          className="w-1 rounded-full bg-gradient-to-t from-[#507D88] to-[#7AB1BF]"
+                          style={{ height: `${h}%` }}
+                        />
+                      ))}
+                    </div>
+
+                    <div className="text-[11px] text-slate-300 italic bg-slate-900/60 px-3 py-1.5 rounded-md border border-slate-800/60 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#7AB1BF] shrink-0" />
+                      <span className="truncate">"Patient presents with mild respiratory symptoms and dry cough for 4 days..."</span>
+                    </div>
                   </div>
-                  <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-100">
-                    <span className="font-mono font-bold text-[#507D88] block text-[10px] uppercase">Objective</span>
-                    <span className="text-slate-600">Vitals & physical exam findings</span>
-                  </div>
-                  <div className="p-2.5 rounded-lg bg-[#EBF3F5]/60 border border-[#507D88]/20">
-                    <span className="font-mono font-bold text-[#507D88] block text-[10px] uppercase">Assessment</span>
-                    <span className="text-slate-700 font-medium">Synthesized clinical assessment</span>
-                  </div>
-                  <div className="p-2.5 rounded-lg bg-[#EBF3F5]/60 border border-[#507D88]/20">
-                    <span className="font-mono font-bold text-[#507D88] block text-[10px] uppercase">Plan</span>
-                    <span className="text-slate-700 font-medium">Medications, orders & follow-up</span>
+
+                  {/* Real-time SOAP Synthesis & ICD-10 Tagging */}
+                  <div className="p-3.5 rounded-2xl bg-[#507D88]/15 border border-[#507D88]/30 space-y-2.5">
+                    <div className="flex items-center justify-between text-xs font-bold text-[#7AB1BF]">
+                      <span className="flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5 text-[#7AB1BF]" />
+                        Clinical Synthesis & Coding Support
+                      </span>
+                      <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/50">
+                        SOAP READY
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-2 text-[11px] font-mono">
+                      <div className="bg-slate-950/80 p-2.5 rounded-xl border border-slate-800 space-y-0.5">
+                        <span className="text-[#7AB1BF] block font-bold text-[10px] uppercase">Assessment & Plan</span>
+                        <span className="text-slate-300 line-clamp-2">Acute bronchitis. Prescribed maintenance therapy.</span>
+                      </div>
+                      <div className="bg-slate-950/80 p-2.5 rounded-xl border border-slate-800 space-y-0.5">
+                        <span className="text-emerald-400 block font-bold text-[10px] uppercase">Validated Codes</span>
+                        <span className="text-slate-300 text-[10px]">ICD-10: J20.9 • CPT: 99214</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* ICD-10 & CPT Support Row */}
-                <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-2">
-                    <Tag className="w-3.5 h-3.5 text-[#507D88]" />
-                    <span className="text-[11px] font-semibold text-slate-700">Coding Assistance:</span>
-                  </div>
-                  <div className="flex gap-1.5 text-[10px] font-mono">
-                    <span className="bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-700 font-bold">ICD-10-CM</span>
-                    <span className="bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-700 font-bold">CPT Codes</span>
-                  </div>
-                </div>
-
-                <div className="text-[10px] text-slate-400 italic text-center pt-1">
-                  *Demonstration schematic. Contains no real patient identifiers or proprietary EHR logos.
+                {/* Footer Governance Tag */}
+                <div className="relative z-10 mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+                  <span className="flex items-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                    Clinician Validated • Assistive AI
+                  </span>
+                  <span className="text-[#7AB1BF] font-mono font-semibold">FHIR / EHR Ready</span>
                 </div>
               </div>
             </div>

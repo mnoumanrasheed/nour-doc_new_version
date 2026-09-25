@@ -38,11 +38,10 @@ export const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
           ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 py-3.5'
           : 'bg-white border-b border-slate-100 py-4 sm:py-5'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -77,11 +76,10 @@ export const Header: React.FC = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`px-3 py-2 text-xs font-bold rounded-md transition-colors relative ${
-                    isActive
+                  className={`px-3 py-2 text-xs font-bold rounded-md transition-colors relative ${isActive
                       ? 'text-[#507D88] bg-[#EBF3F5]'
                       : 'text-slate-600 hover:text-[#507D88] hover:bg-slate-50'
-                  }`}
+                    }`}
                 >
                   {item.title}
                   {isActive && (
@@ -117,13 +115,11 @@ export const Header: React.FC = () => {
               </Button>
               <Link
                 to="/contact"
-                className={`text-[11px] font-bold transition-colors mt-0.5 tracking-wide ${
-                  location.pathname === '/contact'
+                className={`text-[11px] font-bold transition-colors mt-0.5 tracking-wide ${location.pathname === '/contact'
                     ? 'text-[#507D88] underline'
                     : 'text-slate-500 hover:text-[#507D88]'
-                }`}
+                  }`}
               >
-                Contact
               </Link>
             </div>
           </div>
@@ -185,11 +181,10 @@ export const Header: React.FC = () => {
                         key={item.path}
                         to={item.path}
                         onClick={() => setIsOpen(false)}
-                        className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-bold transition-colors ${
-                          isActive
+                        className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-bold transition-colors ${isActive
                             ? 'bg-[#EBF3F5] text-[#507D88]'
                             : 'text-slate-700 hover:bg-slate-50 hover:text-[#507D88]'
-                        }`}
+                          }`}
                       >
                         <span>{item.title}</span>
                         <ChevronRight className="w-4 h-4 text-slate-400" />
@@ -211,11 +206,10 @@ export const Header: React.FC = () => {
                   <Link
                     to="/contact"
                     onClick={() => setIsOpen(false)}
-                    className={`block text-center text-xs font-bold py-2 rounded-lg transition-colors ${
-                      location.pathname === '/contact'
+                    className={`block text-center text-xs font-bold py-2 rounded-lg transition-colors ${location.pathname === '/contact'
                         ? 'bg-[#EBF3F5] text-[#507D88]'
                         : 'text-slate-600 hover:text-[#507D88] hover:bg-slate-50'
-                    }`}
+                      }`}
                   >
                     Contact & Inquiries →
                   </Link>

@@ -50,6 +50,23 @@ body {
   outline-offset: 2px;
 }
 
+/* 100svh / 100dvh / 100vh Hero section full viewport height utility */
+.hero-section,
+.hero-100vsh {
+  min-height: calc(100vh - 68px);
+  min-height: calc(100svh - 68px);
+  min-height: calc(100dvh - 68px);
+}
+
+@media (min-width: 640px) {
+  .hero-section,
+  .hero-100vsh {
+    min-height: calc(100vh - 76px);
+    min-height: calc(100svh - 76px);
+    min-height: calc(100dvh - 76px);
+  }
+}
+
 /* Reduced motion preference override */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
@@ -59,3 +76,4 @@ body {
     scroll-behavior: auto !important;
   }
 }
+

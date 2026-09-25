@@ -27,7 +27,7 @@ export const MedicalCodingPage: React.FC = () => {
   return (
     <div className="space-y-16 md:space-y-24">
       {/* 1. Flagship Enterprise Hero */}
-      <section className="relative overflow-hidden min-h-[calc(100svh-68px)] sm:min-h-[calc(100svh-76px)] flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
+      <section className="hero-100vsh relative overflow-hidden flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#EBF3F5] text-[#507D88] border border-[#507D88]/20 shadow-xs">

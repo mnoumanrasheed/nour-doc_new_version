@@ -73,7 +73,7 @@ export const Hero: React.FC<HeroProps> = ({
   };
 
   return (
-    <section className="relative overflow-hidden min-h-[calc(100svh-68px)] sm:min-h-[calc(100svh-76px)] flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
+    <section className="hero-100vsh relative overflow-hidden flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
       {/* Subtle Background Glow */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#507D88]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/3 left-0 w-80 h-80 bg-[#7AB1BF]/10 rounded-full blur-3xl pointer-events-none" />
