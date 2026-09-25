@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ExternalLink, Mail, ShieldCheck } from 'lucide-react';
 import contentData from '../../data.json';
-import logoImg from '../../assets/logo.png';
+import logoIcon from '../../assets/logo-icon.png';
 
 export const Footer: React.FC = () => {
   const footerData = contentData.footer;
@@ -37,14 +37,21 @@ export const Footer: React.FC = () => {
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-4">
             <Link to="/" className="flex items-center gap-3 group inline-block">
-              <img
-                src={logoImg}
-                alt="NourDoc Logo"
-                className="h-10 w-auto object-contain bg-white rounded-lg p-1"
-              />
-              <span className="text-2xl font-black tracking-tight text-white group-hover:text-[#7AB1BF] transition-colors">
-                NourDoc
-              </span>
+              <div className="relative flex items-center justify-center p-1 rounded-xl bg-slate-800/80 border border-slate-700/80 group-hover:border-[#7AB1BF]/60 transition-all">
+                <img
+                  src={logoIcon}
+                  alt="NourDoc Logo Emblem"
+                  className="h-9 w-9 object-contain filter drop-shadow-xs"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-2xl font-black tracking-tight text-white group-hover:text-[#7AB1BF] transition-colors leading-none">
+                  NourDoc
+                </span>
+                <span className="text-[10px] font-bold text-[#7AB1BF] uppercase tracking-widest mt-1">
+                  Ambient Intelligence
+                </span>
+              </div>
             </Link>
             <p className="text-sm font-semibold text-slate-300">
               {footerData.brand.tagline}
@@ -110,11 +117,11 @@ export const Footer: React.FC = () => {
         <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
           <p>© {new Date().getFullYear()} NourDoc. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-6">
-            <Link to="/security-compliance" className="hover:text-slate-300 transition-colors">
-              Security & Governance
+            <Link to="/about" className="hover:text-slate-300 transition-colors">
+              About
             </Link>
-            <Link to="/about-contact" className="hover:text-slate-300 transition-colors">
-              Contact Us
+            <Link to="/contact" className="hover:text-slate-300 transition-colors">
+              Contact & Demo
             </Link>
             <span>Canadian Ownership • Pakistani Engineering • Finnish Research</span>
           </div>

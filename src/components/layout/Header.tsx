@@ -5,7 +5,7 @@ import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { Button } from '../common/Button';
 import contentData from '../../data.json';
-import logoImg from '../../assets/logo.png';
+import logoIcon from '../../assets/logo-icon.png';
 
 export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,16 +52,18 @@ export const Header: React.FC = () => {
             className="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-[#507D88] rounded-lg p-1"
             aria-label="NourDoc Home"
           >
-            <img
-              src={logoImg}
-              alt="NourDoc Logo"
-              className="h-9 w-auto object-contain transition-transform group-hover:scale-105"
-            />
+            <div className="relative flex items-center justify-center">
+              <img
+                src={logoIcon}
+                alt="NourDoc Emblem"
+                className="h-9 w-9 sm:h-10 sm:w-10 object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-xs"
+              />
+            </div>
             <div className="flex flex-col">
-              <span className="text-xl font-black tracking-tight text-slate-900 group-hover:text-[#507D88] transition-colors">
+              <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 group-hover:text-[#507D88] transition-colors leading-none">
                 NourDoc
               </span>
-              <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest -mt-1 hidden sm:inline-block">
+              <span className="text-[10px] font-bold text-[#507D88] uppercase tracking-widest mt-0.5 hidden sm:inline-block">
                 Clinical Intelligence
               </span>
             </div>
@@ -105,13 +107,25 @@ export const Header: React.FC = () => {
             >
               Try Free
             </Button>
-            <Button
-              to="/about-contact?intent=bookDemo&topic=Other"
-              variant="primary"
-              size="sm"
-            >
-              Book a Demo
-            </Button>
+            <div className="flex flex-col items-center">
+              <Button
+                to="/contact?intent=bookDemo&topic=Other"
+                variant="primary"
+                size="sm"
+              >
+                Book a Demo
+              </Button>
+              <Link
+                to="/contact"
+                className={`text-[11px] font-bold transition-colors mt-0.5 tracking-wide ${
+                  location.pathname === '/contact'
+                    ? 'text-[#507D88] underline'
+                    : 'text-slate-500 hover:text-[#507D88]'
+                }`}
+              >
+                Contact
+              </Link>
+            </div>
           </div>
 
           {/* Mobile Navigation Trigger Button */}
@@ -170,6 +184,7 @@ export const Header: React.FC = () => {
                       <Link
                         key={item.path}
                         to={item.path}
+                        onClick={() => setIsOpen(false)}
                         className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-bold transition-colors ${
                           isActive
                             ? 'bg-[#EBF3F5] text-[#507D88]'
@@ -185,13 +200,25 @@ export const Header: React.FC = () => {
 
                 <div className="mt-8 pt-6 border-t border-slate-100 space-y-3">
                   <Button
-                    to="/about-contact?intent=bookDemo&topic=Other"
+                    to="/contact?intent=bookDemo&topic=Other"
+                    onClick={() => setIsOpen(false)}
                     variant="primary"
                     size="md"
                     className="w-full justify-center"
                   >
                     Book a Demo
                   </Button>
+                  <Link
+                    to="/contact"
+                    onClick={() => setIsOpen(false)}
+                    className={`block text-center text-xs font-bold py-2 rounded-lg transition-colors ${
+                      location.pathname === '/contact'
+                        ? 'bg-[#EBF3F5] text-[#507D88]'
+                        : 'text-slate-600 hover:text-[#507D88] hover:bg-slate-50'
+                    }`}
+                  >
+                    Contact & Inquiries →
+                  </Link>
                   <Button
                     href={appStoreUrl}
                     external={true}

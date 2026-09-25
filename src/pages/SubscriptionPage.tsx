@@ -148,7 +148,7 @@ export const SubscriptionPage: React.FC = () => {
               </p>
               <div className="pt-2">
                 <Button
-                  to="/about-contact?topic=Enterprise+Deployment"
+                  to="/contact?topic=Enterprise+Deployment"
                   variant="primary"
                   size="lg"
                   icon={true}

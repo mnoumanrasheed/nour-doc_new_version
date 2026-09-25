@@ -236,10 +236,10 @@ export const IntegrationsPage: React.FC = () => {
       <GlobalCTA
         title={page.cta.h2}
         primaryLabel={page.cta.primaryCta.label}
-        primaryTarget="/about-contact?intent=bookDemo&topic=Other"
+        primaryTarget="/contact?intent=bookDemo&topic=Other"
         primaryIsApp={false}
         secondaryLabel="EXPLORE INTEGRATIONS"
-        secondaryTarget="/about-contact?topic=EHR+%2F+EMR+%2F+HIMS+Integration"
+        secondaryTarget="/contact?topic=EHR+%2F+EMR+%2F+HIMS+Integration"
       />
     </div>
   );

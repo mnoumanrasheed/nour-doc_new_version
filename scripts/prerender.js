@@ -71,10 +71,22 @@ const routes = [
     h1: data.pages.partners.hero.h1,
   },
   {
+    path: '/about',
+    title: data.pages.about.metaTitle,
+    description: data.pages.about.metaDescription,
+    h1: data.pages.about.hero.h1,
+  },
+  {
+    path: '/contact',
+    title: data.pages.contact.metaTitle,
+    description: data.pages.contact.metaDescription,
+    h1: data.pages.contact.hero.h1,
+  },
+  {
     path: '/about-contact',
-    title: data.pages.aboutContact.metaTitle,
-    description: data.pages.aboutContact.metaDescription,
-    h1: data.pages.aboutContact.hero.h1,
+    title: data.pages.contact.metaTitle,
+    description: data.pages.contact.metaDescription,
+    h1: data.pages.contact.hero.h1,
   },
 ];
 

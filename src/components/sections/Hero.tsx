@@ -48,7 +48,7 @@ export const Hero: React.FC<HeroProps> = ({
     if (ctaConfig.type === 'demo') {
       return (
         <Button
-          to="/about-contact?intent=bookDemo&topic=Other"
+          to="/contact?intent=bookDemo&topic=Other"
           variant={isPrimary ? 'primary' : 'outline'}
           size="lg"
         >
@@ -73,12 +73,12 @@ export const Hero: React.FC<HeroProps> = ({
   };
 
   return (
-    <section className="relative overflow-hidden pt-12 pb-16 md:pt-16 md:pb-24 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
+    <section className="relative overflow-hidden min-h-[calc(100svh-68px)] sm:min-h-[calc(100svh-76px)] flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
       {/* Subtle Background Glow */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#507D88]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/3 left-0 w-80 h-80 bg-[#7AB1BF]/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
         <div className={`grid grid-cols-1 ${showVisual ? 'lg:grid-cols-12' : ''} gap-12 items-center`}>
           {/* Hero Text Content */}
           <div className={`${showVisual ? 'lg:col-span-7' : 'max-w-3xl mx-auto text-center'}`}>

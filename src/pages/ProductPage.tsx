@@ -32,8 +32,8 @@ export const ProductPage: React.FC = () => {
   return (
     <div className="space-y-16 md:space-y-24">
       {/* 1. Editorial Split Hero combining Consultation & Conceptual Documentation UI */}
-      <section className="relative overflow-hidden pt-12 pb-16 md:pt-16 md:pb-24 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden min-h-[calc(100svh-68px)] sm:min-h-[calc(100svh-76px)] flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left: Product Hero Information */}
             <div className="lg:col-span-6 space-y-6">
@@ -66,7 +66,7 @@ export const ProductPage: React.FC = () => {
                   {page.cta.primaryCta.label}
                 </Button>
                 <Button
-                  to="/about-contact?intent=bookDemo&topic=Other"
+                  to="/contact?intent=bookDemo&topic=Other"
                   variant="outline"
                   size="lg"
                 >

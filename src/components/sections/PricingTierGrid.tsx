@@ -96,7 +96,7 @@ export const PricingTierGrid: React.FC<PricingTierGridProps> = ({ tiers }) => {
                 </Button>
               ) : isEnterprise ? (
                 <Button
-                  to="/about-contact?topic=Enterprise+Deployment"
+                  to="/contact?topic=Enterprise+Deployment"
                   variant="dark"
                   size="md"
                   className="w-full justify-center"
@@ -105,7 +105,7 @@ export const PricingTierGrid: React.FC<PricingTierGridProps> = ({ tiers }) => {
                 </Button>
               ) : (
                 <Button
-                  to={tier.cta.target || '/about-contact?topic=Subscription'}
+                  to={tier.cta.target || '/contact?topic=Subscription'}
                   variant={isProfessional ? 'primary' : 'outline'}
                   size="md"
                   className="w-full justify-center"

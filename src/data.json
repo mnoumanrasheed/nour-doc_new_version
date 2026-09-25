@@ -34,10 +34,6 @@
   },
   "navigation": [
     {
-      "title": "Home",
-      "path": "/"
-    },
-    {
       "title": "Why NourDoc",
       "path": "/why-nourdoc"
     },
@@ -70,8 +66,8 @@
       "path": "/partners-collaborators"
     },
     {
-      "title": "About & Contact",
-      "path": "/about-contact"
+      "title": "About",
+      "path": "/about"
     }
   ],
   "pages": {
@@ -612,7 +608,7 @@
           "cta": {
             "label": "CHOOSE STARTER",
             "type": "route",
-            "target": "/about-contact?topic=Subscription"
+            "target": "/contact?topic=Subscription"
           }
         },
         {
@@ -635,7 +631,7 @@
           "cta": {
             "label": "CHOOSE PROFESSIONAL",
             "type": "route",
-            "target": "/about-contact?topic=Subscription"
+            "target": "/contact?topic=Subscription"
           }
         },
         {
@@ -661,7 +657,7 @@
           "cta": {
             "label": "TALK TO ENTERPRISE",
             "type": "route",
-            "target": "/about-contact?topic=Enterprise+Deployment"
+            "target": "/contact?topic=Enterprise+Deployment"
           }
         }
       ],
@@ -680,7 +676,7 @@
         "cta": {
           "label": "CONTACT ENTERPRISE SALES",
           "type": "route",
-          "target": "/about-contact?topic=Enterprise+Deployment"
+          "target": "/contact?topic=Enterprise+Deployment"
         }
       },
       "cta": {
@@ -838,7 +834,7 @@
         "secondaryCta": {
           "label": "TALK TO OUR TEAM",
           "type": "route",
-          "target": "/about-contact?topic=Batch+Processing"
+          "target": "/contact?topic=Batch+Processing"
         }
       }
     },
@@ -1035,7 +1031,7 @@
         "primaryCta": {
           "label": "PARTNER WITH US",
           "type": "route",
-          "target": "/about-contact?topic=Partnership"
+          "target": "/contact?topic=Partnership"
         },
         "secondaryCta": {
           "label": "BOOK A DEMO",
@@ -1045,7 +1041,7 @@
     },
     "aboutContact": {
       "id": "about-contact",
-      "route": "/about-contact",
+      "route": "/contact",
       "metaTitle": "About & Contact — Connect with NourDoc",
       "metaDescription": "Making healthcare technology more human. Connect with our team for trials, subscriptions, enterprise deployment, coding & billing, or partnerships.",
       "hero": {
@@ -1074,6 +1070,171 @@
           "flow": "Conversation → Documentation → Coding → Integration → Intelligence → Action"
         },
         "conclusion": "We see Ambient Clinical Intelligence as a foundation for a broader transformation of healthcare information workflows."
+      },
+      "contactIntro": {
+        "eyebrow": "CONTACT",
+        "h2": "Let's Talk About Your Healthcare Workflow",
+        "lead": "Whether you are:",
+        "audiences": [
+          "A clinician",
+          "A medical practice",
+          "A hospital",
+          "A healthcare network",
+          "A medical coding company",
+          "A billing organization",
+          "An EHR / EMR / HIMS provider",
+          "A technology partner",
+          "A research institution",
+          "A distribution partner"
+        ],
+        "conclusion": "We would like to understand what you are trying to solve."
+      },
+      "contactForm": {
+        "eyebrow": "CONTACT FORM",
+        "title": "Send Us a Message",
+        "fields": [
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text",
+            "required": true
+          },
+          {
+            "name": "organization",
+            "label": "Organization",
+            "type": "text",
+            "required": true
+          },
+          {
+            "name": "role",
+            "label": "Role / Position",
+            "type": "text",
+            "required": true
+          },
+          {
+            "name": "country",
+            "label": "Country",
+            "type": "text",
+            "required": true
+          },
+          {
+            "name": "email",
+            "label": "Email",
+            "type": "email",
+            "required": true
+          },
+          {
+            "name": "phone",
+            "label": "Phone",
+            "type": "tel",
+            "required": false
+          },
+          {
+            "name": "topic",
+            "label": "What would you like to discuss?",
+            "type": "select",
+            "required": true,
+            "options": [
+              "Try NourDoc",
+              "Subscription",
+              "Enterprise Deployment",
+              "Medical Coding & Billing",
+              "Batch Processing",
+              "EHR / EMR / HIMS Integration",
+              "Research Collaboration",
+              "Partnership",
+              "Other"
+            ]
+          },
+          {
+            "name": "message",
+            "label": "Message",
+            "type": "textarea",
+            "required": true
+          }
+        ],
+        "submitLabel": "SEND MESSAGE",
+        "unconfiguredNotice": "Your message was not sent because form delivery is not configured.",
+        "demoNotice": "To schedule a platform demo, submit your requirements below or email our Sales team directly at hello@nur-doc.com."
+      },
+      "finalCta": {
+        "eyebrow": "FINAL CTA",
+        "h2": "Your Consultation Should Be About the Patient.",
+        "sub": "Let AI Help With the Administrative Work.",
+        "primaryCta": {
+          "label": "TRY NOURDOC FREE",
+          "type": "app"
+        },
+        "secondaryCta": {
+          "label": "BOOK A DEMO",
+          "type": "demo"
+        }
+      },
+      "enterpriseCallout": {
+        "title": "Enterprise?",
+        "description": "Need batch processing, medical coding & billing workflows, EHR/EMR/HIMS integration or on-premises deployment?",
+        "cta": {
+          "label": "TALK TO OUR ENTERPRISE TEAM",
+          "type": "formSelect",
+          "topic": "Enterprise Deployment"
+        }
+      }
+    },
+    "about": {
+      "id": "about",
+      "route": "/about",
+      "metaTitle": "About NourDoc — Making Healthcare Technology More Human",
+      "metaDescription": "NourDoc began with a simple idea: Healthcare professionals should spend more time listening, thinking and caring — and less time documenting.",
+      "hero": {
+        "h1": "Making Healthcare Technology More Human",
+        "lead": "NourDoc began with a simple idea:\n\nHealthcare professionals should spend more time listening, thinking and caring — and less time documenting.\n\nWe are building technology to help make that possible."
+      },
+      "whoWeAre": {
+        "eyebrow": "WHO WE ARE",
+        "h2": "A Global Healthcare AI Initiative",
+        "description": "NourDoc is developed by M3 Hive, an AI and technology company with deep expertise in artificial intelligence, machine learning, data engineering, software development and intelligent automation.\n\nNourDoc brings this engineering capability together with international healthcare, research and commercial perspectives."
+      },
+      "ourMission": {
+        "eyebrow": "OUR MISSION",
+        "h2": "Give Time Back to Healthcare Professionals",
+        "description": "Our mission is to build intelligent healthcare systems that reduce administrative friction, improve access to clinical information and help healthcare professionals focus on patient care."
+      },
+      "ourVision": {
+        "eyebrow": "OUR VISION",
+        "h2": "From Documentation to Clinical Intelligence",
+        "today": {
+          "label": "Today",
+          "flow": "Conversation → Documentation"
+        },
+        "expanding": {
+          "label": "Expanding Into",
+          "flow": "Conversation → Documentation → Coding → Integration → Intelligence → Action"
+        },
+        "conclusion": "We see Ambient Clinical Intelligence as a foundation for a broader transformation of healthcare information workflows."
+      },
+      "cta": {
+        "eyebrow": "GET IN TOUCH",
+        "h2": "Let's Connect With Our Healthcare Team",
+        "subtitle": "Explore ambient clinical intelligence trials, demonstrations, and enterprise partnerships.",
+        "primaryCta": {
+          "label": "TRY NOURDOC FREE",
+          "type": "app"
+        },
+        "secondaryCta": {
+          "label": "BOOK A DEMO",
+          "type": "demo"
+        }
+      }
+    },
+    "contact": {
+      "id": "contact",
+      "route": "/contact",
+      "metaTitle": "Contact & Book a Demo — Connect with NourDoc",
+      "metaDescription": "Let's talk about your healthcare workflow. Inquire about platform trials, live demonstrations, enterprise deployment, medical coding & billing, or partnerships.",
+      "hero": {
+        "badge": "CONTACT & DEMO",
+        "h1": "Let's Talk About Your Healthcare Workflow",
+        "lead": "Whether you are a clinician, hospital system, medical coding company, billing organization, or technology partner, we would like to understand what you are trying to solve."
       },
       "contactIntro": {
         "eyebrow": "CONTACT",
@@ -1253,11 +1414,11 @@
           },
           {
             "label": "Book a Demo",
-            "path": "/about-contact?intent=bookDemo&topic=Other"
+            "path": "/contact?intent=bookDemo&topic=Other"
           },
           {
             "label": "Talk to Enterprise",
-            "path": "/about-contact?topic=Enterprise+Deployment"
+            "path": "/contact?topic=Enterprise+Deployment"
           }
         ]
       },

@@ -27,8 +27,8 @@ export const MedicalCodingPage: React.FC = () => {
   return (
     <div className="space-y-16 md:space-y-24">
       {/* 1. Flagship Enterprise Hero */}
-      <section className="relative overflow-hidden pt-12 pb-16 md:pt-16 md:pb-24 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden min-h-[calc(100svh-68px)] sm:min-h-[calc(100svh-76px)] flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#EBF3F5] text-[#507D88] border border-[#507D88]/20 shadow-xs">
               <Cpu className="w-3.5 h-3.5 text-[#507D88]" />
@@ -45,7 +45,7 @@ export const MedicalCodingPage: React.FC = () => {
 
             <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
               <Button
-                to="/about-contact?intent=bookDemo&topic=Other"
+                to="/contact?intent=bookDemo&topic=Other"
                 variant="primary"
                 size="lg"
                 icon={true}
@@ -53,7 +53,7 @@ export const MedicalCodingPage: React.FC = () => {
                 BOOK AN ENTERPRISE DEMO
               </Button>
               <Button
-                to="/about-contact?topic=Batch+Processing"
+                to="/contact?topic=Batch+Processing"
                 variant="outline"
                 size="lg"
               >
@@ -235,10 +235,10 @@ export const MedicalCodingPage: React.FC = () => {
         title={page.cta.h2}
         subtitle={page.cta.lead}
         primaryLabel={page.cta.primaryCta.label}
-        primaryTarget="/about-contact?intent=bookDemo&topic=Other"
+        primaryTarget="/contact?intent=bookDemo&topic=Other"
         primaryIsApp={false}
         secondaryLabel="TALK TO OUR TEAM"
-        secondaryTarget="/about-contact?topic=Batch+Processing"
+        secondaryTarget="/contact?topic=Batch+Processing"
       />
     </div>
   );

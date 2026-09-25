@@ -143,12 +143,12 @@ export const PartnersPage: React.FC = () => {
         primaryCta={{
           label: page.cta.primaryCta.label,
           type: 'route',
-          target: page.cta.primaryCta.target || '/about-contact?topic=Partnership',
+          target: page.cta.primaryCta.target || '/contact?topic=Partnership',
         }}
         secondaryCta={{
           label: page.cta.secondaryCta.label,
           type: 'demo',
-          target: '/about-contact?intent=bookDemo&topic=Other',
+          target: '/contact?intent=bookDemo&topic=Other',
         }}
         showVisual={false}
       />
@@ -178,7 +178,7 @@ export const PartnersPage: React.FC = () => {
 
               <div className="shrink-0">
                 <Link
-                  to="/about-contact?topic=Partnership"
+                  to="/contact?topic=Partnership"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-100 border border-slate-600 transition-colors"
                 >
                   <span>Connect with Engineering</span>
@@ -263,7 +263,7 @@ export const PartnersPage: React.FC = () => {
 
                 <div className="pt-3 border-t border-slate-100 mt-auto">
                   <Link
-                    to={`/about-contact?topic=${encodeURIComponent(opp.actionTopic)}`}
+                    to={`/contact?topic=${encodeURIComponent(opp.actionTopic)}`}
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-[#507D88] hover:text-[#3B5C64] transition-colors"
                   >
                     <span>Discuss Collaboration</span>
@@ -317,10 +317,10 @@ export const PartnersPage: React.FC = () => {
       <GlobalCTA
         title={page.cta.h2}
         primaryLabel={page.cta.primaryCta.label}
-        primaryTarget={page.cta.primaryCta.target || '/about-contact?topic=Partnership'}
+        primaryTarget={page.cta.primaryCta.target || '/contact?topic=Partnership'}
         primaryIsApp={false}
         secondaryLabel={page.cta.secondaryCta.label}
-        secondaryTarget="/about-contact?intent=bookDemo&topic=Other"
+        secondaryTarget="/contact?intent=bookDemo&topic=Other"
       />
     </div>
   );

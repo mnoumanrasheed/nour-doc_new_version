@@ -14,6 +14,9 @@ import {
   CollaborationExchangeVisual 
 } from '../components/visuals/ClinicalVisuals';
 import logoImg from '../assets/logo.png';
+import logoWhite from '../assets/logo-white.png';
+import logoIcon from '../assets/logo-icon.png';
+import logoHorizontal from '../assets/logo-horizontal.png';
 import { CheckCircle2, AlertCircle, ShieldCheck } from 'lucide-react';
 
 export const DesignSystemPage: React.FC = () => {
@@ -32,29 +35,63 @@ export const DesignSystemPage: React.FC = () => {
 
       {/* 1. Official Logo Inspection at Real Scales */}
       <section className="space-y-6">
-        <h2 className="text-xl font-black text-slate-900 tracking-tight">
-          1. Official Brand Mark Inspection (Lossless Source Artboard)
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="p-6 flex flex-col items-center justify-center text-center space-y-3 bg-white">
-            <div className="h-10 flex items-center justify-center p-1 border border-slate-100 rounded-lg">
-              <img src={logoImg} alt="NourDoc Logo (Header Scale)" className="h-9 w-auto object-contain" />
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h2 className="text-xl font-black text-slate-900 tracking-tight">
+              1. Official Brand Mark & Favicon Architecture (Lossless Transparent Assets)
+            </h2>
+            <p className="text-xs text-slate-500 mt-1">
+              Zero white bounding box; sub-pixel anti-aliased transparency optimized for light, brand tint, and dark slate viewports.
+            </p>
+          </div>
+          <span className="text-xs font-mono font-bold text-[#507D88] bg-[#EBF3F5] px-3 py-1 rounded-full border border-[#507D88]/20 self-start sm:self-auto">
+            Lossless RGBA
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Transparent Icon Mark */}
+          <Card className="p-6 flex flex-col items-center justify-between text-center space-y-4 bg-white border border-slate-200">
+            <div className="w-full py-4 flex items-center justify-center">
+              <img src={logoIcon} alt="NourDoc Emblem Mark" className="h-16 w-16 object-contain filter drop-shadow-xs" />
             </div>
-            <span className="text-xs font-mono font-semibold text-slate-500">Header Scale (h-9 / 36px)</span>
+            <div className="border-t border-slate-100 pt-2 w-full text-center">
+              <span className="text-xs font-bold text-slate-900 block">Standalone Emblem</span>
+              <span className="text-[10px] font-mono text-slate-500">Favicon & App Icon (logo-icon.png)</span>
+            </div>
           </Card>
 
-          <Card className="p-6 flex flex-col items-center justify-center text-center space-y-3 bg-white">
-            <div className="h-16 flex items-center justify-center p-2 border border-slate-100 rounded-lg">
-              <img src={logoImg} alt="NourDoc Logo (Hero Scale)" className="h-14 w-auto object-contain" />
+          {/* Full Vertical Logo on Light */}
+          <Card className="p-6 flex flex-col items-center justify-between text-center space-y-4 bg-white border border-slate-200">
+            <div className="w-full py-4 flex items-center justify-center">
+              <img src={logoImg} alt="NourDoc Full Brandmark" className="h-20 w-auto object-contain" />
             </div>
-            <span className="text-xs font-mono font-semibold text-slate-500">Feature Scale (h-14 / 56px)</span>
+            <div className="border-t border-slate-100 pt-2 w-full text-center">
+              <span className="text-xs font-bold text-slate-900 block">Full Vertical Brandmark</span>
+              <span className="text-[10px] font-mono text-slate-500">Transparent Light (logo.png)</span>
+            </div>
           </Card>
 
-          <Card className="p-6 flex flex-col items-center justify-center text-center space-y-3 bg-slate-900 text-white">
-            <div className="h-16 flex items-center justify-center p-2 bg-white/10 rounded-lg">
-              <img src={logoImg} alt="NourDoc Logo (Dark Contrast)" className="h-14 w-auto object-contain brightness-105" />
+          {/* Horizontal Brandmark on Tint */}
+          <Card className="p-6 flex flex-col items-center justify-between text-center space-y-4 bg-[#EBF3F5] border border-[#507D88]/30">
+            <div className="w-full py-6 flex items-center justify-center">
+              <img src={logoHorizontal} alt="NourDoc Horizontal Brandmark" className="h-10 w-auto object-contain" />
             </div>
-            <span className="text-xs font-mono font-semibold text-slate-400">Dark Background Placement</span>
+            <div className="border-t border-[#507D88]/20 pt-2 w-full text-center">
+              <span className="text-xs font-bold text-slate-900 block">Horizontal Brandmark</span>
+              <span className="text-[10px] font-mono text-[#507D88]">Header / Wide (logo-horizontal.png)</span>
+            </div>
+          </Card>
+
+          {/* Full Logo on Dark Background */}
+          <Card className="p-6 flex flex-col items-center justify-between text-center space-y-4 bg-[#0F172A] border border-slate-800 text-white">
+            <div className="w-full py-4 flex items-center justify-center">
+              <img src={logoWhite} alt="NourDoc Dark Contrast" className="h-20 w-auto object-contain" />
+            </div>
+            <div className="border-t border-slate-800 pt-2 w-full text-center">
+              <span className="text-xs font-bold text-white block">Dark Background Variant</span>
+              <span className="text-[10px] font-mono text-[#7AB1BF]">Footer / Dark (logo-white.png)</span>
+            </div>
           </Card>
         </div>
       </section>
