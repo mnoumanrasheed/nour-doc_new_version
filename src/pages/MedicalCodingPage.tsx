@@ -28,7 +28,7 @@ export const MedicalCodingPage: React.FC = () => {
     <div className="space-y-16 md:space-y-24">
       {/* 1. Flagship Enterprise Hero */}
       <section className="hero-100vsh relative overflow-hidden flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
-        {/* Background Photography Layer (Full Opacity + Directional Scrim) */}
+        {/* Background Photography Layer with a lighter directional scrim */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img
             src="/images/hero/hero_medical_coding.jpg"
@@ -38,20 +38,20 @@ export const MedicalCodingPage: React.FC = () => {
             loading="eager"
           />
           {/* Directional Horizontal Scrim on Desktop */}
-          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-white via-white/85 via-45% to-transparent" />
+          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-white via-white/80 via-45% to-transparent" />
           
           {/* Directional Scrim on Tablet / Mobile */}
-          <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-white/95 via-white/85 to-white/40" />
+          <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-white/75 via-white/50 to-white/15" />
 
           {/* Subtle Top & Bottom Edge Vignettes */}
-          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/80 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/80 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/40 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/40 to-transparent" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto relative z-10">
           <div className="max-w-2xl text-left space-y-6">
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#EBF3F5] text-[#507D88] border border-[#507D88]/20 shadow-xs">
               <Cpu className="w-3.5 h-3.5 text-[#507D88]" />
-              <span>{page.hero.badge}</span>
+              <span>CODING &amp; BILLING</span>
             </span>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">

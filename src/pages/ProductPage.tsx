@@ -32,7 +32,7 @@ export const ProductPage: React.FC = () => {
     <div className="space-y-16 md:space-y-24">
       {/* 1. Editorial Split Hero combining Consultation & Conceptual Documentation UI */}
       <section className="hero-100vsh relative overflow-hidden flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
-        {/* Background Photography Layer (Full Opacity + Directional Scrim) */}
+        {/* Background Photography Layer with a lighter directional scrim */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img
             src="/images/hero/hero_product.jpg"
@@ -42,14 +42,14 @@ export const ProductPage: React.FC = () => {
             loading="eager"
           />
           {/* Directional Horizontal Scrim on Desktop */}
-          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-white via-white/85 via-45% to-transparent" />
+          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-white via-white/80 via-45% to-transparent" />
           
           {/* Directional Scrim on Tablet / Mobile */}
-          <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-white/95 via-white/85 to-white/40" />
+          <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-white/75 via-white/50 to-white/15" />
 
           {/* Subtle Top & Bottom Edge Vignettes */}
-          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/80 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/80 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/40 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/40 to-transparent" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -57,7 +57,7 @@ export const ProductPage: React.FC = () => {
             <div className="lg:col-span-6 space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#EBF3F5] text-[#507D88] border border-[#507D88]/20 shadow-xs">
                 <Sparkles className="w-3.5 h-3.5 text-[#507D88]" />
-                <span>Complete Clinical Documentation Engine</span>
+                <span>AI PLATFORM</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">

@@ -35,6 +35,7 @@ export const BenefitsPage: React.FC = () => {
     <div className="space-y-16 md:space-y-24">
       {/* 1. Hero Section with Authentic Editorial Healthcare Montage Background */}
       <Hero
+        badge="CLINICAL BENEFITS"
         h1={page.hero.h1}
         description={page.hero.lead}
         primaryCta={page.resultCta.primaryCta}

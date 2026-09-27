@@ -41,6 +41,7 @@ export const IntegrationsPage: React.FC = () => {
     <div className="space-y-16 md:space-y-24">
       {/* 1. Hero with Healthcare Systems & Network Integration Photography */}
       <Hero
+        badge="INTEGRATIONS & DEPLOYMENT"
         h1={page.hero.h1}
         description={page.hero.lead}
         primaryCta={page.cta.primaryCta}

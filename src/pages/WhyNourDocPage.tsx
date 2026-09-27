@@ -16,6 +16,7 @@ export const WhyNourDocPage: React.FC = () => {
     <div className="space-y-16 md:space-y-24">
       {/* 1. Hero Section with Authentic Editorial Clinical Background */}
       <Hero
+        badge="WHY NOURDOC"
         h1={page.hero.h1}
         description={`${page.hero.lead}\n\n${page.hero.conclusion}`}
         primaryCta={page.cta.primaryCta}

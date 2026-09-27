@@ -137,7 +137,7 @@ export const PartnersPage: React.FC = () => {
     <div className="space-y-16 md:space-y-24">
       {/* 1. Page Hero with Global Healthcare Collaboration Background */}
       <Hero
-        badge="GLOBAL HEALTHCARE AI COLLABORATION"
+        badge="PARTNERS & COLLABORATORS"
         h1={page.hero.h1}
         description={page.hero.lead}
         primaryCta={{

@@ -80,7 +80,7 @@ export const Hero: React.FC<HeroProps> = ({
 
   return (
     <section className="hero-100vsh relative overflow-hidden flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
-      {/* Background Photography Layer (Full Opacity + Directional Scrim) */}
+      {/* Background Photography Layer with a lighter directional scrim */}
       {backgroundImage && (
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img
@@ -90,15 +90,15 @@ export const Hero: React.FC<HeroProps> = ({
             className="w-full h-full object-cover object-center lg:object-right select-none"
             loading="eager"
           />
-          {/* Directional Horizontal Scrim on Desktop: solid white on far left behind text, fading to transparent on right so photo subject is 100% visible */}
-          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-white via-white/85 via-45% to-transparent" />
+          {/* Directional Horizontal Scrim on Desktop: keep the photo visible while preserving text contrast */}
+          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-white via-white/80 via-45% to-transparent" />
           
           {/* Directional Scrim on Tablet / Mobile: ensures high text contrast while keeping photo recognizable */}
-          <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-white/95 via-white/85 to-white/40" />
+          <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-white/75 via-white/50 to-white/15" />
 
           {/* Subtle Top & Bottom Edge Vignettes */}
-          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/80 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/80 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/40 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/40 to-transparent" />
         </div>
       )}
 

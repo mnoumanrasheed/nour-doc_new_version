@@ -38,11 +38,11 @@
       "path": "/why-nourdoc"
     },
     {
-      "title": "Product",
+      "title": "AI Platform",
       "path": "/product"
     },
     {
-      "title": "Benefits",
+      "title": "Clinical Benefits",
       "path": "/benefits"
     },
     {
@@ -50,11 +50,7 @@
       "path": "/security-compliance"
     },
     {
-      "title": "Subscription",
-      "path": "/subscription"
-    },
-    {
-      "title": "Medical Coding & Billing",
+      "title": "Coding & Billing",
       "path": "/medical-coding-billing"
     },
     {
@@ -62,11 +58,15 @@
       "path": "/integrations-deployment"
     },
     {
+      "title": "Plans & Pricing",
+      "path": "/subscription"
+    },
+    {
       "title": "Partners & Collaborators",
       "path": "/partners-collaborators"
     },
     {
-      "title": "About",
+      "title": "About NourDoc",
       "path": "/about"
     }
   ],

@@ -1,7 +1,7 @@
 // src/components/layout/Footer.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ExternalLink, Mail, ShieldCheck } from 'lucide-react';
+import { ExternalLink, ShieldCheck } from 'lucide-react';
 import contentData from '../../data.json';
 import logoIcon from '../../assets/logo-icon.png';
 
@@ -60,19 +60,26 @@ export const Footer: React.FC = () => {
               {footerData.brand.summary}
             </p>
 
-            <div className="pt-2 text-xs text-slate-400 space-y-1.5">
-              <div className="font-bold text-slate-300">Direct Inquiries:</div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#7AB1BF]" />
-                <span>Sales:</span>
-                <a href={`mailto:${brand.emails.sales}`} className="text-[#7AB1BF] hover:underline font-mono">
+            <div className="pt-2 space-y-4">
+              <div>
+                <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#7AB1BF]">
+                  Sales
+                </div>
+                <a
+                  href={`mailto:${brand.emails.sales}`}
+                  className="mt-1 inline-block text-sm text-slate-200 hover:text-white hover:underline"
+                >
                   {brand.emails.sales}
                 </a>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#7AB1BF]" />
-                <span>Support:</span>
-                <a href={`mailto:${brand.emails.support}`} className="text-[#7AB1BF] hover:underline font-mono">
+              <div>
+                <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#7AB1BF]">
+                  Support
+                </div>
+                <a
+                  href={`mailto:${brand.emails.support}`}
+                  className="mt-1 inline-block text-sm text-slate-200 hover:text-white hover:underline"
+                >
                   {brand.emails.support}
                 </a>
               </div>

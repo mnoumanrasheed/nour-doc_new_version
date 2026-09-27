@@ -29,6 +29,7 @@ export const SecurityPage: React.FC = () => {
     <div className="space-y-16 md:space-y-24">
       {/* 1. Hero Section with Secure Infrastructure Photography Background */}
       <Hero
+        badge="SECURITY & COMPLIANCE"
         h1={page.hero.h1}
         description={page.hero.lead}
         primaryCta={page.cta.secondaryCta}

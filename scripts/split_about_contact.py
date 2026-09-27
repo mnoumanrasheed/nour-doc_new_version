@@ -7,17 +7,15 @@ def main():
 
     # Update navigation
     nav = [
-        { 'title': 'Home', 'path': '/' },
         { 'title': 'Why NourDoc', 'path': '/why-nourdoc' },
-        { 'title': 'Product', 'path': '/product' },
-        { 'title': 'Benefits', 'path': '/benefits' },
+        { 'title': 'AI Platform', 'path': '/product' },
+        { 'title': 'Clinical Benefits', 'path': '/benefits' },
         { 'title': 'Security & Compliance', 'path': '/security-compliance' },
-        { 'title': 'Subscription', 'path': '/subscription' },
-        { 'title': 'Medical Coding & Billing', 'path': '/medical-coding-billing' },
+        { 'title': 'Coding & Billing', 'path': '/medical-coding-billing' },
         { 'title': 'Integrations & Deployment', 'path': '/integrations-deployment' },
+        { 'title': 'Plans & Pricing', 'path': '/subscription' },
         { 'title': 'Partners & Collaborators', 'path': '/partners-collaborators' },
-        { 'title': 'About', 'path': '/about' },
-        { 'title': 'Contact', 'path': '/contact' }
+        { 'title': 'About NourDoc', 'path': '/about' }
     ]
     data['navigation'] = nav
 

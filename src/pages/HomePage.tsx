@@ -18,7 +18,7 @@ export const HomePage: React.FC = () => {
     <div className="space-y-16 md:space-y-24">
       {/* 1. Hero Section with Authentic Editorial Healthcare Photography */}
       <Hero
-        badge={page.hero.badge}
+        badge="NOURDOC AI PLATFORM"
         h1={page.hero.h1}
         description={page.hero.description}
         primaryCta={page.hero.primaryCta}
