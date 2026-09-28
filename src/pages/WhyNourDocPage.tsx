@@ -47,13 +47,13 @@ export const WhyNourDocPage: React.FC = () => {
           {page.forClinicians.points.map((pt, idx) => (
             <Card key={idx} hover={true} className="p-6 sm:p-8 flex flex-col justify-between space-y-4">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center mb-4 font-mono font-bold text-sm">
+                <div className="w-10 h-10 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mb-4 font-mono font-bold text-sm">
                   0{idx + 1}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">{pt.title}</h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{pt.desc}</p>
               </div>
-              <div className="text-[11px] font-mono font-semibold text-[#507D88] pt-3 border-t border-slate-100 flex items-center gap-1">
+              <div className="text-[11px] font-mono font-semibold text-nourdoc-primary pt-3 border-t border-slate-100 flex items-center gap-1">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Clinician Benefit 0{idx + 1}</span>
               </div>
@@ -64,7 +64,7 @@ export const WhyNourDocPage: React.FC = () => {
 
       {/* 4. For Healthcare Organizations (8 Workflow Dimensions) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-slate-900 text-white p-8 sm:p-12 lg:p-16 border border-slate-800 shadow-2xl space-y-8">
+        <div className="rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl space-y-8">
           <SectionHeading
             eyebrow={page.forOrganizations.eyebrow}
             title={page.forOrganizations.h2}
@@ -76,9 +76,9 @@ export const WhyNourDocPage: React.FC = () => {
             {page.forOrganizations.bullets.map((bullet, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-slate-800/90 border border-slate-700/70 hover:border-[#7AB1BF]/60 transition-all flex items-center gap-3.5 text-xs sm:text-sm font-semibold text-slate-100"
+                className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-white/25 transition-all flex items-center gap-3.5 text-xs sm:text-sm font-semibold text-slate-100"
               >
-                <div className="w-7 h-7 rounded-lg bg-[#507D88]/30 text-[#7AB1BF] flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 rounded-lg bg-nourdoc-primary/30 text-nourdoc-secondary flex items-center justify-center shrink-0">
                   <Check className="w-4 h-4" />
                 </div>
                 <span>{bullet}</span>
@@ -100,13 +100,13 @@ export const WhyNourDocPage: React.FC = () => {
 
       {/* 6. Human-In-The-Loop Oversight Callout */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-br from-[#F4F9FA] via-[#EBF3F5] to-white border-2 border-[#507D88]/30 p-8 sm:p-12 lg:p-16 text-center max-w-4xl mx-auto shadow-sm space-y-6">
-          <div className="w-14 h-14 rounded-2xl bg-white text-[#507D88] flex items-center justify-center mx-auto shadow-sm border border-[#507D88]/20">
-            <ShieldAlert className="w-7 h-7 text-[#507D88]" />
+        <div className="rounded-3xl bg-gradient-to-br from-nourdoc-primary-surface via-nourdoc-primary-light to-white border-2 border-nourdoc-primary/30 p-8 sm:p-12 lg:p-16 text-center max-w-4xl mx-auto shadow-sm space-y-6">
+          <div className="w-14 h-14 rounded-2xl bg-white text-nourdoc-primary flex items-center justify-center mx-auto shadow-sm border border-nourdoc-primary/20">
+            <ShieldAlert className="w-7 h-7 text-nourdoc-primary" />
           </div>
 
           <div>
-            <span className="inline-block text-xs font-bold text-[#507D88] uppercase tracking-widest bg-white px-4 py-1.5 rounded-full mb-3 border border-[#507D88]/20 shadow-xs">
+            <span className="inline-block text-xs font-bold text-nourdoc-primary uppercase tracking-widest bg-white px-4 py-1.5 rounded-full mb-3 border border-nourdoc-primary/20 shadow-xs">
               {page.humanInTheLoop.eyebrow}
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
@@ -114,7 +114,7 @@ export const WhyNourDocPage: React.FC = () => {
             </h2>
           </div>
 
-          <div className="p-6 sm:p-8 rounded-2xl bg-white/90 border border-[#507D88]/20 text-left space-y-4">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white/90 border border-nourdoc-primary/20 text-left space-y-4">
             <p className="text-sm sm:text-base text-slate-800 leading-relaxed font-medium">
               NourDoc is designed as an assistive technology. AI generates and structures information. <strong>Qualified professionals review, validate and finalize information</strong> according to their organization's workflow and applicable requirements.
             </p>

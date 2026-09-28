@@ -7,8 +7,8 @@ the Website
 I would make the visual language clean, clinical, human and technologically sophisticated—closer to 
 a premium global HealthTech company than a generic SaaS/AI website. 
 The two brand colors should be used as accents, not as large background fields: 
-• NourDoc Teal: #507D88 
-• NourDoc Light Teal: #7AB1BF 
+• NourDoc Deep Jade: #286252 
+• NourDoc Soft Jade: #6F9C90 
 • Primary background: White #FFFFFF 
 • Supporting neutrals: very light cool gray, charcoal and soft gray 
 • Logo: use the original colored logo on white backgrounds; use the black/white variant 
@@ -53,7 +53,7 @@ Conversation
 AI 
 ↓ 
 Clinical Note 
-Use #507D88 and #7AB1BF only for the AI visualization. 
+Use #286252 and #6F9C90 only for the AI visualization. 
  
 Homepage secondary visual 
 “From Conversation to Clinical Intelligence” 
@@ -155,7 +155,7 @@ Procedure/coding symbol
 Checkmark inside medical document 
    Integration 
 Connected nodes 
-Use thin-line icons with #507D88. 
+Use thin-line icons with #286252. 
  
 PAGE 04 — BENEFITS 
 Hero 
@@ -294,7 +294,7 @@ This deserves a large visual number.
 1M+ 
 Clinical Encounters / Day 
 Designed for appropriately configured enterprise environments 
-Put this in very large typography using #507D88. 
+Put this in very large typography using #286252. 
 Behind the number, use a subtle stream of thousands of tiny clinical encounter nodes moving 
 through a NourDoc processing engine. 
 Do not use a giant “AI brain.” 
@@ -512,9 +512,9 @@ Use one consistent icon family throughout.
 I recommend: 
 Thin-line / rounded medical-tech icons 
 Stroke color: 
-#507D88 
+#286252 
 Secondary: 
-#7AB1BF 
+#6F9C90 
 Background: 
 #FFFFFF 
 Use icons for: 
@@ -538,7 +538,7 @@ The actual website should use professionally designed SVG icons rather than emoj
  
 4. NOURDOC COLOR APPLICATION 
 I would use the palette approximately like this: 
-#507D88 
+#286252 
 Primary NourDoc teal. 
 Use for: 
 • Headings accents 
@@ -550,7 +550,7 @@ Use for:
 • AI visualizations 
 • Important numbers 
 • Navigation accents 
-#7AB1BF 
+#6F9C90 
 Supporting light teal. 
 Use for: 
 • Secondary highlights 

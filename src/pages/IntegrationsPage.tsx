@@ -64,10 +64,10 @@ export const IntegrationsPage: React.FC = () => {
             return (
               <Card key={idx} hover={true} className="p-6 sm:p-8 flex flex-col justify-between space-y-4">
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center mb-5 font-black font-mono">
+                  <div className="w-12 h-12 rounded-2xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mb-5 font-black font-mono">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <span className="font-mono text-xs font-bold text-[#507D88] block mb-1">
+                  <span className="font-mono text-xs font-bold text-nourdoc-primary block mb-1">
                     {sys.name} SYSTEM
                   </span>
                   <h3 className="text-lg font-black text-slate-900 mb-2">{sys.title}</h3>
@@ -105,7 +105,7 @@ export const IntegrationsPage: React.FC = () => {
           {/* Point-of-Care Workflow */}
           <div className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200/90 shadow-xs space-y-6">
             <div>
-              <span className="text-xs font-bold text-[#507D88] uppercase tracking-wider block mb-1">
+              <span className="text-xs font-bold text-nourdoc-primary uppercase tracking-wider block mb-1">
                 Workflow Model A
               </span>
               <h3 className="text-lg sm:text-xl font-extrabold text-slate-900">
@@ -120,7 +120,7 @@ export const IntegrationsPage: React.FC = () => {
                   className="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between text-xs sm:text-sm font-bold text-slate-800 shadow-xs"
                 >
                   <span>{step}</span>
-                  <span className="text-[10px] font-mono text-[#507D88] bg-[#EBF3F5] px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-mono text-nourdoc-primary bg-nourdoc-primary-light px-2 py-0.5 rounded">
                     STEP 0{idx + 1}
                   </span>
                 </div>
@@ -129,12 +129,12 @@ export const IntegrationsPage: React.FC = () => {
           </div>
 
           {/* Enterprise Batch Workflow */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-[#EBF3F5]/70 border-2 border-[#507D88]/30 shadow-xs space-y-6">
+          <div className="p-6 sm:p-8 rounded-3xl bg-nourdoc-primary-light/70 border-2 border-nourdoc-primary/30 shadow-xs space-y-6">
             <div>
-              <span className="text-xs font-bold text-[#507D88] uppercase tracking-wider block mb-1">
+              <span className="text-xs font-bold text-nourdoc-primary uppercase tracking-wider block mb-1">
                 Workflow Model B
               </span>
-              <h3 className="text-lg sm:text-xl font-extrabold text-[#507D88]">
+              <h3 className="text-lg sm:text-xl font-extrabold text-nourdoc-primary">
                 {page.apiConnectivity.batchFlow.title}
               </h3>
             </div>
@@ -143,10 +143,10 @@ export const IntegrationsPage: React.FC = () => {
               {page.apiConnectivity.batchFlow.steps.map((step, idx) => (
                 <div
                   key={idx}
-                  className="p-3.5 rounded-xl bg-white border border-[#507D88]/20 flex items-center justify-between text-xs sm:text-sm font-bold text-slate-800 shadow-sm"
+                  className="p-3.5 rounded-xl bg-white border border-nourdoc-primary/20 flex items-center justify-between text-xs sm:text-sm font-bold text-slate-800 shadow-sm"
                 >
                   <span>{step}</span>
-                  <span className="text-[10px] font-mono text-[#507D88] bg-[#EBF3F5] px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-mono text-nourdoc-primary bg-nourdoc-primary-light px-2 py-0.5 rounded">
                     PHASE 0{idx + 1}
                   </span>
                 </div>
@@ -169,7 +169,7 @@ export const IntegrationsPage: React.FC = () => {
             {page.outputFlexibility.destinations.map((dest, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-center font-bold text-xs sm:text-sm text-slate-800 hover:border-[#507D88]/40 hover:bg-[#F4F9FA] transition-all flex items-center justify-center shadow-xs"
+                className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-center font-bold text-xs sm:text-sm text-slate-800 hover:border-nourdoc-primary/40 hover:bg-nourdoc-primary-surface transition-all flex items-center justify-center shadow-xs"
               >
                 {dest}
               </div>
@@ -192,13 +192,13 @@ export const IntegrationsPage: React.FC = () => {
             return (
               <Card key={idx} hover={true} className="p-6 sm:p-8 flex flex-col justify-between space-y-4">
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center mb-5">
+                  <div className="w-12 h-12 rounded-2xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mb-5">
                     <Icon className="w-6 h-6" />
                   </div>
                   <h3 className="text-lg font-black text-slate-900 mb-2">{dep.title}</h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{dep.desc}</p>
                 </div>
-                <div className="text-[10px] font-mono text-[#507D88] pt-3 border-t border-slate-100 flex items-center gap-1">
+                <div className="text-[10px] font-mono text-nourdoc-primary pt-3 border-t border-slate-100 flex items-center gap-1">
                   <Check className="w-3.5 h-3.5" />
                   <span>Deployment Architecture</span>
                 </div>
@@ -210,7 +210,7 @@ export const IntegrationsPage: React.FC = () => {
 
       {/* 7. Enterprise Architecture (8 Capabilities) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-slate-900 text-white p-8 sm:p-12 lg:p-16 border border-slate-800 shadow-2xl space-y-8">
+        <div className="rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl space-y-8">
           <SectionHeading
             eyebrow={page.enterpriseArchitecture.eyebrow}
             title={page.enterpriseArchitecture.h2}
@@ -222,9 +222,9 @@ export const IntegrationsPage: React.FC = () => {
             {page.enterpriseArchitecture.bullets.map((bullet, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-slate-800/80 border border-slate-700/60 hover:border-[#7AB1BF]/60 transition-all flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-200"
+                className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/25 transition-all flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-200"
               >
-                <div className="w-6 h-6 rounded-md bg-[#507D88]/30 text-[#7AB1BF] flex items-center justify-center shrink-0">
+                <div className="w-6 h-6 rounded-md bg-nourdoc-primary/30 text-nourdoc-secondary flex items-center justify-center shrink-0">
                   <Check className="w-3.5 h-3.5" />
                 </div>
                 <span>{bullet}</span>

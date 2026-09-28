@@ -92,8 +92,8 @@ export const AIEngineVisual: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
         <div>
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#507D88] animate-pulse" />
-            <span className="text-xs font-bold uppercase tracking-widest text-[#507D88]">
+            <span className="w-2 h-2 rounded-full bg-nourdoc-primary animate-pulse" />
+            <span className="text-xs font-bold uppercase tracking-widest text-nourdoc-primary">
               Proprietary Clinical Engine Architecture
             </span>
           </div>
@@ -103,7 +103,7 @@ export const AIEngineVisual: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-1.5 text-xs text-slate-500 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200/60">
-          <ShieldCheck className="w-4 h-4 text-[#507D88]" />
+          <ShieldCheck className="w-4 h-4 text-nourdoc-primary" />
           <span>Human-in-the-Loop Clinical Verification</span>
         </div>
       </div>
@@ -122,20 +122,20 @@ export const AIEngineVisual: React.FC = () => {
                 onClick={() => setActiveStage(stage.id)}
                 className={`w-full text-left p-4 rounded-2xl border transition-all duration-200 flex flex-col justify-between cursor-pointer ${
                   isSelected
-                    ? 'bg-[#EBF3F5] border-[#507D88] shadow-md ring-2 ring-[#507D88]/20'
+                    ? 'bg-nourdoc-primary-light border-nourdoc-primary shadow-md ring-2 ring-nourdoc-primary/20'
                     : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/80'
                 }`}
                 aria-pressed={isSelected}
                 aria-label={`Stage ${stage.stepNumber}: ${stage.title}`}
               >
                 <div className="flex items-center justify-between w-full mb-3">
-                  <span className={`text-xs font-mono font-bold ${isSelected ? 'text-[#507D88]' : 'text-slate-400'}`}>
+                  <span className={`text-xs font-mono font-bold ${isSelected ? 'text-nourdoc-primary' : 'text-slate-400'}`}>
                     {stage.stepNumber}
                   </span>
                   <div
                     className={`w-8 h-8 rounded-xl flex items-center justify-center transition-colors ${
                       isSelected
-                        ? 'bg-[#507D88] text-white'
+                        ? 'bg-nourdoc-primary text-white'
                         : 'bg-slate-100 text-slate-600'
                     }`}
                   >
@@ -175,14 +175,14 @@ export const AIEngineVisual: React.FC = () => {
         initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.2 }}
-        className="rounded-2xl bg-slate-900 text-white p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center"
+        className="rounded-2xl bg-nourdoc-primary-dark text-white p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center"
       >
         <div className="lg:col-span-8 space-y-3">
           <div className="flex items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded-full bg-[#507D88] text-[11px] font-mono font-bold text-white uppercase">
+            <span className="px-2.5 py-0.5 rounded-full bg-nourdoc-primary text-[11px] font-mono font-bold text-white uppercase">
               Stage {currentStage.stepNumber} Focus
             </span>
-            <span className="text-xs font-semibold text-[#7AB1BF]">
+            <span className="text-xs font-semibold text-nourdoc-secondary">
               {currentStage.subtitle}
             </span>
           </div>
@@ -201,7 +201,7 @@ export const AIEngineVisual: React.FC = () => {
           <ul className="space-y-1.5 text-xs text-slate-200">
             {currentStage.technicalDetails.map((detail, idx) => (
               <li key={idx} className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#7AB1BF]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-nourdoc-secondary" />
                 <span>{detail}</span>
               </li>
             ))}

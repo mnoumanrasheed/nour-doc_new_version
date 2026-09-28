@@ -93,7 +93,7 @@ export const ContactForm: React.FC = () => {
       {/* Left Column: Context, 10 Stakeholder Audiences & 4 Official Mailto Directory */}
       <div className="lg:col-span-5 space-y-6">
         <div>
-          <span className="inline-block text-xs font-bold text-[#507D88] uppercase tracking-widest bg-[#EBF3F5] px-3 py-1 rounded-full mb-3">
+          <span className="inline-block text-xs font-bold text-nourdoc-primary uppercase tracking-widest bg-nourdoc-primary-light px-3 py-1 rounded-full mb-3">
             Contact
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -106,13 +106,13 @@ export const ContactForm: React.FC = () => {
 
         {/* Demo Request Guidance Banner */}
         {isBookDemoIntent && (
-          <div className="rounded-2xl p-5 bg-[#EBF3F5] border border-[#507D88]/30 flex items-start gap-3.5 shadow-xs">
-            <Calendar className="w-5 h-5 text-[#507D88] shrink-0 mt-0.5" />
+          <div className="rounded-2xl p-5 bg-nourdoc-primary-light border border-nourdoc-primary/30 flex items-start gap-3.5 shadow-xs">
+            <Calendar className="w-5 h-5 text-nourdoc-primary shrink-0 mt-0.5" />
             <div className="text-xs sm:text-sm text-slate-800">
-              <span className="font-bold text-[#507D88] block mb-1">Live Platform Demonstration Inquiry</span>
+              <span className="font-bold text-nourdoc-primary block mb-1">Live Platform Demonstration Inquiry</span>
               <p className="leading-relaxed">
                 To schedule a demonstration, please submit your organization and workflow requirements below or email our Sales team directly at{' '}
-                <a href={`mailto:${emails.sales}`} className="font-bold text-[#507D88] hover:underline">
+                <a href={`mailto:${emails.sales}`} className="font-bold text-nourdoc-primary hover:underline">
                   {emails.sales}
                 </a>.
               </p>
@@ -126,7 +126,7 @@ export const ContactForm: React.FC = () => {
         {/* 4 Official Contact Categories with Working Mailto Links */}
         <div className="rounded-2xl bg-slate-50 border border-slate-200/80 p-6 space-y-4">
           <div className="flex items-center gap-2 text-xs font-bold text-slate-400 uppercase tracking-widest">
-            <Mail className="w-3.5 h-3.5 text-[#507D88]" />
+            <Mail className="w-3.5 h-3.5 text-nourdoc-primary" />
             <span>Official Email Channels</span>
           </div>
 
@@ -135,7 +135,7 @@ export const ContactForm: React.FC = () => {
               <span className="font-bold text-slate-700">Sales:</span>
               <a
                 href={`mailto:${emails.sales}`}
-                className="font-mono text-[#507D88] hover:underline font-semibold text-xs sm:text-sm"
+                className="font-mono text-nourdoc-primary hover:underline font-semibold text-xs sm:text-sm"
               >
                 {emails.sales}
               </a>
@@ -145,7 +145,7 @@ export const ContactForm: React.FC = () => {
               <span className="font-bold text-slate-700">Support:</span>
               <a
                 href={`mailto:${emails.support}`}
-                className="font-mono text-[#507D88] hover:underline font-semibold text-xs sm:text-sm"
+                className="font-mono text-nourdoc-primary hover:underline font-semibold text-xs sm:text-sm"
               >
                 {emails.support}
               </a>
@@ -155,7 +155,7 @@ export const ContactForm: React.FC = () => {
               <span className="font-bold text-slate-700">Partnerships:</span>
               <a
                 href={`mailto:${emails.partnerships}`}
-                className="font-mono text-[#507D88] hover:underline font-semibold text-xs sm:text-sm"
+                className="font-mono text-nourdoc-primary hover:underline font-semibold text-xs sm:text-sm"
               >
                 {emails.partnerships}
               </a>
@@ -165,7 +165,7 @@ export const ContactForm: React.FC = () => {
               <span className="font-bold text-slate-700">Investors:</span>
               <a
                 href={`mailto:${emails.investors}`}
-                className="font-mono text-[#507D88] hover:underline font-semibold text-xs sm:text-sm"
+                className="font-mono text-nourdoc-primary hover:underline font-semibold text-xs sm:text-sm"
               >
                 {emails.investors}
               </a>
@@ -181,7 +181,7 @@ export const ContactForm: React.FC = () => {
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
             {audienceList.map((aud, idx) => (
               <li key={idx} className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#507D88] shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-nourdoc-primary shrink-0" />
                 <span>{aud}</span>
               </li>
             ))}
@@ -207,7 +207,7 @@ export const ContactForm: React.FC = () => {
               <p className="leading-relaxed">{submittedNotice}</p>
               <div className="p-3 bg-white/80 rounded-xl border border-amber-200 text-[11px] text-amber-900 leading-snug">
                 Please forward your inquiry directly to our team at{' '}
-                <a href={`mailto:${emails.sales}`} className="font-bold underline text-[#507D88]">
+                <a href={`mailto:${emails.sales}`} className="font-bold underline text-nourdoc-primary">
                   {emails.sales}
                 </a>{' '}
                 or use our specific departmental email channels on the left.
@@ -234,7 +234,7 @@ export const ContactForm: React.FC = () => {
                 className={`w-full px-3.5 py-2.5 rounded-lg border text-xs sm:text-sm outline-none transition-all ${
                   errors.name
                     ? 'border-red-400 bg-red-50/30 focus:border-red-500 focus:ring-2 focus:ring-red-200'
-                    : 'border-slate-200 focus:border-[#507D88] focus:ring-2 focus:ring-[#507D88]/20'
+                    : 'border-slate-200 focus:border-nourdoc-primary focus:ring-2 focus:ring-nourdoc-primary/20'
                 }`}
               />
               {errors.name && (
@@ -260,7 +260,7 @@ export const ContactForm: React.FC = () => {
                 className={`w-full px-3.5 py-2.5 rounded-lg border text-xs sm:text-sm outline-none transition-all ${
                   errors.organization
                     ? 'border-red-400 bg-red-50/30 focus:border-red-500 focus:ring-2 focus:ring-red-200'
-                    : 'border-slate-200 focus:border-[#507D88] focus:ring-2 focus:ring-[#507D88]/20'
+                    : 'border-slate-200 focus:border-nourdoc-primary focus:ring-2 focus:ring-nourdoc-primary/20'
                 }`}
               />
               {errors.organization && (
@@ -288,7 +288,7 @@ export const ContactForm: React.FC = () => {
                 className={`w-full px-3.5 py-2.5 rounded-lg border text-xs sm:text-sm outline-none transition-all ${
                   errors.role
                     ? 'border-red-400 bg-red-50/30 focus:border-red-500 focus:ring-2 focus:ring-red-200'
-                    : 'border-slate-200 focus:border-[#507D88] focus:ring-2 focus:ring-[#507D88]/20'
+                    : 'border-slate-200 focus:border-nourdoc-primary focus:ring-2 focus:ring-nourdoc-primary/20'
                 }`}
               />
               {errors.role && (
@@ -314,7 +314,7 @@ export const ContactForm: React.FC = () => {
                 className={`w-full px-3.5 py-2.5 rounded-lg border text-xs sm:text-sm outline-none transition-all ${
                   errors.country
                     ? 'border-red-400 bg-red-50/30 focus:border-red-500 focus:ring-2 focus:ring-red-200'
-                    : 'border-slate-200 focus:border-[#507D88] focus:ring-2 focus:ring-[#507D88]/20'
+                    : 'border-slate-200 focus:border-nourdoc-primary focus:ring-2 focus:ring-nourdoc-primary/20'
                 }`}
               />
               {errors.country && (
@@ -342,7 +342,7 @@ export const ContactForm: React.FC = () => {
                 className={`w-full px-3.5 py-2.5 rounded-lg border text-xs sm:text-sm outline-none transition-all ${
                   errors.email
                     ? 'border-red-400 bg-red-50/30 focus:border-red-500 focus:ring-2 focus:ring-red-200'
-                    : 'border-slate-200 focus:border-[#507D88] focus:ring-2 focus:ring-[#507D88]/20'
+                    : 'border-slate-200 focus:border-nourdoc-primary focus:ring-2 focus:ring-nourdoc-primary/20'
                 }`}
               />
               {errors.email && (
@@ -365,7 +365,7 @@ export const ContactForm: React.FC = () => {
                 placeholder="+1 (555) 019-2834"
                 aria-invalid={!!errors.phone}
                 aria-describedby={errors.phone ? 'phone-error' : undefined}
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-xs sm:text-sm focus:border-[#507D88] focus:ring-2 focus:ring-[#507D88]/20 outline-none transition-all"
+                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-xs sm:text-sm focus:border-nourdoc-primary focus:ring-2 focus:ring-nourdoc-primary/20 outline-none transition-all"
               />
               {errors.phone && (
                 <p id="phone-error" className="mt-1 text-[11px] text-red-600 font-medium">
@@ -383,7 +383,7 @@ export const ContactForm: React.FC = () => {
             <select
               id="topic"
               {...register('topic')}
-              className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-xs sm:text-sm focus:border-[#507D88] focus:ring-2 focus:ring-[#507D88]/20 outline-none transition-all bg-white font-medium"
+              className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-xs sm:text-sm focus:border-nourdoc-primary focus:ring-2 focus:ring-nourdoc-primary/20 outline-none transition-all bg-white font-medium"
             >
               {discussionTopics.map((top, idx) => (
                 <option key={idx} value={top}>
@@ -412,7 +412,7 @@ export const ContactForm: React.FC = () => {
               className={`w-full px-3.5 py-2.5 rounded-lg border text-xs sm:text-sm outline-none transition-all resize-y ${
                 errors.message
                   ? 'border-red-400 bg-red-50/30 focus:border-red-500 focus:ring-2 focus:ring-red-200'
-                  : 'border-slate-200 focus:border-[#507D88] focus:ring-2 focus:ring-[#507D88]/20'
+                  : 'border-slate-200 focus:border-nourdoc-primary focus:ring-2 focus:ring-nourdoc-primary/20'
               }`}
             />
             {errors.message && (

@@ -31,7 +31,7 @@ export const ProductPage: React.FC = () => {
   return (
     <div className="space-y-16 md:space-y-24">
       {/* 1. Editorial Split Hero combining Consultation & Conceptual Documentation UI */}
-      <section className="hero-100vsh relative overflow-hidden flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-[#F4F9FA]/80 via-white to-white border-b border-slate-100">
+      <section className="hero-100vsh relative overflow-hidden flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-nourdoc-primary-surface/80 via-white to-white border-b border-slate-100">
         {/* Background Photography Layer with a lighter directional scrim */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img
@@ -55,16 +55,16 @@ export const ProductPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left: Product Hero Information */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#EBF3F5] text-[#507D88] border border-[#507D88]/20 shadow-xs">
-                <Sparkles className="w-3.5 h-3.5 text-[#507D88]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-nourdoc-primary-light text-nourdoc-primary border border-nourdoc-primary/20 shadow-xs">
+                <Sparkles className="w-3.5 h-3.5 text-nourdoc-primary" />
                 <span>AI PLATFORM</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">
-                Meet <span className="bg-gradient-to-r from-[#507D88] to-[#3B5C64] bg-clip-text text-transparent">NourDoc</span>
+                Meet <span className="bg-gradient-to-r from-nourdoc-primary to-nourdoc-primary-hover bg-clip-text text-transparent">NourDoc</span>
               </h1>
 
-              <p className="text-lg sm:text-xl font-bold text-[#507D88] leading-snug">
+              <p className="text-lg sm:text-xl font-bold text-nourdoc-primary leading-snug">
                 {page.hero.subtitle}
               </p>
 
@@ -94,7 +94,7 @@ export const ProductPage: React.FC = () => {
 
               <div className="flex items-center gap-4 text-xs text-slate-500 pt-2 border-t border-slate-100">
                 <span className="flex items-center gap-1.5 font-medium">
-                  <ShieldCheck className="w-4 h-4 text-[#507D88]" />
+                  <ShieldCheck className="w-4 h-4 text-nourdoc-primary" />
                   Clinician Validation Control
                 </span>
                 <span>•</span>
@@ -104,13 +104,13 @@ export const ProductPage: React.FC = () => {
 
             {/* Right: Single Cohesive Ultra-Premium Ambient Clinical Intelligence Frame */}
             <div className="lg:col-span-6">
-              <div className="relative rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900/95 to-[#0B171C] text-white p-6 sm:p-7 border border-slate-800/90 shadow-2xl overflow-hidden ring-1 ring-white/10">
+              <div className="relative rounded-3xl bg-gradient-to-br from-nourdoc-primary-dark via-nourdoc-primary-dark/95 to-nourdoc-primary-hover text-white p-6 sm:p-7 border border-white/10 shadow-2xl overflow-hidden ring-1 ring-white/10">
                 {/* Ambient glow effects */}
-                <div className="absolute top-0 right-0 w-72 h-72 bg-[#507D88]/20 rounded-full blur-3xl pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#7AB1BF]/15 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute top-0 right-0 w-72 h-72 bg-nourdoc-primary/20 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-72 h-72 bg-nourdoc-secondary/15 rounded-full blur-3xl pointer-events-none" />
 
                 {/* Top Status Header */}
-                <div className="relative z-10 flex items-center justify-between pb-4 mb-4 border-b border-slate-800/80">
+                <div className="relative z-10 flex items-center justify-between pb-4 mb-4 border-b border-white/10">
                   <div className="flex items-center gap-2.5">
                     <span className="relative flex h-2.5 w-2.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -125,46 +125,46 @@ export const ProductPage: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <span className="text-[10px] font-mono text-[#7AB1BF] bg-[#507D88]/20 px-2.5 py-1 rounded-md border border-[#507D88]/40">
+                  <span className="text-[10px] font-mono text-nourdoc-secondary bg-nourdoc-primary/20 px-2.5 py-1 rounded-md border border-nourdoc-primary/40">
                     NourDoc Engine
                   </span>
                 </div>
 
                 {/* Natural Speech Capture & Audio Waveform */}
                 <div className="relative z-10 space-y-3.5">
-                  <div className="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800/90 space-y-2.5">
+                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-2.5">
                     <div className="flex items-center justify-between text-xs">
                       <span className="flex items-center gap-2 font-bold text-slate-200">
-                        <Mic className="w-3.5 h-3.5 text-[#7AB1BF]" />
+                        <Mic className="w-3.5 h-3.5 text-nourdoc-secondary" />
                         Natural Dialogue Input
                       </span>
-                      <span className="text-[10px] font-mono text-[#7AB1BF] font-semibold">
+                      <span className="text-[10px] font-mono text-nourdoc-secondary font-semibold">
                         SPEECH WAVEFORM
                       </span>
                     </div>
 
                     {/* Gradient Equalizer Waveform */}
-                    <div className="h-7 flex items-center justify-between gap-1 px-2.5 py-1 bg-slate-900/90 rounded-lg border border-slate-800">
+                    <div className="h-7 flex items-center justify-between gap-1 px-2.5 py-1 bg-white/5 rounded-lg border border-white/10">
                       {[40, 75, 30, 90, 60, 100, 45, 80, 55, 95, 35, 70, 85, 40, 90, 65, 30, 80, 50, 95, 60, 40, 75, 85, 50, 90].map((h, i) => (
                         <div
                           key={i}
-                          className="w-1 rounded-full bg-gradient-to-t from-[#507D88] to-[#7AB1BF]"
+                          className="w-1 rounded-full bg-gradient-to-t from-nourdoc-primary to-nourdoc-secondary"
                           style={{ height: `${h}%` }}
                         />
                       ))}
                     </div>
 
-                    <div className="text-[11px] text-slate-300 italic bg-slate-900/60 px-3 py-1.5 rounded-md border border-slate-800/60 flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#7AB1BF] shrink-0" />
+                    <div className="text-[11px] text-slate-300 italic bg-white/5 px-3 py-1.5 rounded-md border border-white/10 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-nourdoc-secondary shrink-0" />
                       <span className="truncate">"Patient presents with mild respiratory symptoms and dry cough for 4 days..."</span>
                     </div>
                   </div>
 
                   {/* Real-time SOAP Synthesis & ICD-10 Tagging */}
-                  <div className="p-3.5 rounded-2xl bg-[#507D88]/15 border border-[#507D88]/30 space-y-2.5">
-                    <div className="flex items-center justify-between text-xs font-bold text-[#7AB1BF]">
+                  <div className="p-3.5 rounded-2xl bg-nourdoc-primary/15 border border-nourdoc-primary/30 space-y-2.5">
+                    <div className="flex items-center justify-between text-xs font-bold text-nourdoc-secondary">
                       <span className="flex items-center gap-1.5">
-                        <Sparkles className="w-3.5 h-3.5 text-[#7AB1BF]" />
+                        <Sparkles className="w-3.5 h-3.5 text-nourdoc-secondary" />
                         Clinical Synthesis & Coding Support
                       </span>
                       <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/50">
@@ -173,11 +173,11 @@ export const ProductPage: React.FC = () => {
                     </div>
 
                     <div className="grid grid-cols-2 gap-2 text-[11px] font-mono">
-                      <div className="bg-slate-950/80 p-2.5 rounded-xl border border-slate-800 space-y-0.5">
-                        <span className="text-[#7AB1BF] block font-bold text-[10px] uppercase">Assessment & Plan</span>
+                      <div className="bg-white/5 p-2.5 rounded-xl border border-white/10 space-y-0.5">
+                        <span className="text-nourdoc-secondary block font-bold text-[10px] uppercase">Assessment & Plan</span>
                         <span className="text-slate-300 line-clamp-2">Acute bronchitis. Prescribed maintenance therapy.</span>
                       </div>
-                      <div className="bg-slate-950/80 p-2.5 rounded-xl border border-slate-800 space-y-0.5">
+                      <div className="bg-white/5 p-2.5 rounded-xl border border-white/10 space-y-0.5">
                         <span className="text-emerald-400 block font-bold text-[10px] uppercase">Validated Codes</span>
                         <span className="text-slate-300 text-[10px]">ICD-10: J20.9 • CPT: 99214</span>
                       </div>
@@ -186,12 +186,12 @@ export const ProductPage: React.FC = () => {
                 </div>
 
                 {/* Footer Governance Tag */}
-                <div className="relative z-10 mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+                <div className="relative z-10 mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400">
                   <span className="flex items-center gap-1.5">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                     Clinician Validated • Assistive AI
                   </span>
-                  <span className="text-[#7AB1BF] font-mono font-semibold">FHIR / EHR Ready</span>
+                  <span className="text-nourdoc-secondary font-mono font-semibold">FHIR / EHR Ready</span>
                 </div>
               </div>
             </div>
@@ -228,7 +228,7 @@ export const ProductPage: React.FC = () => {
             return (
               <Card key={idx} hover={true} className="text-center p-6 flex flex-col justify-between space-y-4">
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center mx-auto mb-3 group-hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mx-auto mb-3 group-hover:scale-105 transition-transform">
                     <Icon className="w-5 h-5" />
                   </div>
                   <h3 className="text-sm font-bold text-slate-900 leading-snug">{inp}</h3>
@@ -244,7 +244,7 @@ export const ProductPage: React.FC = () => {
 
       {/* 5. Flexible Deployment (Cloud / On-Premises / Hybrid) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-slate-900 text-white p-8 sm:p-12 lg:p-16 border border-slate-800 shadow-2xl space-y-8">
+        <div className="rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl space-y-8">
           <SectionHeading
             eyebrow={page.deployment.eyebrow}
             title={page.deployment.h2}
@@ -259,16 +259,16 @@ export const ProductPage: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className="bg-slate-800/90 rounded-2xl p-6 sm:p-8 border border-slate-700/60 hover:border-[#7AB1BF]/60 transition-all flex flex-col justify-between space-y-4"
+                  className="bg-white/5 rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between space-y-4"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-2xl bg-[#507D88]/20 text-[#7AB1BF] flex items-center justify-center mb-5">
+                    <div className="w-12 h-12 rounded-2xl bg-nourdoc-primary/20 text-nourdoc-secondary flex items-center justify-center mb-5">
                       <Icon className="w-6 h-6" />
                     </div>
                     <h3 className="text-lg font-bold text-white mb-2">{card.title}</h3>
                     <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{card.desc}</p>
                   </div>
-                  <div className="text-[11px] font-mono text-[#7AB1BF] pt-3 border-t border-slate-700 flex items-center gap-1.5">
+                  <div className="text-[11px] font-mono text-nourdoc-secondary pt-3 border-t border-white/10 flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5" />
                     <span>Enterprise Deployment Option</span>
                   </div>
@@ -281,12 +281,12 @@ export const ProductPage: React.FC = () => {
 
       {/* 6. Integration-Ready (EHR / EMR / HIMS Positioning) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-br from-[#EBF3F5]/80 via-white to-slate-50 border border-[#507D88]/30 p-8 sm:p-12 lg:p-16 max-w-4xl mx-auto text-center space-y-6 shadow-sm">
-          <div className="w-14 h-14 rounded-2xl bg-white text-[#507D88] flex items-center justify-center mx-auto border border-[#507D88]/20 shadow-sm">
+        <div className="rounded-3xl bg-gradient-to-br from-nourdoc-primary-light/80 via-white to-slate-50 border border-nourdoc-primary/30 p-8 sm:p-12 lg:p-16 max-w-4xl mx-auto text-center space-y-6 shadow-sm">
+          <div className="w-14 h-14 rounded-2xl bg-white text-nourdoc-primary flex items-center justify-center mx-auto border border-nourdoc-primary/20 shadow-sm">
             <Network className="w-7 h-7" />
           </div>
           <div>
-            <span className="inline-block text-xs font-bold text-[#507D88] uppercase tracking-widest bg-white px-4 py-1.5 rounded-full mb-3 border border-[#507D88]/20 shadow-xs">
+            <span className="inline-block text-xs font-bold text-nourdoc-primary uppercase tracking-widest bg-white px-4 py-1.5 rounded-full mb-3 border border-nourdoc-primary/20 shadow-xs">
               {page.integrationReady.eyebrow}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">

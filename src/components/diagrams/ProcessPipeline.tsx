@@ -75,8 +75,8 @@ export const ProcessPipeline: React.FC<ProcessPipelineProps> = ({
               <div
                 className={`flex-1 rounded-xl p-4 flex flex-col justify-between border transition-all duration-300 ${
                   dark
-                    ? 'bg-[#1E293B] border-slate-700/60 hover:border-[#7AB1BF]/50 text-white shadow-md'
-                    : 'bg-white border-slate-200/90 hover:border-[#507D88]/40 text-slate-900 shadow-sm hover:shadow-md'
+                    ? 'bg-white/5 border-white/10 hover:border-white/25 text-white shadow-md'
+                    : 'bg-white border-slate-200/90 hover:border-nourdoc-primary/40 text-slate-900 shadow-sm hover:shadow-md'
                 }`}
               >
                 <div>
@@ -84,15 +84,15 @@ export const ProcessPipeline: React.FC<ProcessPipelineProps> = ({
                     <span
                       className={`text-xs font-mono font-black px-2 py-0.5 rounded ${
                         dark
-                          ? 'bg-[#0F172A] text-[#7AB1BF]'
-                          : 'bg-[#EBF3F5] text-[#507D88]'
+                          ? 'bg-white/10 text-nourdoc-secondary'
+                          : 'bg-nourdoc-primary-light text-nourdoc-primary'
                       }`}
                     >
                       {item.step}
                     </span>
                     <div
                       className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                        dark ? 'bg-slate-800 text-[#7AB1BF]' : 'bg-[#EBF3F5] text-[#507D88]'
+                        dark ? 'bg-white/10 text-nourdoc-secondary' : 'bg-nourdoc-primary-light text-nourdoc-primary'
                       }`}
                     >
                       <Icon className="w-4 h-4" />
@@ -113,7 +113,7 @@ export const ProcessPipeline: React.FC<ProcessPipelineProps> = ({
 
               {/* Arrow Connector to Next Card */}
               {idx < steps.length - 1 && (
-                <div className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 hidden xl:flex items-center justify-center w-5 h-5 rounded-full bg-[#507D88] text-white shadow-sm pointer-events-none">
+                <div className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 hidden xl:flex items-center justify-center w-5 h-5 rounded-full bg-nourdoc-primary text-white shadow-sm pointer-events-none">
                   <ArrowRight className="w-3 h-3" />
                 </div>
               )}
@@ -131,13 +131,13 @@ export const ProcessPipeline: React.FC<ProcessPipelineProps> = ({
               <div
                 className={`w-full rounded-xl p-4 border flex items-start gap-4 ${
                   dark
-                    ? 'bg-[#1E293B] border-slate-700 text-white'
+                    ? 'bg-white/5 border-white/10 text-white'
                     : 'bg-white border-slate-200 text-slate-900 shadow-sm'
                 }`}
               >
                 <div
                   className={`w-10 h-10 shrink-0 rounded-xl flex items-center justify-center ${
-                    dark ? 'bg-slate-800 text-[#7AB1BF]' : 'bg-[#EBF3F5] text-[#507D88]'
+                    dark ? 'bg-white/10 text-nourdoc-secondary' : 'bg-nourdoc-primary-light text-nourdoc-primary'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -147,8 +147,8 @@ export const ProcessPipeline: React.FC<ProcessPipelineProps> = ({
                     <span
                       className={`text-xs font-mono font-bold px-2 py-0.5 rounded ${
                         dark
-                          ? 'bg-[#0F172A] text-[#7AB1BF]'
-                          : 'bg-[#EBF3F5] text-[#507D88]'
+                          ? 'bg-white/10 text-nourdoc-secondary'
+                          : 'bg-nourdoc-primary-light text-nourdoc-primary'
                       }`}
                     >
                       STAGE {item.step}
@@ -166,7 +166,7 @@ export const ProcessPipeline: React.FC<ProcessPipelineProps> = ({
               </div>
 
               {idx < steps.length - 1 && (
-                <div className="py-1 text-[#507D88]">
+                <div className="py-1 text-nourdoc-primary">
                   <ArrowDown className="w-4 h-4" />
                 </div>
               )}

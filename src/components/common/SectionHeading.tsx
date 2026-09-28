@@ -26,8 +26,8 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
         <span
           className={`inline-block text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-full mb-3 ${
             dark
-              ? 'bg-[#1E293B] text-[#7AB1BF] border border-[#7AB1BF]/30'
-              : 'bg-[#EBF3F5] text-[#507D88] border border-[#507D88]/20'
+              ? 'bg-white/5 text-nourdoc-secondary border border-white/15'
+              : 'bg-nourdoc-primary-light text-nourdoc-primary border border-nourdoc-primary/20'
           }`}
         >
           {eyebrow}

@@ -24,12 +24,12 @@ export const DesignSystemPage: React.FC = () => {
     <div className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
       {/* Header */}
       <div className="border-b border-slate-200 pb-8">
-        <Badge variant="teal" size="md">Design System Showcase</Badge>
+        <Badge variant="primary" size="md">Design System Showcase</Badge>
         <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
           NourDoc Premium HealthTech Design System
         </h1>
         <p className="mt-3 text-slate-600 max-w-3xl text-sm sm:text-base leading-relaxed">
-          A restrained, clinical-grade design system engineered for high legibility, accessible color contrasts, and subtle visual hierarchy. White is dominant; <code className="font-mono text-[#507D88] font-bold">#507D88</code> and <code className="font-mono text-[#7AB1BF] font-bold">#7AB1BF</code> serve as focused accents.
+          A restrained, clinical-grade design system engineered for high legibility, accessible color contrasts, and subtle visual hierarchy. White is dominant; <code className="font-mono text-nourdoc-primary font-bold">#286252</code> and <code className="font-mono text-nourdoc-secondary font-bold">#6F9C90</code> serve as focused accents.
         </p>
       </div>
 
@@ -44,7 +44,7 @@ export const DesignSystemPage: React.FC = () => {
               Zero white bounding box; sub-pixel anti-aliased transparency optimized for light, brand tint, and dark slate viewports.
             </p>
           </div>
-          <span className="text-xs font-mono font-bold text-[#507D88] bg-[#EBF3F5] px-3 py-1 rounded-full border border-[#507D88]/20 self-start sm:self-auto">
+          <span className="text-xs font-mono font-bold text-nourdoc-primary bg-nourdoc-primary-light px-3 py-1 rounded-full border border-nourdoc-primary/20 self-start sm:self-auto">
             Lossless RGBA
           </span>
         </div>
@@ -73,24 +73,24 @@ export const DesignSystemPage: React.FC = () => {
           </Card>
 
           {/* Horizontal Brandmark on Tint */}
-          <Card className="p-6 flex flex-col items-center justify-between text-center space-y-4 bg-[#EBF3F5] border border-[#507D88]/30">
+          <Card className="p-6 flex flex-col items-center justify-between text-center space-y-4 bg-nourdoc-primary-light border border-nourdoc-primary/30">
             <div className="w-full py-6 flex items-center justify-center">
               <img src={logoHorizontal} alt="NourDoc Horizontal Brandmark" className="h-10 w-auto object-contain" />
             </div>
-            <div className="border-t border-[#507D88]/20 pt-2 w-full text-center">
+            <div className="border-t border-nourdoc-primary/20 pt-2 w-full text-center">
               <span className="text-xs font-bold text-slate-900 block">Horizontal Brandmark</span>
-              <span className="text-[10px] font-mono text-[#507D88]">Header / Wide (logo-horizontal.png)</span>
+              <span className="text-[10px] font-mono text-nourdoc-primary">Header / Wide (logo-horizontal.png)</span>
             </div>
           </Card>
 
           {/* Full Logo on Dark Background */}
-          <Card className="p-6 flex flex-col items-center justify-between text-center space-y-4 bg-[#0F172A] border border-slate-800 text-white">
+          <Card className="p-6 flex flex-col items-center justify-between text-center space-y-4 bg-nourdoc-primary-dark border border-white/10 text-white">
             <div className="w-full py-4 flex items-center justify-center">
               <img src={logoWhite} alt="NourDoc Dark Contrast" className="h-20 w-auto object-contain" />
             </div>
-            <div className="border-t border-slate-800 pt-2 w-full text-center">
+            <div className="border-t border-white/10 pt-2 w-full text-center">
               <span className="text-xs font-bold text-white block">Dark Background Variant</span>
-              <span className="text-[10px] font-mono text-[#7AB1BF]">Footer / Dark (logo-white.png)</span>
+              <span className="text-[10px] font-mono text-nourdoc-secondary">Footer / Dark (logo-white.png)</span>
             </div>
           </Card>
         </div>
@@ -102,41 +102,41 @@ export const DesignSystemPage: React.FC = () => {
           2. Color Palette & Measured Contrast Tokens
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Primary Teal */}
+          {/* Primary Deep Jade */}
           <div className="rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-            <div className="h-20 bg-[#507D88] p-3 flex flex-col justify-end text-white">
-              <span className="font-mono text-xs font-bold">#507D88</span>
+            <div className="h-20 bg-nourdoc-primary p-3 flex flex-col justify-end text-white">
+              <span className="font-mono text-xs font-bold">#286252</span>
             </div>
             <div className="p-4 bg-white space-y-1">
-              <div className="font-bold text-xs text-slate-900">Primary Teal</div>
+              <div className="font-bold text-xs text-slate-900">Primary Deep Jade</div>
               <div className="text-[11px] text-slate-500">Core Brand Accent & CTAs</div>
               <div className="text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded mt-2 inline-block">
-                Contrast on White: 4.54:1 (AA)
+                Contrast on White: 6.91:1 (AAA)
               </div>
             </div>
           </div>
 
-          {/* Secondary Light Teal */}
+          {/* Secondary Jade */}
           <div className="rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-            <div className="h-20 bg-[#7AB1BF] p-3 flex flex-col justify-end text-slate-900">
-              <span className="font-mono text-xs font-bold">#7AB1BF</span>
+            <div className="h-20 bg-nourdoc-secondary p-3 flex flex-col justify-end text-slate-900">
+              <span className="font-mono text-xs font-bold">#6F9C90</span>
             </div>
             <div className="p-4 bg-white space-y-1">
-              <div className="font-bold text-xs text-slate-900">Secondary Light Teal</div>
+              <div className="font-bold text-xs text-slate-900">Secondary Jade</div>
               <div className="text-[11px] text-slate-500">Highlights & Node Accents</div>
               <div className="text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded mt-2 inline-block">
-                Contrast on Dark: 6.82:1 (AAA)
+                Contrast on Dark: 5.68:1 (AA)
               </div>
             </div>
           </div>
 
           {/* Dark Slate Background */}
           <div className="rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-            <div className="h-20 bg-[#0F172A] p-3 flex flex-col justify-end text-white">
-              <span className="font-mono text-xs font-bold">#0F172A</span>
+            <div className="h-20 bg-nourdoc-primary-dark p-3 flex flex-col justify-end text-white">
+              <span className="font-mono text-xs font-bold">#183B33</span>
             </div>
             <div className="p-4 bg-white space-y-1">
-              <div className="font-bold text-xs text-slate-900">Dark Slate Neutral</div>
+              <div className="font-bold text-xs text-slate-900">Deep Jade Dark Surface</div>
               <div className="text-[11px] text-slate-500">Footer & Architecture Diagrams</div>
               <div className="text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded mt-2 inline-block">
                 White on Dark: 18.5:1 (AAA)
@@ -146,14 +146,14 @@ export const DesignSystemPage: React.FC = () => {
 
           {/* Soft Tint Surface */}
           <div className="rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-            <div className="h-20 bg-[#EBF3F5] p-3 flex flex-col justify-end text-[#507D88]">
-              <span className="font-mono text-xs font-bold">#EBF3F5</span>
+            <div className="h-20 bg-nourdoc-primary-light p-3 flex flex-col justify-end text-nourdoc-primary">
+              <span className="font-mono text-xs font-bold">#E8F2EF</span>
             </div>
             <div className="p-4 bg-white space-y-1">
-              <div className="font-bold text-xs text-slate-900">Teal Soft Surface</div>
+              <div className="font-bold text-xs text-slate-900">Jade Soft Surface</div>
               <div className="text-[11px] text-slate-500">Badges & Interactive Backdrops</div>
               <div className="text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded mt-2 inline-block">
-                Teal on Surface: 4.1:1
+                Jade on Surface: 6.18:1 (AA)
               </div>
             </div>
           </div>
@@ -247,7 +247,7 @@ export const DesignSystemPage: React.FC = () => {
           <Card className="p-6 space-y-4">
             <h3 className="text-sm font-bold text-slate-900">Badges & Tags</h3>
             <div className="flex flex-wrap gap-2">
-              <Badge variant="teal">Primary Teal</Badge>
+              <Badge variant="primary">Primary Deep Jade</Badge>
               <Badge variant="outline">Enterprise</Badge>
               <Badge variant="neutral">Starter</Badge>
               <Badge variant="success">Claim-Ready</Badge>
@@ -266,7 +266,7 @@ export const DesignSystemPage: React.FC = () => {
                 <span>Unconfigured Delivery Warning</span>
               </div>
               <div className="flex items-center gap-2 text-slate-700 font-medium">
-                <ShieldCheck className="w-4 h-4 text-[#507D88]" />
+                <ShieldCheck className="w-4 h-4 text-nourdoc-primary" />
                 <span>HIPAA-Conforming Design</span>
               </div>
             </div>

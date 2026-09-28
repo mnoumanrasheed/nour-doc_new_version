@@ -47,10 +47,10 @@ export const ArchitectureHub: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="rounded-3xl bg-slate-900 text-white p-8 sm:p-12 border border-slate-800 shadow-2xl relative overflow-hidden"
+      className="rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 border border-white/10 shadow-2xl relative overflow-hidden"
     >
       <div className="text-center max-w-2xl mx-auto mb-10">
-        <span className="inline-block text-xs font-bold text-[#7AB1BF] uppercase tracking-widest bg-slate-800 px-3 py-1 rounded-full mb-2">
+        <span className="inline-block text-xs font-bold text-nourdoc-secondary uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full mb-2 border border-white/10">
           Interoperability Architecture
         </span>
         <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
@@ -68,9 +68,9 @@ export const ArchitectureHub: React.FC = () => {
           return (
             <div
               key={idx}
-              className="spoke-card bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-slate-700 hover:border-[#7AB1BF]/60 transition-all flex items-start gap-4"
+              className="spoke-card bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 hover:border-white/25 transition-all flex items-start gap-4"
             >
-              <div className="w-10 h-10 rounded-xl bg-[#507D88]/20 text-[#7AB1BF] flex items-center justify-center text-[#7AB1BF] shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-nourdoc-primary/20 text-nourdoc-secondary flex items-center justify-center text-nourdoc-secondary shrink-0">
                 <Icon className="w-5 h-5" />
               </div>
               <div>

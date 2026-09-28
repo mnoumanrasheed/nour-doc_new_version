@@ -80,9 +80,9 @@ nourdoc-website/
 
 ### 1. Design Tokens: `src/theme.js`
 - **Colors**:
-  - Primary Brand Teal: `#507D88` (Hover: `#3F646D`, Dark: `#2C4950`, Light: `#EBF3F5`)
-  - Secondary Light Teal: `#7AB1BF` (Hover: `#649CA9`, Light: `#F0F7F9`)
-  - Dark Contrast / Footer: `#0F172A` (Cards: `#1E293B`)
+  - Primary Deep Jade: `#286252` (Hover: `#1F4E42`, Dark: `#183B33`, Light: `#E8F2EF`)
+  - Secondary Jade: `#6F9C90` (Medium: `#3D7566`, Light: `#EDF5F2`)
+  - Deep Jade Contrast / Footer: `#183B33` (Cards: translucent white overlays)
 - **Typography**: Sans (`Plus Jakarta Sans`, `Inter`, sans-serif) & Mono (`JetBrains Mono`, monospace)
 - **Motion Tokens**: Durations, spring parameters, and standard bezier curves (`[0.16, 1, 0.3, 1]`)
 - **Rule**: Never hardcode arbitrary hex codes in components; consume Tailwind utility variables or `src/theme.js`.
@@ -102,7 +102,7 @@ nourdoc-website/
 2. **Book a Demo Routing Protocol**:
    - Destination: `/about-contact?intent=bookDemo&topic=Other`
    - Pre-selects `"Other"` among the 9 source topics (the source PDF contains no "Book a Demo" topic).
-   - Displays direct Sales email fallback (`hello@nur-doc.com`).
+   - Displays direct Sales email fallback (`hello@nour-doc.com`).
    - Never claims a demo/meeting has been booked.
 3. **Contact Form 9 Discussion Topics (Exact Source Fact)**:
    - `Try NourDoc`
@@ -115,14 +115,14 @@ nourdoc-website/
    - `Partnership`
    - `Other`
 4. **Official Contact Emails**:
-   - **Sales**: `hello@nur-doc.com`
-   - **Support**: `support@nur-doc.com`
-   - **Partnerships**: `hello@nur-doc.com`
-   - **Investors**: `hello@nur-doc.com`
+   - **Sales**: `hello@nour-doc.com`
+   - **Support**: `support@nour-doc.com`
+   - **Partnerships**: `hello@nour-doc.com`
+   - **Investors**: `hello@nour-doc.com`
 5. **Unconfigured Form Submission Protocol**:
    - If online form backend is not connected, the form renders:
      > *"Your message was not sent because form delivery is not configured."*
-   - Displays official fallback email (`hello@nur-doc.com`). No false success toasts or claims of message dispatch.
+   - Displays official fallback email (`hello@nour-doc.com`). No false success toasts or claims of message dispatch.
 6. **1M+ Encounters Architecture Claim**:
    - Verbatim wording preserved: `"NourDoc's platform architecture is designed to entertain 1+ million clinical encounters per day in appropriately configured enterprise environments."`
    - Flagged `"entertain"` for owner editorial review while keeping qualification strictly intact.

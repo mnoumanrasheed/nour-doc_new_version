@@ -44,11 +44,11 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const variantStyles = {
-    primary: 'bg-[#507D88] text-white hover:bg-[#3F646D] shadow-sm hover:shadow-[#507D88]/20 focus-visible:outline-[#507D88]',
-    secondary: 'bg-[#EBF3F5] text-[#507D88] hover:bg-[#d8eaee] font-bold focus-visible:outline-[#507D88]',
-    outline: 'border border-[#507D88] text-[#507D88] bg-transparent hover:bg-[#EBF3F5] focus-visible:outline-[#507D88]',
-    ghost: 'text-[#475569] hover:text-[#507D88] hover:bg-[#F8FAFC] focus-visible:outline-[#507D88]',
-    dark: 'bg-[#0F172A] text-white hover:bg-[#1E293B] shadow-md focus-visible:outline-[#0F172A]',
+    primary: 'bg-nourdoc-primary text-white hover:bg-nourdoc-primary-hover shadow-sm hover:shadow-nourdoc-primary/20 focus-visible:outline-nourdoc-primary',
+    secondary: 'bg-nourdoc-primary-light text-nourdoc-primary hover:bg-nourdoc-secondary-light font-bold focus-visible:outline-nourdoc-primary',
+    outline: 'border border-nourdoc-primary text-nourdoc-primary bg-transparent hover:bg-nourdoc-primary-light focus-visible:outline-nourdoc-primary',
+    ghost: 'text-[#475569] hover:text-nourdoc-primary hover:bg-[#F8FAFC] focus-visible:outline-nourdoc-primary',
+    dark: 'bg-nourdoc-primary-dark text-white hover:bg-nourdoc-primary-hover shadow-md focus-visible:outline-nourdoc-primary',
   };
 
   const classes = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;

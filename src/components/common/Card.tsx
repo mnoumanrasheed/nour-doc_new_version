@@ -18,17 +18,17 @@ export const Card: React.FC<CardProps> = ({
 }) => {
   const baseStyles = 'rounded-2xl p-6 md:p-8 transition-all duration-300 relative';
   const colorStyles = dark
-    ? 'bg-[#1E293B] text-white'
+    ? 'bg-nourdoc-dark-card text-white'
     : 'bg-white text-slate-900 shadow-sm';
   const borderStyles = border
     ? dark
-      ? 'border border-slate-700/60'
+      ? 'border border-white/10'
       : 'border border-slate-200/80'
     : '';
   const hoverStyles = hover
     ? dark
-      ? 'hover:border-[#7AB1BF]/40 hover:shadow-xl hover:shadow-[#0F172A]'
-      : 'hover:border-[#507D88]/30 hover:shadow-lg hover:shadow-[#507D88]/5 hover:-translate-y-1'
+      ? 'hover:border-white/25 hover:shadow-xl hover:shadow-nourdoc-primary-dark'
+      : 'hover:border-nourdoc-primary/30 hover:shadow-lg hover:shadow-nourdoc-primary/5 hover:-translate-y-1'
     : '';
 
   return (

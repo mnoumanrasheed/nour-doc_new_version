@@ -3,14 +3,17 @@
 
 /**
  * @typedef {Object} ThemeColors
- * @property {string} primaryTeal
- * @property {string} primaryTealHover
- * @property {string} primaryTealDark
- * @property {string} primaryTealLight
- * @property {string} primaryTealSurface
- * @property {string} secondaryTeal
- * @property {string} secondaryTealHover
- * @property {string} secondaryTealLight
+ * @property {string} primary
+ * @property {string} primaryHover
+ * @property {string} primaryDark
+ * @property {string} primaryMedium
+ * @property {string} accentLight
+ * @property {string} accentHover
+ * @property {string} primaryLight
+ * @property {string} primarySurface
+ * @property {string} secondary
+ * @property {string} secondaryHover
+ * @property {string} secondaryLight
  * @property {string} bgWhite
  * @property {string} bgSlateLight
  * @property {string} bgSlateSubtle
@@ -22,10 +25,10 @@
  * @property {string} textPrimary
  * @property {string} textSecondary
  * @property {string} textMuted
- * @property {string} textTeal
+ * @property {string} textPrimaryBrand
  * @property {string} textWhite
  * @property {string} borderLight
- * @property {string} borderTeal
+ * @property {string} borderPrimary
  * @property {string} borderFocus
  * @property {string} success
  * @property {string} warning
@@ -54,17 +57,20 @@
 /** @type {Theme} */
 export const theme = {
   colors: {
-    // Brand Primary Teal (Visual PDF pp. 1, 16-17)
-    primaryTeal: '#507D88',
-    primaryTealHover: '#3F646D',
-    primaryTealDark: '#2C4950',
-    primaryTealLight: '#EBF3F5',
-    primaryTealSurface: '#F4F9FA',
+    // Official NourDoc Deep Jade brand palette
+    primary: '#286252',
+    primaryHover: '#1F4E42',
+    primaryDark: '#183B33',
+    primaryMedium: '#3D7566',
+    accentLight: '#8FB7AC',
+    accentHover: '#A9CBC2',
+    primaryLight: '#E8F2EF',
+    primarySurface: '#F4F8F7',
     
-    // Brand Secondary Light Teal
-    secondaryTeal: '#7AB1BF',
-    secondaryTealHover: '#649CA9',
-    secondaryTealLight: '#F0F7F9',
+    // Brand Secondary Jade
+    secondary: '#6F9C90',
+    secondaryHover: '#6F9C90',
+    secondaryLight: '#EDF5F2',
     
     // Neutral Backgrounds
     bgWhite: '#FFFFFF',
@@ -73,22 +79,22 @@ export const theme = {
     bgCard: '#FFFFFF',
     bgCardHover: '#FAFCFD',
     
-    // Dark Contrast Backgrounds (Footer, Technical diagrams)
-    bgDark: '#0F172A',
-    bgDarkCard: '#1E293B',
-    bgDarkCardHover: '#334155',
+    // Deep Jade Contrast Backgrounds (Footer, Technical diagrams)
+    bgDark: '#183B33',
+    bgDarkCard: 'rgba(255, 255, 255, 0.05)',
+    bgDarkCardHover: 'rgba(255, 255, 255, 0.10)',
     
     // Text Hierarchy
     textPrimary: '#0F172A',
     textSecondary: '#475569',
     textMuted: '#64748B',
-    textTeal: '#507D88',
+    textPrimaryBrand: '#286252',
     textWhite: '#FFFFFF',
     
     // Borders & UI
     borderLight: '#E2E8F0',
-    borderTeal: 'rgba(80, 125, 136, 0.25)',
-    borderFocus: '#507D88',
+    borderPrimary: 'rgba(40, 98, 82, 0.25)',
+    borderFocus: '#286252',
     
     // Status & Feedback
     success: '#10B981',
@@ -126,8 +132,8 @@ export const theme = {
     md: '0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05)',
     lg: '0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04)',
     xl: '0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04)',
-    tealGlow: '0 10px 25px -5px rgba(80, 125, 136, 0.25)',
-    cardHover: '0 12px 30px -4px rgba(80, 125, 136, 0.12)',
+    jadeGlow: '0 10px 25px -5px rgba(40, 98, 82, 0.25)',
+    cardHover: '0 12px 30px -4px rgba(40, 98, 82, 0.12)',
   },
   radii: {
     sm: '6px',

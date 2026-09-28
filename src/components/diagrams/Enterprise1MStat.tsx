@@ -54,22 +54,22 @@ export const Enterprise1MStat: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="relative rounded-3xl bg-[#0F172A] text-white p-8 sm:p-12 lg:p-16 overflow-hidden border border-slate-800 shadow-2xl"
+      className="relative rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 lg:p-16 overflow-hidden border border-white/10 shadow-2xl"
     >
       {/* Background Grid & Ambient Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(#507D88_1px,transparent_1px)] [background-size:24px_24px] opacity-15" />
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#507D88]/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#7AB1BF]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(nourdoc-primary_1px,transparent_1px)] [background-size:24px_24px] opacity-15" />
+      <div className="absolute -top-24 -right-24 w-96 h-96 bg-nourdoc-primary/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-nourdoc-secondary/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         {/* Left: 1M+ Typographic Stat */}
         <div className="lg:col-span-6 text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-[#1E293B] text-[#7AB1BF] border border-[#7AB1BF]/30 mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-white/5 text-nourdoc-secondary border border-white/15 mb-4">
             <Zap className="w-3.5 h-3.5" />
             Architectural Capacity
           </div>
 
-          <div className="stat-number text-6xl sm:text-7xl lg:text-8xl font-black tracking-tight text-[#7AB1BF] font-mono leading-none">
+          <div className="stat-number text-6xl sm:text-7xl lg:text-8xl font-black tracking-tight text-nourdoc-secondary font-mono leading-none">
             1M+
           </div>
 
@@ -88,21 +88,21 @@ export const Enterprise1MStat: React.FC = () => {
 
         {/* Right: Architecture Data Node Streaming Graphic */}
         <div className="lg:col-span-6 space-y-4">
-          <div className="bg-[#1E293B]/80 backdrop-blur-md rounded-2xl p-6 border border-slate-700/80 shadow-lg">
-            <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-700/60 text-xs font-bold text-slate-300">
+          <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 shadow-lg">
+            <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10 text-xs font-bold text-slate-300">
               <span className="flex items-center gap-2">
-                <Activity className="w-4 h-4 text-[#7AB1BF]" />
+                <Activity className="w-4 h-4 text-nourdoc-secondary" />
                 Encounter Ingestion Pipeline
               </span>
-              <span className="font-mono text-[11px] text-[#7AB1BF] bg-slate-800 px-2 py-0.5 rounded">
+              <span className="font-mono text-[11px] text-nourdoc-secondary bg-white/10 px-2 py-0.5 rounded">
                 ENTERPRISE SCALE
               </span>
             </div>
 
             <div className="space-y-3">
-              <div className="data-node flex items-center justify-between p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 text-xs">
+              <div className="data-node flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 text-xs">
                 <div className="flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-lg bg-[#507D88]/20 flex items-center justify-center text-[#7AB1BF]">
+                  <div className="w-7 h-7 rounded-lg bg-nourdoc-primary/20 flex items-center justify-center text-nourdoc-secondary">
                     <Server className="w-3.5 h-3.5" />
                   </div>
                   <div>
@@ -115,9 +115,9 @@ export const Enterprise1MStat: React.FC = () => {
                 </span>
               </div>
 
-              <div className="data-node flex items-center justify-between p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 text-xs">
+              <div className="data-node flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 text-xs">
                 <div className="flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-lg bg-[#507D88]/20 flex items-center justify-center text-[#7AB1BF]">
+                  <div className="w-7 h-7 rounded-lg bg-nourdoc-primary/20 flex items-center justify-center text-nourdoc-secondary">
                     <Database className="w-3.5 h-3.5" />
                   </div>
                   <div>
@@ -125,15 +125,15 @@ export const Enterprise1MStat: React.FC = () => {
                     <div className="text-[10px] text-slate-400">Thousands to millions of clinical encounters</div>
                   </div>
                 </div>
-                <span className="font-mono text-[10px] text-[#7AB1BF] bg-[#507D88]/20 px-2 py-0.5 rounded border border-[#7AB1BF]/30">
+                <span className="font-mono text-[10px] text-nourdoc-secondary bg-nourdoc-primary/20 px-2 py-0.5 rounded border border-nourdoc-secondary/30">
                   DISTRIBUTED
                 </span>
               </div>
             </div>
 
-            <div className="mt-4 pt-3 border-t border-slate-700/40 flex items-center justify-between text-[11px] text-slate-400">
+            <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400">
               <span>Output: JSON • XML • CSV • PDF • API</span>
-              <span className="text-[#7AB1BF] font-mono">Downstream-Ready</span>
+              <span className="text-nourdoc-secondary font-mono">Downstream-Ready</span>
             </div>
           </div>
         </div>

@@ -38,7 +38,7 @@ export const HomePage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 my-8">
           {page.theProblem.roles.map((item, idx) => (
             <Card key={idx} hover={true} className="text-center p-5">
-              <div className="w-8 h-8 rounded-full bg-[#EBF3F5] text-[#507D88] flex items-center justify-center mx-auto mb-3 text-xs font-mono font-bold">
+              <div className="w-8 h-8 rounded-full bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mx-auto mb-3 text-xs font-mono font-bold">
                 0{idx + 1}
               </div>
               <h3 className="text-sm font-bold text-slate-900">{item.role}</h3>
@@ -66,10 +66,10 @@ export const HomePage: React.FC = () => {
 
       {/* 4. Start With Your Phone (Android App Section) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-br from-[#EBF3F5]/90 via-white to-slate-50 border border-[#507D88]/20 p-8 sm:p-12 lg:p-16">
+        <div className="rounded-3xl bg-gradient-to-br from-nourdoc-primary-light/90 via-white to-slate-50 border border-nourdoc-primary/20 p-8 sm:p-12 lg:p-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-6">
-              <span className="inline-block text-xs font-bold text-[#507D88] uppercase tracking-widest bg-white px-3 py-1 rounded-full border border-[#507D88]/20">
+              <span className="inline-block text-xs font-bold text-nourdoc-primary uppercase tracking-widest bg-white px-3 py-1 rounded-full border border-nourdoc-primary/20">
                 {page.appSection.eyebrow}
               </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
@@ -101,24 +101,24 @@ export const HomePage: React.FC = () => {
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-nourdoc-primary-dark via-nourdoc-primary-dark/40 to-transparent" />
                   <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
                     <span className="text-xs font-bold flex items-center gap-1.5">
-                      <Smartphone className="w-3.5 h-3.5 text-[#7AB1BF]" />
+                      <Smartphone className="w-3.5 h-3.5 text-nourdoc-secondary" />
                       Point-of-Care Assistant
                     </span>
-                    <span className="text-[10px] font-mono text-[#7AB1BF] bg-slate-900/80 px-2 py-0.5 rounded border border-slate-700">
+                    <span className="text-[10px] font-mono text-nourdoc-secondary bg-white/10 px-2 py-0.5 rounded border border-white/15">
                       Android v1.0
                     </span>
                   </div>
                 </div>
 
-                <div className="p-5 bg-slate-900 text-white space-y-3">
-                  <div className="flex items-center justify-between text-xs pb-2 border-b border-slate-800">
+                <div className="p-5 bg-nourdoc-primary-dark text-white space-y-3">
+                  <div className="flex items-center justify-between text-xs pb-2 border-b border-white/10">
                     <span className="text-slate-300 font-semibold">Live Consultation Stream</span>
                     <span className="text-[10px] font-mono text-emerald-400 font-bold">SOAP READY</span>
                   </div>
-                  <div className="text-[11px] text-slate-300 bg-slate-950/80 p-3 rounded-xl border border-slate-800 font-mono space-y-1">
+                  <div className="text-[11px] text-slate-300 bg-white/5 p-3 rounded-xl border border-white/10 font-mono space-y-1">
                     <div className="text-emerald-400">✓ Subjective & Chief Complaint</div>
                     <div className="text-emerald-400">✓ Objective Examination</div>
                     <div className="text-emerald-400">✓ Clinical Assessment</div>
@@ -126,7 +126,7 @@ export const HomePage: React.FC = () => {
                   </div>
                   <div className="pt-1 flex items-center justify-between text-[10px] text-slate-400">
                     <span>Google Play Available</span>
-                    <span className="text-[#7AB1BF] font-mono font-bold">Try Free</span>
+                    <span className="text-nourdoc-secondary font-mono font-bold">Try Free</span>
                   </div>
                 </div>
               </div>
@@ -155,7 +155,7 @@ export const HomePage: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card hover={true}>
-            <div className="w-10 h-10 rounded-xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center mb-4">
+            <div className="w-10 h-10 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mb-4">
               <Cloud className="w-5 h-5" />
             </div>
             <h3 className="text-lg font-bold text-slate-900 mb-2">Cloud</h3>
@@ -165,7 +165,7 @@ export const HomePage: React.FC = () => {
           </Card>
 
           <Card hover={true}>
-            <div className="w-10 h-10 rounded-xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center mb-4">
+            <div className="w-10 h-10 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mb-4">
               <Server className="w-5 h-5" />
             </div>
             <h3 className="text-lg font-bold text-slate-900 mb-2">On-Premises</h3>
@@ -175,7 +175,7 @@ export const HomePage: React.FC = () => {
           </Card>
 
           <Card hover={true}>
-            <div className="w-10 h-10 rounded-xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center mb-4">
+            <div className="w-10 h-10 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mb-4">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <h3 className="text-lg font-bold text-slate-900 mb-2">Enterprise / Hybrid</h3>

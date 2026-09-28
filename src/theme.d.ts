@@ -1,13 +1,16 @@
 // src/theme.d.ts
 export interface ThemeColors {
-  primaryTeal: string;
-  primaryTealHover: string;
-  primaryTealDark: string;
-  primaryTealLight: string;
-  primaryTealSurface: string;
-  secondaryTeal: string;
-  secondaryTealHover: string;
-  secondaryTealLight: string;
+  primary: string;
+  primaryHover: string;
+    primaryDark: string;
+  primaryMedium: string;
+  accentLight: string;
+  accentHover: string;
+  primaryLight: string;
+  primarySurface: string;
+  secondary: string;
+  secondaryHover: string;
+  secondaryLight: string;
   bgWhite: string;
   bgSlateLight: string;
   bgSlateSubtle: string;
@@ -19,10 +22,10 @@ export interface ThemeColors {
   textPrimary: string;
   textSecondary: string;
   textMuted: string;
-  textTeal: string;
+  textPrimaryBrand: string;
   textWhite: string;
   borderLight: string;
-  borderTeal: string;
+  borderPrimary: string;
   borderFocus: string;
   success: string;
   warning: string;

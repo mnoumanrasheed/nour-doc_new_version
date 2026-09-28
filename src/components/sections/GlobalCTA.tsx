@@ -30,10 +30,10 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
   const appStoreUrl = contentData.brand.appStoreUrl;
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-white via-[#F4F9FA] to-white border-t border-slate-100">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-white via-nourdoc-primary-surface to-white border-t border-slate-100">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {eyebrow && (
-          <span className="inline-block text-xs font-bold text-[#507D88] uppercase tracking-widest bg-[#EBF3F5] px-3 py-1 rounded-full mb-4">
+          <span className="inline-block text-xs font-bold text-nourdoc-primary uppercase tracking-widest bg-nourdoc-primary-light px-3 py-1 rounded-full mb-4">
             {eyebrow}
           </span>
         )}
@@ -80,9 +80,9 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
 
         {/* Optional Enterprise Box */}
         {showEnterpriseBox && (
-          <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-slate-900 text-white max-w-2xl mx-auto text-left flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border border-slate-800 shadow-xl">
+          <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-nourdoc-primary-dark text-white max-w-2xl mx-auto text-left flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border border-white/10 shadow-xl">
             <div>
-              <div className="flex items-center gap-2 text-[#7AB1BF] text-xs font-bold uppercase tracking-wider mb-1">
+              <div className="flex items-center gap-2 text-nourdoc-secondary text-xs font-bold uppercase tracking-wider mb-1">
                 <Building2 className="w-4 h-4" />
                 Enterprise Healthcare?
               </div>

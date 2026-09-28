@@ -53,9 +53,9 @@ export const BenefitsPage: React.FC = () => {
               <a
                 key={nav.id}
                 href={`#${nav.id}`}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 hover:text-[#507D88] hover:bg-white transition-all shrink-0 border border-transparent hover:border-slate-200 shadow-xs"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 hover:text-nourdoc-primary hover:bg-white transition-all shrink-0 border border-transparent hover:border-slate-200 shadow-xs"
               >
-                <Icon className="w-4 h-4 text-[#507D88]" />
+                <Icon className="w-4 h-4 text-nourdoc-primary" />
                 <span>{nav.label}</span>
               </a>
             );
@@ -68,11 +68,11 @@ export const BenefitsPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center">
                 <Stethoscope className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-xs font-bold text-[#507D88] uppercase tracking-wider block">Stakeholder Value</span>
+                <span className="text-xs font-bold text-nourdoc-primary uppercase tracking-wider block">Stakeholder Value</span>
                 <h2 className="text-2xl sm:text-3xl font-black text-slate-900">{s.clinicians.title}</h2>
               </div>
             </div>
@@ -81,13 +81,13 @@ export const BenefitsPage: React.FC = () => {
               {s.clinicians.items.map((item, idx) => (
                 <Card key={idx} hover={true} className="p-5 flex flex-col justify-between space-y-2">
                   <div>
-                    <div className="flex items-center gap-2 mb-2 text-[#507D88]">
+                    <div className="flex items-center gap-2 mb-2 text-nourdoc-primary">
                       <CheckCircle2 className="w-4 h-4" />
                       <h3 className="text-sm sm:text-base font-bold text-slate-900">{item.title}</h3>
                     </div>
                     <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
                   </div>
-                  <div className="text-[10px] font-mono text-[#507D88] pt-2 border-t border-slate-100">
+                  <div className="text-[10px] font-mono text-nourdoc-primary pt-2 border-t border-slate-100">
                     CLINICAL BENEFIT 0{idx + 1}
                   </div>
                 </Card>
@@ -103,7 +103,7 @@ export const BenefitsPage: React.FC = () => {
                 className="w-full h-full object-cover object-top"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-nourdoc-primary-dark/60 via-transparent to-transparent" />
               <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-white font-bold">
                 Clinical Presence & Focused Care
               </div>
@@ -124,7 +124,7 @@ export const BenefitsPage: React.FC = () => {
                 className="w-full h-full object-cover object-center"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-nourdoc-primary-dark/60 via-transparent to-transparent" />
               <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-white font-bold">
                 Team & Practice Workflow Efficiency
               </div>
@@ -134,11 +134,11 @@ export const BenefitsPage: React.FC = () => {
 
           <div className="lg:col-span-7 space-y-6 order-1 lg:order-2">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center">
                 <Building className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-xs font-bold text-[#507D88] uppercase tracking-wider block">Stakeholder Value</span>
+                <span className="text-xs font-bold text-nourdoc-primary uppercase tracking-wider block">Stakeholder Value</span>
                 <h2 className="text-2xl sm:text-3xl font-black text-slate-900">{s.practices.title}</h2>
               </div>
             </div>
@@ -147,13 +147,13 @@ export const BenefitsPage: React.FC = () => {
               {s.practices.items.map((item, idx) => (
                 <Card key={idx} hover={true} className="p-5 flex flex-col justify-between space-y-2">
                   <div>
-                    <div className="flex items-center gap-2 mb-2 text-[#507D88]">
+                    <div className="flex items-center gap-2 mb-2 text-nourdoc-primary">
                       <CheckCircle2 className="w-4 h-4" />
                       <h3 className="text-sm font-bold text-slate-900 leading-snug">{item.title}</h3>
                     </div>
                     <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
                   </div>
-                  <div className="text-[10px] font-mono text-[#507D88] pt-2 border-t border-slate-100">
+                  <div className="text-[10px] font-mono text-nourdoc-primary pt-2 border-t border-slate-100">
                     PRACTICE PILLAR 0{idx + 1}
                   </div>
                 </Card>
@@ -165,7 +165,7 @@ export const BenefitsPage: React.FC = () => {
 
       {/* 4. For Hospitals */}
       <section id="hospitals" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
-        <div className="rounded-3xl bg-slate-900 text-white p-8 sm:p-12 lg:p-16 border border-slate-800 shadow-2xl space-y-8 relative overflow-hidden">
+        <div className="rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl space-y-8 relative overflow-hidden">
           {/* Subtle background photo tint */}
           <div className="absolute inset-0 z-0 pointer-events-none opacity-10">
             <img
@@ -178,11 +178,11 @@ export const BenefitsPage: React.FC = () => {
           </div>
 
           <div className="relative z-10 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#507D88]/30 text-[#7AB1BF] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-nourdoc-primary/30 text-nourdoc-secondary flex items-center justify-center">
               <Hospital className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-xs font-bold text-[#7AB1BF] uppercase tracking-wider block">Enterprise Governance</span>
+              <span className="text-xs font-bold text-nourdoc-secondary uppercase tracking-wider block">Enterprise Governance</span>
               <h2 className="text-2xl sm:text-3xl font-black text-white">{s.hospitals.title}</h2>
             </div>
           </div>
@@ -191,16 +191,16 @@ export const BenefitsPage: React.FC = () => {
             {s.hospitals.items.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-slate-800/90 rounded-2xl p-6 sm:p-8 border border-slate-700/60 hover:border-[#7AB1BF]/60 transition-all flex flex-col justify-between space-y-4"
+                className="bg-white/5 rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between space-y-4"
               >
                 <div>
-                  <div className="flex items-center gap-2 mb-3 text-[#7AB1BF]">
+                  <div className="flex items-center gap-2 mb-3 text-nourdoc-secondary">
                     <CheckCircle2 className="w-4 h-4" />
                     <h3 className="text-base font-bold text-white">{item.title}</h3>
                   </div>
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{item.desc}</p>
                 </div>
-                <div className="text-[10px] font-mono text-[#7AB1BF] pt-3 border-t border-slate-700 flex items-center gap-1.5">
+                <div className="text-[10px] font-mono text-nourdoc-secondary pt-3 border-t border-white/10 flex items-center gap-1.5">
                   <Sparkles className="w-3 h-3" />
                   <span>Hospital Capability 0{idx + 1}</span>
                 </div>
@@ -215,11 +215,11 @@ export const BenefitsPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center">
                 <FileSpreadsheet className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-xs font-bold text-[#507D88] uppercase tracking-wider block">Revenue Cycle & Operations</span>
+                <span className="text-xs font-bold text-nourdoc-primary uppercase tracking-wider block">Revenue Cycle & Operations</span>
                 <h2 className="text-2xl sm:text-3xl font-black text-slate-900">{s.codingBilling.title}</h2>
               </div>
             </div>
@@ -228,13 +228,13 @@ export const BenefitsPage: React.FC = () => {
               {s.codingBilling.items.map((item, idx) => (
                 <Card key={idx} hover={true} className="p-5 flex flex-col justify-between space-y-2">
                   <div>
-                    <div className="flex items-center gap-2 mb-2 text-[#507D88]">
+                    <div className="flex items-center gap-2 mb-2 text-nourdoc-primary">
                       <CheckCircle2 className="w-4 h-4" />
                       <h3 className="text-sm font-bold text-slate-900 leading-snug">{item.title}</h3>
                     </div>
                     <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
                   </div>
-                  <div className="text-[10px] font-mono text-[#507D88] pt-2 border-t border-slate-100">
+                  <div className="text-[10px] font-mono text-nourdoc-primary pt-2 border-t border-slate-100">
                     CODING / BILLING 0{idx + 1}
                   </div>
                 </Card>
@@ -250,7 +250,7 @@ export const BenefitsPage: React.FC = () => {
                 className="w-full h-full object-cover object-center"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-nourdoc-primary-dark/60 via-transparent to-transparent" />
               <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-white font-bold">
                 Batch Coding & RCM Workflows
               </div>
@@ -262,12 +262,12 @@ export const BenefitsPage: React.FC = () => {
 
       {/* 6. For Patients */}
       <section id="patients" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
-        <div className="rounded-3xl bg-gradient-to-br from-[#EBF3F5] via-white to-slate-50 border-2 border-[#507D88]/20 p-8 sm:p-12 lg:p-16 text-center max-w-4xl mx-auto shadow-sm space-y-6 relative overflow-hidden">
-          <div className="w-14 h-14 rounded-2xl bg-white text-[#507D88] flex items-center justify-center mx-auto shadow-sm border border-[#507D88]/20">
-            <Heart className="w-7 h-7 text-[#507D88]" />
+        <div className="rounded-3xl bg-gradient-to-br from-nourdoc-primary-light via-white to-slate-50 border-2 border-nourdoc-primary/20 p-8 sm:p-12 lg:p-16 text-center max-w-4xl mx-auto shadow-sm space-y-6 relative overflow-hidden">
+          <div className="w-14 h-14 rounded-2xl bg-white text-nourdoc-primary flex items-center justify-center mx-auto shadow-sm border border-nourdoc-primary/20">
+            <Heart className="w-7 h-7 text-nourdoc-primary" />
           </div>
           <div>
-            <span className="inline-block text-xs font-bold text-[#507D88] uppercase tracking-widest bg-white px-4 py-1.5 rounded-full mb-3 border border-[#507D88]/20 shadow-xs">
+            <span className="inline-block text-xs font-bold text-nourdoc-primary uppercase tracking-widest bg-white px-4 py-1.5 rounded-full mb-3 border border-nourdoc-primary/20 shadow-xs">
               {s.patients.title}
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
@@ -285,7 +285,7 @@ export const BenefitsPage: React.FC = () => {
               className="w-full h-full object-cover object-center"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-nourdoc-primary-dark/60 via-transparent to-transparent" />
             <div className="absolute bottom-2.5 left-4 text-xs font-mono text-emerald-300 font-bold">
               Uninterrupted Human Healthcare
             </div>

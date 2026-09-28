@@ -104,7 +104,7 @@ export const EcosystemMap: React.FC<EcosystemMapProps> = ({
     >
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto space-y-2">
-        <span className="inline-block text-xs font-bold text-[#507D88] uppercase tracking-widest bg-[#EBF3F5] px-3.5 py-1 rounded-full border border-[#507D88]/20">
+        <span className="inline-block text-xs font-bold text-nourdoc-primary uppercase tracking-widest bg-nourdoc-primary-light px-3.5 py-1 rounded-full border border-nourdoc-primary/20">
           Clinical Information Ecosystem
         </span>
         <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -117,8 +117,8 @@ export const EcosystemMap: React.FC<EcosystemMapProps> = ({
 
       {/* 1. Central Clinical Conversation Hub */}
       <div className="flex flex-col items-center justify-center space-y-4">
-        <div className="px-6 py-4 rounded-2xl bg-[#507D88] text-white font-black text-base sm:text-lg shadow-lg shadow-[#507D88]/20 flex items-center gap-3 border-2 border-white">
-          <Sparkles className="w-5 h-5 text-[#7AB1BF]" />
+        <div className="px-6 py-4 rounded-2xl bg-nourdoc-primary text-white font-black text-base sm:text-lg shadow-lg shadow-nourdoc-primary/20 flex items-center gap-3 border-2 border-white">
+          <Sparkles className="w-5 h-5 text-nourdoc-secondary" />
           <span>Clinical Conversation Hub</span>
         </div>
 
@@ -131,7 +131,7 @@ export const EcosystemMap: React.FC<EcosystemMapProps> = ({
           {nodes.map((node, idx) => (
             <div
               key={idx}
-              className="ecosystem-node bg-white rounded-xl p-3 sm:p-3.5 text-center border border-slate-200 shadow-xs hover:border-[#507D88]/50 hover:bg-[#F4F9FA] transition-all flex items-center justify-center"
+              className="ecosystem-node bg-white rounded-xl p-3 sm:p-3.5 text-center border border-slate-200 shadow-xs hover:border-nourdoc-primary/50 hover:bg-nourdoc-primary-surface transition-all flex items-center justify-center"
             >
               <span className="text-xs sm:text-sm font-bold text-slate-800">
                 {node}
@@ -142,12 +142,12 @@ export const EcosystemMap: React.FC<EcosystemMapProps> = ({
       </div>
 
       {/* Transition Flow Arrow */}
-      <div className="flex flex-col items-center justify-center text-[#507D88]" aria-hidden="true">
-        <div className="w-0.5 h-6 bg-[#507D88]/40" />
-        <div className="w-8 h-8 rounded-full bg-[#EBF3F5] border border-[#507D88]/30 flex items-center justify-center my-1 shadow-xs">
-          <ArrowDown className="w-4 h-4 text-[#507D88]" />
+      <div className="flex flex-col items-center justify-center text-nourdoc-primary" aria-hidden="true">
+        <div className="w-0.5 h-6 bg-nourdoc-primary/40" />
+        <div className="w-8 h-8 rounded-full bg-nourdoc-primary-light border border-nourdoc-primary/30 flex items-center justify-center my-1 shadow-xs">
+          <ArrowDown className="w-4 h-4 text-nourdoc-primary" />
         </div>
-        <div className="text-[11px] font-bold text-[#507D88] uppercase tracking-wider mt-1">
+        <div className="text-[11px] font-bold text-nourdoc-primary uppercase tracking-wider mt-1">
           Downstream Healthcare Integration
         </div>
       </div>
@@ -159,9 +159,9 @@ export const EcosystemMap: React.FC<EcosystemMapProps> = ({
           return (
             <div
               key={idx}
-              className="downstream-card p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md hover:border-[#507D88]/40 transition-all flex flex-col justify-between space-y-3"
+              className="downstream-card p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md hover:border-nourdoc-primary/40 transition-all flex flex-col justify-between space-y-3"
             >
-              <div className="w-9 h-9 rounded-xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center">
+              <div className="w-9 h-9 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center">
                 <Icon className="w-4 h-4" />
               </div>
               <div>
@@ -172,7 +172,7 @@ export const EcosystemMap: React.FC<EcosystemMapProps> = ({
                   {target.desc}
                 </p>
               </div>
-              <div className="text-[10px] font-mono font-semibold text-[#507D88] pt-2 border-t border-slate-100">
+              <div className="text-[10px] font-mono font-semibold text-nourdoc-primary pt-2 border-t border-slate-100">
                 ACTIVE WORKFLOW 0{idx + 1}
               </div>
             </div>

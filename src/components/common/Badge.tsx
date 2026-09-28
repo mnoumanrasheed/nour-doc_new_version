@@ -3,14 +3,14 @@ import React from 'react';
 
 interface BadgeProps {
   children: React.ReactNode;
-  variant?: 'teal' | 'light' | 'dark' | 'outline' | 'neutral' | 'success';
+  variant?: 'primary' | 'light' | 'dark' | 'outline' | 'neutral' | 'success';
   size?: 'sm' | 'md';
   className?: string;
 }
 
 export const Badge: React.FC<BadgeProps> = ({
   children,
-  variant = 'teal',
+  variant = 'primary',
   size = 'md',
   className = '',
 }) => {
@@ -20,10 +20,10 @@ export const Badge: React.FC<BadgeProps> = ({
   };
 
   const variantStyles = {
-    teal: 'bg-[#EBF3F5] text-[#507D88] border border-[#507D88]/20',
+    primary: 'bg-nourdoc-primary-light text-nourdoc-primary border border-nourdoc-primary/20',
     light: 'bg-white text-[#475569] border border-slate-200 shadow-sm',
-    dark: 'bg-[#0F172A] text-white',
-    outline: 'bg-transparent text-[#507D88] border border-[#507D88]',
+    dark: 'bg-nourdoc-primary-dark text-white',
+    outline: 'bg-transparent text-nourdoc-primary border border-nourdoc-primary',
     neutral: 'bg-slate-100 text-slate-700 border border-slate-200',
     success: 'bg-emerald-50 text-emerald-700 border border-emerald-200',
   };

@@ -111,5 +111,5 @@
 When procuring or shooting photography for NourDoc:
 1. **Clinical Authenticity**: All clinicians must wear realistic, appropriate attire. Equipment, stethoscopes, and charts must look genuine.
 2. **Patient Interaction Focus**: The primary subject is the **human dialogue**. Screens and devices should be secondary or background elements.
-3. **Lighting & Color Palette**: Natural ambient lighting with cool gray, clean white, and soft teal accents matching `#507D88` and `#7AB1BF`. Avoid aggressive saturated blues or unnatural warm glows.
+3. **Lighting & Color Palette**: Natural ambient lighting with cool gray, clean white, and Deep Jade accents matching `#286252` and `#6F9C90`. Avoid aggressive saturated blues or unnatural warm glows.
 4. **No Artificial Intelligence Stereotypes**: Strictly avoid robot heads, floating wireframe holograms, glowing neural brain graphics, or generic cyborg imagery.

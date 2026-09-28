@@ -24,14 +24,14 @@ const ScrollToTop: React.FC = () => {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-900 font-sans selection:bg-[#EBF3F5] selection:text-[#507D88]">
+    <div className="min-h-screen flex flex-col bg-white text-slate-900 font-sans selection:bg-nourdoc-primary-light selection:text-nourdoc-primary">
       <WebsiteLoader />
       <ScrollToTop />
       
       {/* Skip to Main Content Link for Keyboard Accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-[#507D88] text-white font-bold rounded-md shadow-lg outline-none ring-2 ring-white"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-nourdoc-primary text-white font-bold rounded-md shadow-lg outline-none ring-2 ring-white"
       >
         Skip to main content
       </a>

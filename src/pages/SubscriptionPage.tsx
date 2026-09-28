@@ -85,7 +85,7 @@ export const SubscriptionPage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-slate-50 border border-slate-200/90 p-8 sm:p-12 space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="inline-block text-xs font-bold text-[#507D88] uppercase tracking-widest bg-[#EBF3F5] px-3.5 py-1 rounded-full border border-[#507D88]/20">
+            <span className="inline-block text-xs font-bold text-nourdoc-primary uppercase tracking-widest bg-nourdoc-primary-light px-3.5 py-1 rounded-full border border-nourdoc-primary/20">
               Scalable Growth Pathway
             </span>
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -102,10 +102,10 @@ export const SubscriptionPage: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-[#507D88]/40 hover:shadow-md transition-all flex flex-col justify-between space-y-4"
+                  className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-nourdoc-primary/40 hover:shadow-md transition-all flex flex-col justify-between space-y-4"
                 >
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center">
                       <Icon className="w-5 h-5" />
                     </div>
                     <span className="font-mono text-xs font-bold text-slate-400">
@@ -116,7 +116,7 @@ export const SubscriptionPage: React.FC = () => {
                     <h4 className="text-base font-extrabold text-slate-900 leading-tight">
                       {st.title}
                     </h4>
-                    <span className="text-xs font-bold text-[#507D88] block mt-0.5 mb-2">
+                    <span className="text-xs font-bold text-nourdoc-primary block mt-0.5 mb-2">
                       {st.subtitle}
                     </span>
                     <p className="text-xs text-slate-600 leading-relaxed">
@@ -125,7 +125,7 @@ export const SubscriptionPage: React.FC = () => {
                   </div>
                   <div className="pt-2 border-t border-slate-100 text-[11px] font-semibold text-slate-400 flex items-center gap-1">
                     <span>Seamless Transition</span>
-                    <ArrowRight className="w-3 h-3 text-[#507D88]" />
+                    <ArrowRight className="w-3 h-3 text-nourdoc-primary" />
                   </div>
                 </div>
               );
@@ -136,10 +136,10 @@ export const SubscriptionPage: React.FC = () => {
 
       {/* 4. Custom Enterprise Full-Width Configurability Panel */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-slate-900 text-white p-8 sm:p-12 lg:p-16 border border-slate-800 shadow-2xl space-y-8">
+        <div className="rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl space-y-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-6 space-y-4">
-              <span className="inline-block text-xs font-bold text-[#7AB1BF] uppercase tracking-widest bg-slate-800 px-3.5 py-1 rounded-full border border-slate-700">
+              <span className="inline-block text-xs font-bold text-nourdoc-secondary uppercase tracking-widest bg-white/5 px-3.5 py-1 rounded-full border border-white/10">
                 {custom.eyebrow}
               </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
@@ -165,9 +165,9 @@ export const SubscriptionPage: React.FC = () => {
                 {custom.aspects.map((asp, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl bg-slate-800/90 border border-slate-700/60 hover:border-[#7AB1BF]/60 transition-all flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-100"
+                    className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/25 transition-all flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-100"
                   >
-                    <div className="w-7 h-7 rounded-lg bg-[#507D88]/30 text-[#7AB1BF] flex items-center justify-center shrink-0">
+                    <div className="w-7 h-7 rounded-lg bg-nourdoc-primary/30 text-nourdoc-secondary flex items-center justify-center shrink-0">
                       <Check className="w-4 h-4" />
                     </div>
                     <span>{asp}</span>

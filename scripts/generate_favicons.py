@@ -15,12 +15,12 @@ def main():
     svg_content = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
   <defs>
     <filter id="subtle-shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.12" />
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#183B33" flood-opacity="0.12" />
     </filter>
   </defs>
   <!-- Rounded subtle container for premium aesthetic across light & dark browser tabs -->
   <rect x="16" y="16" width="480" height="480" rx="108" fill="#FFFFFF" fill-opacity="0.95" filter="url(#subtle-shadow)" />
-  <rect x="16" y="16" width="480" height="480" rx="108" fill="none" stroke="#507D88" stroke-width="6" stroke-opacity="0.2" />
+  <rect x="16" y="16" width="480" height="480" rx="108" fill="none" stroke="#286252" stroke-width="6" stroke-opacity="0.2" />
   <image href="data:image/png;base64,{icon_b64}" x="48" y="48" width="416" height="416" preserveAspectRatio="xMidYMid meet" />
 </svg>'''
 

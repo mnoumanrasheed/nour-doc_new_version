@@ -20,7 +20,7 @@ const DesignSystemPage = lazy(() => import('./pages/DesignSystemPage').then(m =>
 
 const PageLoadingFallback = () => (
   <div className="min-h-[60vh] flex items-center justify-center" role="status" aria-label="Loading page content">
-    <div className="w-8 h-8 rounded-full border-3 border-[#507D88]/20 border-t-[#507D88] animate-spin" />
+    <div className="w-8 h-8 rounded-full border-3 border-nourdoc-primary/20 border-t-nourdoc-primary animate-spin" />
     <span className="sr-only">Loading...</span>
   </div>
 );

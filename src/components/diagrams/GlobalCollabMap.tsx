@@ -114,7 +114,7 @@ export const GlobalCollabMap: React.FC = () => {
       {/* Editorial Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-6 border-b border-slate-100 gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EBF3F5] text-[#507D88] text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-nourdoc-primary-light text-nourdoc-primary text-xs font-bold uppercase tracking-wider mb-2">
             <Compass className="w-3.5 h-3.5" />
             <span>Cross-Border Collaboration</span>
           </div>
@@ -126,18 +126,18 @@ export const GlobalCollabMap: React.FC = () => {
           </p>
         </div>
         <div className="hidden lg:flex items-center gap-3 text-[11px] font-mono text-slate-400 bg-slate-50 px-3.5 py-2 rounded-xl border border-slate-200/60">
-          <span className="w-2 h-2 rounded-full bg-[#507D88] animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-nourdoc-primary animate-pulse" />
           <span>Active Cross-Border Exchange</span>
         </div>
       </div>
 
       {/* SVG Map Canvas */}
-      <div className="relative w-full rounded-2xl bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 p-4 sm:p-8 overflow-hidden border border-slate-800 shadow-inner">
+      <div className="relative w-full rounded-2xl bg-gradient-to-b from-nourdoc-primary-dark via-nourdoc-primary-dark to-nourdoc-primary-hover p-4 sm:p-8 overflow-hidden border border-white/10 shadow-inner">
         {/* Subtle coordinate grid overlay */}
         <div
           className="absolute inset-0 opacity-10 pointer-events-none"
           style={{
-            backgroundImage: `radial-gradient(#7AB1BF 1px, transparent 1px)`,
+            backgroundImage: 'radial-gradient(var(--color-nourdoc-primary) 1px, transparent 1px)',
             backgroundSize: '24px 24px',
           }}
         />
@@ -151,9 +151,9 @@ export const GlobalCollabMap: React.FC = () => {
           <defs>
             {/* Gradient for connection arcs */}
             <linearGradient id="collabGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#7AB1BF" stopOpacity="0.3" />
-              <stop offset="50%" stopColor="#7AB1BF" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="#507D88" stopOpacity="0.4" />
+              <stop offset="0%" stopColor="var(--color-nourdoc-primary)" stopOpacity="0.3" />
+              <stop offset="50%" stopColor="var(--color-nourdoc-primary)" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="var(--color-nourdoc-primary)" stopOpacity="0.4" />
             </linearGradient>
 
             <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
@@ -163,7 +163,7 @@ export const GlobalCollabMap: React.FC = () => {
           </defs>
 
           {/* Abstract World Landmass Vector Geometry (Simplified, high-elegance continents) */}
-          <g fill="#1E293B" opacity="0.6" stroke="#334155" strokeWidth="0.75">
+          <g fill="var(--color-nourdoc-dark-card)" opacity="0.6" stroke="var(--color-nourdoc-dark-hover)" strokeWidth="0.75">
             {/* North America */}
             <path d="M 120 80 Q 180 60 270 80 Q 300 120 280 170 Q 230 200 190 240 Q 150 200 140 140 Z" />
             {/* South America */}
@@ -218,7 +218,7 @@ export const GlobalCollabMap: React.FC = () => {
               {/* Radar pulse wave */}
               <circle
                 r="16"
-                fill="#7AB1BF"
+                fill="var(--color-nourdoc-primary)"
                 className="map-node-pulse"
                 opacity="0.3"
               />
@@ -226,8 +226,8 @@ export const GlobalCollabMap: React.FC = () => {
               {/* Core halo */}
               <circle
                 r="9"
-                fill="#0F172A"
-                stroke="#7AB1BF"
+                fill="var(--color-nourdoc-primary-dark)"
+                stroke="var(--color-nourdoc-primary)"
                 strokeWidth="2.5"
                 filter="url(#glow)"
               />
@@ -241,8 +241,8 @@ export const GlobalCollabMap: React.FC = () => {
                   width="150"
                   height="22"
                   rx="6"
-                  fill="#0F172A"
-                  stroke="#334155"
+                  fill="var(--color-nourdoc-primary-dark)"
+                  stroke="var(--color-nourdoc-dark-hover)"
                   strokeWidth="1"
                   className="shadow-md"
                 />
@@ -276,10 +276,10 @@ export const GlobalCollabMap: React.FC = () => {
         </svg>
 
         {/* Dynamic Legend at bottom of map */}
-        <div className="mt-4 pt-4 border-t border-slate-800/80 grid grid-cols-2 md:grid-cols-4 gap-3 text-left">
+        <div className="mt-4 pt-4 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-3 text-left">
           {mapNodes.map((node) => (
             <div key={node.id} className="text-xs">
-              <span className="block text-[10px] font-mono uppercase tracking-wider text-[#7AB1BF]">
+              <span className="block text-[10px] font-mono uppercase tracking-wider text-nourdoc-secondary">
                 {node.region}
               </span>
               <span className="font-bold text-slate-200 block text-xs">
@@ -300,11 +300,11 @@ export const GlobalCollabMap: React.FC = () => {
           return (
             <div
               key={pillar.id}
-              className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-[#507D88]/40 hover:bg-white hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-nourdoc-primary/40 hover:bg-white hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <div className="w-9 h-9 rounded-xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center">
                     <Icon className="w-4 h-4" />
                   </div>
                   <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
@@ -319,7 +319,7 @@ export const GlobalCollabMap: React.FC = () => {
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-slate-200/60 flex items-center justify-between text-[11px] font-bold text-[#507D88]">
+              <div className="mt-4 pt-3 border-t border-slate-200/60 flex items-center justify-between text-[11px] font-bold text-nourdoc-primary">
                 <span>{pillar.role}</span>
               </div>
             </div>

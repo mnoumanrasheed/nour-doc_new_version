@@ -38,8 +38,8 @@ export const AboutPage: React.FC = () => {
             <ClinicalDialogueVisual />
           </div>
           <div className="lg:col-span-6 space-y-4">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#507D88] uppercase tracking-widest bg-[#EBF3F5] px-3.5 py-1.5 rounded-full">
-              <Sparkles className="w-3.5 h-3.5 text-[#507D88]" />
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold text-nourdoc-primary uppercase tracking-widest bg-nourdoc-primary-light px-3.5 py-1.5 rounded-full">
+              <Sparkles className="w-3.5 h-3.5 text-nourdoc-primary" />
               Core Philosophy
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -58,10 +58,10 @@ export const AboutPage: React.FC = () => {
           {/* Who We Are (M3 Hive) */}
           <Card hover={false} className="bg-slate-50 border border-slate-200 flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mb-4">
                 <Building className="w-5 h-5" />
               </div>
-              <span className="text-xs font-bold text-[#507D88] uppercase tracking-wider block mb-1">
+              <span className="text-xs font-bold text-nourdoc-primary uppercase tracking-wider block mb-1">
                 {page.whoWeAre.eyebrow}
               </span>
               <h3 className="text-xl font-black text-slate-900 mb-3">{page.whoWeAre.h2}</h3>
@@ -69,7 +69,7 @@ export const AboutPage: React.FC = () => {
                 {page.whoWeAre.description}
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-slate-200/60 text-[11px] font-bold text-[#507D88]">
+            <div className="mt-4 pt-3 border-t border-slate-200/60 text-[11px] font-bold text-nourdoc-primary">
               <span>M3 Hive Engineering Initiative</span>
             </div>
           </Card>
@@ -77,10 +77,10 @@ export const AboutPage: React.FC = () => {
           {/* Our Mission */}
           <Card hover={false} className="bg-slate-50 border border-slate-200 flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-[#EBF3F5] text-[#507D88] flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mb-4">
                 <HeartHandshake className="w-5 h-5" />
               </div>
-              <span className="text-xs font-bold text-[#507D88] uppercase tracking-wider block mb-1">
+              <span className="text-xs font-bold text-nourdoc-primary uppercase tracking-wider block mb-1">
                 {page.ourMission.eyebrow}
               </span>
               <h3 className="text-xl font-black text-slate-900 mb-3">{page.ourMission.h2}</h3>
@@ -88,18 +88,18 @@ export const AboutPage: React.FC = () => {
                 {page.ourMission.description}
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-slate-200/60 text-[11px] font-bold text-[#507D88]">
+            <div className="mt-4 pt-3 border-t border-slate-200/60 text-[11px] font-bold text-nourdoc-primary">
               <span>Reducing Administrative Friction</span>
             </div>
           </Card>
 
           {/* Our Vision */}
-          <Card hover={false} className="bg-[#EBF3F5]/80 border-2 border-[#507D88]/30 flex flex-col justify-between">
+          <Card hover={false} className="bg-nourdoc-primary-light/80 border-2 border-nourdoc-primary/30 flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-white text-[#507D88] flex items-center justify-center mb-4 shadow-sm">
+              <div className="w-10 h-10 rounded-xl bg-white text-nourdoc-primary flex items-center justify-center mb-4 shadow-sm">
                 <Eye className="w-5 h-5" />
               </div>
-              <span className="text-xs font-bold text-[#507D88] uppercase tracking-wider block mb-1">
+              <span className="text-xs font-bold text-nourdoc-primary uppercase tracking-wider block mb-1">
                 {page.ourVision.eyebrow}
               </span>
               <h3 className="text-xl font-black text-slate-900 mb-3">{page.ourVision.h2}</h3>
@@ -109,13 +109,13 @@ export const AboutPage: React.FC = () => {
                   <span className="font-bold text-slate-800 block mb-1 text-[11px] uppercase tracking-wider">
                     {page.ourVision.today.label}
                   </span>
-                  <span className="font-mono text-[#507D88] font-bold">
+                  <span className="font-mono text-nourdoc-primary font-bold">
                     {page.ourVision.today.flow}
                   </span>
                 </div>
 
-                <div className="p-3 bg-white rounded-xl border border-[#507D88]/40 shadow-xs">
-                  <span className="font-bold text-[#507D88] block mb-1 text-[11px] uppercase tracking-wider">
+                <div className="p-3 bg-white rounded-xl border border-nourdoc-primary/40 shadow-xs">
+                  <span className="font-bold text-nourdoc-primary block mb-1 text-[11px] uppercase tracking-wider">
                     {page.ourVision.expanding.label}
                   </span>
                   <span className="font-mono text-[11px] text-slate-800 leading-snug block font-semibold">
@@ -125,7 +125,7 @@ export const AboutPage: React.FC = () => {
               </div>
             </div>
 
-            <p className="text-[11px] text-slate-600 mt-4 pt-3 border-t border-[#507D88]/20 leading-relaxed">
+            <p className="text-[11px] text-slate-600 mt-4 pt-3 border-t border-nourdoc-primary/20 leading-relaxed">
               {page.ourVision.conclusion}
             </p>
           </Card>
@@ -142,7 +142,7 @@ export const AboutPage: React.FC = () => {
 
         <div className="relative">
           {/* Connecting Line on Desktop */}
-          <div className="hidden lg:block absolute top-1/2 left-12 right-12 h-0.5 bg-gradient-to-r from-[#7AB1BF]/40 via-[#507D88]/60 to-[#7AB1BF]/40 -translate-y-6 pointer-events-none" />
+          <div className="hidden lg:block absolute top-1/2 left-12 right-12 h-0.5 bg-gradient-to-r from-nourdoc-secondary/40 via-nourdoc-primary/60 to-nourdoc-secondary/40 -translate-y-6 pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 relative z-10">
             {/* Canada Panel */}
@@ -155,8 +155,8 @@ export const AboutPage: React.FC = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
-                  <div className="absolute top-2.5 left-2.5 w-8 h-8 rounded-lg bg-white/90 text-[#507D88] flex items-center justify-center shadow-xs">
+                  <div className="absolute inset-0 bg-gradient-to-t from-nourdoc-primary-dark/60 via-transparent to-transparent" />
+                  <div className="absolute top-2.5 left-2.5 w-8 h-8 rounded-lg bg-white/90 text-nourdoc-primary flex items-center justify-center shadow-xs">
                     <Globe2 className="w-4 h-4" />
                   </div>
                   <div className="absolute bottom-2 left-3 text-[10px] font-mono uppercase tracking-wider text-white font-bold">
@@ -171,14 +171,14 @@ export const AboutPage: React.FC = () => {
                   An international foundation for product growth, strategic partnerships and global healthcare-market development.
                 </p>
               </div>
-              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-xs font-bold text-[#507D88]">
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-xs font-bold text-nourdoc-primary">
                 <span>Governance & Positioning</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
             </div>
 
             {/* Pakistan Panel */}
-            <div className="bg-white rounded-2xl p-6 border-2 border-[#507D88]/30 shadow-md flex flex-col justify-between overflow-hidden group">
+            <div className="bg-white rounded-2xl p-6 border-2 border-nourdoc-primary/30 shadow-md flex flex-col justify-between overflow-hidden group">
               <div>
                 <div className="h-36 w-full rounded-xl overflow-hidden mb-4 relative">
                   <img
@@ -187,8 +187,8 @@ export const AboutPage: React.FC = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
-                  <div className="absolute top-2.5 left-2.5 w-8 h-8 rounded-lg bg-[#507D88] text-white flex items-center justify-center shadow-xs">
+                  <div className="absolute inset-0 bg-gradient-to-t from-nourdoc-primary-dark/60 via-transparent to-transparent" />
+                  <div className="absolute top-2.5 left-2.5 w-8 h-8 rounded-lg bg-nourdoc-primary text-white flex items-center justify-center shadow-xs">
                     <Code2 className="w-4 h-4" />
                   </div>
                   <div className="absolute bottom-2 left-3 text-[10px] font-mono uppercase tracking-wider text-emerald-300 font-bold">
@@ -203,7 +203,7 @@ export const AboutPage: React.FC = () => {
                   Deep engineering expertise across Artificial Intelligence, Machine Learning, Data Engineering, Software Development, Cloud Platforms, Generative AI, and Intelligent Automation.
                 </p>
               </div>
-              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-xs font-bold text-[#507D88]">
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-xs font-bold text-nourdoc-primary">
                 <span>Core AI & Platform Engineering</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
@@ -219,8 +219,8 @@ export const AboutPage: React.FC = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
-                  <div className="absolute top-2.5 left-2.5 w-8 h-8 rounded-lg bg-white/90 text-[#507D88] flex items-center justify-center shadow-xs">
+                  <div className="absolute inset-0 bg-gradient-to-t from-nourdoc-primary-dark/60 via-transparent to-transparent" />
+                  <div className="absolute top-2.5 left-2.5 w-8 h-8 rounded-lg bg-white/90 text-nourdoc-primary flex items-center justify-center shadow-xs">
                     <Microscope className="w-4 h-4" />
                   </div>
                   <div className="absolute bottom-2 left-3 text-[10px] font-mono uppercase tracking-wider text-white font-bold">
@@ -235,7 +235,7 @@ export const AboutPage: React.FC = () => {
                   Research and healthcare perspectives contribute to continuous product evolution, rigorous clinical evaluation and real-world medical relevance.
                 </p>
               </div>
-              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-xs font-bold text-[#507D88]">
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-xs font-bold text-nourdoc-primary">
                 <span>Research & Clinical Evaluation</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>

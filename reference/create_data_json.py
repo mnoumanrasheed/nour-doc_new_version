@@ -9,10 +9,10 @@ data = {
     "subTagline": "AI-assisted clinical documentation. Enterprise-scale processing. Flexible deployment.",
     "appStoreUrl": "https://play.google.com/store/apps/details?id=com.m3hive.medicalai&pli=1",
     "emails": {
-      "sales": "hello@nur-doc.com",
-      "support": "support@nur-doc.com",
-      "partnerships": "hello@nur-doc.com",
-      "investors": "hello@nur-doc.com"
+      "sales": "hello@nour-doc.com",
+      "support": "support@nour-doc.com",
+      "partnerships": "hello@nour-doc.com",
+      "investors": "hello@nour-doc.com"
     },
     "hierarchy": {
       "level1": {
@@ -886,7 +886,7 @@ data = {
         ],
         "submitLabel": "SEND MESSAGE",
         "unconfiguredNotice": "Your message was not sent because form delivery is not configured.",
-        "demoNotice": "To schedule a platform demo, submit your requirements below or email our Sales team directly at hello@nur-doc.com."
+        "demoNotice": "To schedule a platform demo, submit your requirements below or email our Sales team directly at hello@nour-doc.com."
       },
       "finalCta": {
         "eyebrow": "FINAL CTA",
@@ -941,10 +941,10 @@ data = {
       {
         "title": "Contact Directory",
         "links": [
-          { "label": "Sales: hello@nur-doc.com", "path": "mailto:hello@nur-doc.com", "external": True },
-          { "label": "Support: support@nur-doc.com", "path": "mailto:support@nur-doc.com", "external": True },
-          { "label": "Partnerships: hello@nur-doc.com", "path": "mailto:hello@nur-doc.com", "external": True },
-          { "label": "Investors: hello@nur-doc.com", "path": "mailto:hello@nur-doc.com", "external": True }
+          { "label": "Sales: hello@nour-doc.com", "path": "mailto:hello@nour-doc.com", "external": True },
+          { "label": "Support: support@nour-doc.com", "path": "mailto:support@nour-doc.com", "external": True },
+          { "label": "Partnerships: hello@nour-doc.com", "path": "mailto:hello@nour-doc.com", "external": True },
+          { "label": "Investors: hello@nour-doc.com", "path": "mailto:hello@nour-doc.com", "external": True }
         ]
       }
     ]

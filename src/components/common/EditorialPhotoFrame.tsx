@@ -43,17 +43,17 @@ export const EditorialPhotoFrame: React.FC<EditorialPhotoFrameProps> = ({
       ) : (
         /* Composition-Safe Development Placeholder */
         <div
-          className={`w-full ${aspectClass} flex flex-col justify-between p-6 sm:p-8 bg-gradient-to-br from-slate-50 via-[#F4F9FA] to-[#EBF3F5] text-slate-700 relative select-none`}
+          className={`w-full ${aspectClass} flex flex-col justify-between p-6 sm:p-8 bg-gradient-to-br from-slate-50 via-nourdoc-primary-surface to-nourdoc-primary-light text-slate-700 relative select-none`}
           role="img"
           aria-label={`${alt} (Photo pending owner procurement)`}
         >
           {/* Subtle Ambient Background Watermark */}
           <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none" aria-hidden="true">
-            <Camera className="w-32 h-32 text-[#507D88]" />
+            <Camera className="w-32 h-32 text-nourdoc-primary" />
           </div>
 
           <div className="flex items-center justify-between z-10">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 border border-[#507D88]/20 text-[#507D88] text-[11px] font-bold uppercase tracking-wider shadow-xs">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 border border-nourdoc-primary/20 text-nourdoc-primary text-[11px] font-bold uppercase tracking-wider shadow-xs">
               <ImageIcon className="w-3.5 h-3.5" />
               {label}
             </span>

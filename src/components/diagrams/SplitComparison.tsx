@@ -23,7 +23,7 @@ export const SplitComparison: React.FC = () => {
                 className="w-full h-full object-cover object-center filter grayscale-[30%] opacity-90"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-nourdoc-primary-dark/60 via-transparent to-transparent" />
               <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-slate-200 font-semibold">
                 Traditional Workflow: 2+ Hours Screen Time
               </div>
@@ -57,46 +57,46 @@ export const SplitComparison: React.FC = () => {
         </div>
 
         {/* Right: Clinical Focus with NourDoc (After) */}
-        <div className="rounded-3xl p-6 sm:p-8 bg-[#EBF3F5]/80 border-2 border-[#507D88]/30 text-slate-800 shadow-sm flex flex-col justify-between space-y-6 overflow-hidden">
+        <div className="rounded-3xl p-6 sm:p-8 bg-nourdoc-primary-light/80 border-2 border-nourdoc-primary/30 text-slate-800 shadow-sm flex flex-col justify-between space-y-6 overflow-hidden">
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#507D88]">
-              <HeartHandshake className="w-4 h-4 text-[#507D88]" />
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-nourdoc-primary">
+              <HeartHandshake className="w-4 h-4 text-nourdoc-primary" />
               The NourDoc Advantage
             </div>
 
             {/* Photographic Context: Patient Focus & Direct Eye Contact */}
-            <div className="relative h-44 w-full rounded-2xl overflow-hidden shadow-sm border border-[#507D88]/30">
+            <div className="relative h-44 w-full rounded-2xl overflow-hidden shadow-sm border border-nourdoc-primary/30">
               <img
                 src="/images/sections/why_clinical_focus.jpg"
                 alt="Physician engaged in warm eye contact and focused patient consultation"
                 className="w-full h-full object-cover object-center"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-nourdoc-primary-dark/60 via-transparent to-transparent" />
               <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-emerald-300 font-bold">
                 NourDoc Ambient Care: 100% Patient Connection
               </div>
             </div>
 
-            <h3 className="text-lg sm:text-xl font-bold text-[#507D88]">
+            <h3 className="text-lg sm:text-xl font-bold text-nourdoc-primary">
               Direct Patient Engagement & Ambient Intelligence
             </h3>
 
             <ul className="space-y-3 text-xs sm:text-sm">
               <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#507D88] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-nourdoc-primary shrink-0 mt-0.5" />
                 <span>Natural spoken consultations transformed into structured SOAP notes in real time</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#507D88] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-nourdoc-primary shrink-0 mt-0.5" />
                 <span>Clinicians review, validate, and approve notes instead of typing from scratch</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#507D88] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-nourdoc-primary shrink-0 mt-0.5" />
                 <span>Automated ICD-10 and CPT coding assistance accelerating revenue cycle workflows</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#507D88] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-nourdoc-primary shrink-0 mt-0.5" />
                 <span>Structured outputs ready for direct EHR, EMR, and HIMS integration</span>
               </li>
             </ul>
