@@ -1,5 +1,6 @@
 // src/components/common/SectionHeading.tsx
 import React from 'react';
+import { RevealOnScroll } from './RevealOnScroll';
 
 interface SectionHeadingProps {
   eyebrow?: string;
@@ -21,7 +22,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
   const alignmentClass = align === 'center' ? 'text-center mx-auto' : 'text-left';
 
   return (
-    <div className={`max-w-3xl mb-12 md:mb-16 ${alignmentClass} ${className}`}>
+    <RevealOnScroll className={`max-w-3xl mb-12 md:mb-16 ${alignmentClass} ${className}`} y={20}>
       {eyebrow && (
         <span
           className={`inline-block text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-full mb-3 ${
@@ -49,6 +50,6 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
           {description}
         </p>
       )}
-    </div>
+    </RevealOnScroll>
   );
 };

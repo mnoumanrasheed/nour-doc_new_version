@@ -38,7 +38,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       <Header />
       
-      <main id="main-content" className="flex-grow pt-[68px] sm:pt-[76px] focus:outline-none" tabIndex={-1}>
+      <main id="main-content" className="flex-grow pt-[var(--header-height)] focus:outline-none" tabIndex={-1}>
         {children}
       </main>
 

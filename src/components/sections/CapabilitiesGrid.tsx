@@ -30,7 +30,7 @@ export const CapabilitiesGrid: React.FC<CapabilitiesGridProps> = ({ items }) => 
       {items.map((item, idx) => {
         const Icon = iconMap[item.id] || FileText;
         return (
-          <Card key={item.id || idx} hover={true} className="flex flex-col justify-between">
+          <Card key={item.id || idx} hover={true} revealDelay={idx * 0.1} className="flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-2xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                 <Icon className="w-6 h-6" />

@@ -1,5 +1,6 @@
 // src/components/common/Card.tsx
 import React from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 
 interface CardProps {
   children: React.ReactNode;
@@ -7,6 +8,7 @@ interface CardProps {
   dark?: boolean;
   hover?: boolean;
   border?: boolean;
+  revealDelay?: number;
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -15,8 +17,10 @@ export const Card: React.FC<CardProps> = ({
   dark = false,
   hover = true,
   border = true,
+  revealDelay = 0,
 }) => {
-  const baseStyles = 'rounded-2xl p-6 md:p-8 transition-all duration-300 relative';
+  const shouldReduceMotion = useReducedMotion();
+  const baseStyles = 'rounded-2xl p-6 md:p-8 transition-all duration-300 relative group';
   const colorStyles = dark
     ? 'bg-nourdoc-dark-card text-white'
     : 'bg-white text-slate-900 shadow-sm';
@@ -32,8 +36,15 @@ export const Card: React.FC<CardProps> = ({
     : '';
 
   return (
-    <div className={`${baseStyles} ${colorStyles} ${borderStyles} ${hoverStyles} ${className}`}>
+    <motion.div
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+      whileHover={hover && !shouldReduceMotion ? { y: -4 } : undefined}
+      viewport={{ once: true, amount: 0.16 }}
+      transition={{ duration: 0.55, delay: revealDelay, ease: 'easeOut' }}
+      className={`${baseStyles} ${colorStyles} ${borderStyles} ${hoverStyles} ${className}`}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 };

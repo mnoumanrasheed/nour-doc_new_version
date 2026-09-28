@@ -2,13 +2,14 @@
 import React from 'react';
 import { XCircle, CheckCircle2, Clock, HeartHandshake } from 'lucide-react';
 import { AdministrativeBurdenVisual, ClinicalAdvantageVisual } from '../visuals/ClinicalVisuals';
+import { RevealOnScroll } from '../common/RevealOnScroll';
 
 export const SplitComparison: React.FC = () => {
   return (
     <div className="space-y-6 my-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
         {/* Left: Administrative Burden (Before) */}
-        <div className="rounded-3xl p-6 sm:p-8 bg-slate-100/90 border border-slate-200/90 text-slate-700 flex flex-col justify-between space-y-6 overflow-hidden">
+        <RevealOnScroll className="rounded-3xl p-6 sm:p-8 bg-slate-100/90 border border-slate-200/90 text-slate-700 flex flex-col justify-between space-y-6 overflow-hidden" y={24}>
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500">
               <Clock className="w-4 h-4 text-slate-400" />
@@ -54,10 +55,10 @@ export const SplitComparison: React.FC = () => {
           </div>
 
           <AdministrativeBurdenVisual />
-        </div>
+        </RevealOnScroll>
 
         {/* Right: Clinical Focus with NourDoc (After) */}
-        <div className="rounded-3xl p-6 sm:p-8 bg-nourdoc-primary-light/80 border-2 border-nourdoc-primary/30 text-slate-800 shadow-sm flex flex-col justify-between space-y-6 overflow-hidden">
+        <RevealOnScroll className="rounded-3xl p-6 sm:p-8 bg-nourdoc-primary-light/80 border-2 border-nourdoc-primary/30 text-slate-800 shadow-sm flex flex-col justify-between space-y-6 overflow-hidden" delay={0.18} y={24}>
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-nourdoc-primary">
               <HeartHandshake className="w-4 h-4 text-nourdoc-primary" />
@@ -103,7 +104,7 @@ export const SplitComparison: React.FC = () => {
           </div>
 
           <ClinicalAdvantageVisual />
-        </div>
+        </RevealOnScroll>
       </div>
     </div>
   );

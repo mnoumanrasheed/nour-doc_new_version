@@ -1,8 +1,9 @@
 // src/pages/SubscriptionPage.tsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Hero } from '../components/sections/Hero';
-import { SectionHeading } from '../components/common/SectionHeading';
 import { PricingTierGrid } from '../components/sections/PricingTierGrid';
+import { RevealOnScroll } from '../components/common/RevealOnScroll';
 import { Button } from '../components/common/Button';
 import { GlobalCTA } from '../components/sections/GlobalCTA';
 import { 
@@ -64,20 +65,35 @@ export const SubscriptionPage: React.FC = () => {
       />
 
       {/* 2. Four Tier Cards (Free / Starter / Professional / Enterprise) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="TIERED HEALTHCARE EDITIONS"
-          title="Designed for Every Stage of Clinical Practice"
-          description="Select the edition tailored to your consultation volume, clinical specialization, and integration requirements."
-        />
+      <section className="bg-[#F7FAF9] py-16 sm:py-20">
+        <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+          <RevealOnScroll className="mx-auto mb-10 max-w-2xl text-center" y={16}>
+            <p className="text-xs font-bold uppercase tracking-[0.12em] text-nourdoc-primary">
+              Tiered Healthcare Editions
+            </p>
+            <h2 className="mt-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+              Plans designed to scale with you
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
+              From individual clinicians to enterprise healthcare organizations.
+            </p>
+          </RevealOnScroll>
 
-        <PricingTierGrid tiers={page.tiers} />
+          <PricingTierGrid tiers={page.tiers} />
 
-        {/* Ethical Transparency Notice */}
-        <div className="mt-8 p-4 rounded-xl bg-slate-50 border border-slate-200 text-center max-w-3xl mx-auto">
-          <p className="text-xs text-slate-500 leading-relaxed">
-            <strong className="text-slate-700">Notice:</strong> NourDoc plan tiers represent functional capability specifications. Every plan CTA connects directly to our onboarding channel or Google Play Store application. No hidden checkout fees or auto-renew charges are processed through this informational site.
+          <p className="mt-8 text-center text-sm text-slate-600">
+            Need help choosing a plan?{' '}
+            <Link to="/contact?topic=Subscription" className="inline-flex items-center gap-1 font-semibold text-nourdoc-primary hover:text-nourdoc-primary-hover hover:underline underline-offset-4">
+              Talk to our team <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
           </p>
+
+          {/* Ethical Transparency Notice */}
+          <div className="mx-auto mt-6 max-w-3xl rounded-xl border border-slate-200 bg-white/80 p-4 text-center">
+            <p className="text-xs leading-relaxed text-slate-500">
+              <strong className="text-slate-700">Notice:</strong> NourDoc plan tiers represent functional capability specifications. Every plan CTA connects directly to our onboarding channel or Google Play Store application. No hidden checkout fees or auto-renew charges are processed through this informational site.
+            </p>
+          </div>
         </div>
       </section>
 

@@ -104,7 +104,7 @@ export const ProductPage: React.FC = () => {
 
             {/* Right: Single Cohesive Ultra-Premium Ambient Clinical Intelligence Frame */}
             <div className="lg:col-span-6">
-              <div className="relative rounded-3xl bg-gradient-to-br from-nourdoc-primary-dark via-nourdoc-primary-dark/95 to-nourdoc-primary-hover text-white p-6 sm:p-7 border border-white/10 shadow-2xl overflow-hidden ring-1 ring-white/10">
+              <div className="nourdoc-ambient-surface relative rounded-3xl bg-gradient-to-br from-nourdoc-primary-dark via-nourdoc-primary-dark/95 to-nourdoc-primary-hover text-white p-6 sm:p-7 border border-white/10 shadow-2xl overflow-hidden ring-1 ring-white/10">
                 {/* Ambient glow effects */}
                 <div className="absolute top-0 right-0 w-72 h-72 bg-nourdoc-primary/20 rounded-full blur-3xl pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-72 h-72 bg-nourdoc-secondary/15 rounded-full blur-3xl pointer-events-none" />
@@ -148,8 +148,8 @@ export const ProductPage: React.FC = () => {
                       {[40, 75, 30, 90, 60, 100, 45, 80, 55, 95, 35, 70, 85, 40, 90, 65, 30, 80, 50, 95, 60, 40, 75, 85, 50, 90].map((h, i) => (
                         <div
                           key={i}
-                          className="w-1 rounded-full bg-gradient-to-t from-nourdoc-primary to-nourdoc-secondary"
-                          style={{ height: `${h}%` }}
+                          className="nourdoc-wave-bar w-1 rounded-full bg-gradient-to-t from-nourdoc-primary to-nourdoc-secondary"
+                          style={{ height: `${h}%`, animationDelay: `${i * -0.07}s` }}
                         />
                       ))}
                     </div>
@@ -167,7 +167,7 @@ export const ProductPage: React.FC = () => {
                         <Sparkles className="w-3.5 h-3.5 text-nourdoc-secondary" />
                         Clinical Synthesis & Coding Support
                       </span>
-                      <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/50">
+                      <span className="animate-pulse text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/50">
                         SOAP READY
                       </span>
                     </div>
@@ -226,7 +226,7 @@ export const ProductPage: React.FC = () => {
           {page.multipleInputs.inputs.map((inp, idx) => {
             const Icon = inputIcons[idx % inputIcons.length];
             return (
-              <Card key={idx} hover={true} className="text-center p-6 flex flex-col justify-between space-y-4">
+              <Card key={idx} hover={true} revealDelay={idx * 0.1} className="text-center p-6 flex flex-col justify-between space-y-4">
                 <div>
                   <div className="w-12 h-12 rounded-2xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mx-auto mb-3 group-hover:scale-105 transition-transform">
                     <Icon className="w-5 h-5" />
@@ -244,7 +244,7 @@ export const ProductPage: React.FC = () => {
 
       {/* 5. Flexible Deployment (Cloud / On-Premises / Hybrid) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl space-y-8">
+        <div className="nourdoc-ambient-surface rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl space-y-8">
           <SectionHeading
             eyebrow={page.deployment.eyebrow}
             title={page.deployment.h2}

@@ -54,7 +54,7 @@ export const Enterprise1MStat: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="relative rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 lg:p-16 overflow-hidden border border-white/10 shadow-2xl"
+      className="nourdoc-ambient-surface relative rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 lg:p-16 overflow-hidden border border-white/10 shadow-2xl"
     >
       {/* Background Grid & Ambient Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(nourdoc-primary_1px,transparent_1px)] [background-size:24px_24px] opacity-15" />

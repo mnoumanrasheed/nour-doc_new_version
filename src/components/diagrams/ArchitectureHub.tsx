@@ -47,7 +47,7 @@ export const ArchitectureHub: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 border border-white/10 shadow-2xl relative overflow-hidden"
+      className="nourdoc-ambient-surface rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 border border-white/10 shadow-2xl relative overflow-hidden"
     >
       <div className="text-center max-w-2xl mx-auto mb-10">
         <span className="inline-block text-xs font-bold text-nourdoc-secondary uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full mb-2 border border-white/10">

@@ -6,9 +6,18 @@ import { Enterprise1MStat } from '../components/diagrams/Enterprise1MStat';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { Card } from '../components/common/Card';
 import { Button } from '../components/common/Button';
+import { RevealOnScroll } from '../components/common/RevealOnScroll';
 import { GlobalCTA } from '../components/sections/GlobalCTA';
-import { Smartphone, Cloud, Server, ShieldCheck } from 'lucide-react';
+import { Smartphone, Cloud, Server, ShieldCheck, FileText, ClipboardCheck, ReceiptText, Settings2, Network, ArrowRight } from 'lucide-react';
 import contentData from '../data.json';
+
+const stakeholderImpactDetails = [
+  { task: 'Document care', painPoint: 'Time is pulled away from patient interaction.', tag: 'Clinical efficiency', icon: FileText },
+  { task: 'Review records', painPoint: 'Coding accuracy depends on complete documentation.', tag: 'Coding readiness', icon: ClipboardCheck },
+  { task: 'Process claims', painPoint: 'Incomplete data can slow reimbursement cycles.', tag: 'Revenue workflow', icon: ReceiptText },
+  { task: 'Reconcile operations', painPoint: 'Manual coordination creates friction across teams.', tag: 'Operational control', icon: Settings2 },
+  { task: 'Move information between systems', painPoint: 'Disconnected workflows reduce efficiency and traceability.', tag: 'System interoperability', icon: Network },
+];
 
 export const HomePage: React.FC = () => {
   const page = contentData.pages.home;
@@ -20,37 +29,78 @@ export const HomePage: React.FC = () => {
       <Hero
         badge="NOURDOC AI PLATFORM"
         h1={page.hero.h1}
+        headlineLines={['Let AI Handle the Documentation.', 'Let Doctors Focus on Care.']}
         description={page.hero.description}
         primaryCta={page.hero.primaryCta}
         secondaryCta={page.hero.secondaryCta}
         showVisual={true}
-        backgroundImage="/images/hero/hero_home.jpg"
+        backgroundImage="/images/hero/hero_home_custom.jpg"
+        visualVariant="globalFoundation"
       />
 
       {/* 2. The Problem Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow={page.theProblem.eyebrow}
-          title={page.theProblem.h2}
-          description={page.theProblem.lead}
-        />
+      <section className="bg-[#F7FAF9] py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <RevealOnScroll className="mx-auto max-w-[820px] text-center" y={16}>
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-nourdoc-primary">The Challenge</p>
+            <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
+              Administrative burden touches every part of care delivery.
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">
+              Every clinical encounter creates valuable information, but turning it into structured, billable and transferable documentation often requires significant manual effort.
+            </p>
+          </RevealOnScroll>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 my-8">
-          {page.theProblem.roles.map((item, idx) => (
-            <Card key={idx} hover={true} className="text-center p-5">
-              <div className="w-8 h-8 rounded-full bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mx-auto mb-3 text-xs font-mono font-bold">
-                0{idx + 1}
+          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6 xl:grid-cols-5">
+            {page.theProblem.roles.map((item, idx) => {
+              const detail = stakeholderImpactDetails[idx];
+              const Icon = detail.icon;
+
+              return (
+                <Card
+                  key={item.role}
+                  hover={true}
+                  revealDelay={idx * 0.09}
+                  className={`rounded-[22px] border-nourdoc-primary/15 bg-white/90 p-6 md:p-6 ${idx === 3 ? 'lg:col-start-2 xl:col-auto' : ''} lg:col-span-2 xl:col-span-1`}
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="inline-flex h-8 min-w-8 items-center justify-center rounded-full bg-nourdoc-primary-light px-2 font-mono text-xs font-bold text-nourdoc-primary">
+                      0{idx + 1}
+                    </span>
+                    <Icon className="h-5 w-5 text-nourdoc-primary" />
+                  </div>
+                  <h3 className="mt-5 text-base font-bold text-slate-900">{item.role}</h3>
+                  <p className="mt-2 text-sm font-semibold text-nourdoc-primary">{detail.task}</p>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-600">{detail.painPoint}</p>
+                  <span className="mt-5 inline-flex rounded-full border border-nourdoc-primary/15 bg-nourdoc-primary-light/60 px-2.5 py-1 text-[10px] font-semibold text-nourdoc-primary">
+                    {detail.tag}
+                  </span>
+                </Card>
+              );
+            })}
+          </div>
+
+          <RevealOnScroll className="mx-auto mt-10 max-w-6xl" delay={0.12} y={18}>
+            <div className="relative overflow-hidden rounded-3xl border border-nourdoc-primary/15 bg-gradient-to-br from-nourdoc-primary-light via-white to-nourdoc-secondary-light/60 p-7 text-center sm:p-10">
+              <div className="pointer-events-none absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-nourdoc-primary/30" />
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-nourdoc-primary">NourDoc Solution Bridge</p>
+              <h3 className="mt-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Where NourDoc fits</h3>
+              <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-slate-600 sm:text-base">
+                NourDoc brings AI into the documentation and information workflow, helping capture, structure, review and prepare clinical information for downstream coding, billing and system integration.
+              </p>
+              <div className="mt-7 flex flex-wrap justify-center gap-2.5">
+                {['Speech-to-Documentation', 'Clinical Structuring', 'Coding Assistance', 'Workflow Integration'].map((capability) => (
+                  <span key={capability} className="rounded-full border border-nourdoc-primary/15 bg-white/85 px-3 py-1.5 text-xs font-semibold text-nourdoc-primary">
+                    {capability}
+                  </span>
+                ))}
               </div>
-              <h3 className="text-sm font-bold text-slate-900">{item.role}</h3>
-              <p className="text-xs text-slate-500 mt-1 capitalize">{item.action}</p>
-            </Card>
-          ))}
-        </div>
-
-        <div className="mt-8 p-6 rounded-2xl bg-slate-50 border border-slate-200/80 text-center max-w-3xl mx-auto">
-          <p className="text-sm sm:text-base font-semibold text-slate-800">
-            {page.theProblem.conclusion}
-          </p>
+              <div className="mx-auto mt-7 flex max-w-3xl items-start justify-center gap-2 border-t border-nourdoc-primary/15 pt-6 text-sm font-semibold leading-relaxed text-slate-800 sm:text-base">
+                <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-nourdoc-primary" />
+                <p>Let healthcare professionals focus on care while administrative workflows become more structured, traceable and efficient.</p>
+              </div>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
@@ -192,7 +242,6 @@ export const HomePage: React.FC = () => {
         title={page.finalCta.h2}
         primaryLabel={page.finalCta.primaryCta.label}
         secondaryLabel={page.finalCta.secondaryCta.label}
-        showEnterpriseBox={true}
       />
     </div>
   );

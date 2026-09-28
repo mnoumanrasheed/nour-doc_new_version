@@ -1,7 +1,6 @@
 // src/components/sections/GlobalCTA.tsx
 import React from 'react';
 import { Button } from '../common/Button';
-import { Building2 } from 'lucide-react';
 import contentData from '../../data.json';
 
 interface GlobalCTAProps {
@@ -13,7 +12,6 @@ interface GlobalCTAProps {
   primaryIsApp?: boolean;
   secondaryLabel?: string;
   secondaryTarget?: string;
-  showEnterpriseBox?: boolean;
 }
 
 export const GlobalCTA: React.FC<GlobalCTAProps> = ({
@@ -25,7 +23,6 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
   primaryIsApp = true,
   secondaryLabel = 'BOOK A DEMO',
   secondaryTarget = '/contact?intent=bookDemo&topic=Other',
-  showEnterpriseBox = false,
 }) => {
   const appStoreUrl = contentData.brand.appStoreUrl;
 
@@ -78,28 +75,6 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
           </Button>
         </div>
 
-        {/* Optional Enterprise Box */}
-        {showEnterpriseBox && (
-          <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-nourdoc-primary-dark text-white max-w-2xl mx-auto text-left flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border border-white/10 shadow-xl">
-            <div>
-              <div className="flex items-center gap-2 text-nourdoc-secondary text-xs font-bold uppercase tracking-wider mb-1">
-                <Building2 className="w-4 h-4" />
-                Enterprise Healthcare?
-              </div>
-              <p className="text-xs text-slate-300 max-w-sm">
-                Need batch processing, medical coding & billing workflows, EHR/EMR/HIMS integration or on-premises deployment?
-              </p>
-            </div>
-            <Button
-              to="/contact?topic=Enterprise+Deployment"
-              variant="secondary"
-              size="sm"
-              className="shrink-0"
-            >
-              Talk to Our Enterprise Team
-            </Button>
-          </div>
-        )}
       </div>
     </section>
   );

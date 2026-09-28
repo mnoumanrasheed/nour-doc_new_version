@@ -1,4 +1,4 @@
-# NourDoc — Official Visual Asset & Image Credits Register
+# NourDoc: Official Visual Asset & Image Credits Register
 
 All photography assets used across the NourDoc website are locally stored, licensed for commercial and non-commercial editorial use under the Unsplash Open License and custom editorial asset provisions.
 

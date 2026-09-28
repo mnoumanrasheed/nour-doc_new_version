@@ -16,19 +16,19 @@ data = {
     },
     "hierarchy": {
       "level1": {
-        "title": "LEVEL 1 — CLINICIAN",
+        "title": "LEVEL 1: CLINICIAN",
         "role": "AI Clinical Documentation Assistant",
         "path": "Android → Free Trial → Starter → Professional",
         "description": "Point-of-Care Ambient Capture & SOAP Note Generation"
       },
       "level2": {
-        "title": "LEVEL 2 — HEALTHCARE ORGANIZATION",
+        "title": "LEVEL 2: HEALTHCARE ORGANIZATION",
         "role": "Ambient Clinical Intelligence Platform",
         "path": "Cloud → Enterprise → On-Premises → EHR/EMR/HIMS",
         "description": "Clinical Governance, Departmental Workflows, System Integration"
       },
       "level3": {
-        "title": "LEVEL 3 — HEALTHCARE OPERATIONS",
+        "title": "LEVEL 3: HEALTHCARE OPERATIONS",
         "role": "Enterprise Clinical Information Processing Platform",
         "path": "Batch Processing → 1M+ encounters/day architecture → ICD-10 + CPT → Multiple Formats → Coding/Billing → Claims/Clearance → Integration",
         "description": "High-Volume Batch Processing & Revenue Cycle Intelligence"
@@ -50,7 +50,7 @@ data = {
     "home": {
       "id": "home",
       "route": "/",
-      "metaTitle": "NourDoc — Ambient Clinical Intelligence for Modern Healthcare",
+      "metaTitle": "NourDoc: Ambient Clinical Intelligence for Modern Healthcare",
       "metaDescription": "NourDoc transforms clinical conversations and notes into structured, actionable healthcare information from point of care to enterprise batch scale.",
       "hero": {
         "h1": "Let AI Handle the Documentation. Let Doctors Focus on Care.",
@@ -86,7 +86,7 @@ data = {
       },
       "appSection": {
         "eyebrow": "START WITH YOUR PHONE",
-        "h2": "Your AI Clinical Documentation Assistant — In Your Pocket",
+        "h2": "Your AI Clinical Documentation Assistant, In Your Pocket",
         "description": "Experience NourDoc through the Android app. Record a consultation, let NourDoc process the conversation, review the generated documentation and continue with your clinical workflow.",
         "cta": { "label": "TRY FREE", "type": "app" }
       },
@@ -121,10 +121,10 @@ data = {
     "whyNourDoc": {
       "id": "why-nourdoc",
       "route": "/why-nourdoc",
-      "metaTitle": "Why NourDoc — Intelligent Clinical Workflows",
-      "metaDescription": "Healthcare technology should reduce administrative work — not add to it. Discover why clinicians and healthcare organizations choose NourDoc.",
+      "metaTitle": "Why NourDoc: Intelligent Clinical Workflows",
+      "metaDescription": "Healthcare technology should reduce administrative work, not add to it. Discover why clinicians and healthcare organizations choose NourDoc.",
       "hero": {
-        "h1": "Healthcare Technology Should Reduce Administrative Work — Not Add to It",
+        "h1": "Healthcare Technology Should Reduce Administrative Work, Not Add to It",
         "lead": "Clinicians should be able to focus on patients, diagnosis and care. Yet modern healthcare requires extensive documentation, coding, reporting and information management.",
         "conclusion": "NourDoc brings AI into these workflows to help reduce repetitive administrative effort."
       },
@@ -184,7 +184,7 @@ data = {
     "product": {
       "id": "product",
       "route": "/product",
-      "metaTitle": "NourDoc Product — Ambient Clinical Intelligence Platform",
+      "metaTitle": "NourDoc Product: Ambient Clinical Intelligence Platform",
       "metaDescription": "Explore NourDoc's full capability suite: ambient capture, clinical NLP, SOAP generation, ICD-10 & CPT assistance, and EHR integration.",
       "hero": {
         "h1": "Meet NourDoc",
@@ -271,7 +271,7 @@ data = {
       "integrationReady": {
         "eyebrow": "INTEGRATION-READY",
         "h2": "Designed to Connect With Healthcare Systems",
-        "description": "NourDoc can provide integration capabilities for leading:\n\n• EHR — Electronic Health Records\n• EMR — Electronic Medical Records\n• HIMS — Hospital Information Management Systems\n\nalong with coding, billing, telemedicine and other healthcare technology platforms."
+        "description": "NourDoc can provide integration capabilities for leading:\n\n• EHR: Electronic Health Records\n• EMR: Electronic Medical Records\n• HIMS: Hospital Information Management Systems\n\nalong with coding, billing, telemedicine and other healthcare technology platforms."
       },
       "cta": {
         "h2": "See NourDoc in Action.",
@@ -282,7 +282,7 @@ data = {
     "benefits": {
       "id": "benefits",
       "route": "/benefits",
-      "metaTitle": "NourDoc Benefits — Clinical Time & Operational Efficiency",
+      "metaTitle": "NourDoc Benefits: Clinical Time & Operational Efficiency",
       "metaDescription": "More clinical time, less administrative friction. Explore benefits for clinicians, practices, hospitals, billing organizations, and patients.",
       "hero": {
         "h1": "More Clinical Time. Less Administrative Friction.",
@@ -339,7 +339,7 @@ data = {
     "security": {
       "id": "security-compliance",
       "route": "/security-compliance",
-      "metaTitle": "Security & Compliance — Trusted Healthcare AI | NourDoc",
+      "metaTitle": "Security & Compliance: Trusted Healthcare AI | NourDoc",
       "metaDescription": "Healthcare AI requires trust. Discover NourDoc's security by design, cloud-native scalability, on-premises governance, and responsible AI principles.",
       "hero": {
         "h1": "Healthcare AI Requires Trust",
@@ -390,7 +390,7 @@ data = {
       "compliance": {
         "eyebrow": "COMPLIANCE",
         "h2": "Designed for Different Healthcare Markets",
-        "description": "Healthcare privacy, security and compliance requirements differ by country, organization and deployment model.\n\nNourDoc works with organizations to determine the appropriate technical, contractual and governance configuration for their operating environment.\n\nSecurity and compliance are part of the deployment conversation — not an afterthought."
+        "description": "Healthcare privacy, security and compliance requirements differ by country, organization and deployment model.\n\nNourDoc works with organizations to determine the appropriate technical, contractual and governance configuration for their operating environment.\n\nSecurity and compliance are part of the deployment conversation, not an afterthought."
       },
       "cta": {
         "h2": "Build Trusted Healthcare AI With NourDoc.",
@@ -400,7 +400,7 @@ data = {
     "subscription": {
       "id": "subscription",
       "route": "/subscription",
-      "metaTitle": "NourDoc Subscriptions — Plans for Clinicians & Enterprises",
+      "metaTitle": "NourDoc Subscriptions: Plans for Clinicians & Enterprises",
       "metaDescription": "Explore NourDoc subscription tiers: Free trial on Android, Starter for solo clinicians, Professional for practice teams, and Custom Enterprise.",
       "hero": {
         "h1": "NourDoc for Every Stage of Healthcare",
@@ -507,7 +507,7 @@ data = {
     "medicalCoding": {
       "id": "medical-coding-billing",
       "route": "/medical-coding-billing",
-      "metaTitle": "Medical Coding & Billing — Enterprise Batch Processing | NourDoc",
+      "metaTitle": "Medical Coding & Billing: Enterprise Batch Processing | NourDoc",
       "metaDescription": "From clinical voice & notes to claim-ready documentation. Scalable enterprise batch processing designed to entertain 1M+ clinical encounters per day.",
       "hero": {
         "h1": "From Clinical Voice & Notes to Claim-Ready Documentation",
@@ -533,7 +533,7 @@ data = {
         "statNumber": "1M+",
         "statLabel": "Clinical Encounters / Day",
         "statSub": "Designed for appropriately configured enterprise environments",
-        "description": "NourDoc's platform architecture is designed to entertain 1+ million clinical encounters per day in appropriately configured enterprise environments.\n\nThis capability is intended for organizations where individual encounter processing is not enough. Process thousands — or millions — of encounters through scalable workflows."
+        "description": "NourDoc's platform architecture is designed to entertain 1+ million clinical encounters per day in appropriately configured enterprise environments.\n\nThis capability is intended for organizations where individual encounter processing is not enough. Process thousands, or millions, of encounters through scalable workflows."
       },
       "batchPipeline": {
         "eyebrow": "THE BATCH PROCESSING PIPELINE",
@@ -617,7 +617,7 @@ data = {
     "integrations": {
       "id": "integrations-deployment",
       "route": "/integrations-deployment",
-      "metaTitle": "Integrations & Deployment — Healthcare Systems | NourDoc",
+      "metaTitle": "Integrations & Deployment: Healthcare Systems | NourDoc",
       "metaDescription": "Designed to fit into your healthcare ecosystem. Connect NourDoc to EHR, EMR, HIMS, and deploy across Cloud, On-Premises, or Hybrid.",
       "hero": {
         "h1": "Designed to Fit Into Your Healthcare Ecosystem",
@@ -725,7 +725,7 @@ data = {
     "partners": {
       "id": "partners-collaborators",
       "route": "/partners-collaborators",
-      "metaTitle": "Partners & Collaborators — Global Healthcare AI | NourDoc",
+      "metaTitle": "Partners & Collaborators: Global Healthcare AI | NourDoc",
       "metaDescription": "Built through global collaboration: Canadian ownership, Pakistani engineering, Finnish research, and healthcare collaborators worldwide.",
       "hero": {
         "h1": "Built Through Global Collaboration",
@@ -808,11 +808,11 @@ data = {
     "aboutContact": {
       "id": "about-contact",
       "route": "/about-contact",
-      "metaTitle": "About & Contact — Connect with NourDoc",
+      "metaTitle": "About & Contact: Connect with NourDoc",
       "metaDescription": "Making healthcare technology more human. Connect with our team for trials, subscriptions, enterprise deployment, coding & billing, or partnerships.",
       "hero": {
         "h1": "Making Healthcare Technology More Human",
-        "lead": "NourDoc began with a simple idea:\n\nHealthcare professionals should spend more time listening, thinking and caring — and less time documenting.\n\nWe are building technology to help make that possible."
+        "lead": "NourDoc began with a simple idea:\n\nHealthcare professionals should spend more time listening, thinking and caring, and less time documenting.\n\nWe are building technology to help make that possible."
       },
       "whoWeAre": {
         "eyebrow": "WHO WE ARE",

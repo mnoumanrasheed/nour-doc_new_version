@@ -39,8 +39,8 @@ export const Header: React.FC = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 min-h-[72px] md:min-h-[80px] py-3 md:py-4'
-          : 'bg-white border-b border-slate-100 min-h-[72px] md:min-h-[80px] py-3 md:py-4'
+          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 min-h-[72px] md:min-h-[80px] lg:min-h-[88px] py-3 md:py-4 lg:py-2'
+          : 'bg-white border-b border-slate-100 min-h-[72px] md:min-h-[80px] lg:min-h-[88px] py-3 md:py-4 lg:py-2'
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -88,33 +88,25 @@ export const Header: React.FC = () => {
           </nav>
 
           {/* Desktop CTA Action Group */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex shrink-0 flex-col items-center gap-1">
             <Button
               href={appStoreUrl}
               external={true}
               variant="outline"
               size="sm"
               icon={true}
+              className="w-24 min-h-[34px] py-1.5"
             >
               Try Free
             </Button>
-            <div className="flex flex-col items-center">
-              <Button
-                to="/contact?intent=bookDemo&topic=Other"
-                variant="primary"
-                size="sm"
-              >
-                Book a Demo
-              </Button>
-              <Link
-                to="/contact"
-                className={`text-[11px] font-bold transition-colors mt-0.5 tracking-wide ${location.pathname === '/contact'
-                    ? 'text-nourdoc-primary underline'
-                    : 'text-slate-500 hover:text-nourdoc-primary'
-                  }`}
-              >
-              </Link>
-            </div>
+            <Button
+              to="/contact?intent=bookDemo&topic=Other"
+              variant="primary"
+              size="sm"
+              className="w-24 min-h-[34px] py-1.5"
+            >
+              Book a Demo
+            </Button>
           </div>
 
           {/* Mobile Navigation Trigger Button */}

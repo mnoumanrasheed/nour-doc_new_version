@@ -1,5 +1,5 @@
 // src/components/diagrams/AIEngineVisual.tsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { 
   Mic, 
@@ -84,6 +84,19 @@ export const AIEngineVisual: React.FC = () => {
   const [activeStage, setActiveStage] = useState<string>('understanding');
   const shouldReduceMotion = useReducedMotion();
 
+  useEffect(() => {
+    if (shouldReduceMotion) return undefined;
+
+    const timer = window.setInterval(() => {
+      setActiveStage((current) => {
+        const currentIndex = engineStages.findIndex((stage) => stage.id === current);
+        return engineStages[(currentIndex + 1) % engineStages.length].id;
+      });
+    }, 1600);
+
+    return () => window.clearInterval(timer);
+  }, [shouldReduceMotion]);
+
   const currentStage = engineStages.find((s) => s.id === activeStage) || engineStages[2];
 
   return (
@@ -155,7 +168,15 @@ export const AIEngineVisual: React.FC = () => {
 
               {/* Directional Connector Arrow */}
               {!isLast && (
-                <div className="hidden md:flex items-center justify-center px-1 text-slate-300" aria-hidden="true">
+                <div className="hidden md:flex items-center justify-center px-1 text-slate-300 relative" aria-hidden="true">
+                  {isSelected && !shouldReduceMotion && (
+                    <motion.span
+                      initial={{ opacity: 0, x: -5 }}
+                      animate={{ opacity: [0, 1, 0], x: [-5, 0, 5] }}
+                      transition={{ duration: 0.8, repeat: Infinity, ease: 'easeInOut' }}
+                      className="absolute h-1.5 w-1.5 rounded-full bg-nourdoc-primary"
+                    />
+                  )}
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               )}

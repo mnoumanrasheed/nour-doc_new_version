@@ -33,7 +33,6 @@ export const ContactPage: React.FC = () => {
         primaryIsApp={true}
         secondaryLabel={page.finalCta.secondaryCta.label}
         secondaryTarget="/contact?intent=bookDemo&topic=Other"
-        showEnterpriseBox={true}
       />
     </div>
   );

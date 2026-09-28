@@ -3,6 +3,7 @@ import React from 'react';
 import { Hero } from '../components/sections/Hero';
 import { Card } from '../components/common/Card';
 import { GlobalCTA } from '../components/sections/GlobalCTA';
+import { RevealOnScroll } from '../components/common/RevealOnScroll';
 import { 
   ClinicalDialogueVisual, 
   PracticeWorkflowVisual, 
@@ -79,7 +80,7 @@ export const BenefitsPage: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {s.clinicians.items.map((item, idx) => (
-                <Card key={idx} hover={true} className="p-5 flex flex-col justify-between space-y-2">
+                <Card key={idx} hover={true} revealDelay={idx * 0.1} className="p-5 flex flex-col justify-between space-y-2">
                   <div>
                     <div className="flex items-center gap-2 mb-2 text-nourdoc-primary">
                       <CheckCircle2 className="w-4 h-4" />
@@ -145,7 +146,7 @@ export const BenefitsPage: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {s.practices.items.map((item, idx) => (
-                <Card key={idx} hover={true} className="p-5 flex flex-col justify-between space-y-2">
+                <Card key={idx} hover={true} revealDelay={idx * 0.1} className="p-5 flex flex-col justify-between space-y-2">
                   <div>
                     <div className="flex items-center gap-2 mb-2 text-nourdoc-primary">
                       <CheckCircle2 className="w-4 h-4" />
@@ -165,7 +166,7 @@ export const BenefitsPage: React.FC = () => {
 
       {/* 4. For Hospitals */}
       <section id="hospitals" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
-        <div className="rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl space-y-8 relative overflow-hidden">
+        <div className="nourdoc-ambient-surface rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl space-y-8 relative overflow-hidden">
           {/* Subtle background photo tint */}
           <div className="absolute inset-0 z-0 pointer-events-none opacity-10">
             <img
@@ -189,8 +190,9 @@ export const BenefitsPage: React.FC = () => {
 
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6">
             {s.hospitals.items.map((item, idx) => (
-              <div
+              <RevealOnScroll
                 key={idx}
+                delay={idx * 0.1}
                 className="bg-white/5 rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between space-y-4"
               >
                 <div>
@@ -204,7 +206,7 @@ export const BenefitsPage: React.FC = () => {
                   <Sparkles className="w-3 h-3" />
                   <span>Hospital Capability 0{idx + 1}</span>
                 </div>
-              </div>
+              </RevealOnScroll>
             ))}
           </div>
         </div>
@@ -226,7 +228,7 @@ export const BenefitsPage: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {s.codingBilling.items.map((item, idx) => (
-                <Card key={idx} hover={true} className="p-5 flex flex-col justify-between space-y-2">
+                <Card key={idx} hover={true} revealDelay={idx * 0.1} className="p-5 flex flex-col justify-between space-y-2">
                   <div>
                     <div className="flex items-center gap-2 mb-2 text-nourdoc-primary">
                       <CheckCircle2 className="w-4 h-4" />

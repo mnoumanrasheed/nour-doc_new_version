@@ -25,8 +25,8 @@ def main():
     data['pages']['about'] = {
         'id': 'about',
         'route': '/about',
-        'metaTitle': 'About NourDoc — Making Healthcare Technology More Human',
-        'metaDescription': 'NourDoc began with a simple idea: Healthcare professionals should spend more time listening, thinking and caring — and less time documenting.',
+        'metaTitle': 'About NourDoc: Making Healthcare Technology More Human',
+        'metaDescription': 'NourDoc began with a simple idea: Healthcare professionals should spend more time listening, thinking and caring, and less time documenting.',
         'hero': old_ac['hero'],
         'whoWeAre': old_ac['whoWeAre'],
         'ourMission': old_ac['ourMission'],
@@ -50,7 +50,7 @@ def main():
     data['pages']['contact'] = {
         'id': 'contact',
         'route': '/contact',
-        'metaTitle': 'Contact & Book a Demo — Connect with NourDoc',
+        'metaTitle': 'Contact & Book a Demo: Connect with NourDoc',
         'metaDescription': "Let's talk about your healthcare workflow. Inquire about platform trials, live demonstrations, enterprise deployment, medical coding & billing, or partnerships.",
         'hero': {
             'badge': 'CONTACT & DEMO',

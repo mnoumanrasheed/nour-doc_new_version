@@ -6,6 +6,7 @@ import { Card } from '../components/common/Card';
 import { SplitComparison } from '../components/diagrams/SplitComparison';
 import { EcosystemMap } from '../components/diagrams/EcosystemMap';
 import { GlobalCTA } from '../components/sections/GlobalCTA';
+import { RevealOnScroll } from '../components/common/RevealOnScroll';
 import { Check, ShieldAlert, Sparkles } from 'lucide-react';
 import contentData from '../data.json';
 
@@ -45,7 +46,7 @@ export const WhyNourDocPage: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {page.forClinicians.points.map((pt, idx) => (
-            <Card key={idx} hover={true} className="p-6 sm:p-8 flex flex-col justify-between space-y-4">
+            <Card key={idx} hover={true} revealDelay={idx * 0.1} className="p-6 sm:p-8 flex flex-col justify-between space-y-4">
               <div>
                 <div className="w-10 h-10 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mb-4 font-mono font-bold text-sm">
                   0{idx + 1}
@@ -64,7 +65,7 @@ export const WhyNourDocPage: React.FC = () => {
 
       {/* 4. For Healthcare Organizations (8 Workflow Dimensions) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl space-y-8">
+        <div className="nourdoc-ambient-surface rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl space-y-8">
           <SectionHeading
             eyebrow={page.forOrganizations.eyebrow}
             title={page.forOrganizations.h2}
@@ -74,15 +75,16 @@ export const WhyNourDocPage: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {page.forOrganizations.bullets.map((bullet, idx) => (
-              <div
+              <RevealOnScroll
                 key={idx}
+                delay={idx * 0.09}
                 className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-white/25 transition-all flex items-center gap-3.5 text-xs sm:text-sm font-semibold text-slate-100"
               >
                 <div className="w-7 h-7 rounded-lg bg-nourdoc-primary/30 text-nourdoc-secondary flex items-center justify-center shrink-0">
                   <Check className="w-4 h-4" />
                 </div>
                 <span>{bullet}</span>
-              </div>
+              </RevealOnScroll>
             ))}
           </div>
         </div>

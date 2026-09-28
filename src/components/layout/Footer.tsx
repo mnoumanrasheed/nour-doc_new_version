@@ -10,73 +10,73 @@ export const Footer: React.FC = () => {
   const brand = contentData.brand;
 
   return (
-    <footer className="bg-nourdoc-primary-dark text-white pt-16 pb-12 border-t border-white/10" aria-labelledby="footer-heading">
+    <footer className="bg-nourdoc-primary text-white pt-14 sm:pt-16 pb-8 sm:pb-10 border-t border-white/15" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">Footer</h2>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Master Brand Statement Bar */}
-        <div className="pb-12 mb-12 border-b border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div>
-            <div className="text-xs font-bold text-nourdoc-accent-light uppercase tracking-widest mb-1">
+        <div className="pb-10 sm:pb-12 mb-10 sm:mb-12 border-b border-white/15 flex flex-col md:flex-row md:items-center md:justify-between gap-5 sm:gap-6">
+          <div className="max-w-3xl">
+            <div className="text-xs font-bold text-white/80 uppercase tracking-[0.16em] mb-2">
               Master Brand Statement
             </div>
-            <div className="text-xl sm:text-2xl font-black tracking-tight text-white">
-              {brand.name}: <span className="text-white/[0.88] font-medium">{brand.masterBrandStatement}</span>
+            <div className="text-xl sm:text-2xl font-semibold tracking-tight text-white leading-snug">
+              {brand.name}: <span className="text-white/90 font-medium">{brand.masterBrandStatement}</span>
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/[0.08] text-white border border-white/[0.12]">
-              <ShieldCheck className="w-4 h-4 text-nourdoc-accent-light" />
+            <span className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold bg-white/10 text-white border border-white/20 whitespace-nowrap">
+              <ShieldCheck className="w-4 h-4 text-nourdoc-accent-hover" />
               Enterprise Architecture
             </span>
           </div>
         </div>
 
         {/* 4 Footer Columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-10 lg:gap-x-8 lg:gap-y-8 mb-12">
           {/* Brand Column */}
-          <div className="lg:col-span-2 space-y-4">
-            <Link to="/" className="flex items-center gap-3 group w-fit">
+          <div className="lg:col-span-5 space-y-5">
+            <Link to="/" className="flex items-center gap-4 group w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-nourdoc-primary rounded-sm">
                 <img
                   src={logoIcon}
                   alt="NourDoc Logo Emblem"
-                  className="h-12 w-12 sm:h-14 sm:w-14 object-contain"
+                  className="h-14 w-14 sm:h-16 sm:w-16 object-contain shrink-0 brightness-0 invert"
                 />
               <div className="flex flex-col">
-                <span className="text-2xl sm:text-3xl font-black tracking-tight text-white group-hover:text-nourdoc-accent-light transition-colors leading-none">
+                <span className="text-3xl sm:text-4xl font-black tracking-tight text-white group-hover:text-nourdoc-accent-hover transition-colors leading-none">
                   NourDoc
                 </span>
-                <span className="text-[10px] font-bold text-nourdoc-accent-light uppercase tracking-widest mt-1">
+                <span className="text-xs font-bold text-white/85 uppercase tracking-[0.12em] mt-2">
                   Ambient Intelligence
                 </span>
               </div>
             </Link>
-            <p className="text-sm font-semibold text-white/[0.78]">
+            <p className="text-base font-medium leading-relaxed text-white/90">
               {footerData.brand.tagline}
             </p>
-            <p className="text-xs text-white/[0.58] leading-relaxed max-w-sm">
+            <p className="text-sm text-white/80 leading-relaxed max-w-md">
               {footerData.brand.summary}
             </p>
 
-            <div className="pt-2 space-y-4">
+            <div className="pt-1 grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-md">
               <div>
-                <div className="text-[11px] font-extrabold uppercase tracking-widest text-white">
+                <div className="text-xs font-bold uppercase tracking-[0.12em] text-white/80">
                   Sales
                 </div>
                 <a
                   href={`mailto:${brand.emails.sales}`}
-                  className="mt-1 inline-block text-sm text-white hover:text-nourdoc-accent-hover hover:underline"
+                  className="mt-1.5 inline-flex text-sm font-medium text-white hover:text-nourdoc-accent-hover hover:underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 rounded-sm"
                 >
                   {brand.emails.sales}
                 </a>
               </div>
               <div>
-                <div className="text-[11px] font-extrabold uppercase tracking-widest text-white">
+                <div className="text-xs font-bold uppercase tracking-[0.12em] text-white/80">
                   Support
                 </div>
                 <a
                   href={`mailto:${brand.emails.support}`}
-                  className="mt-1 inline-block text-sm text-white hover:text-nourdoc-accent-hover hover:underline"
+                  className="mt-1.5 inline-flex text-sm font-medium text-white hover:text-nourdoc-accent-hover hover:underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 rounded-sm"
                 >
                   {brand.emails.support}
                 </a>
@@ -86,11 +86,11 @@ export const Footer: React.FC = () => {
 
           {/* Navigation & Directory Columns */}
           {footerData.columns.slice(0, 3).map((col, idx) => (
-            <div key={idx} className="space-y-4">
-              <h3 className="text-xs font-extrabold text-white uppercase tracking-wider">
+            <div key={idx} className={`space-y-4 ${idx === 0 ? 'lg:col-span-3' : 'lg:col-span-2'}`}>
+              <h3 className="text-sm font-semibold text-white uppercase tracking-[0.12em]">
                 {col.title}
               </h3>
-              <ul className="space-y-2.5 text-xs">
+              <ul className="space-y-3 text-sm leading-6">
                 {col.links.map((link, lIdx) => (
                   <li key={lIdx}>
                     {link.external ? (
@@ -98,7 +98,7 @@ export const Footer: React.FC = () => {
                         href={link.path}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-white/[0.70] hover:text-white transition-colors inline-flex items-center gap-1"
+                        className="text-white/80 hover:text-white transition-colors inline-flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 rounded-sm"
                       >
                         <span>{link.label}</span>
                         <ExternalLink className="w-3 h-3" />
@@ -106,7 +106,7 @@ export const Footer: React.FC = () => {
                     ) : (
                       <Link
                         to={link.path}
-                        className="text-white/[0.70] hover:text-white transition-colors"
+                        className="text-white/80 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 rounded-sm"
                       >
                         {link.label}
                       </Link>
@@ -119,24 +119,10 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Global Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-white/[0.55] gap-4">
-          <p>© {new Date().getFullYear()} NourDoc. All rights reserved.</p>
-          <div className="flex flex-wrap items-center gap-6">
-            <Link to="/about" className="text-white/[0.58] hover:text-white transition-colors">
-              About
-            </Link>
-            <Link to="/contact" className="text-white/[0.58] hover:text-white transition-colors">
-              Contact & Demo
-            </Link>
-            <a
-              href="/images/IMAGE_CREDITS.md"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/[0.58] hover:text-white transition-colors"
-            >
-              Image Credits
-            </a>
-            <span>Canadian Ownership • Pakistani Engineering • Finnish Research</span>
+        <div className="pt-7 sm:pt-8 border-t border-white/15 flex flex-col sm:flex-row items-center sm:items-start justify-between text-sm text-white/75 gap-4 sm:gap-6">
+          <p className="text-center sm:text-left">&copy; {new Date().getFullYear()} NourDoc. All rights reserved.</p>
+          <div className="flex flex-wrap justify-center sm:justify-end items-center gap-x-5 gap-y-2 text-center sm:text-right">
+            <span className="text-sm text-white/75">Canadian Ownership &bull; Pakistani Engineering &bull; Finnish Research</span>
           </div>
         </div>
       </div>

@@ -317,7 +317,7 @@ export const PartnersPage: React.FC = () => {
                   “Build with healthcare. Not just for healthcare.”
                 </p>
                 <p className="text-xs text-slate-500 mt-1">
-                  NourDoc Core Principle — Clinical intelligence shaped directly by practicing medical professionals.
+                  NourDoc Core Principle: Clinical intelligence shaped directly by practicing medical professionals.
                 </p>
               </div>
             </div>
