@@ -118,20 +118,30 @@ async function prerender() {
       `<meta name="description" content="${route.description.replace(/"/g, '&quot;')}" />`
     );
 
+    // Keep the base document's social metadata in place while making the
+    // title and description route-specific for crawlers.
+    html = html.replace(
+      /<meta property="og:title" content=".*?" \/>/,
+      `<meta property="og:title" content="${route.title.replace(/"/g, '&quot;')}" />`
+    );
+    html = html.replace(
+      /<meta property="og:description" content=".*?" \/>/,
+      `<meta property="og:description" content="${route.description.replace(/"/g, '&quot;')}" />`
+    );
+    html = html.replace(
+      /<meta name="twitter:title" content=".*?" \/>/,
+      `<meta name="twitter:title" content="${route.title.replace(/"/g, '&quot;')}" />`
+    );
+    html = html.replace(
+      /<meta name="twitter:description" content=".*?" \/>/,
+      `<meta name="twitter:description" content="${route.description.replace(/"/g, '&quot;')}" />`
+    );
+
     // 3. Inject Open Graph, Twitter & Canonical Tags before </head>
     const seoTags = `
     <link rel="canonical" href="${canonicalUrl}" />
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
     <meta property="og:url" content="${canonicalUrl}" />
-    <meta property="og:title" content="${route.title.replace(/"/g, '&quot;')}" />
-    <meta property="og:description" content="${route.description.replace(/"/g, '&quot;')}" />
-    <meta property="og:site_name" content="NourDoc" />
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="${canonicalUrl}" />
-    <meta name="twitter:title" content="${route.title.replace(/"/g, '&quot;')}" />
-    <meta name="twitter:description" content="${route.description.replace(/"/g, '&quot;')}" />
   </head>`;
 
     html = html.replace('</head>', seoTags);
