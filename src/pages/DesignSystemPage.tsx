@@ -13,7 +13,6 @@ import {
   MedicalCodingVisual,
   CollaborationExchangeVisual 
 } from '../components/visuals/ClinicalVisuals';
-import logoIcon from '../assets/logo-icon.png';
 import { CheckCircle2, AlertCircle, ShieldCheck } from 'lucide-react';
 
 export const DesignSystemPage: React.FC = () => {
@@ -50,29 +49,29 @@ export const DesignSystemPage: React.FC = () => {
           {/* Transparent Icon Mark */}
           <Card className="p-6 flex flex-col items-center justify-between text-center space-y-4 bg-white border border-slate-200">
             <div className="w-full py-4 flex items-center justify-center">
-              <img src={logoIcon} alt="NourDoc Emblem Mark" className="h-16 w-16 object-contain filter drop-shadow-xs" />
+              <img src="/logo.png" alt="NourDoc Emblem Mark" className="h-16 w-16 object-contain filter drop-shadow-xs" />
             </div>
             <div className="border-t border-slate-100 pt-2 w-full text-center">
               <span className="text-xs font-bold text-slate-900 block">Standalone Emblem</span>
-              <span className="text-[10px] font-mono text-slate-500">Favicon & App Icon (logo-icon.png)</span>
+              <span className="text-[10px] font-mono text-slate-500">Favicon & App Icon (logo.png)</span>
             </div>
           </Card>
 
           {/* Primary Mark on Light */}
           <Card className="p-6 flex flex-col items-center justify-between text-center space-y-4 bg-white border border-slate-200">
             <div className="w-full py-4 flex items-center justify-center">
-              <img src={logoIcon} alt="NourDoc Primary Mark" className="h-20 w-20 object-contain" />
+              <img src="/logo.png" alt="NourDoc Primary Mark" className="h-20 w-20 object-contain" />
             </div>
             <div className="border-t border-slate-100 pt-2 w-full text-center">
               <span className="text-xs font-bold text-slate-900 block">Primary Mark / Light</span>
-              <span className="text-[10px] font-mono text-slate-500">Transparent RGBA (new logo.png)</span>
+              <span className="text-[10px] font-mono text-slate-500">Primary Logo (logo.png)</span>
             </div>
           </Card>
 
           {/* Primary Mark on Tint */}
           <Card className="p-6 flex flex-col items-center justify-between text-center space-y-4 bg-nourdoc-primary-light border border-nourdoc-primary/30">
             <div className="w-full py-6 flex items-center justify-center">
-              <img src={logoIcon} alt="NourDoc Primary Mark on tint" className="h-16 w-16 object-contain" />
+              <img src="/logo.png" alt="NourDoc Primary Mark on tint" className="h-16 w-16 object-contain" />
             </div>
             <div className="border-t border-nourdoc-primary/20 pt-2 w-full text-center">
               <span className="text-xs font-bold text-slate-900 block">Primary Mark / Tint</span>
@@ -83,7 +82,7 @@ export const DesignSystemPage: React.FC = () => {
           {/* Primary Mark on Dark Background */}
           <Card className="p-6 flex flex-col items-center justify-between text-center space-y-4 bg-nourdoc-primary-dark border border-white/10 text-white">
             <div className="w-full py-4 flex items-center justify-center">
-              <img src={logoIcon} alt="NourDoc Primary Mark on dark" className="h-20 w-20 object-contain brightness-0 invert" />
+              <img src="/logo.png" alt="NourDoc Primary Mark on dark" className="h-20 w-20 object-contain brightness-0 invert" />
             </div>
             <div className="border-t border-white/10 pt-2 w-full text-center">
               <span className="text-xs font-bold text-white block">Primary Mark / Dark</span>

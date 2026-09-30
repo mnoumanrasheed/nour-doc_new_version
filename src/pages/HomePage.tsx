@@ -27,15 +27,17 @@ export const HomePage: React.FC = () => {
     <div className="space-y-16 md:space-y-24">
       {/* 1. Hero Section with Authentic Editorial Healthcare Photography */}
       <Hero
-        badge="NOURDOC AI PLATFORM"
-        h1={page.hero.h1}
+        badge="AMBIENT CLINICAL INTELLIGENCE"
+        h1="Let AI Handle the Documentation. Let Doctors Focus on Care."
         headlineLines={['Let AI Handle the Documentation.', 'Let Doctors Focus on Care.']}
-        description={page.hero.description}
-        primaryCta={page.hero.primaryCta}
-        secondaryCta={page.hero.secondaryCta}
+        description="NourDoc transforms clinical conversations into structured, actionable healthcare information, supporting clinical documentation, coding and downstream healthcare workflows."
+        primaryCta={{ label: 'Try NourDoc Free', type: 'app' }}
+        secondaryCta={{ label: 'Book a Demo', type: 'demo' }}
+        supportingLine="From individual clinicians to enterprise-scale healthcare networks."
         showVisual={true}
-        backgroundImage="/images/hero/hero_home_custom.jpg"
-        visualVariant="globalFoundation"
+        heroImage="/images/hero/hero_home_custom.jpg"
+        heroImageAlt="Doctor speaking with a patient during a clinical consultation"
+        visualVariant="homeClinical"
       />
 
       {/* 2. The Problem Section */}

@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ExternalLink, ShieldCheck } from 'lucide-react';
 import contentData from '../../data.json';
-import logoIcon from '../../assets/logo-icon.png';
 
 export const Footer: React.FC = () => {
   const footerData = contentData.footer;
@@ -38,7 +37,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-5 space-y-5">
             <Link to="/" className="flex items-center gap-4 group w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-nourdoc-primary rounded-sm">
                 <img
-                  src={logoIcon}
+                  src="/logo.png"
                   alt="NourDoc Logo Emblem"
                   className="h-14 w-14 sm:h-16 sm:w-16 object-contain shrink-0 brightness-0 invert"
                 />

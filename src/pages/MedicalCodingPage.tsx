@@ -5,6 +5,7 @@ import { Enterprise1MStat } from '../components/diagrams/Enterprise1MStat';
 import { Button } from '../components/common/Button';
 import { Card } from '../components/common/Card';
 import { GlobalCTA } from '../components/sections/GlobalCTA';
+import { Hero } from '../components/sections/Hero';
 import { 
   FileSpreadsheet, 
   Mic, 
@@ -26,8 +27,18 @@ export const MedicalCodingPage: React.FC = () => {
 
   return (
     <div className="space-y-16 md:space-y-24">
+      <Hero
+        badge="CODING & BILLING"
+        h1={page.hero.h1}
+        description={page.hero.description}
+        primaryCta={{ label: 'BOOK AN ENTERPRISE DEMO', type: 'demo' }}
+        secondaryCta={{ label: 'TALK TO OUR TEAM', type: 'route', target: '/contact?topic=Batch+Processing' }}
+        backgroundImage="/images/hero/cand_505751.jpg"
+        backgroundAlt="Stethoscope and clinical writing instruments on a medical surface"
+        visualVariant="coding"
+      />
       {/* 1. Flagship Enterprise Hero */}
-      <section className="hero-100vsh relative overflow-hidden flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-nourdoc-primary-surface/80 via-white to-white border-b border-slate-100">
+      <section className="hidden hero-100vsh relative overflow-hidden flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-nourdoc-primary-surface/80 via-white to-white border-b border-slate-100">
         {/* Background Photography Layer with a lighter directional scrim */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img

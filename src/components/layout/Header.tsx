@@ -1,230 +1,149 @@
-// src/components/layout/Header.tsx
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { Button } from '../common/Button';
 import contentData from '../../data.json';
-import logoIcon from '../../assets/logo-icon.png';
+
+type MenuItem = { title: string; path: string; description: string };
+type MenuGroup = { label: string; items: MenuItem[] };
+
+const groups: MenuGroup[] = [
+  { label: 'Product', items: [
+    { title: 'AI Platform', path: '/product', description: 'Ambient intelligence for every encounter.' },
+    { title: 'Coding & Billing', path: '/medical-coding-billing', description: 'Cleaner documentation and revenue cycles.' },
+    { title: 'Integrations & Deployment', path: '/integrations-deployment', description: 'Connect care teams and systems.' },
+    { title: 'Security & Compliance', path: '/security-compliance', description: 'Enterprise-grade health data protection.' },
+  ] },
+  { label: 'Why NourDoc', items: [
+    { title: 'Why NourDoc', path: '/why-nourdoc', description: 'More time for patients.' },
+    { title: 'Clinical Benefits', path: '/benefits', description: 'Impact across clinical workflows.' },
+  ] },
+  { label: 'Company', items: [
+    { title: 'About NourDoc', path: '/about', description: 'Meet the team improving clinical work.' },
+    { title: 'Partners & Collaborators', path: '/partners-collaborators', description: 'Build the future of connected care.' },
+  ] },
+];
 
 export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const shouldReduceMotion = useReducedMotion();
-
-  const navigation = contentData.navigation;
+  const navRef = useRef<HTMLElement>(null);
+  const frameRef = useRef<number | null>(null);
   const appStoreUrl = contentData.brand.appStoreUrl;
+  const demoPath = '/contact?intent=bookDemo&topic=Other';
+  const isActive = (path: string) => location.pathname === path;
+  const groupIsActive = (group: MenuGroup) => group.items.some((item) => isActive(item.path));
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+    const updateScrollState = () => {
+      frameRef.current = null;
+      setScrolled(window.scrollY > 24);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      if (frameRef.current === null) frameRef.current = window.requestAnimationFrame(updateScrollState);
+    };
+    updateScrollState();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (frameRef.current !== null) window.cancelAnimationFrame(frameRef.current);
+    };
   }, []);
 
-  // Lock body scroll when drawer is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = isOpen ? 'hidden' : previousOverflow;
+    return () => { document.body.style.overflow = previousOverflow; };
   }, [isOpen]);
 
+  useEffect(() => {
+    setIsOpen(false);
+    setOpenGroup(null);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsOpen(false);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
+
+  const closeMenus = () => setOpenGroup(null);
+  const handleNavKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+    if (event.key === 'Escape') {
+      closeMenus();
+      (event.target as HTMLElement).blur();
+      return;
+    }
+    if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+    const target = event.target as HTMLElement;
+    const groupLabel = target.dataset.group;
+    if (groupLabel && event.key === 'ArrowDown') {
+      event.preventDefault();
+      setOpenGroup(groupLabel);
+      window.requestAnimationFrame(() => navRef.current?.querySelector<HTMLElement>(`[data-menu="${groupLabel}"] a`)?.focus());
+      return;
+    }
+    const items = Array.from(navRef.current?.querySelectorAll<HTMLElement>('[data-nav-item]') ?? []);
+    const current = items.indexOf(target);
+    if (current < 0) return;
+    event.preventDefault();
+    items[(current + (event.key === 'ArrowDown' ? 1 : items.length - 1)) % items.length]?.focus();
+  };
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 min-h-[72px] md:min-h-[80px] lg:min-h-[88px] py-3 md:py-4 lg:py-2'
-          : 'bg-white border-b border-slate-100 min-h-[72px] md:min-h-[80px] lg:min-h-[88px] py-3 md:py-4 lg:py-2'
-        }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Brand Logo */}
-          <Link
-            to="/"
-            className="flex items-center gap-2 sm:gap-2.5 bg-transparent group focus-visible:outline-2 focus-visible:outline-nourdoc-primary shrink-0"
-            aria-label="NourDoc Home"
-          >
-            <img
-              src={logoIcon}
-              alt="NourDoc emblem"
-              className="h-9 sm:h-10 md:h-11 lg:h-[52px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-            />
-            <span className="font-sans text-lg sm:text-xl md:text-2xl font-black tracking-tight leading-none text-slate-900 group-hover:text-nourdoc-primary transition-colors">
-              NourDoc
-            </span>
-          </Link>
+    <header className={`fixed left-1/2 top-[14px] z-50 w-[calc(100%-32px)] -translate-x-1/2 transition-[height,background-color,box-shadow] duration-[250ms] ease-out ${scrolled ? 'h-[58px]' : 'h-16'}`}>
+      <div className={`flex h-full items-center gap-5 rounded-[20px] border border-[rgba(16,24,40,0.06)] px-5 backdrop-blur-[16px] [backdrop-filter:saturate(160%)_blur(16px)] transition-[background-color,box-shadow] duration-[250ms] ease-out ${scrolled ? 'bg-[rgba(255,255,255,0.88)] shadow-[0_1px_2px_rgba(16,24,40,0.05),0_10px_34px_rgba(16,24,40,0.11)]' : 'bg-[rgba(255,255,255,0.72)] shadow-[0_1px_2px_rgba(16,24,40,0.04),0_8px_30px_rgba(16,24,40,0.08)]'}`}>
+        <Link to="/" className="group flex shrink-0 items-center gap-2 rounded-md focus-visible:outline-none" aria-label="NourDoc Home">
+          <img src="/logo.png" alt="NourDoc emblem" className="h-8 w-8 object-contain transition-transform duration-200 group-hover:scale-[1.03]" />
+          <span className="text-[19px] font-semibold tracking-[-0.035em] text-slate-900 transition-colors group-hover:text-nourdoc-primary">NourDoc</span>
+        </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-1 2xl:gap-2" aria-label="Main Navigation">
-            {navigation.map((item) => {
-              const isActive = location.pathname === item.path;
-              return (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`px-3 py-2 text-xs font-bold rounded-md transition-colors relative ${isActive
-                      ? 'text-nourdoc-primary bg-nourdoc-primary-light'
-                      : 'text-slate-600 hover:text-nourdoc-primary hover:bg-slate-50'
-                    }`}
-                >
-                  {item.title}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeNavIndicator"
-                      className="absolute bottom-0 left-2 right-2 h-0.5 bg-nourdoc-primary rounded-full"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                </Link>
-              );
-            })}
-          </nav>
+        <nav ref={navRef} onKeyDown={handleNavKeyDown} className="hidden flex-1 items-center justify-center gap-7 lg:flex" aria-label="Main">
+          {groups.map((group) => (
+            <div key={group.label} className="relative" onMouseEnter={() => setOpenGroup(group.label)} onMouseLeave={closeMenus}>
+              <button type="button" data-nav-item data-group={group.label} aria-haspopup="menu" aria-expanded={openGroup === group.label} onClick={() => setOpenGroup(openGroup === group.label ? null : group.label)} className={`group relative flex h-10 items-center gap-1.5 whitespace-nowrap rounded-md text-[15px] font-medium transition-colors focus-visible:outline-none ${groupIsActive(group) || openGroup === group.label ? 'text-nourdoc-primary' : 'text-slate-700 hover:text-nourdoc-primary'}`}>
+                {group.label}<ChevronDown aria-hidden="true" className={`h-3 w-3 transition-transform duration-150 ${openGroup === group.label ? 'rotate-180' : ''}`} />
+                {groupIsActive(group) && <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 rounded-full bg-nourdoc-primary" />}
+              </button>
+              <span className="absolute left-1/2 top-full h-3 w-[calc(100%+24px)] -translate-x-1/2" aria-hidden="true" />
+              <div data-menu={group.label} role="menu" className={`absolute left-1/2 top-[calc(100%+12px)] z-20 min-w-[280px] -translate-x-1/2 rounded-2xl border border-[rgba(16,24,40,0.06)] bg-white p-2 shadow-[0_1px_2px_rgba(16,24,40,0.04),0_12px_32px_rgba(16,24,40,0.08)] transition-[opacity,transform,visibility] duration-[160ms] ease-out ${openGroup === group.label ? 'visible translate-y-0 opacity-100' : 'invisible translate-y-1.5 opacity-0'}`}>
+                {group.items.map((item) => <Link key={item.path} to={item.path} role="menuitem" data-nav-item onClick={closeMenus} className={`group block rounded-[10px] px-3.5 py-3 transition-colors focus-visible:outline-none ${isActive(item.path) ? 'bg-[#F4F7F5]' : 'hover:bg-[#F4F7F5]'}`}><span className={`block whitespace-nowrap text-[15px] font-medium ${isActive(item.path) ? 'text-nourdoc-primary' : 'text-slate-800 group-hover:text-nourdoc-primary'}`}>{item.title}</span><span className="mt-0.5 block whitespace-nowrap text-[13px] font-normal leading-[1.4] text-slate-500">{item.description}</span></Link>)}
+              </div>
+            </div>
+          ))}
+          <Link data-nav-item to="/subscription" className={`group relative flex h-10 items-center whitespace-nowrap rounded-md text-[15px] font-medium transition-colors focus-visible:outline-none ${isActive('/subscription') ? 'text-nourdoc-primary' : 'text-slate-700 hover:text-nourdoc-primary'}`}>Pricing{isActive('/subscription') && <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 rounded-full bg-nourdoc-primary" />}</Link>
+        </nav>
 
-          {/* Desktop CTA Action Group */}
-          <div className="hidden lg:flex shrink-0 flex-col items-center gap-1">
-            <Button
-              href={appStoreUrl}
-              external={true}
-              variant="outline"
-              size="sm"
-              icon={true}
-              className="w-24 min-h-[34px] py-1.5"
-            >
-              Try Free
-            </Button>
-            <Button
-              to="/contact?intent=bookDemo&topic=Other"
-              variant="primary"
-              size="sm"
-              className="w-24 min-h-[34px] py-1.5"
-            >
-              Book a Demo
-            </Button>
-          </div>
+        <div className="hidden shrink-0 items-center gap-1 lg:flex">
+          <Button href={appStoreUrl} external variant="ghost" size="sm" className="h-10 rounded-[10px] whitespace-nowrap px-3 text-[15px] font-medium">Try Free</Button>
+          <Button to={demoPath} variant="primary" size="sm" className="h-[42px] rounded-xl whitespace-nowrap px-5 text-[15px] font-semibold shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_6px_16px_rgba(40,98,82,0.22)] hover:-translate-y-px">Book a Demo</Button>
+        </div>
 
-          {/* Mobile Navigation Trigger Button */}
-          <div className="flex items-center gap-2 xl:hidden">
-            <a
-              href={appStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="sm:hidden px-3 py-1.5 text-xs font-bold bg-nourdoc-primary-light text-nourdoc-primary rounded-md"
-            >
-              Try Free
-            </a>
-            <button
-              type="button"
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-slate-700 hover:text-nourdoc-primary hover:bg-slate-100 focus-visible:outline-nourdoc-primary"
-              aria-label={isOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={isOpen}
-            >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+        <div className="ml-auto flex items-center gap-2 lg:hidden">
+          <Button to={demoPath} onClick={() => setIsOpen(false)} variant="primary" size="sm" className="h-10 rounded-xl whitespace-nowrap px-3 text-sm font-semibold">Book a Demo</Button>
+          <button type="button" onClick={() => setIsOpen(true)} className="flex h-11 w-11 items-center justify-center rounded-lg text-slate-700 hover:bg-nourdoc-primary-light hover:text-nourdoc-primary focus-visible:outline-none" aria-label="Open menu" aria-expanded={isOpen} aria-controls="mobile-navigation"><Menu className="h-6 w-6" /></button>
         </div>
       </div>
 
-      {/* Mobile Drawer Navigation (Motion for React) */}
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-              className="fixed inset-0 top-[72px] bg-nourdoc-primary-dark/40 backdrop-blur-sm z-40 xl:hidden"
-              aria-hidden="true"
-            />
-
-            {/* Slide-out Drawer Panel */}
-            <motion.div
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: '100%' }}
-              animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
-              exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 250 }}
-              className="fixed top-[72px] right-0 bottom-0 w-full max-w-sm bg-white shadow-2xl z-50 xl:hidden overflow-y-auto border-l border-slate-200 flex flex-col justify-between"
-            >
-              <div className="p-6">
-                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 px-2">
-                  Navigation
-                </div>
-                <nav className="space-y-1">
-                  {navigation.map((item) => {
-                    const isActive = location.pathname === item.path;
-                    return (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        onClick={() => setIsOpen(false)}
-                        className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-bold transition-colors ${isActive
-                            ? 'bg-nourdoc-primary-light text-nourdoc-primary'
-                            : 'text-slate-700 hover:bg-slate-50 hover:text-nourdoc-primary'
-                          }`}
-                      >
-                        <span>{item.title}</span>
-                        <ChevronRight className="w-4 h-4 text-slate-400" />
-                      </Link>
-                    );
-                  })}
-                </nav>
-
-                <div className="mt-8 pt-6 border-t border-slate-100 space-y-3">
-                  <Button
-                    to="/contact?intent=bookDemo&topic=Other"
-                    onClick={() => setIsOpen(false)}
-                    variant="primary"
-                    size="md"
-                    className="w-full justify-center"
-                  >
-                    Book a Demo
-                  </Button>
-                  <Link
-                    to="/contact"
-                    onClick={() => setIsOpen(false)}
-                    className={`block text-center text-xs font-bold py-2 rounded-lg transition-colors ${location.pathname === '/contact'
-                        ? 'bg-nourdoc-primary-light text-nourdoc-primary'
-                        : 'text-slate-600 hover:text-nourdoc-primary hover:bg-slate-50'
-                      }`}
-                  >
-                    Contact & Inquiries →
-                  </Link>
-                  <Button
-                    href={appStoreUrl}
-                    external={true}
-                    variant="outline"
-                    size="md"
-                    icon={true}
-                    className="w-full justify-center"
-                  >
-                    Try NourDoc Free (Android)
-                  </Button>
-                </div>
-              </div>
-
-              {/* Drawer Footer info */}
-              <div className="p-6 bg-slate-50 border-t border-slate-100">
-                <div className="text-xs font-semibold text-slate-500">Contact Sales:</div>
-                <a
-                  href={`mailto:${contentData.brand.emails.sales}`}
-                  className="text-xs font-bold text-nourdoc-primary hover:underline"
-                >
-                  {contentData.brand.emails.sales}
-                </a>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+      {isOpen && <div className="fixed inset-0 z-[55] bg-nourdoc-primary-dark/35 backdrop-blur-sm lg:hidden" aria-hidden="true" onClick={() => setIsOpen(false)} />}
+      <aside id="mobile-navigation" aria-label="Mobile navigation" aria-hidden={!isOpen} className={`fixed right-0 top-0 z-[60] flex h-dvh w-full max-w-md flex-col bg-white pt-24 shadow-2xl transition-[transform,visibility] duration-200 lg:hidden ${isOpen ? 'visible translate-x-0' : 'invisible translate-x-full'}`}>
+        <div className="flex-1 overflow-y-auto px-5 py-5">
+          <nav aria-label="Mobile Main">
+            {groups.map((group) => <div key={group.label} className="border-b border-slate-100"><button type="button" aria-expanded={openGroup === group.label} aria-haspopup="true" onClick={() => setOpenGroup(openGroup === group.label ? null : group.label)} className="flex h-[52px] w-full items-center justify-between text-left text-[17px] font-medium text-slate-800 focus-visible:outline-none">{group.label}<ChevronDown className={`h-4 w-4 text-slate-400 transition-transform duration-150 ${openGroup === group.label ? 'rotate-180 text-nourdoc-primary' : ''}`} /></button>{openGroup === group.label && <div className="pb-2">{group.items.map((item) => <Link key={item.path} to={item.path} onClick={() => setIsOpen(false)} className={`flex h-[52px] items-center rounded-lg px-3 text-[17px] font-medium ${isActive(item.path) ? 'bg-nourdoc-primary-light text-nourdoc-primary' : 'text-slate-600 hover:bg-slate-50'}`}>{item.title}</Link>)}</div>}</div>)}
+            <Link to="/subscription" onClick={() => setIsOpen(false)} className={`flex h-[52px] items-center border-b border-slate-100 text-[17px] font-medium ${isActive('/subscription') ? 'text-nourdoc-primary' : 'text-slate-800'}`}>Pricing</Link>
+          </nav>
+        </div>
+        <div className="space-y-3 border-t border-slate-100 bg-white p-5 pb-7">
+          <Button href={appStoreUrl} external variant="ghost" size="md" className="h-12 w-full justify-center rounded-xl text-base">Try Free</Button>
+          <Button to={demoPath} onClick={() => setIsOpen(false)} variant="primary" size="md" className="h-12 w-full justify-center rounded-xl text-base shadow-[0_6px_16px_rgba(40,98,82,0.2)]">Book a Demo</Button>
+        </div>
+        <button type="button" onClick={() => setIsOpen(false)} className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-lg text-slate-700 hover:bg-slate-100 focus-visible:outline-none" aria-label="Close menu"><X className="h-6 w-6" /></button>
+      </aside>
     </header>
   );
 };

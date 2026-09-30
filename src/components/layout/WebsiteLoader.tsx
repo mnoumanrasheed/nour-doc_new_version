@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
-import logoIcon from '../../assets/logo-icon.png';
 
 const LOADER_MIN_DURATION = 1100;
 
@@ -71,7 +70,7 @@ export const WebsiteLoader: React.FC = () => {
                 />
               )}
               <div className="absolute inset-2 rounded-full bg-nourdoc-primary/15 shadow-[0_0_55px_rgba(111,156,144,0.22)]" />
-              <img src={logoIcon} alt="NourDoc" className="relative h-14 w-14 object-contain" />
+              <img src="/logo.png" alt="NourDoc" className="relative h-14 w-14 object-contain" />
             </div>
 
             <div className="mb-8">

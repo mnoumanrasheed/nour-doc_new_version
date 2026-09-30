@@ -6,6 +6,7 @@ import { AIEngineVisual } from '../components/diagrams/AIEngineVisual';
 import { Button } from '../components/common/Button';
 import { Card } from '../components/common/Card';
 import { GlobalCTA } from '../components/sections/GlobalCTA';
+import { Hero } from '../components/sections/Hero';
 import { 
   Mic, 
   FileAudio, 
@@ -30,8 +31,19 @@ export const ProductPage: React.FC = () => {
 
   return (
     <div className="space-y-16 md:space-y-24">
+      <Hero
+        badge="AI PLATFORM"
+        h1="Meet NourDoc"
+        subtitle={page.hero.subtitle}
+        description={page.hero.description}
+        primaryCta={page.cta.primaryCta}
+        secondaryCta={page.cta.secondaryCta}
+        backgroundImage="/images/hero/hero_product.jpg"
+        backgroundAlt="Clinician using a laptop during a healthcare workflow"
+        visualVariant="product"
+      />
       {/* 1. Editorial Split Hero combining Consultation & Conceptual Documentation UI */}
-      <section className="hero-100vsh relative overflow-hidden flex flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-nourdoc-primary-surface/80 via-white to-white border-b border-slate-100">
+      <section className="hidden hero-100vsh relative overflow-hidden flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-nourdoc-primary-surface/80 via-white to-white border-b border-slate-100">
         {/* Background Photography Layer with a lighter directional scrim */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img

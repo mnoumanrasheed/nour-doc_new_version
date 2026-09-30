@@ -91,13 +91,13 @@ body {
 
 @media (min-width: 768px) {
   :root {
-    --header-height: 80px;
+    --header-height: 72px;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --header-height: 88px;
+    --header-height: 72px;
   }
 }
 
