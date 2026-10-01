@@ -2,7 +2,7 @@
 import base64
 from pathlib import Path
 
-from PIL import Image, ImageChops, ImageDraw, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -93,18 +93,14 @@ def load_font(size, bold=False):
 
 
 def save_social_preview(icon):
-    canvas = Image.new('RGB', (1200, 630), '#183B33')
-    draw = ImageDraw.Draw(canvas)
-    draw.ellipse((720, -280, 1430, 430), fill='#286252')
-    draw.ellipse((-260, 390, 350, 1000), fill='#204C40')
-    draw.rounded_rectangle((42, 42, 1158, 588), radius=28, outline='#6F9C90', width=2)
-
-    mark = icon.resize((350, 350), Image.Resampling.LANCZOS)
-    canvas.paste(mark, (120, 140), mark)
-
-    draw.text((560, 225), 'NourDoc', fill='#FFFFFF', font=load_font(74, bold=True))
-    draw.text((565, 320), 'Ambient Clinical Intelligence', fill='#B8D6CD', font=load_font(28))
-    draw.text((565, 385), 'Modern healthcare, made more human.', fill='#FFFFFF', font=load_font(24))
+    # Keep link previews minimal and brand-led: a white background with only
+    # the supplied NourDoc mark, centered with generous breathing room.
+    canvas = Image.new('RGB', (1200, 630), '#FFFFFF')
+    # Use most of the available height so the mark remains legible in small
+    # link-preview thumbnails, then restore edge definition after downsampling.
+    mark = icon.resize((560, 560), Image.Resampling.LANCZOS)
+    mark = mark.filter(ImageFilter.UnsharpMask(radius=1.2, percent=150, threshold=2))
+    canvas.paste(mark, ((canvas.width - mark.width) // 2, (canvas.height - mark.height) // 2), mark)
     canvas.save(PUBLIC / 'og-image.png', 'PNG', optimize=True)
 
 
