@@ -2,7 +2,6 @@
 import React from 'react';
 import { Hero } from '../components/sections/Hero';
 import { ContactForm } from '../components/forms/ContactForm';
-import { GlobalCTA } from '../components/sections/GlobalCTA';
 import contentData from '../data.json';
 
 export const ContactPage: React.FC = () => {
@@ -24,16 +23,6 @@ export const ContactPage: React.FC = () => {
         <ContactForm />
       </section>
 
-      {/* 3. Final CTA with Enterprise Box */}
-      <GlobalCTA
-        eyebrow={page.finalCta.eyebrow}
-        title={page.finalCta.h2}
-        subtitle={page.finalCta.sub}
-        primaryLabel={page.finalCta.primaryCta.label}
-        primaryIsApp={true}
-        secondaryLabel={page.finalCta.secondaryCta.label}
-        secondaryTarget="/contact?intent=bookDemo&topic=Other"
-      />
     </div>
   );
 };

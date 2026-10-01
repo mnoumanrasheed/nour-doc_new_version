@@ -35,7 +35,7 @@ export const HomePage: React.FC = () => {
         secondaryCta={{ label: 'Book a Demo', type: 'demo' }}
         supportingLine="From individual clinicians to enterprise-scale healthcare networks."
         showVisual={true}
-        heroImage="/images/hero/hero_home_custom.jpg"
+        heroImage="/images/hero/hero_home_custom.png"
         heroImageAlt="Doctor speaking with a patient during a clinical consultation"
         visualVariant="homeClinical"
       />

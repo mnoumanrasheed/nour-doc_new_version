@@ -1,6 +1,4 @@
 import React from 'react';
-import { motion, useReducedMotion } from 'motion/react';
-import { Code2, Globe2, Microscope } from 'lucide-react';
 import { Button } from '../common/Button';
 import contentData from '../../data.json';
 
@@ -34,6 +32,7 @@ const HeroActions: React.FC = () => (
   </div>
 );
 
+/* Removed from the home hero: the right-side foundation timeline animation.
 const GlobalFoundationTimeline: React.FC = () => {
   const reduceMotion = useReducedMotion();
   const items = [
@@ -108,12 +107,14 @@ const GlobalFoundationTimeline: React.FC = () => {
   );
 };
 
-const HomeHero: React.FC<Pick<HeroProps, 'description' | 'supportingLine' | 'heroImage' | 'heroImageAlt'>> = ({ description, supportingLine, heroImage, heroImageAlt }) => (
+*/
+
+const HomeHero: React.FC<Pick<HeroProps, 'description' | 'supportingLine' | 'heroImage' | 'heroImageAlt' | 'headlineLines'>> = ({ description, supportingLine, heroImage, heroImageAlt, headlineLines }) => (
   <section aria-labelledby="home-hero-heading" className="hero-100vsh relative flex overflow-hidden bg-[#F8FBFA]">
     <div className="absolute inset-0">
       <picture>
         <img
-          src={heroImage ?? '/images/hero/hero_home_custom.jpg'}
+          src={heroImage ?? '/images/hero/hero_home_custom.png'}
           alt={heroImageAlt ?? 'Doctor speaking with a patient during a clinical consultation'}
           className="ml-auto h-full w-[62%] object-cover object-[70%_center] max-[899px]:w-full max-[899px]:object-[68%_center]"
           loading="eager"
@@ -127,13 +128,26 @@ const HomeHero: React.FC<Pick<HeroProps, 'description' | 'supportingLine' | 'her
     <div className="relative z-10 mx-auto grid w-full max-w-[1280px] items-center px-5 py-10 sm:px-8 lg:grid-cols-[minmax(0,0.49fr)_minmax(0,0.51fr)] lg:px-10 lg:py-12">
       <div className="max-w-[620px]">
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-nourdoc-primary">Ambient Clinical Intelligence</p>
-        <h1 id="home-hero-heading" className="mt-4 text-[clamp(2.125rem,4.5vw,4rem)] font-semibold leading-[1.04] tracking-[-0.025em] text-[#101827]">Let AI Handle the Documentation. Let Doctors <span className="text-nourdoc-primary">Focus on Care.</span></h1>
+        <h1 id="home-hero-heading" className="mt-4 text-[clamp(2.125rem,4.5vw,4rem)] font-semibold leading-[1.04] tracking-[-0.025em] text-[#101827]">
+          {headlineLines?.[0] ?? 'Let AI Handle the Documentation.'}
+          <br />
+          {headlineLines?.[1]?.replace('Focus on Care.', '') ?? 'Let Doctors '}
+          <span className="text-nourdoc-primary">Focus on Care.</span>
+        </h1>
         {description && <p className="mt-5 max-w-[610px] text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.6] text-slate-600">{description}</p>}
+        <div className="mt-5 max-w-[500px] rounded-2xl border border-nourdoc-primary/20 bg-white/75 px-5 py-4 shadow-[0_12px_30px_rgba(15,42,34,0.08)] backdrop-blur-sm">
+          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-nourdoc-primary">Global Collaboration</p>
+          <p className="mt-2 text-base font-bold tracking-[-0.01em] text-slate-900">
+            Canada <span className="mx-2 text-nourdoc-primary/50">·</span> Finland <span className="mx-2 text-nourdoc-primary/50">·</span> Pakistan
+          </p>
+          <p className="mt-1.5 text-xs italic leading-relaxed text-slate-600">
+            Built through international healthcare, research and engineering collaboration.
+          </p>
+        </div>
         <HeroActions />
         {supportingLine && <p className="mt-3 text-sm leading-relaxed text-slate-500">{supportingLine}</p>}
       </div>
     </div>
-    <GlobalFoundationTimeline />
   </section>
 );
 
@@ -177,7 +191,7 @@ const StandardHero: React.FC<HeroProps> = ({ badge, h1, description, backgroundI
 );
 
 export const Hero: React.FC<HeroProps> = (props) => {
-  if (props.visualVariant === 'homeClinical') return <HomeHero description={props.description} supportingLine={props.supportingLine} heroImage={props.heroImage} heroImageAlt={props.heroImageAlt} />;
+  if (props.visualVariant === 'homeClinical') return <HomeHero description={props.description} supportingLine={props.supportingLine} heroImage={props.heroImage} heroImageAlt={props.heroImageAlt} headlineLines={props.headlineLines} />;
   if (props.visualVariant === 'product' || props.visualVariant === 'coding') return <PageHero {...props} kind={props.visualVariant} />;
   return <StandardHero {...props} />;
 };

@@ -8,6 +8,61 @@ import { Button } from '../common/Button';
 import contentData from '../../data.json';
 import { ContactFormSchema, type ContactFormData, type DiscussionTopic } from '../../lib/schema';
 
+declare global {
+  interface Window {
+    grecaptcha?: {
+      enterprise: {
+        ready: (callback: () => void) => void;
+        execute: (siteKey: string, options: { action: string }) => Promise<string>;
+      };
+    };
+  }
+}
+
+const recaptchaAction = 'contact_submit';
+
+const waitForRecaptchaEnterprise = async (): Promise<void> => {
+  let attempts = 0;
+  while (!window.grecaptcha?.enterprise && attempts < 60) {
+    await new Promise((resolve) => window.setTimeout(resolve, 100));
+    attempts += 1;
+  }
+  if (!window.grecaptcha?.enterprise) throw new Error('reCAPTCHA Enterprise is unavailable.');
+};
+
+const getRecaptchaToken = async (): Promise<string> => {
+  const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+  if (!siteKey) throw new Error('reCAPTCHA is not configured.');
+
+  if (!window.grecaptcha?.enterprise) {
+    await new Promise<void>((resolve, reject) => {
+      const existingScript = document.querySelector<HTMLScriptElement>('script[data-recaptcha="enterprise"]');
+      if (existingScript) {
+        existingScript.addEventListener('load', () => resolve(), { once: true });
+        existingScript.addEventListener('error', () => reject(new Error('reCAPTCHA could not load. Check the configured site key and domain allowlist.')), { once: true });
+        void waitForRecaptchaEnterprise().then(resolve).catch(reject);
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.src = 'https://www.google.com/recaptcha/enterprise.js?render=' + encodeURIComponent(siteKey);
+      script.async = true;
+      script.defer = true;
+      script.dataset.recaptcha = 'enterprise';
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error('reCAPTCHA could not load. Check the configured site key and domain allowlist.'));
+      document.head.appendChild(script);
+    });
+  }
+
+  await waitForRecaptchaEnterprise();
+  return new Promise<string>((resolve, reject) => {
+    window.grecaptcha?.enterprise.ready(() => {
+      window.grecaptcha?.enterprise.execute(siteKey, { action: recaptchaAction }).then(resolve).catch(reject);
+    });
+  });
+};
+
 const discussionTopics: DiscussionTopic[] = [
   'Try NourDoc',
   'Subscription',
@@ -38,6 +93,7 @@ export const ContactForm: React.FC = () => {
   const emails = contentData.brand.emails;
 
   const [submittedNotice, setSubmittedNotice] = useState<string | null>(null);
+  const [submissionState, setSubmissionState] = useState<'success' | 'error' | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const isBookDemoIntent = searchParams.get('intent') === 'bookDemo';
@@ -66,6 +122,7 @@ export const ContactForm: React.FC = () => {
       phone: '',
       topic: initialTopic,
       message: '',
+      website: '',
     },
   });
 
@@ -77,15 +134,39 @@ export const ContactForm: React.FC = () => {
     }
   }, [urlTopic, isBookDemoIntent, setValue]);
 
-  const onSubmit = () => {
+  const onSubmit = async (formData: ContactFormData) => {
     setIsSubmitting(true);
-    // Simulate short network delay for submitting UX state
-    setTimeout(() => {
+    setSubmittedNotice(null);
+    setSubmissionState(null);
+
+    const endpoint = import.meta.env.VITE_CONTACT_ENDPOINT || '/deployment/contact.php';
+
+    try {
+      // Generate a fresh Enterprise token immediately before submission.
+      const recaptchaToken = await getRecaptchaToken();
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ ...formData, recaptchaToken, website: formData.website }),
+      });
+      const result = (await response.json().catch(() => ({}))) as { message?: string };
+
+      if (!response.ok) {
+        throw new Error(result.message || 'The form could not be submitted.');
+      }
+
+      setSubmissionState('success');
+      setSubmittedNotice(result.message || 'Your message has been sent. Our team will reply shortly.');
+    } catch (error) {
+      setSubmissionState('error');
+      setSubmittedNotice(
+        error instanceof Error
+          ? error.message
+          : 'Your message could not be sent. Please email our Sales team directly.'
+      );
+    } finally {
       setIsSubmitting(false);
-      // Explicit unconfigured form delivery rule:
-      // Never claim delivery or success toast on Vite frontend without configured backend endpoint
-      setSubmittedNotice('Your message was not sent because form delivery is not configured.');
-    }, 400);
+    }
   };
 
   return (
@@ -200,23 +281,37 @@ export const ContactForm: React.FC = () => {
 
         {/* Unconfigured Delivery Notice */}
         {submittedNotice && (
-          <div className="mb-6 p-4 sm:p-5 rounded-2xl bg-amber-50 border border-amber-300 text-amber-900 text-xs flex items-start gap-3 font-medium shadow-xs">
-            <AlertCircle className="w-5 h-5 shrink-0 text-amber-600 mt-0.5" />
+          <div className={`mb-6 p-4 sm:p-5 rounded-2xl border text-xs flex items-start gap-3 font-medium shadow-xs ${
+            submissionState === 'success'
+              ? 'bg-emerald-50 border-emerald-300 text-emerald-900'
+              : 'bg-amber-50 border-amber-300 text-amber-900'
+          }`}>
+            <AlertCircle className={`w-5 h-5 shrink-0 mt-0.5 ${submissionState === 'success' ? 'text-emerald-600' : 'text-amber-600'}`} />
             <div className="space-y-2">
-              <span className="font-bold text-amber-900 block text-sm">Form Delivery Notice</span>
+              <span className={`font-bold block text-sm ${submissionState === 'success' ? 'text-emerald-900' : 'text-amber-900'}`}>
+                {submissionState === 'success' ? 'Message Sent' : 'Form Delivery Notice'}
+              </span>
               <p className="leading-relaxed">{submittedNotice}</p>
-              <div className="p-3 bg-white/80 rounded-xl border border-amber-200 text-[11px] text-amber-900 leading-snug">
+              {submissionState !== 'success' && <div className="p-3 bg-white/80 rounded-xl border border-amber-200 text-[11px] text-amber-900 leading-snug">
                 Please forward your inquiry directly to our team at{' '}
                 <a href={`mailto:${emails.sales}`} className="font-bold underline text-nourdoc-primary">
                   {emails.sales}
                 </a>{' '}
                 or use our specific departmental email channels on the left.
-              </div>
+              </div>}
             </div>
           </div>
         )}
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
+          <input
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="hidden"
+            {...register('website')}
+          />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Field: Name */}
             <div>

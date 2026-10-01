@@ -24,6 +24,7 @@ export const ContactFormSchema = z.object({
   phone: z.string().optional(),
   topic: DiscussionTopicEnum,
   message: z.string().min(10, 'Message must be at least 10 characters long'),
+  website: z.string().max(0).optional(),
 });
 
 export type ContactFormData = z.infer<typeof ContactFormSchema>;

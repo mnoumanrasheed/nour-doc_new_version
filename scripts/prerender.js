@@ -13,7 +13,9 @@ const dataPath = path.resolve(rootDir, 'src', 'data.json');
 const rawData = fs.readFileSync(dataPath, 'utf-8');
 const data = JSON.parse(rawData);
 
-const domain = 'https://nur-doc.com';
+// Set PUBLIC_SITE_URL (or VITE_PUBLIC_SITE_URL) in deployment environments.
+// The production fallback is the verified NourDoc domain.
+const domain = (process.env.PUBLIC_SITE_URL || process.env.VITE_PUBLIC_SITE_URL || 'https://nour-doc.com').replace(/\/$/, '');
 
 const routes = [
   {
@@ -136,6 +138,14 @@ async function prerender() {
       /<meta name="twitter:description" content=".*?" \/>/,
       `<meta name="twitter:description" content="${route.description.replace(/"/g, '&quot;')}" />`
     );
+    html = html.replace(
+      /<meta property="og:image" content=".*?" \/>/,
+      `<meta property="og:image" content="${domain}/brand-preview.png" />`
+    );
+    html = html.replace(
+      /<meta name="twitter:image" content=".*?" \/>/,
+      `<meta name="twitter:image" content="${domain}/brand-preview.png" />`
+    );
 
     // 3. Inject Open Graph, Twitter & Canonical Tags before </head>
     const seoTags = `
@@ -188,6 +198,12 @@ Sitemap: ${domain}/sitemap.xml
 `;
   fs.writeFileSync(path.resolve(rootDir, 'public', 'robots.txt'), robotsContent, 'utf-8');
   fs.writeFileSync(path.resolve(distDir, 'robots.txt'), robotsContent, 'utf-8');
+
+  // Vite only copies public/ into dist/. Package only the public cPanel endpoint;
+  // keep private configuration and even its template out of the deploy artifact.
+  const deploymentDistDir = path.resolve(distDir, 'deployment');
+  fs.mkdirSync(deploymentDistDir, { recursive: true });
+  fs.copyFileSync(path.resolve(rootDir, 'deployment', 'contact.php'), path.resolve(deploymentDistDir, 'contact.php'));
 
   console.log('✓ Prerender and SEO build completed successfully.');
 }
