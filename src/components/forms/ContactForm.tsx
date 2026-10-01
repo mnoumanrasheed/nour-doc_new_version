@@ -101,7 +101,12 @@ export const ContactForm: React.FC = () => {
           name: formData.name,
           email: formData.email,
           organization: formData.organization,
+          role: formData.role,
+          country: formData.country,
+          phone: formData.phone,
           interest: formData.topic,
+          topic: formData.topic,
+          intent: isBookDemoIntent ? 'bookDemo' : undefined,
           message: formData.message,
           recaptchaToken,
         }),
@@ -227,7 +232,7 @@ export const ContactForm: React.FC = () => {
       </div>
 
       {/* Right Column: Accessible Contact Form */}
-      <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-200/90 shadow-lg">
+      <div id="contact-form" className="lg:col-span-7 scroll-mt-[92px] bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-200/90 shadow-lg">
         <h3 className="text-xl sm:text-2xl font-black text-slate-900 mb-1 tracking-tight">
           Send Us a Message
         </h3>

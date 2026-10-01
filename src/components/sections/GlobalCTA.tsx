@@ -22,7 +22,7 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
   primaryTarget,
   primaryIsApp = true,
   secondaryLabel = 'BOOK A DEMO',
-  secondaryTarget = '/contact?intent=bookDemo&topic=Other',
+  secondaryTarget = '/contact?intent=bookDemo&topic=Other#contact-form',
 }) => {
   const appStoreUrl = contentData.brand.appStoreUrl;
 
@@ -58,7 +58,7 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
             </Button>
           ) : (
             <Button
-              to={primaryTarget || '/contact?intent=bookDemo&topic=Other'}
+              to={primaryTarget || '/contact?intent=bookDemo&topic=Other#contact-form'}
               variant="primary"
               size="lg"
             >

@@ -140,11 +140,11 @@ async function prerender() {
     );
     html = html.replace(
       /<meta property="og:image" content=".*?" \/>/,
-      `<meta property="og:image" content="${domain}/brand-preview.png" />`
+      `<meta property="og:image" content="${domain}/og-image.png" />`
     );
     html = html.replace(
       /<meta name="twitter:image" content=".*?" \/>/,
-      `<meta name="twitter:image" content="${domain}/brand-preview.png" />`
+      `<meta name="twitter:image" content="${domain}/og-image.png" />`
     );
 
     // 3. Inject Open Graph, Twitter & Canonical Tags before </head>

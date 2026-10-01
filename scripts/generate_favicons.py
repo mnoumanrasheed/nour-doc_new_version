@@ -6,9 +6,9 @@ from PIL import Image, ImageChops, ImageDraw, ImageFont
 
 
 ROOT = Path(__file__).resolve().parent.parent
-SOURCE = ROOT / 'new logo.png'
-ICON_OUTPUT = ROOT / 'src' / 'assets' / 'logo-icon.png'
 PUBLIC = ROOT / 'public'
+SOURCE = PUBLIC / 'logo.png'
+ICON_OUTPUT = ROOT / 'src' / 'assets' / 'logo-icon.png'
 
 
 def load_cropped_icon():
@@ -105,7 +105,7 @@ def save_social_preview(icon):
     draw.text((560, 225), 'NourDoc', fill='#FFFFFF', font=load_font(74, bold=True))
     draw.text((565, 320), 'Ambient Clinical Intelligence', fill='#B8D6CD', font=load_font(28))
     draw.text((565, 385), 'Modern healthcare, made more human.', fill='#FFFFFF', font=load_font(24))
-    canvas.save(PUBLIC / 'brand-preview.png', 'PNG', optimize=True)
+    canvas.save(PUBLIC / 'og-image.png', 'PNG', optimize=True)
 
 
 def main():
@@ -113,7 +113,7 @@ def main():
     save_favicon_set(icon)
     save_svg_favicon(icon)
     save_social_preview(icon)
-    print('[SUCCESS] Updated logo icon, favicon set, and social preview from new logo.png')
+    print('[SUCCESS] Updated logo icon, favicon set, and social preview from public/logo.png')
 
 if __name__ == '__main__':
     main()

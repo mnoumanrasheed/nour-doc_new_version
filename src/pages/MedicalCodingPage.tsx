@@ -75,7 +75,7 @@ export const MedicalCodingPage: React.FC = () => {
 
             <div className="flex flex-wrap items-center justify-start gap-4 pt-2">
               <Button
-                to="/contact?intent=bookDemo&topic=Other"
+                to="/contact?intent=bookDemo&topic=Other#contact-form"
                 variant="primary"
                 size="lg"
                 icon={true}
@@ -265,7 +265,7 @@ export const MedicalCodingPage: React.FC = () => {
         title={page.cta.h2}
         subtitle={page.cta.lead}
         primaryLabel={page.cta.primaryCta.label}
-        primaryTarget="/contact?intent=bookDemo&topic=Other"
+        primaryTarget="/contact?intent=bookDemo&topic=Other#contact-form"
         primaryIsApp={false}
         secondaryLabel="TALK TO OUR TEAM"
         secondaryTarget="/contact?topic=Batch+Processing"

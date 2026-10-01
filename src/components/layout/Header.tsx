@@ -32,7 +32,7 @@ export const Header: React.FC = () => {
   const navRef = useRef<HTMLElement>(null);
   const frameRef = useRef<number | null>(null);
   const appStoreUrl = contentData.brand.appStoreUrl;
-  const demoPath = '/contact?intent=bookDemo&topic=Other';
+  const demoPath = '/contact?intent=bookDemo&topic=Other#contact-form';
   const isActive = (path: string) => location.pathname === path;
   const groupIsActive = (group: MenuGroup) => group.items.some((item) => isActive(item.path));
 
@@ -99,8 +99,8 @@ export const Header: React.FC = () => {
     <header className={`fixed left-1/2 top-[14px] z-50 w-[calc(100%-32px)] -translate-x-1/2 transition-[height,background-color,box-shadow] duration-[250ms] ease-out ${scrolled ? 'h-[58px]' : 'h-16'}`}>
       <div className={`flex h-full items-center gap-5 rounded-[20px] border border-[rgba(16,24,40,0.06)] px-5 backdrop-blur-[16px] [backdrop-filter:saturate(160%)_blur(16px)] transition-[background-color,box-shadow] duration-[250ms] ease-out ${scrolled ? 'bg-[rgba(255,255,255,0.88)] shadow-[0_1px_2px_rgba(16,24,40,0.05),0_10px_34px_rgba(16,24,40,0.11)]' : 'bg-[rgba(255,255,255,0.72)] shadow-[0_1px_2px_rgba(16,24,40,0.04),0_8px_30px_rgba(16,24,40,0.08)]'}`}>
         <Link to="/" className="group flex shrink-0 items-center gap-2 rounded-md focus-visible:outline-none" aria-label="NourDoc Home">
-          <img src="/logo.png" alt="NourDoc emblem" className="h-8 w-8 object-contain transition-transform duration-200 group-hover:scale-[1.03]" />
-          <span className="text-[19px] font-semibold tracking-[-0.035em] text-slate-900 transition-colors group-hover:text-nourdoc-primary">NourDoc</span>
+          <img src="/logo.png" alt="NourDoc emblem" className="h-11 w-11 object-contain transition-transform duration-200 group-hover:scale-[1.03]" />
+          <span className="text-[21px] font-semibold leading-none tracking-[-0.035em] text-slate-900 transition-colors group-hover:text-nourdoc-primary">NourDoc</span>
         </Link>
 
         <nav ref={navRef} onKeyDown={handleNavKeyDown} className="hidden flex-1 items-center justify-center gap-7 lg:flex" aria-label="Main">

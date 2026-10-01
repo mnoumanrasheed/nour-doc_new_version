@@ -252,7 +252,7 @@ export const AboutPage: React.FC = () => {
         primaryLabel="TRY NOURDOC FREE"
         primaryIsApp={true}
         secondaryLabel="BOOK A DEMO"
-        secondaryTarget="/contact?intent=bookDemo&topic=Other"
+        secondaryTarget="/contact?intent=bookDemo&topic=Other#contact-form"
       />
     </div>
   );

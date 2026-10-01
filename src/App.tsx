@@ -45,7 +45,7 @@ export function App() {
             <Route path="/partners-collaborators" element={<PartnersPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/book-demo" element={<Navigate to="/contact?intent=bookDemo&topic=Other" replace />} />
+            <Route path="/book-demo" element={<Navigate to="/contact?intent=bookDemo&topic=Other#contact-form" replace />} />
             <Route path="/about-contact" element={<AboutContactPage />} />
             <Route path="/design-system" element={<DesignSystemPage />} />
             <Route path="/showcase" element={<Navigate to="/design-system" replace />} />

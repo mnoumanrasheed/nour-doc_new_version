@@ -148,7 +148,7 @@ export const PartnersPage: React.FC = () => {
         secondaryCta={{
           label: page.cta.secondaryCta.label,
           type: 'demo',
-          target: '/contact?intent=bookDemo&topic=Other',
+          target: '/contact?intent=bookDemo&topic=Other#contact-form',
         }}
         showVisual={false}
         backgroundImage="/images/hero/hero_partners.jpg"
@@ -332,7 +332,7 @@ export const PartnersPage: React.FC = () => {
         primaryTarget={page.cta.primaryCta.target || '/contact?topic=Partnership'}
         primaryIsApp={false}
         secondaryLabel={page.cta.secondaryCta.label}
-        secondaryTarget="/contact?intent=bookDemo&topic=Other"
+        secondaryTarget="/contact?intent=bookDemo&topic=Other#contact-form"
       />
     </div>
   );

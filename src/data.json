@@ -1414,7 +1414,7 @@
           },
           {
             "label": "Book a Demo",
-            "path": "/contact?intent=bookDemo&topic=Other"
+            "path": "/contact?intent=bookDemo&topic=Other#contact-form"
           },
           {
             "label": "Talk to Enterprise",

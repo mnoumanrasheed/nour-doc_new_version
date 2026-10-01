@@ -16,9 +16,6 @@ export const Footer: React.FC = () => {
         {/* Master Brand Statement Bar */}
         <div className="pb-10 sm:pb-12 mb-10 sm:mb-12 border-b border-white/15 flex flex-col md:flex-row md:items-center md:justify-between gap-5 sm:gap-6">
           <div className="max-w-3xl">
-            <div className="text-xs font-bold text-white/80 uppercase tracking-[0.16em] mb-2">
-              Master Brand Statement
-            </div>
             <div className="text-xl sm:text-2xl font-semibold tracking-tight text-white leading-snug">
               {brand.name}: <span className="text-white/90 font-medium">{brand.masterBrandStatement}</span>
             </div>
@@ -122,6 +119,15 @@ export const Footer: React.FC = () => {
           <p className="text-center sm:text-left">&copy; {new Date().getFullYear()} NourDoc. All rights reserved.</p>
           <div className="flex flex-wrap justify-center sm:justify-end items-center gap-x-5 gap-y-2 text-center sm:text-right">
             <span className="text-sm text-white/75">Canadian Ownership &bull; Pakistani Engineering &bull; Finnish Research</span>
+            <a
+              href="https://m3hive.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3.5 py-2 text-xs font-semibold text-white transition-colors hover:border-white/45 hover:bg-white/15 hover:text-nourdoc-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+            >
+              Built by M3 Hive
+              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
           </div>
         </div>
       </div>

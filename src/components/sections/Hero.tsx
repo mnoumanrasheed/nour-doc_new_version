@@ -19,7 +19,7 @@ interface HeroProps {
   backgroundAlt?: string;
 }
 
-const demoPath = '/contact?intent=bookDemo&topic=Other';
+const demoPath = '/contact?intent=bookDemo&topic=Other#contact-form';
 
 const HeroActions: React.FC = () => (
   <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center [&>div]:w-full sm:[&>div]:w-auto">

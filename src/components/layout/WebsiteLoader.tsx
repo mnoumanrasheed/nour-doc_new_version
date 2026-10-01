@@ -52,7 +52,11 @@ export const WebsiteLoader: React.FC = () => {
           aria-label="Loading NourDoc"
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(40,98,82,0.22),transparent_30%),radial-gradient(circle_at_15%_85%,rgba(111,156,144,0.1),transparent_28%)]" />
-          <div className="absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-nourdoc-secondary/10" />
+          <motion.div
+            animate={noMotion ? undefined : { scale: [0.96, 1.04, 0.96], opacity: [0.28, 0.5, 0.28] }}
+            transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-nourdoc-secondary/10"
+          />
           <div className="absolute left-1/2 top-1/2 h-[24rem] w-[24rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-nourdoc-secondary/10" />
 
           <motion.div
@@ -61,7 +65,7 @@ export const WebsiteLoader: React.FC = () => {
             transition={{ duration: 0.7, ease: 'easeOut' }}
             className="relative flex w-[min(86vw,22rem)] flex-col items-center text-center"
           >
-            <div className="relative mb-7 flex h-24 w-24 items-center justify-center">
+            <div className="relative mb-7 flex h-28 w-28 items-center justify-center">
               {!noMotion && (
                 <motion.span
                   animate={{ rotate: 360 }}
@@ -69,8 +73,10 @@ export const WebsiteLoader: React.FC = () => {
                   className="absolute inset-0 rounded-full border border-transparent border-t-nourdoc-secondary border-r-nourdoc-secondary/40"
                 />
               )}
-              <div className="absolute inset-2 rounded-full bg-nourdoc-primary/15 shadow-[0_0_55px_rgba(111,156,144,0.22)]" />
-              <img src="/logo.png" alt="NourDoc" className="relative h-14 w-14 object-contain" />
+              <div className="absolute inset-2 rounded-full bg-nourdoc-primary/15 shadow-[0_0_55px_rgba(111,156,144,0.3)]" />
+              <div className="relative flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-2xl bg-white p-2 shadow-[0_8px_24px_rgba(0,0,0,0.2)] ring-1 ring-white/70">
+                <img src="/logo.png" alt="NourDoc" className="h-full w-full object-contain" />
+              </div>
             </div>
 
             <div className="mb-8">
@@ -81,7 +87,7 @@ export const WebsiteLoader: React.FC = () => {
             </div>
 
             <div className="w-full space-y-3">
-              <div className="h-1 overflow-hidden rounded-full bg-white/10">
+              <div className="h-1.5 overflow-hidden rounded-full bg-white/10 ring-1 ring-white/5">
                 <motion.div
                   initial={{ width: '0%' }}
                   animate={{ width: '100%' }}

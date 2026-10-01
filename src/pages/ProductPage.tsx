@@ -96,7 +96,7 @@ export const ProductPage: React.FC = () => {
                   {page.cta.primaryCta.label}
                 </Button>
                 <Button
-                  to="/contact?intent=bookDemo&topic=Other"
+                  to="/contact?intent=bookDemo&topic=Other#contact-form"
                   variant="outline"
                   size="lg"
                 >
