@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import logoIcon from '../../assets/logo-icon.png';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 
 const LOADER_MIN_DURATION = 1100;
@@ -45,66 +46,64 @@ export const WebsiteLoader: React.FC = () => {
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: noMotion ? 0 : 0.55, ease: 'easeInOut' }}
-          className="fixed inset-0 z-[200] flex items-center justify-center overflow-hidden bg-nourdoc-primary-dark text-white"
+          transition={{ duration: noMotion ? 0 : 0.5, ease: 'easeInOut' }}
+          className="fixed inset-0 z-[200] flex min-h-[100svh] items-center justify-center overflow-hidden bg-[#082b24] px-6 text-white"
           role="status"
           aria-live="polite"
           aria-label="Loading NourDoc"
         >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(40,98,82,0.22),transparent_30%),radial-gradient(circle_at_15%_85%,rgba(111,156,144,0.1),transparent_28%)]" />
-          <motion.div
-            animate={noMotion ? undefined : { scale: [0.96, 1.04, 0.96], opacity: [0.28, 0.5, 0.28] }}
-            transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-nourdoc-secondary/10"
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(111,156,144,0.11),transparent_24%),linear-gradient(145deg,#082b24_0%,#071f1b_58%,#051713_100%)]"
           />
-          <div className="absolute left-1/2 top-1/2 h-[24rem] w-[24rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-nourdoc-secondary/10" />
+          <motion.div
+            aria-hidden="true"
+            animate={noMotion ? undefined : { scale: [0.98, 1.03, 0.98], opacity: [0.32, 0.52, 0.32] }}
+            transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-nourdoc-secondary/[0.12] shadow-[0_0_90px_rgba(111,156,144,0.08)] sm:h-64 sm:w-64"
+          />
 
           <motion.div
-            initial={noMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
-            animate={noMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+            initial={noMotion ? { opacity: 1 } : { opacity: 0, y: 10, scale: 0.98 }}
+            animate={noMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="relative flex w-[min(86vw,22rem)] flex-col items-center text-center"
+            className="relative flex w-full max-w-[26rem] flex-col items-center text-center"
           >
-            <div className="relative mb-7 flex h-28 w-28 items-center justify-center">
-              {!noMotion && (
-                <motion.span
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 7, repeat: Infinity, ease: 'linear' }}
-                  className="absolute inset-0 rounded-full border border-transparent border-t-nourdoc-secondary border-r-nourdoc-secondary/40"
-                />
-              )}
-              <div className="absolute inset-2 rounded-full bg-nourdoc-primary/15 shadow-[0_0_55px_rgba(111,156,144,0.3)]" />
-              <div className="relative flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-2xl bg-white p-2 shadow-[0_8px_24px_rgba(0,0,0,0.2)] ring-1 ring-white/70">
-                <img src="/logo.png" alt="NourDoc" className="h-full w-full object-contain" />
+            <motion.div
+              initial={noMotion ? { opacity: 1 } : { opacity: 0, scale: 0.96 }}
+              animate={noMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
+              transition={{ duration: 0.75, ease: 'easeOut' }}
+              className="mb-7 flex h-[5.75rem] w-[5.75rem] items-center justify-center sm:h-24 sm:w-24"
+            >
+              <img
+                src={logoIcon}
+                alt="NourDoc"
+                className="h-full w-full object-contain drop-shadow-[0_0_24px_rgba(111,156,144,0.18)]"
+              />
+            </motion.div>
+
+            <div className="mb-9">
+              <div className="text-[2.35rem] font-bold leading-none tracking-[-0.045em] sm:text-[2.6rem]">NourDoc</div>
+              <div className="mt-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-nourdoc-secondary/90 sm:text-xs">
+                Ambient Clinical Intelligence
               </div>
             </div>
 
-            <div className="mb-8">
-              <div className="text-3xl font-black tracking-[-0.04em]">NourDoc</div>
-              <div className="mt-2 text-[10px] font-bold uppercase tracking-[0.34em] text-nourdoc-secondary">
-                Clinical Intelligence
-              </div>
-            </div>
-
-            <div className="w-full space-y-3">
-              <div className="h-1.5 overflow-hidden rounded-full bg-white/10 ring-1 ring-white/5">
+            <div className="w-full max-w-[21rem] space-y-4">
+              <div className="h-[3px] overflow-hidden rounded-full bg-black/25 ring-1 ring-white/[0.08]">
                 <motion.div
                   initial={{ width: '0%' }}
                   animate={{ width: '100%' }}
-                  transition={{ duration: noMotion ? 0 : 1.1, ease: 'easeInOut' }}
-                  className="h-full rounded-full bg-gradient-to-r from-nourdoc-primary via-nourdoc-secondary to-white"
+                  transition={{ duration: noMotion ? 0 : 1.35, ease: 'easeInOut' }}
+                  className="h-full rounded-full bg-gradient-to-r from-nourdoc-secondary/75 via-nourdoc-secondary to-white/85 shadow-[0_0_10px_rgba(111,156,144,0.28)]"
                 />
               </div>
-              <div className="flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.2em] text-white/45">
-                <span>Initializing platform</span>
-                <motion.span
-                  initial={{ opacity: 0.35 }}
-                  animate={noMotion ? { opacity: 0.7 } : { opacity: [0.35, 1, 0.35] }}
-                  transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
-                >
-                  Ready
-                </motion.span>
-              </div>
+              <p className="text-sm font-medium tracking-[0.01em] text-white/62 sm:text-[15px]">
+                Preparing your workspace...
+              </p>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/32">
+                Secure clinical intelligence platform
+              </p>
             </div>
           </motion.div>
         </motion.div>
