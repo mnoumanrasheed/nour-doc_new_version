@@ -199,12 +199,6 @@ Sitemap: ${domain}/sitemap.xml
   fs.writeFileSync(path.resolve(rootDir, 'public', 'robots.txt'), robotsContent, 'utf-8');
   fs.writeFileSync(path.resolve(distDir, 'robots.txt'), robotsContent, 'utf-8');
 
-  // Vite only copies public/ into dist/. Package only the public cPanel endpoint;
-  // keep private configuration and even its template out of the deploy artifact.
-  const deploymentDistDir = path.resolve(distDir, 'deployment');
-  fs.mkdirSync(deploymentDistDir, { recursive: true });
-  fs.copyFileSync(path.resolve(rootDir, 'deployment', 'contact.php'), path.resolve(deploymentDistDir, 'contact.php'));
-
   console.log('✓ Prerender and SEO build completed successfully.');
 }
 

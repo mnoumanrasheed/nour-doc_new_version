@@ -1,9 +1,0 @@
-# Apache/cPanel SPA fallback. The PHP contact endpoint and all real files
-# remain directly accessible; unknown application routes use index.html.
-RewriteEngine On
-
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
-
-RewriteRule ^ index.html [L]

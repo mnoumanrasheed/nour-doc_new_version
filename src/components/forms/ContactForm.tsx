@@ -1,5 +1,5 @@
 // src/components/forms/ContactForm.tsx
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -7,61 +7,7 @@ import { AlertCircle, Calendar, ShieldAlert, Mail } from 'lucide-react';
 import { Button } from '../common/Button';
 import contentData from '../../data.json';
 import { ContactFormSchema, type ContactFormData, type DiscussionTopic } from '../../lib/schema';
-
-declare global {
-  interface Window {
-    grecaptcha?: {
-      enterprise: {
-        ready: (callback: () => void) => void;
-        execute: (siteKey: string, options: { action: string }) => Promise<string>;
-      };
-    };
-  }
-}
-
-const recaptchaAction = 'contact_submit';
-
-const waitForRecaptchaEnterprise = async (): Promise<void> => {
-  let attempts = 0;
-  while (!window.grecaptcha?.enterprise && attempts < 60) {
-    await new Promise((resolve) => window.setTimeout(resolve, 100));
-    attempts += 1;
-  }
-  if (!window.grecaptcha?.enterprise) throw new Error('reCAPTCHA Enterprise is unavailable.');
-};
-
-const getRecaptchaToken = async (): Promise<string> => {
-  const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
-  if (!siteKey) throw new Error('reCAPTCHA is not configured.');
-
-  if (!window.grecaptcha?.enterprise) {
-    await new Promise<void>((resolve, reject) => {
-      const existingScript = document.querySelector<HTMLScriptElement>('script[data-recaptcha="enterprise"]');
-      if (existingScript) {
-        existingScript.addEventListener('load', () => resolve(), { once: true });
-        existingScript.addEventListener('error', () => reject(new Error('reCAPTCHA could not load. Check the configured site key and domain allowlist.')), { once: true });
-        void waitForRecaptchaEnterprise().then(resolve).catch(reject);
-        return;
-      }
-
-      const script = document.createElement('script');
-      script.src = 'https://www.google.com/recaptcha/enterprise.js?render=' + encodeURIComponent(siteKey);
-      script.async = true;
-      script.defer = true;
-      script.dataset.recaptcha = 'enterprise';
-      script.onload = () => resolve();
-      script.onerror = () => reject(new Error('reCAPTCHA could not load. Check the configured site key and domain allowlist.'));
-      document.head.appendChild(script);
-    });
-  }
-
-  await waitForRecaptchaEnterprise();
-  return new Promise<string>((resolve, reject) => {
-    window.grecaptcha?.enterprise.ready(() => {
-      window.grecaptcha?.enterprise.execute(siteKey, { action: recaptchaAction }).then(resolve).catch(reject);
-    });
-  });
-};
+import ReCAPTCHA, { type ReCAPTCHA as ReCAPTCHAInstance } from 'react-google-recaptcha';
 
 const discussionTopics: DiscussionTopic[] = [
   'Try NourDoc',
@@ -95,6 +41,8 @@ export const ContactForm: React.FC = () => {
   const [submittedNotice, setSubmittedNotice] = useState<string | null>(null);
   const [submissionState, setSubmissionState] = useState<'success' | 'error' | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHAInstance | null>(null);
 
   const isBookDemoIntent = searchParams.get('intent') === 'bookDemo';
   const urlTopic = searchParams.get('topic') as DiscussionTopic | null;
@@ -109,6 +57,7 @@ export const ContactForm: React.FC = () => {
   const {
     register,
     handleSubmit,
+    reset,
     setValue,
     formState: { errors },
   } = useForm<ContactFormData>({
@@ -122,7 +71,6 @@ export const ContactForm: React.FC = () => {
       phone: '',
       topic: initialTopic,
       message: '',
-      website: '',
     },
   });
 
@@ -135,35 +83,43 @@ export const ContactForm: React.FC = () => {
   }, [urlTopic, isBookDemoIntent, setValue]);
 
   const onSubmit = async (formData: ContactFormData) => {
+    if (!recaptchaToken) {
+      setSubmissionState('error');
+      setSubmittedNotice('Please verify that you are not a robot.');
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmittedNotice(null);
     setSubmissionState(null);
 
-    const endpoint = import.meta.env.VITE_CONTACT_ENDPOINT || '/deployment/contact.php';
-
     try {
-      // Generate a fresh Enterprise token immediately before submission.
-      const recaptchaToken = await getRecaptchaToken();
-      const response = await fetch(endpoint, {
+      const response = await fetch('/api/contact.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ ...formData, recaptchaToken, website: formData.website }),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          organization: formData.organization,
+          interest: formData.topic,
+          message: formData.message,
+          recaptchaToken,
+        }),
       });
-      const result = (await response.json().catch(() => ({}))) as { message?: string };
+      const result = (await response.json().catch(() => ({}))) as { message?: string; success?: boolean };
 
-      if (!response.ok) {
-        throw new Error(result.message || 'The form could not be submitted.');
+      if (!response.ok || result.success === false) {
+        throw new Error(result.message || 'Your message could not be sent. Please try again.');
       }
 
       setSubmissionState('success');
-      setSubmittedNotice(result.message || 'Your message has been sent. Our team will reply shortly.');
+      setSubmittedNotice(result.message || 'Your message has been sent successfully.');
+      reset();
+      setRecaptchaToken(null);
+      recaptchaRef.current?.reset();
     } catch (error) {
       setSubmissionState('error');
-      setSubmittedNotice(
-        error instanceof Error
-          ? error.message
-          : 'Your message could not be sent. Please email our Sales team directly.'
-      );
+      setSubmittedNotice(error instanceof Error ? error.message : 'Your message could not be sent. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -304,14 +260,6 @@ export const ContactForm: React.FC = () => {
         )}
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
-          <input
-            type="text"
-            tabIndex={-1}
-            autoComplete="off"
-            aria-hidden="true"
-            className="hidden"
-            {...register('website')}
-          />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Field: Name */}
             <div>
@@ -526,6 +474,13 @@ export const ContactForm: React.FC = () => {
           </div>
 
           <div className="pt-2">
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || ''}
+              onChange={(token: string | null) => setRecaptchaToken(token)}
+              onExpired={() => setRecaptchaToken(null)}
+              onErrored={() => setRecaptchaToken(null)}
+            />
             <Button
               type="submit"
               variant="primary"

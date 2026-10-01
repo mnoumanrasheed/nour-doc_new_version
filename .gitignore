@@ -11,8 +11,9 @@ node_modules
 dist
 dist-ssr
 *.local
-deployment/config.php
-nourdoc-private/
+.env
+.env.local
+.env.*
 
 # Editor directories and files
 .vscode/*
