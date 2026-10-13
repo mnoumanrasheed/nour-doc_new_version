@@ -121,9 +121,9 @@ const HomeHero: React.FC<Pick<HeroProps, 'description' | 'supportingLine' | 'her
           fetchPriority="high"
         />
       </picture>
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,#F8FBFA_0%,#F8FBFA_44%,rgba(248,251,250,0.78)_58%,rgba(248,251,250,0.06)_100%)] max-[899px]:bg-[linear-gradient(180deg,rgba(248,251,250,0.94)_0%,rgba(248,251,250,0.86)_66%,rgba(248,251,250,0.68)_100%)]" aria-hidden="true" />
-      <div className="absolute -right-[12%] top-[8%] h-[78%] w-[58%] rounded-full bg-[radial-gradient(circle,rgba(40,98,82,0.13)_0%,rgba(143,183,172,0.06)_42%,transparent_72%)] blur-2xl" />
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/80 to-transparent" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,#F8FBFA_0%,#F8FBFA_43%,rgba(248,251,250,0.48)_54%,rgba(248,251,250,0.07)_66%,rgba(248,251,250,0.01)_82%,transparent_100%)] max-[899px]:bg-[linear-gradient(180deg,rgba(248,251,250,0.94)_0%,rgba(248,251,250,0.72)_38%,rgba(248,251,250,0.2)_66%,rgba(248,251,250,0.03)_100%)]" aria-hidden="true" />
+      <div className="absolute -right-[12%] top-[8%] h-[78%] w-[58%] rounded-full bg-[radial-gradient(circle,rgba(40,98,82,0.012)_0%,rgba(143,183,172,0.005)_42%,transparent_72%)] blur-2xl" />
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/12 to-transparent" />
     </div>
     <div className="relative z-10 mx-auto grid w-full max-w-[1280px] items-center px-5 py-10 sm:px-8 lg:grid-cols-[minmax(0,0.49fr)_minmax(0,0.51fr)] lg:px-10 lg:py-12">
       <div className="max-w-[620px]">
