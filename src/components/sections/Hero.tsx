@@ -21,6 +21,9 @@ interface HeroProps {
 
 const demoPath = '/contact?intent=bookDemo&topic=Other#contact-form';
 
+// Keep every page hero's photo treatment aligned with the home hero.
+const heroImageOverlayClass = 'absolute inset-0 bg-[linear-gradient(90deg,#F8FBFA_0%,#F8FBFA_43%,rgba(248,251,250,0.48)_54%,rgba(248,251,250,0.07)_66%,rgba(248,251,250,0.01)_82%,transparent_100%)] max-[899px]:bg-[linear-gradient(180deg,rgba(248,251,250,0.94)_0%,rgba(248,251,250,0.72)_38%,rgba(248,251,250,0.2)_66%,rgba(248,251,250,0.03)_100%)]';
+
 const HeroActions: React.FC = () => (
   <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center [&>div]:w-full sm:[&>div]:w-auto">
     <Button href={contentData.brand.appStoreUrl} external variant="primary" size="lg" icon={false} className="h-[50px] w-full rounded-xl px-7 text-[15px] shadow-[0_8px_22px_rgba(40,98,82,0.22)] sm:w-auto">
@@ -121,7 +124,7 @@ const HomeHero: React.FC<Pick<HeroProps, 'description' | 'supportingLine' | 'her
           fetchPriority="high"
         />
       </picture>
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,#F8FBFA_0%,#F8FBFA_43%,rgba(248,251,250,0.48)_54%,rgba(248,251,250,0.07)_66%,rgba(248,251,250,0.01)_82%,transparent_100%)] max-[899px]:bg-[linear-gradient(180deg,rgba(248,251,250,0.94)_0%,rgba(248,251,250,0.72)_38%,rgba(248,251,250,0.2)_66%,rgba(248,251,250,0.03)_100%)]" aria-hidden="true" />
+      <div className={heroImageOverlayClass} aria-hidden="true" />
       <div className="absolute -right-[12%] top-[8%] h-[78%] w-[58%] rounded-full bg-[radial-gradient(circle,rgba(40,98,82,0.012)_0%,rgba(143,183,172,0.005)_42%,transparent_72%)] blur-2xl" />
       <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/12 to-transparent" />
     </div>
@@ -155,7 +158,7 @@ const PageHero: React.FC<HeroProps & { kind: 'product' | 'coding' }> = ({ kind, 
   <section className="hero-100vsh relative flex overflow-hidden border-b border-slate-100 bg-[#F8FBFA]">
     <div className="pointer-events-none absolute inset-0">
       {backgroundImage && <img src={backgroundImage} alt={backgroundAlt ?? ''} className="h-full w-full object-cover object-right" loading="eager" fetchPriority="high" />}
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(248,251,250,0.98)_0%,rgba(248,251,250,0.92)_45%,rgba(248,251,250,0.36)_68%,rgba(248,251,250,0.04)_100%)] max-[899px]:bg-[linear-gradient(180deg,rgba(248,251,250,0.94)_0%,rgba(248,251,250,0.86)_65%,rgba(248,251,250,0.7)_100%)]" />
+      <div className={heroImageOverlayClass} />
       <div className="absolute -right-[8%] top-[8%] h-[84%] w-[48%] rounded-full bg-nourdoc-primary/[0.08] blur-3xl" />
       <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/75 to-transparent" />
     </div>
@@ -175,7 +178,7 @@ const StandardHero: React.FC<HeroProps> = ({ badge, h1, description, backgroundI
   <section className="hero-100vsh relative flex overflow-hidden border-b border-slate-100 bg-[#F8FBFA]">
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
       {backgroundImage && <img src={backgroundImage} alt={backgroundAlt ?? ''} className="h-full w-full object-cover object-right" loading="eager" fetchPriority="high" />}
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(248,251,250,0.98)_0%,rgba(248,251,250,0.92)_47%,rgba(248,251,250,0.34)_70%,rgba(248,251,250,0.04)_100%)] max-[899px]:bg-[linear-gradient(180deg,rgba(248,251,250,0.94)_0%,rgba(248,251,250,0.87)_68%,rgba(248,251,250,0.72)_100%)]" />
+      <div className={heroImageOverlayClass} />
       <div className="absolute -right-[12%] top-[12%] h-[72%] w-[48%] rounded-full bg-nourdoc-primary/[0.07] blur-3xl" />
       <div className="absolute left-0 top-0 h-full w-2/3 bg-[radial-gradient(circle_at_30%_40%,rgba(40,98,82,0.06),transparent_58%)]" />
     </div>
