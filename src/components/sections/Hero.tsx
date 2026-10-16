@@ -129,7 +129,7 @@ const HomeHero: React.FC<Pick<HeroProps, 'description' | 'supportingLine' | 'her
           {headlineLines?.[1]?.replace('Focus on Care.', '') ?? 'Let Doctors '}
           <span className="text-nourdoc-primary">Focus on Care.</span>
         </h1>
-        {description && <p className="mt-5 max-w-[610px] text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.6] text-slate-700">{description}</p>}
+        {description && <p className="mt-5 max-w-[610px] text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.6] font-medium text-slate-800">{description}</p>}
         <div className="mt-5 max-w-[500px] rounded-2xl border border-nourdoc-primary/20 bg-white/75 px-5 py-4 shadow-[0_12px_30px_rgba(15,42,34,0.08)] backdrop-blur-sm">
           <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-nourdoc-primary">Global Collaboration</p>
           <p className="mt-2 text-base font-bold tracking-[-0.01em] text-slate-900">
@@ -159,7 +159,7 @@ const PageHero: React.FC<HeroProps & { kind: 'product' | 'coding' | 'integration
         {badge && <p className="text-xs font-semibold uppercase tracking-[0.14em] text-nourdoc-primary">{badge}</p>}
         <h1 className="mt-4 text-[clamp(2.125rem,4.5vw,4rem)] font-semibold leading-[1.04] tracking-[-0.025em] text-[#101827]">{kind === 'product' ? <>Meet <span className="text-nourdoc-primary">NourDoc</span></> : h1}</h1>
         {subtitle && <p className="mt-4 text-[clamp(1rem,1.3vw,1.125rem)] font-medium leading-relaxed text-nourdoc-primary">{subtitle}</p>}
-        {description && <p className="mt-4 max-w-[600px] whitespace-pre-line text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.6] text-slate-700">{description}</p>}
+        {description && <p className="mt-4 max-w-[600px] whitespace-pre-line text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.6] font-medium text-slate-800">{description}</p>}
         <HeroActions />
       </div>
     </div>
@@ -171,6 +171,7 @@ const StandardHero: React.FC<HeroProps> = ({ badge, h1, description, backgroundI
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
       {backgroundImage && <img src={backgroundImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right" />}
       <div className={heroImageOverlayClass} />
+      <div className="absolute inset-y-0 left-0 w-[72%] bg-gradient-to-r from-[#f8fbfa]/98 via-[#f8fbfa]/92 via-[48%] to-transparent" />
       <div className="absolute -right-[12%] top-[12%] h-[72%] w-[48%] rounded-full bg-nourdoc-primary/[0.07] blur-3xl" />
       <div className="absolute left-0 top-0 h-full w-2/3 bg-[radial-gradient(circle_at_30%_40%,rgba(40,98,82,0.06),transparent_58%)]" />
     </div>
@@ -178,7 +179,7 @@ const StandardHero: React.FC<HeroProps> = ({ badge, h1, description, backgroundI
       <div className="max-w-[630px]">
         {badge && <p className="text-xs font-semibold uppercase tracking-[0.14em] text-nourdoc-primary">{badge}</p>}
         <h1 className="mt-4 text-[clamp(2.125rem,4.5vw,4rem)] font-semibold leading-[1.04] tracking-[-0.025em] text-[#101827]">{h1}</h1>
-        {description && <p className="mt-5 max-w-[610px] whitespace-pre-line text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.6] text-slate-700">{description}</p>}
+        {description && <p className="mt-5 max-w-[610px] whitespace-pre-line text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.6] font-medium text-slate-800">{description}</p>}
         <HeroActions />
       </div>
     </div>
