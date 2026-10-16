@@ -15,8 +15,9 @@ interface HeroProps {
   backgroundImage?: string;
   heroImage?: string;
   heroImageAlt?: string;
-  visualVariant?: 'clinical' | 'homeClinical' | 'product' | 'coding' | 'integrations' | 'why' | 'benefits' | 'about' | 'partners' | 'contact';
+  visualVariant?: 'clinical' | 'homeClinical' | 'product' | 'coding' | 'integrations' | 'why' | 'benefits' | 'about' | 'partners' | 'contact' | 'subscription';
   backgroundAlt?: string;
+  showBrandMark?: boolean;
 }
 
 const demoPath = '/contact?intent=bookDemo&topic=Other#contact-form';
@@ -70,8 +71,8 @@ const HomeHero: React.FC<Pick<HeroProps, 'description' | 'supportingLine' | 'her
   </section>
 );
 
-const PageHero: React.FC<HeroProps & { kind: 'product' | 'coding' | 'integrations' | 'why' | 'benefits' | 'about' | 'partners' | 'contact' }> = ({ kind, badge, h1, subtitle, description, backgroundImage }) => (
-  <section className={(kind === 'product' || kind === 'coding' || kind === 'integrations' || kind === 'why' || kind === 'benefits' || kind === 'about' || kind === 'partners' || kind === 'contact') ? 'relative flex aspect-[21/10] min-h-0 overflow-hidden border-b border-slate-100 bg-[#F8FBFA]' : 'hero-100vsh relative flex overflow-hidden border-b border-slate-100 bg-[#F8FBFA]'}>
+const PageHero: React.FC<HeroProps & { kind: 'product' | 'coding' | 'integrations' | 'why' | 'benefits' | 'about' | 'partners' | 'contact' | 'subscription' }> = ({ kind, badge, h1, subtitle, description, backgroundImage, showBrandMark }) => (
+  <section className={(kind === 'product' || kind === 'coding' || kind === 'integrations' || kind === 'why' || kind === 'benefits' || kind === 'about' || kind === 'partners' || kind === 'contact' || kind === 'subscription') ? 'relative flex aspect-[21/10] min-h-0 overflow-hidden border-b border-slate-100 bg-[#F8FBFA]' : 'hero-100vsh relative flex overflow-hidden border-b border-slate-100 bg-[#F8FBFA]'}>
     <div className="pointer-events-none absolute inset-0">
       {backgroundImage && <img src={backgroundImage} alt="" aria-hidden="true" className={`absolute inset-0 h-full w-full ${kind === 'product' ? 'object-cover object-center' : 'object-cover object-right'}`} fetchPriority="high" decoding="async" />}
       <div className={kind === 'benefits' ? benefitsHeroOverlayClass : heroImageOverlayClass} />
@@ -80,6 +81,13 @@ const PageHero: React.FC<HeroProps & { kind: 'product' | 'coding' | 'integration
     </div>
     <div className="relative z-10 mx-auto flex w-full max-w-[1280px] items-center px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
       <div className="max-w-[650px]">
+        {showBrandMark && (
+          <div className="mb-5 flex items-center gap-2.5 text-nourdoc-primary">
+            <img src="/logo.png" alt="NourDoc" className="h-8 w-8 object-contain" />
+            <span className="text-[15px] font-bold tracking-[-0.025em]">NourDoc</span>
+
+          </div>
+        )}
         {badge && <p className="text-xs font-semibold uppercase tracking-[0.14em] text-nourdoc-primary">{badge}</p>}
         <h1 className="mt-4 text-[clamp(2.125rem,4.5vw,4rem)] font-semibold leading-[1.04] tracking-[-0.025em] text-[#101827]">{kind === 'product' ? <>Meet <span className="text-nourdoc-primary">NourDoc</span></> : h1}</h1>
         {subtitle && <p className="mt-4 text-[clamp(1rem,1.3vw,1.125rem)] font-medium leading-relaxed text-nourdoc-primary">{subtitle}</p>}
@@ -112,6 +120,6 @@ const StandardHero: React.FC<HeroProps> = ({ badge, h1, description, backgroundI
 
 export const Hero: React.FC<HeroProps> = (props) => {
   if (props.visualVariant === 'homeClinical') return <HomeHero description={props.description} supportingLine={props.supportingLine} heroImage={props.heroImage} heroImageAlt={props.heroImageAlt} headlineLines={props.headlineLines} />;
-  if (props.visualVariant === 'product' || props.visualVariant === 'coding' || props.visualVariant === 'integrations' || props.visualVariant === 'why' || props.visualVariant === 'benefits' || props.visualVariant === 'about' || props.visualVariant === 'partners' || props.visualVariant === 'contact') return <PageHero {...props} kind={props.visualVariant} />;
+  if (props.visualVariant === 'product' || props.visualVariant === 'coding' || props.visualVariant === 'integrations' || props.visualVariant === 'why' || props.visualVariant === 'benefits' || props.visualVariant === 'about' || props.visualVariant === 'partners' || props.visualVariant === 'contact' || props.visualVariant === 'subscription') return <PageHero {...props} kind={props.visualVariant} />;
   return <StandardHero {...props} />;
 };

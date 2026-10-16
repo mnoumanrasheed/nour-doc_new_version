@@ -61,7 +61,8 @@ export const SubscriptionPage: React.FC = () => {
         primaryCta={page.cta.primaryCta}
         secondaryCta={page.cta.secondaryCta}
         showVisual={false}
-        backgroundImage="/images/hero/hero_subscription.jpg"
+        backgroundImage="/images/hero/hero_subscription_plans.webp"
+        visualVariant="subscription"
       />
 
       {/* 2. Four Tier Cards (Free / Starter / Professional / Enterprise) */}

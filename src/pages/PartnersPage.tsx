@@ -6,7 +6,6 @@ import { GlobalCollabMap } from '../components/diagrams/GlobalCollabMap';
 import { Card } from '../components/common/Card';
 import { Badge } from '../components/common/Badge';
 import { GlobalCTA } from '../components/sections/GlobalCTA';
-import { CollaborationExchangeVisual } from '../components/visuals/ClinicalVisuals';
 import {
   Stethoscope,
   Microscope,
@@ -14,9 +13,7 @@ import {
   Globe2,
   Building2,
   Receipt,
-  Users,
   Layers,
-  Sparkles,
   ArrowUpRight,
 } from 'lucide-react';
 import contentData from '../data.json';
@@ -160,64 +157,7 @@ export const PartnersPage: React.FC = () => {
         <GlobalCollabMap />
       </section>
 
-      {/* 3. Pakistani Engineering (M3 Hive) Deep Dive */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 border border-white/10 shadow-xl relative overflow-hidden">
-          {/* Contextual Engineering Team Photography Background Tint */}
-          <div className="absolute inset-0 z-0 pointer-events-none opacity-15">
-            <img
-              src="/images/sections/about_pakistan.jpg"
-              alt=""
-              aria-hidden="true"
-              className="w-full h-full object-cover object-center"
-              loading="lazy"
-            />
-          </div>
-
-          <div className="relative z-10">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 pb-6 border-b border-white/10">
-              <div>
-                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-nourdoc-secondary uppercase tracking-widest bg-white/5 px-3.5 py-1.5 rounded-full mb-3 border border-white/10">
-                  <Sparkles className="w-3.5 h-3.5 text-nourdoc-secondary" />
-                  Technology Leadership
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-                  Pakistani Engineering (M3 Hive)
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl">
-                  {page.globalCollaboration.pillars[1].desc}
-                </p>
-              </div>
-
-              <div className="shrink-0">
-                <Link
-                  to="/contact?topic=Partnership"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-xs font-bold text-slate-100 border border-white/15 transition-colors"
-                >
-                  <span>Connect with Engineering</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-nourdoc-secondary" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-              {page.globalCollaboration.pillars[1].skills?.map((skill, idx) => (
-                <div
-                  key={idx}
-                  className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/25 hover:bg-white/10 transition-all text-center flex flex-col items-center justify-center min-h-[84px]"
-                >
-                  <span className="text-xs font-mono text-nourdoc-secondary mb-1">0{idx + 1}</span>
-                  <span className="font-bold text-xs sm:text-sm text-slate-100 leading-snug">
-                    {skill}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Collaboration Opportunities (6 Textual Opportunities + 4 Visual Categories Filter) */}
+      {/* 3. Collaboration Opportunities (6 Textual Opportunities + 4 Visual Categories Filter) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow={page.opportunities.eyebrow}
@@ -289,44 +229,7 @@ export const PartnersPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. Editorial Clinical Collaboration Frame & "Build With Healthcare" */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Left: Cross-Border Clinical Exchange Visual */}
-          <div className="lg:col-span-5">
-            <CollaborationExchangeVisual />
-          </div>
-
-          {/* Right: Build With Healthcare Callout Card */}
-          <div className="lg:col-span-7">
-            <div className="rounded-3xl bg-gradient-to-br from-nourdoc-primary-light via-white to-nourdoc-primary-light/60 border-2 border-nourdoc-primary/20 p-8 sm:p-10 shadow-sm">
-              <div className="w-12 h-12 rounded-2xl bg-nourdoc-primary text-white flex items-center justify-center mb-6 shadow-sm">
-                <Users className="w-6 h-6" />
-              </div>
-              <span className="text-xs font-bold text-nourdoc-primary uppercase tracking-wider block mb-2 font-mono">
-                {page.buildWithHealthcare.eyebrow}
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4 tracking-tight">
-                {page.buildWithHealthcare.h2}
-              </h2>
-              <p className="text-sm sm:text-base text-slate-700 leading-relaxed mb-6 font-medium">
-                {page.buildWithHealthcare.description.split('\n\n')[0]}
-              </p>
-
-              <div className="p-4 sm:p-5 rounded-2xl bg-white border border-nourdoc-primary/30 shadow-xs">
-                <p className="text-base sm:text-lg font-black text-nourdoc-primary tracking-tight">
-                  “Build with healthcare. Not just for healthcare.”
-                </p>
-                <p className="text-xs text-slate-500 mt-1">
-                  NourDoc Core Principle: Clinical intelligence shaped directly by practicing medical professionals.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Closing CTA */}
+      {/* 4. Closing CTA */}
       <GlobalCTA
         title={page.cta.h2}
         primaryLabel={page.cta.primaryCta.label}

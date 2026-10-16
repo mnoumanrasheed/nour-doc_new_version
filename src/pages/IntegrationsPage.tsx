@@ -46,7 +46,7 @@ export const IntegrationsPage: React.FC = () => {
         description={page.hero.lead}
         primaryCta={page.cta.primaryCta}
         showVisual={false}
-        backgroundImage="/images/hero/hero_integrations_wide.webp"
+        backgroundImage="/images/hero/hero_integrations_original_emblem.webp"
         visualVariant="integrations"
       />
 

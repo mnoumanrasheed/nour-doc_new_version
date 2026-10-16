@@ -32,108 +32,7 @@ export const AboutPage: React.FC = () => {
         visualVariant="about"
       />
 
-      {/* 2. Hero Human-Centered Editorial Visual Frame */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-6">
-            <ClinicalDialogueVisual />
-          </div>
-          <div className="lg:col-span-6 space-y-4">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold text-nourdoc-primary uppercase tracking-widest bg-nourdoc-primary-light px-3.5 py-1.5 rounded-full">
-              <Sparkles className="w-3.5 h-3.5 text-nourdoc-primary" />
-              Core Philosophy
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              Technology That Listens, Understands, and Gives Time Back
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              NourDoc was created on the conviction that the clinical consultation is fundamentally human. By managing complex documentation, medical coding support, and downstream data integration, our platform enables clinicians to focus completely on diagnosis, care, and patient relationships.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Who We Are, Mission & Vision Progression */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Who We Are (M3 Hive) */}
-          <Card hover={false} className="bg-slate-50 border border-slate-200 flex flex-col justify-between">
-            <div>
-              <div className="w-10 h-10 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mb-4">
-                <Building className="w-5 h-5" />
-              </div>
-              <span className="text-xs font-bold text-nourdoc-primary uppercase tracking-wider block mb-1">
-                {page.whoWeAre.eyebrow}
-              </span>
-              <h3 className="text-xl font-black text-slate-900 mb-3">{page.whoWeAre.h2}</h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                {page.whoWeAre.description}
-              </p>
-            </div>
-            <div className="mt-4 pt-3 border-t border-slate-200/60 text-[11px] font-bold text-nourdoc-primary">
-              <span>M3 Hive Engineering Initiative</span>
-            </div>
-          </Card>
-
-          {/* Our Mission */}
-          <Card hover={false} className="bg-slate-50 border border-slate-200 flex flex-col justify-between">
-            <div>
-              <div className="w-10 h-10 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mb-4">
-                <HeartHandshake className="w-5 h-5" />
-              </div>
-              <span className="text-xs font-bold text-nourdoc-primary uppercase tracking-wider block mb-1">
-                {page.ourMission.eyebrow}
-              </span>
-              <h3 className="text-xl font-black text-slate-900 mb-3">{page.ourMission.h2}</h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                {page.ourMission.description}
-              </p>
-            </div>
-            <div className="mt-4 pt-3 border-t border-slate-200/60 text-[11px] font-bold text-nourdoc-primary">
-              <span>Reducing Administrative Friction</span>
-            </div>
-          </Card>
-
-          {/* Our Vision */}
-          <Card hover={false} className="bg-nourdoc-primary-light/80 border-2 border-nourdoc-primary/30 flex flex-col justify-between">
-            <div>
-              <div className="w-10 h-10 rounded-xl bg-white text-nourdoc-primary flex items-center justify-center mb-4 shadow-sm">
-                <Eye className="w-5 h-5" />
-              </div>
-              <span className="text-xs font-bold text-nourdoc-primary uppercase tracking-wider block mb-1">
-                {page.ourVision.eyebrow}
-              </span>
-              <h3 className="text-xl font-black text-slate-900 mb-3">{page.ourVision.h2}</h3>
-
-              <div className="space-y-3 text-xs mt-4">
-                <div className="p-3 bg-white rounded-xl border border-slate-200 shadow-xs">
-                  <span className="font-bold text-slate-800 block mb-1 text-[11px] uppercase tracking-wider">
-                    {page.ourVision.today.label}
-                  </span>
-                  <span className="font-mono text-nourdoc-primary font-bold">
-                    {page.ourVision.today.flow}
-                  </span>
-                </div>
-
-                <div className="p-3 bg-white rounded-xl border border-nourdoc-primary/40 shadow-xs">
-                  <span className="font-bold text-nourdoc-primary block mb-1 text-[11px] uppercase tracking-wider">
-                    {page.ourVision.expanding.label}
-                  </span>
-                  <span className="font-mono text-[11px] text-slate-800 leading-snug block font-semibold">
-                    {page.ourVision.expanding.flow}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <p className="text-[11px] text-slate-600 mt-4 pt-3 border-t border-nourdoc-primary/20 leading-relaxed">
-              {page.ourVision.conclusion}
-            </p>
-          </Card>
-        </div>
-      </section>
-
-      {/* 4. Canada / Pakistan / Finland Triad Story Panels */}
+{/* 2. Canada / Pakistan / Finland Triad Story Panels */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="INTERNATIONAL FOUNDATION"
@@ -242,6 +141,107 @@ export const AboutPage: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 3. Human-Centered Editorial Visual Frame */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-6">
+            <ClinicalDialogueVisual />
+          </div>
+          <div className="lg:col-span-6 space-y-4">
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold text-nourdoc-primary uppercase tracking-widest bg-nourdoc-primary-light px-3.5 py-1.5 rounded-full">
+              <Sparkles className="w-3.5 h-3.5 text-nourdoc-primary" />
+              Core Philosophy
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+              Technology That Listens, Understands, and Gives Time Back
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              NourDoc was created on the conviction that the clinical consultation is fundamentally human. By managing complex documentation, medical coding support, and downstream data integration, our platform enables clinicians to focus completely on diagnosis, care, and patient relationships.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Who We Are, Mission & Vision Progression */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Who We Are (M3 Hive) */}
+          <Card hover={false} className="bg-slate-50 border border-slate-200 flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mb-4">
+                <Building className="w-5 h-5" />
+              </div>
+              <span className="text-xs font-bold text-nourdoc-primary uppercase tracking-wider block mb-1">
+                {page.whoWeAre.eyebrow}
+              </span>
+              <h3 className="text-xl font-black text-slate-900 mb-3">{page.whoWeAre.h2}</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                {page.whoWeAre.description}
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-slate-200/60 text-[11px] font-bold text-nourdoc-primary">
+              <span>M3 Hive Engineering Initiative</span>
+            </div>
+          </Card>
+
+          {/* Our Mission */}
+          <Card hover={false} className="bg-slate-50 border border-slate-200 flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center mb-4">
+                <HeartHandshake className="w-5 h-5" />
+              </div>
+              <span className="text-xs font-bold text-nourdoc-primary uppercase tracking-wider block mb-1">
+                {page.ourMission.eyebrow}
+              </span>
+              <h3 className="text-xl font-black text-slate-900 mb-3">{page.ourMission.h2}</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                {page.ourMission.description}
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-slate-200/60 text-[11px] font-bold text-nourdoc-primary">
+              <span>Reducing Administrative Friction</span>
+            </div>
+          </Card>
+
+          {/* Our Vision */}
+          <Card hover={false} className="bg-nourdoc-primary-light/80 border-2 border-nourdoc-primary/30 flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-xl bg-white text-nourdoc-primary flex items-center justify-center mb-4 shadow-sm">
+                <Eye className="w-5 h-5" />
+              </div>
+              <span className="text-xs font-bold text-nourdoc-primary uppercase tracking-wider block mb-1">
+                {page.ourVision.eyebrow}
+              </span>
+              <h3 className="text-xl font-black text-slate-900 mb-3">{page.ourVision.h2}</h3>
+
+              <div className="space-y-3 text-xs mt-4">
+                <div className="p-3 bg-white rounded-xl border border-slate-200 shadow-xs">
+                  <span className="font-bold text-slate-800 block mb-1 text-[11px] uppercase tracking-wider">
+                    {page.ourVision.today.label}
+                  </span>
+                  <span className="font-mono text-nourdoc-primary font-bold">
+                    {page.ourVision.today.flow}
+                  </span>
+                </div>
+
+                <div className="p-3 bg-white rounded-xl border border-nourdoc-primary/40 shadow-xs">
+                  <span className="font-bold text-nourdoc-primary block mb-1 text-[11px] uppercase tracking-wider">
+                    {page.ourVision.expanding.label}
+                  </span>
+                  <span className="font-mono text-[11px] text-slate-800 leading-snug block font-semibold">
+                    {page.ourVision.expanding.flow}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-[11px] text-slate-600 mt-4 pt-3 border-t border-nourdoc-primary/20 leading-relaxed">
+              {page.ourVision.conclusion}
+            </p>
+          </Card>
         </div>
       </section>
 

@@ -11,9 +11,15 @@ export const SplitComparison: React.FC = () => {
         {/* Left: Administrative Burden (Before) */}
         <RevealOnScroll className="rounded-3xl p-6 sm:p-8 bg-slate-100/90 border border-slate-200/90 text-slate-700 flex flex-col justify-between space-y-6 overflow-hidden" y={24}>
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500">
-              <Clock className="w-4 h-4 text-slate-400" />
-              The Administrative Burden
+            <div className="flex items-center justify-between gap-3 text-xs font-bold uppercase tracking-wider text-slate-500">
+              <span className="flex items-center gap-2">
+                <Clock className="w-4 h-4 text-slate-400" />
+                The Administrative Burden
+              </span>
+              <span className="flex shrink-0 items-center gap-1.5 normal-case tracking-normal text-slate-700">
+                <img src="/logo.png" alt="" aria-hidden="true" className="h-9 w-9 object-contain" />
+                <span className="text-sm font-bold tracking-[-0.025em]">NourDoc</span>
+              </span>
             </div>
             
             {/* Photographic Context: Screen & Paperwork Burden */}
@@ -60,9 +66,15 @@ export const SplitComparison: React.FC = () => {
         {/* Right: Clinical Focus with NourDoc (After) */}
         <RevealOnScroll className="rounded-3xl p-6 sm:p-8 bg-nourdoc-primary-light/80 border-2 border-nourdoc-primary/30 text-slate-800 shadow-sm flex flex-col justify-between space-y-6 overflow-hidden" delay={0.18} y={24}>
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-nourdoc-primary">
-              <HeartHandshake className="w-4 h-4 text-nourdoc-primary" />
-              The NourDoc Advantage
+            <div className="flex items-center justify-between gap-3 text-xs font-bold uppercase tracking-wider text-nourdoc-primary">
+              <span className="flex items-center gap-2">
+                <HeartHandshake className="w-4 h-4 text-nourdoc-primary" />
+                The NourDoc Advantage
+              </span>
+              <span className="flex shrink-0 items-center gap-1.5 normal-case tracking-normal text-nourdoc-primary">
+                <img src="/logo.png" alt="" aria-hidden="true" className="h-9 w-9 object-contain" />
+                <span className="text-sm font-bold tracking-[-0.025em]">NourDoc</span>
+              </span>
             </div>
 
             {/* Photographic Context: Patient Focus & Direct Eye Contact */}
