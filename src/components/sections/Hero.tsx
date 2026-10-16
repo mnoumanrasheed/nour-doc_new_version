@@ -23,6 +23,7 @@ const demoPath = '/contact?intent=bookDemo&topic=Other#contact-form';
 
 // Keep every page hero's photo treatment aligned with the home hero.
 const heroImageOverlayClass = 'absolute inset-0 bg-[linear-gradient(90deg,rgba(248,251,250,0.97)_0%,rgba(248,251,250,0.90)_28%,rgba(248,251,250,0.58)_40%,rgba(248,251,250,0.14)_48%,transparent_55%),radial-gradient(ellipse_at_18%_78%,rgba(248,251,250,0.68)_0%,rgba(248,251,250,0.34)_24%,transparent_42%)] max-[899px]:bg-[linear-gradient(180deg,rgba(248,251,250,0.94)_0%,rgba(248,251,250,0.78)_42%,rgba(248,251,250,0.46)_70%,rgba(248,251,250,0.12)_88%,transparent_100%)]';
+const benefitsHeroOverlayClass = 'absolute inset-0 bg-[linear-gradient(90deg,rgba(248,251,250,0.98)_0%,rgba(248,251,250,0.94)_27%,rgba(248,251,250,0.76)_40%,rgba(248,251,250,0.42)_53%,rgba(248,251,250,0.12)_64%,transparent_73%),radial-gradient(ellipse_at_15%_78%,rgba(248,251,250,0.74)_0%,rgba(248,251,250,0.30)_31%,transparent_52%)] max-[899px]:bg-[linear-gradient(180deg,rgba(248,251,250,0.96)_0%,rgba(248,251,250,0.82)_45%,rgba(248,251,250,0.44)_72%,rgba(248,251,250,0.10)_92%,transparent_100%)]';
 
 const HeroActions: React.FC = () => (
   <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center [&>div]:w-full sm:[&>div]:w-auto">
@@ -35,87 +36,10 @@ const HeroActions: React.FC = () => (
   </div>
 );
 
-/* Removed from the home hero: the right-side foundation timeline animation.
-const GlobalFoundationTimeline: React.FC = () => {
-  const reduceMotion = useReducedMotion();
-  const items = [
-    {
-      number: '01',
-      title: 'Canadian Ownership',
-      description: 'Strategic leadership and international vision',
-      Icon: Globe2,
-    },
-    {
-      number: '02',
-      title: 'Finnish Research',
-      description: 'Clinical insight and research-driven relevance',
-      Icon: Microscope,
-    },
-    {
-      number: '03',
-      title: 'Pakistan Engineered',
-      description: 'Strong product development and technical execution',
-      Icon: Code2,
-    },
-  ];
-
-  return (
-    <motion.aside
-      aria-label="NourDoc global foundation"
-      initial={reduceMotion ? false : { opacity: 0 }}
-      animate={reduceMotion ? undefined : { opacity: 1 }}
-      transition={{ duration: 0.55, delay: reduceMotion ? 0 : 0.15, ease: 'easeOut' }}
-      className="absolute right-[5%] top-1/2 z-20 hidden w-[390px] -translate-y-1/2 overflow-hidden rounded-[24px] border border-white/80 bg-white/72 px-7 py-8 shadow-[0_24px_65px_rgba(15,42,34,0.12)] backdrop-blur-[18px] lg:block"
-    >
-      <div className="relative space-y-8">
-        <motion.div
-          aria-hidden="true"
-          className="absolute bottom-4 left-[9px] top-4 w-px origin-top bg-nourdoc-primary/20"
-          initial={reduceMotion ? false : { scaleY: 0 }}
-          animate={reduceMotion ? undefined : { scaleY: 1 }}
-          transition={{ duration: 0.7, delay: reduceMotion ? 0 : 0.25, ease: 'easeOut' }}
-        />
-        {items.map(({ number, title, description, Icon }, index) => (
-          <motion.div
-            key={number}
-            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
-            animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.48, delay: reduceMotion ? 0 : 0.35 + index * 0.14, ease: 'easeOut' }}
-            className="relative grid grid-cols-[20px_1fr] gap-4"
-          >
-            <span className="relative z-10 flex h-5 w-5 items-center justify-center bg-white/80 text-nourdoc-primary">
-              <Icon className="h-4 w-4" strokeWidth={1.7} aria-hidden="true" />
-            </span>
-            <div>
-              <span className="font-mono text-[10px] font-semibold tracking-[0.18em] text-nourdoc-primary/65">{number}</span>
-              <h2 className="mt-1 text-[15px] font-semibold tracking-[-0.01em] text-slate-900">{title}</h2>
-              <p className="mt-1 text-[12px] leading-[1.5] text-slate-500">{description}</p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-      <motion.div
-        initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-        animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-        transition={{ duration: 0.48, delay: reduceMotion ? 0 : 0.85, ease: 'easeOut' }}
-        className="mt-7 border-t border-nourdoc-primary/10 pt-5"
-      >
-        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-nourdoc-primary">Global Collaboration</p>
-        <p className="mt-2 text-[13px] font-semibold tracking-[-0.01em] text-slate-800">
-          Canada <span className="mx-1.5 text-nourdoc-primary/40">·</span> Finland <span className="mx-1.5 text-nourdoc-primary/40">·</span> Pakistan
-        </p>
-        <p className="mt-2 text-[11px] italic leading-[1.55] text-slate-500">Built through international healthcare, research and engineering collaboration.</p>
-      </motion.div>
-    </motion.aside>
-  );
-};
-
-*/
-
 const HomeHero: React.FC<Pick<HeroProps, 'description' | 'supportingLine' | 'heroImage' | 'heroImageAlt' | 'headlineLines'>> = ({ description, supportingLine, heroImage, headlineLines }) => (
   <section aria-labelledby="home-hero-heading" className="hero-100vsh relative flex overflow-hidden bg-[#F8FBFA]">
     <div className="absolute inset-0">
-      <img src={heroImage ?? '/images/hero/hero_home_custom.png'} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right" />
+      <img src={heroImage ?? '/images/hero/hero_home_custom.webp'} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right" fetchPriority="high" decoding="async" />
       <div className={heroImageOverlayClass} aria-hidden="true" />
       <div className="absolute -right-[12%] top-[8%] h-[78%] w-[58%] rounded-full bg-[radial-gradient(circle,rgba(40,98,82,0.012)_0%,rgba(143,183,172,0.005)_42%,transparent_72%)] blur-2xl" />
       <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/12 to-transparent" />
@@ -149,8 +73,8 @@ const HomeHero: React.FC<Pick<HeroProps, 'description' | 'supportingLine' | 'her
 const PageHero: React.FC<HeroProps & { kind: 'product' | 'coding' | 'integrations' | 'why' | 'benefits' | 'about' | 'partners' | 'contact' }> = ({ kind, badge, h1, subtitle, description, backgroundImage }) => (
   <section className={(kind === 'product' || kind === 'coding' || kind === 'integrations' || kind === 'why' || kind === 'benefits' || kind === 'about' || kind === 'partners' || kind === 'contact') ? 'relative flex aspect-[21/10] min-h-0 overflow-hidden border-b border-slate-100 bg-[#F8FBFA]' : 'hero-100vsh relative flex overflow-hidden border-b border-slate-100 bg-[#F8FBFA]'}>
     <div className="pointer-events-none absolute inset-0">
-      {backgroundImage && <img src={backgroundImage} alt="" aria-hidden="true" className={`absolute inset-0 h-full w-full ${kind === 'product' ? 'object-cover object-center' : 'object-cover object-right'}`} />}
-      <div className={heroImageOverlayClass} />
+      {backgroundImage && <img src={backgroundImage} alt="" aria-hidden="true" className={`absolute inset-0 h-full w-full ${kind === 'product' ? 'object-cover object-center' : 'object-cover object-right'}`} fetchPriority="high" decoding="async" />}
+      <div className={kind === 'benefits' ? benefitsHeroOverlayClass : heroImageOverlayClass} />
       <div className="absolute -right-[8%] top-[8%] h-[84%] w-[48%] rounded-full bg-nourdoc-primary/[0.08] blur-3xl" />
       <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/75 to-transparent" />
     </div>
@@ -169,7 +93,7 @@ const PageHero: React.FC<HeroProps & { kind: 'product' | 'coding' | 'integration
 const StandardHero: React.FC<HeroProps> = ({ badge, h1, description, backgroundImage }) => (
   <section className="hero-100vsh relative flex overflow-hidden border-b border-slate-100 bg-[#F8FBFA]">
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {backgroundImage && <img src={backgroundImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right" />}
+      {backgroundImage && <img src={backgroundImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right" fetchPriority="high" decoding="async" />}
       <div className={heroImageOverlayClass} />
       <div className="absolute inset-y-0 left-0 w-[72%] bg-gradient-to-r from-[#f8fbfa]/98 via-[#f8fbfa]/92 via-[48%] to-transparent" />
       <div className="absolute -right-[12%] top-[12%] h-[72%] w-[48%] rounded-full bg-nourdoc-primary/[0.07] blur-3xl" />

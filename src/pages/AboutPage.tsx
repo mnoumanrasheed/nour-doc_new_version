@@ -28,7 +28,7 @@ export const AboutPage: React.FC = () => {
         h1={page.hero.h1}
         description={page.hero.lead}
         showVisual={false}
-        backgroundImage="/images/hero/hero_about_wide.png"
+        backgroundImage="/images/hero/hero_about_wide.webp"
         visualVariant="about"
       />
 
@@ -151,7 +151,7 @@ export const AboutPage: React.FC = () => {
               <div>
                 <div className="aspect-[3/2] w-full rounded-xl overflow-hidden mb-4 relative bg-slate-100 shadow-[0_10px_24px_rgba(15,42,34,0.10)]">
                   <img
-                    src="/images/sections/about_canada.png"
+                    src="/images/sections/about_canada.webp"
                     alt="Canadian healthcare ownership and governance"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
@@ -215,7 +215,7 @@ export const AboutPage: React.FC = () => {
               <div>
                 <div className="aspect-[3/2] w-full rounded-xl overflow-hidden mb-4 relative bg-slate-100 shadow-[0_10px_24px_rgba(15,42,34,0.10)]">
                   <img
-                    src="/images/sections/about_finland.png"
+                    src="/images/sections/about_finland.webp"
                     alt="Finnish clinical research and healthcare evaluation laboratory"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"

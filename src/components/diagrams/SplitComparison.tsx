@@ -19,7 +19,7 @@ export const SplitComparison: React.FC = () => {
             {/* Photographic Context: Screen & Paperwork Burden */}
             <div className="relative aspect-[3/1] w-full overflow-hidden rounded-2xl shadow-[0_14px_30px_rgba(15,23,42,0.12)]">
               <img
-                src="/images/sections/why_admin_burden_wide.png"
+                src="/images/sections/why_admin_burden_wide.webp"
                 alt="Physician experiencing administrative fatigue and after-hours documentation workload"
                 className="h-full w-full object-cover object-center"
                 loading="lazy"
@@ -68,7 +68,7 @@ export const SplitComparison: React.FC = () => {
             {/* Photographic Context: Patient Focus & Direct Eye Contact */}
             <div className="relative aspect-[3/1] w-full overflow-hidden rounded-2xl shadow-[0_14px_30px_rgba(15,42,34,0.16)]">
               <img
-                src="/images/sections/why_clinical_focus_wide.png"
+                src="/images/sections/why_clinical_focus_wide.webp"
                 alt="Physician engaged in warm eye contact and focused patient consultation"
                 className="h-full w-full object-cover object-center"
                 loading="lazy"

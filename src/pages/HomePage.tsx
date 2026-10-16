@@ -35,7 +35,7 @@ export const HomePage: React.FC = () => {
         secondaryCta={{ label: 'Book a Demo', type: 'demo' }}
         supportingLine="From individual clinicians to enterprise-scale healthcare networks."
         showVisual={true}
-        heroImage="/images/hero/hero_home_custom.png"
+        heroImage="/images/hero/hero_home_custom.webp"
         heroImageAlt="Doctor speaking with a patient during a clinical consultation"
         visualVariant="homeClinical"
       />
@@ -148,7 +148,7 @@ export const HomePage: React.FC = () => {
               <div className="relative w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-white group">
                 <div className="h-44 w-full relative overflow-hidden">
                   <img
-                    src="/images/sections/home_app_doctor.png"
+                    src="/images/sections/home_app_doctor.webp"
                     alt="Clinician using NourDoc mobile ambient assistant"
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"

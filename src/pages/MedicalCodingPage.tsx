@@ -33,7 +33,7 @@ export const MedicalCodingPage: React.FC = () => {
         description={page.hero.description}
         primaryCta={{ label: 'BOOK AN ENTERPRISE DEMO', type: 'demo' }}
         secondaryCta={{ label: 'TALK TO OUR TEAM', type: 'route', target: '/contact?topic=Batch+Processing' }}
-        backgroundImage="/images/hero/cand_505751_wide.png"
+        backgroundImage="/images/hero/cand_505751_wide.webp"
         backgroundAlt="Stethoscope and clinical writing instruments on a medical surface"
         visualVariant="coding"
       />

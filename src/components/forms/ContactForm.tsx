@@ -130,6 +130,10 @@ export const ContactForm: React.FC = () => {
     }
   };
 
+  const handleFormSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
+    void handleSubmit(onSubmit)(event);
+  };
+
   return (
     <div id="contact-form-section" className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
       {/* Left Column: Context, 10 Stakeholder Audiences & 4 Official Mailto Directory */}
@@ -264,7 +268,7 @@ export const ContactForm: React.FC = () => {
           </div>
         )}
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
+        <form onSubmit={handleFormSubmit} className="space-y-4" noValidate>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Field: Name */}
             <div>

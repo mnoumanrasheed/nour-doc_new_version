@@ -34,7 +34,7 @@ export const SecurityPage: React.FC = () => {
         description={page.hero.lead}
         primaryCta={page.cta.secondaryCta}
         showVisual={false}
-        backgroundImage="/images/hero/hero_security.png"
+        backgroundImage="/images/hero/hero_security.webp"
       />
 
       {/* 2. Security by Design (4 Core Pillars) */}

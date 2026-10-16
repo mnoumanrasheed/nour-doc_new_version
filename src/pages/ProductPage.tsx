@@ -3,7 +3,6 @@ import React from 'react';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { CapabilitiesGrid } from '../components/sections/CapabilitiesGrid';
 import { AIEngineVisual } from '../components/diagrams/AIEngineVisual';
-import { Button } from '../components/common/Button';
 import { Card } from '../components/common/Card';
 import { GlobalCTA } from '../components/sections/GlobalCTA';
 import { Hero } from '../components/sections/Hero';
@@ -18,8 +17,6 @@ import {
   Server, 
   Cpu, 
   CheckCircle2, 
-  ShieldCheck,
-  Sparkles
 } from 'lucide-react';
 import contentData from '../data.json';
 
@@ -27,7 +24,6 @@ const inputIcons = [Mic, FileAudio, FileText, FileCode2, Database];
 
 export const ProductPage: React.FC = () => {
   const page = contentData.pages.product;
-  const appStoreUrl = contentData.brand.appStoreUrl;
 
   return (
     <div className="space-y-16 md:space-y-24">
@@ -38,178 +34,11 @@ export const ProductPage: React.FC = () => {
         description={page.hero.description}
         primaryCta={page.cta.primaryCta}
         secondaryCta={page.cta.secondaryCta}
-        backgroundImage="/images/hero/hero_product_wide.png"
+        backgroundImage="/images/hero/hero_product_wide.webp"
         backgroundAlt="Clinician using a laptop during a healthcare workflow"
         visualVariant="product"
       />
-      {/* 1. Editorial Split Hero combining Consultation & Conceptual Documentation UI */}
-      <section className="hidden hero-100vsh relative overflow-hidden flex-col justify-center py-12 md:py-16 bg-gradient-to-b from-nourdoc-primary-surface/80 via-white to-white border-b border-slate-100">
-        {/* Background Photography Layer with a lighter directional scrim */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <img
-            src="/images/hero/hero_product.png"
-            alt=""
-            aria-hidden="true"
-            className="w-full h-full object-cover object-center lg:object-right select-none"
-            loading="eager"
-          />
-          {/* Directional Horizontal Scrim on Desktop */}
-          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-white via-white/80 via-45% to-transparent" />
-          
-          {/* Directional Scrim on Tablet / Mobile */}
-          <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-white/75 via-white/50 to-white/15" />
 
-          {/* Subtle Top & Bottom Edge Vignettes */}
-          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/40 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/40 to-transparent" />
-        </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left: Product Hero Information */}
-            <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-nourdoc-primary-light text-nourdoc-primary border border-nourdoc-primary/20 shadow-xs">
-                <Sparkles className="w-3.5 h-3.5 text-nourdoc-primary" />
-                <span>AI PLATFORM</span>
-              </div>
-
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">
-                Meet <span className="bg-gradient-to-r from-nourdoc-primary to-nourdoc-primary-hover bg-clip-text text-transparent">NourDoc</span>
-              </h1>
-
-              <p className="text-lg sm:text-xl font-bold text-nourdoc-primary leading-snug">
-                {page.hero.subtitle}
-              </p>
-
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
-                {page.hero.description}
-              </p>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Button
-                  href={appStoreUrl}
-                  external={true}
-                  variant="primary"
-                  size="lg"
-                  icon={true}
-                >
-                  {page.cta.primaryCta.label}
-                </Button>
-                <Button
-                  to="/contact?intent=bookDemo&topic=Other#contact-form"
-                  variant="outline"
-                  size="lg"
-                >
-                  {page.cta.secondaryCta.label}
-                </Button>
-              </div>
-
-              <div className="flex items-center gap-4 text-xs text-slate-500 pt-2 border-t border-slate-100">
-                <span className="flex items-center gap-1.5 font-medium">
-                  <ShieldCheck className="w-4 h-4 text-nourdoc-primary" />
-                  Clinician Validation Control
-                </span>
-                <span>•</span>
-                <span>Cloud & On-Premises Ready</span>
-              </div>
-            </div>
-
-            {/* Right: Single Cohesive Ultra-Premium Ambient Clinical Intelligence Frame */}
-            <div className="lg:col-span-6">
-              <div className="nourdoc-ambient-surface relative rounded-3xl bg-gradient-to-br from-nourdoc-primary-dark via-nourdoc-primary-dark/95 to-nourdoc-primary-hover text-white p-6 sm:p-7 border border-white/10 shadow-2xl overflow-hidden ring-1 ring-white/10">
-                {/* Ambient glow effects */}
-                <div className="absolute top-0 right-0 w-72 h-72 bg-nourdoc-primary/20 rounded-full blur-3xl pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-72 h-72 bg-nourdoc-secondary/15 rounded-full blur-3xl pointer-events-none" />
-
-                {/* Top Status Header */}
-                <div className="relative z-10 flex items-center justify-between pb-4 mb-4 border-b border-white/10">
-                  <div className="flex items-center gap-2.5">
-                    <span className="relative flex h-2.5 w-2.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-                    </span>
-                    <div>
-                      <div className="text-xs font-mono font-bold text-slate-100 uppercase tracking-wider">
-                        Ambient Consultation Active
-                      </div>
-                      <div className="text-[10px] text-emerald-400 font-mono">
-                        Live Speech Stream • Encrypted TLS 1.3
-                      </div>
-                    </div>
-                  </div>
-                  <span className="text-[10px] font-mono text-nourdoc-secondary bg-nourdoc-primary/20 px-2.5 py-1 rounded-md border border-nourdoc-primary/40">
-                    NourDoc Engine
-                  </span>
-                </div>
-
-                {/* Natural Speech Capture & Audio Waveform */}
-                <div className="relative z-10 space-y-3.5">
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-2.5">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="flex items-center gap-2 font-bold text-slate-200">
-                        <Mic className="w-3.5 h-3.5 text-nourdoc-secondary" />
-                        Natural Dialogue Input
-                      </span>
-                      <span className="text-[10px] font-mono text-nourdoc-secondary font-semibold">
-                        SPEECH WAVEFORM
-                      </span>
-                    </div>
-
-                    {/* Gradient Equalizer Waveform */}
-                    <div className="h-7 flex items-center justify-between gap-1 px-2.5 py-1 bg-white/5 rounded-lg border border-white/10">
-                      {[40, 75, 30, 90, 60, 100, 45, 80, 55, 95, 35, 70, 85, 40, 90, 65, 30, 80, 50, 95, 60, 40, 75, 85, 50, 90].map((h, i) => (
-                        <div
-                          key={i}
-                          className="nourdoc-wave-bar w-1 rounded-full bg-gradient-to-t from-nourdoc-primary to-nourdoc-secondary"
-                          style={{ height: `${h}%`, animationDelay: `${i * -0.07}s` }}
-                        />
-                      ))}
-                    </div>
-
-                    <div className="text-[11px] text-slate-300 italic bg-white/5 px-3 py-1.5 rounded-md border border-white/10 flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-nourdoc-secondary shrink-0" />
-                      <span className="truncate">"Patient presents with mild respiratory symptoms and dry cough for 4 days..."</span>
-                    </div>
-                  </div>
-
-                  {/* Real-time SOAP Synthesis & ICD-10 Tagging */}
-                  <div className="p-3.5 rounded-2xl bg-nourdoc-primary/15 border border-nourdoc-primary/30 space-y-2.5">
-                    <div className="flex items-center justify-between text-xs font-bold text-nourdoc-secondary">
-                      <span className="flex items-center gap-1.5">
-                        <Sparkles className="w-3.5 h-3.5 text-nourdoc-secondary" />
-                        Clinical Synthesis & Coding Support
-                      </span>
-                      <span className="animate-pulse text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/50">
-                        SOAP READY
-                      </span>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-2 text-[11px] font-mono">
-                      <div className="bg-white/5 p-2.5 rounded-xl border border-white/10 space-y-0.5">
-                        <span className="text-nourdoc-secondary block font-bold text-[10px] uppercase">Assessment & Plan</span>
-                        <span className="text-slate-300 line-clamp-2">Acute bronchitis. Prescribed maintenance therapy.</span>
-                      </div>
-                      <div className="bg-white/5 p-2.5 rounded-xl border border-white/10 space-y-0.5">
-                        <span className="text-emerald-400 block font-bold text-[10px] uppercase">Validated Codes</span>
-                        <span className="text-slate-300 text-[10px]">ICD-10: J20.9 • CPT: 99214</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Footer Governance Tag */}
-                <div className="relative z-10 mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400">
-                  <span className="flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                    Clinician Validated • Assistive AI
-                  </span>
-                  <span className="text-nourdoc-secondary font-mono font-semibold">FHIR / EHR Ready</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* 2. Core Capabilities (2x4 Grid) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

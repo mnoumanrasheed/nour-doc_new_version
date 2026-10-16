@@ -151,7 +151,7 @@ export const PartnersPage: React.FC = () => {
           target: '/contact?intent=bookDemo&topic=Other#contact-form',
         }}
         showVisual={false}
-        backgroundImage="/images/hero/hero_partners_wide.png"
+        backgroundImage="/images/hero/hero_partners_wide.webp"
         visualVariant="partners"
       />
 

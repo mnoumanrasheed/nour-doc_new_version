@@ -23,7 +23,7 @@ export const WhyNourDocPage: React.FC = () => {
         primaryCta={page.cta.primaryCta}
         secondaryCta={page.cta.secondaryCta}
         showVisual={false}
-        backgroundImage="/images/hero/hero_why_wide.png"
+        backgroundImage="/images/hero/hero_why_wide.webp"
         backgroundAlt="Doctor consulting with a patient while using a tablet"
         visualVariant="why"
       />

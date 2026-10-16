@@ -42,7 +42,7 @@ export const BenefitsPage: React.FC = () => {
         primaryCta={page.resultCta.primaryCta}
         secondaryCta={page.resultCta.secondaryCta}
         showVisual={false}
-        backgroundImage="/images/hero/hero_benefits_wide.png"
+        backgroundImage="/images/hero/hero_benefits_consultation.webp"
         visualVariant="benefits"
       />
 
@@ -100,7 +100,7 @@ export const BenefitsPage: React.FC = () => {
           <div className="lg:col-span-5 space-y-4">
             <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 h-48 w-full relative">
               <img
-                src="/images/sections/benefit_clinician.png"
+                src="/images/sections/benefit_clinician.webp"
                 alt="Clinician conducting patient-centered examination"
                 className="w-full h-full object-cover object-top"
                 loading="lazy"
@@ -121,7 +121,7 @@ export const BenefitsPage: React.FC = () => {
           <div className="lg:col-span-5 order-2 lg:order-1 space-y-4">
             <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 h-48 w-full relative">
               <img
-                src="/images/sections/benefit_practice.png"
+                src="/images/sections/benefit_practice.webp"
                 alt="Medical practice team collaborating in modern healthcare clinic"
                 className="w-full h-full object-cover object-center"
                 loading="lazy"
@@ -171,7 +171,7 @@ export const BenefitsPage: React.FC = () => {
           {/* Subtle background photo tint */}
           <div className="absolute inset-0 z-0 pointer-events-none opacity-10">
             <img
-              src="/images/sections/benefit_hospital.png"
+              src="/images/sections/benefit_hospital.webp"
               alt=""
               aria-hidden="true"
               className="w-full h-full object-cover"
@@ -248,7 +248,7 @@ export const BenefitsPage: React.FC = () => {
           <div className="lg:col-span-5 space-y-4">
             <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 h-48 w-full relative">
               <img
-                src="/images/sections/benefit_coding.png"
+                src="/images/sections/benefit_coding.webp"
                 alt="Certified medical coding and clinical documentation specialist"
                 className="w-full h-full object-cover object-center"
                 loading="lazy"
@@ -282,10 +282,10 @@ export const BenefitsPage: React.FC = () => {
           </p>
 
           <div className="relative isolate mx-auto mt-4 aspect-[3/2] w-full max-w-xl overflow-hidden rounded-2xl border border-nourdoc-primary/20 bg-nourdoc-primary-dark shadow-[0_16px_36px_rgba(15,42,34,0.16)]">
-            <img src="/images/sections/benefit_patient.png" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full scale-110 object-cover object-center opacity-35 blur-xl" />
+            <img src="/images/sections/benefit_patient.webp" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full scale-110 object-cover object-center opacity-35 blur-xl" />
             <div className="absolute inset-0 bg-nourdoc-primary-dark/20" />
             <img
-              src="/images/sections/benefit_patient.png"
+              src="/images/sections/benefit_patient.webp"
               alt="Compassionate doctor-patient consultation with direct eye contact"
               className="relative z-10 h-full w-full object-contain object-center"
               loading="lazy"

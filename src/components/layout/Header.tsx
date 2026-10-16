@@ -59,11 +59,6 @@ export const Header: React.FC = () => {
   }, [isOpen]);
 
   useEffect(() => {
-    setIsOpen(false);
-    setOpenGroup(null);
-  }, [location.pathname]);
-
-  useEffect(() => {
     if (!isOpen) return;
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setIsOpen(false);
@@ -73,6 +68,10 @@ export const Header: React.FC = () => {
   }, [isOpen]);
 
   const closeMenus = () => setOpenGroup(null);
+  const closeNavigation = () => {
+    setIsOpen(false);
+    setOpenGroup(null);
+  };
   const handleNavKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
     if (event.key === 'Escape') {
       closeMenus();
@@ -98,7 +97,7 @@ export const Header: React.FC = () => {
   return (
     <header className={`fixed left-1/2 top-[14px] z-50 w-[calc(100%-32px)] -translate-x-1/2 transition-[height,background-color,box-shadow] duration-[250ms] ease-out ${scrolled ? 'h-[58px]' : 'h-16'}`}>
       <div className={`flex h-full items-center gap-5 rounded-[20px] border border-[rgba(16,24,40,0.06)] px-5 backdrop-blur-[16px] [backdrop-filter:saturate(160%)_blur(16px)] transition-[background-color,box-shadow] duration-[250ms] ease-out ${scrolled ? 'bg-[rgba(255,255,255,0.88)] shadow-[0_1px_2px_rgba(16,24,40,0.05),0_10px_34px_rgba(16,24,40,0.11)]' : 'bg-[rgba(255,255,255,0.72)] shadow-[0_1px_2px_rgba(16,24,40,0.04),0_8px_30px_rgba(16,24,40,0.08)]'}`}>
-        <Link to="/" className="group flex shrink-0 items-center gap-2 rounded-md focus-visible:outline-none" aria-label="NourDoc Home">
+        <Link to="/" onClick={closeNavigation} className="group flex shrink-0 items-center gap-2 rounded-md focus-visible:outline-none" aria-label="NourDoc Home">
           <img src="/logo.png" alt="NourDoc emblem" className="h-11 w-11 object-contain transition-transform duration-200 group-hover:scale-[1.03]" />
           <span className="text-[21px] font-semibold leading-none tracking-[-0.035em] text-slate-900 transition-colors group-hover:text-nourdoc-primary">NourDoc</span>
         </Link>
@@ -116,7 +115,7 @@ export const Header: React.FC = () => {
               </div>
             </div>
           ))}
-          <Link data-nav-item to="/subscription" className={`group relative flex h-10 items-center whitespace-nowrap rounded-md text-[15px] font-medium transition-colors focus-visible:outline-none ${isActive('/subscription') ? 'text-nourdoc-primary' : 'text-slate-700 hover:text-nourdoc-primary'}`}>Pricing{isActive('/subscription') && <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 rounded-full bg-nourdoc-primary" />}</Link>
+          <Link data-nav-item to="/subscription" onClick={closeNavigation} className={`group relative flex h-10 items-center whitespace-nowrap rounded-md text-[15px] font-medium transition-colors focus-visible:outline-none ${isActive('/subscription') ? 'text-nourdoc-primary' : 'text-slate-700 hover:text-nourdoc-primary'}`}>Pricing{isActive('/subscription') && <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 rounded-full bg-nourdoc-primary" />}</Link>
         </nav>
 
         <div className="hidden shrink-0 items-center gap-1 lg:flex">

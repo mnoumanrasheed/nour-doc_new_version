@@ -34,7 +34,7 @@ export const ContactPage: React.FC = () => {
         h1={page.hero.h1}
         description={page.hero.lead}
         showVisual={false}
-        backgroundImage="/images/hero/hero_contact_demo.png"
+        backgroundImage="/images/hero/hero_contact_demo.webp"
         visualVariant="contact"
       />
 
