@@ -26,7 +26,6 @@ export const WhyNourDocPage: React.FC = () => {
         backgroundImage="/images/hero/hero_why_consultation_tablet.webp"
         backgroundAlt="Doctor consulting with a patient while using a tablet"
         visualVariant="why"
-        showBrandMark
       />
 
       {/* 2. Before / After Editorial Split Comparison */}
