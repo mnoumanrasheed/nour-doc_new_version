@@ -148,7 +148,7 @@ export const HomePage: React.FC = () => {
               <div className="relative w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-white group">
                 <div className="h-44 w-full relative overflow-hidden">
                   <img
-                    src="/images/sections/home_app_doctor.jpg"
+                    src="/images/sections/home_app_doctor.png"
                     alt="Clinician using NourDoc mobile ambient assistant"
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"

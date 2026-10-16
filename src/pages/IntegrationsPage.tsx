@@ -46,7 +46,8 @@ export const IntegrationsPage: React.FC = () => {
         description={page.hero.lead}
         primaryCta={page.cta.primaryCta}
         showVisual={false}
-        backgroundImage="/images/hero/hero_integrations.jpg"
+        backgroundImage="/images/hero/hero_integrations_wide.png"
+        visualVariant="integrations"
       />
 
       {/* 2. Core Systems (EHR / EMR / HIMS Definitions) */}

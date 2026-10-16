@@ -17,15 +17,15 @@ export const SplitComparison: React.FC = () => {
             </div>
             
             {/* Photographic Context: Screen & Paperwork Burden */}
-            <div className="relative h-44 w-full rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+            <div className="relative aspect-[3/1] w-full overflow-hidden rounded-2xl shadow-[0_14px_30px_rgba(15,23,42,0.12)]">
               <img
-                src="/images/sections/why_admin_burden.jpg"
+                src="/images/sections/why_admin_burden_wide.png"
                 alt="Physician experiencing administrative fatigue and after-hours documentation workload"
-                className="w-full h-full object-cover object-center filter grayscale-[30%] opacity-90"
+                className="h-full w-full object-cover object-center"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-nourdoc-primary-dark/60 via-transparent to-transparent" />
-              <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-slate-200 font-semibold">
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-slate-950/70 to-transparent" />
+              <div className="absolute bottom-3 left-3 rounded-full bg-slate-950/55 px-2.5 py-1 text-[10px] font-mono font-semibold text-slate-100 backdrop-blur-sm">
                 Traditional Workflow: 2+ Hours Screen Time
               </div>
             </div>
@@ -66,15 +66,15 @@ export const SplitComparison: React.FC = () => {
             </div>
 
             {/* Photographic Context: Patient Focus & Direct Eye Contact */}
-            <div className="relative h-44 w-full rounded-2xl overflow-hidden shadow-sm border border-nourdoc-primary/30">
+            <div className="relative aspect-[3/1] w-full overflow-hidden rounded-2xl shadow-[0_14px_30px_rgba(15,42,34,0.16)]">
               <img
-                src="/images/sections/why_clinical_focus.jpg"
+                src="/images/sections/why_clinical_focus_wide.png"
                 alt="Physician engaged in warm eye contact and focused patient consultation"
-                className="w-full h-full object-cover object-center"
+                className="h-full w-full object-cover object-center"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-nourdoc-primary-dark/60 via-transparent to-transparent" />
-              <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-emerald-300 font-bold">
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-nourdoc-primary-dark/75 to-transparent" />
+              <div className="absolute bottom-3 left-3 rounded-full bg-nourdoc-primary-dark/60 px-2.5 py-1 text-[10px] font-mono font-bold text-emerald-200 backdrop-blur-sm">
                 NourDoc Ambient Care: 100% Patient Connection
               </div>
             </div>

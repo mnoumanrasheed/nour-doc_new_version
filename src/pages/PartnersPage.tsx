@@ -151,7 +151,8 @@ export const PartnersPage: React.FC = () => {
           target: '/contact?intent=bookDemo&topic=Other#contact-form',
         }}
         showVisual={false}
-        backgroundImage="/images/hero/hero_partners.jpg"
+        backgroundImage="/images/hero/hero_partners_wide.png"
+        visualVariant="partners"
       />
 
       {/* 2. Global Map & Geographic Typography */}

@@ -38,7 +38,7 @@ export const ProductPage: React.FC = () => {
         description={page.hero.description}
         primaryCta={page.cta.primaryCta}
         secondaryCta={page.cta.secondaryCta}
-        backgroundImage="/images/hero/hero_product.jpg"
+        backgroundImage="/images/hero/hero_product_wide.png"
         backgroundAlt="Clinician using a laptop during a healthcare workflow"
         visualVariant="product"
       />
@@ -47,7 +47,7 @@ export const ProductPage: React.FC = () => {
         {/* Background Photography Layer with a lighter directional scrim */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img
-            src="/images/hero/hero_product.jpg"
+            src="/images/hero/hero_product.png"
             alt=""
             aria-hidden="true"
             className="w-full h-full object-cover object-center lg:object-right select-none"

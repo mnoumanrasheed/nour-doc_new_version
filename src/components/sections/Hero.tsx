@@ -15,14 +15,14 @@ interface HeroProps {
   backgroundImage?: string;
   heroImage?: string;
   heroImageAlt?: string;
-  visualVariant?: 'clinical' | 'homeClinical' | 'product' | 'coding';
+  visualVariant?: 'clinical' | 'homeClinical' | 'product' | 'coding' | 'integrations' | 'why' | 'benefits' | 'about' | 'partners' | 'contact';
   backgroundAlt?: string;
 }
 
 const demoPath = '/contact?intent=bookDemo&topic=Other#contact-form';
 
 // Keep every page hero's photo treatment aligned with the home hero.
-const heroImageOverlayClass = 'absolute inset-0 bg-[linear-gradient(90deg,#F8FBFA_0%,#F8FBFA_43%,rgba(248,251,250,0.48)_54%,rgba(248,251,250,0.07)_66%,rgba(248,251,250,0.01)_82%,transparent_100%)] max-[899px]:bg-[linear-gradient(180deg,rgba(248,251,250,0.94)_0%,rgba(248,251,250,0.72)_38%,rgba(248,251,250,0.2)_66%,rgba(248,251,250,0.03)_100%)]';
+const heroImageOverlayClass = 'absolute inset-0 bg-[linear-gradient(90deg,rgba(248,251,250,0.97)_0%,rgba(248,251,250,0.90)_28%,rgba(248,251,250,0.58)_40%,rgba(248,251,250,0.14)_48%,transparent_55%),radial-gradient(ellipse_at_18%_78%,rgba(248,251,250,0.68)_0%,rgba(248,251,250,0.34)_24%,transparent_42%)] max-[899px]:bg-[linear-gradient(180deg,rgba(248,251,250,0.94)_0%,rgba(248,251,250,0.78)_42%,rgba(248,251,250,0.46)_70%,rgba(248,251,250,0.12)_88%,transparent_100%)]';
 
 const HeroActions: React.FC = () => (
   <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center [&>div]:w-full sm:[&>div]:w-auto">
@@ -112,18 +112,10 @@ const GlobalFoundationTimeline: React.FC = () => {
 
 */
 
-const HomeHero: React.FC<Pick<HeroProps, 'description' | 'supportingLine' | 'heroImage' | 'heroImageAlt' | 'headlineLines'>> = ({ description, supportingLine, heroImage, heroImageAlt, headlineLines }) => (
+const HomeHero: React.FC<Pick<HeroProps, 'description' | 'supportingLine' | 'heroImage' | 'heroImageAlt' | 'headlineLines'>> = ({ description, supportingLine, heroImage, headlineLines }) => (
   <section aria-labelledby="home-hero-heading" className="hero-100vsh relative flex overflow-hidden bg-[#F8FBFA]">
     <div className="absolute inset-0">
-      <picture>
-        <img
-          src={heroImage ?? '/images/hero/hero_home_custom.png'}
-          alt={heroImageAlt ?? 'Doctor speaking with a patient during a clinical consultation'}
-          className="ml-auto h-full w-[62%] object-cover object-[70%_center] max-[899px]:w-full max-[899px]:object-[68%_center]"
-          loading="eager"
-          fetchPriority="high"
-        />
-      </picture>
+      <img src={heroImage ?? '/images/hero/hero_home_custom.png'} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right" />
       <div className={heroImageOverlayClass} aria-hidden="true" />
       <div className="absolute -right-[12%] top-[8%] h-[78%] w-[58%] rounded-full bg-[radial-gradient(circle,rgba(40,98,82,0.012)_0%,rgba(143,183,172,0.005)_42%,transparent_72%)] blur-2xl" />
       <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/12 to-transparent" />
@@ -137,7 +129,7 @@ const HomeHero: React.FC<Pick<HeroProps, 'description' | 'supportingLine' | 'her
           {headlineLines?.[1]?.replace('Focus on Care.', '') ?? 'Let Doctors '}
           <span className="text-nourdoc-primary">Focus on Care.</span>
         </h1>
-        {description && <p className="mt-5 max-w-[610px] text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.6] text-slate-600">{description}</p>}
+        {description && <p className="mt-5 max-w-[610px] text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.6] text-slate-700">{description}</p>}
         <div className="mt-5 max-w-[500px] rounded-2xl border border-nourdoc-primary/20 bg-white/75 px-5 py-4 shadow-[0_12px_30px_rgba(15,42,34,0.08)] backdrop-blur-sm">
           <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-nourdoc-primary">Global Collaboration</p>
           <p className="mt-2 text-base font-bold tracking-[-0.01em] text-slate-900">
@@ -154,10 +146,10 @@ const HomeHero: React.FC<Pick<HeroProps, 'description' | 'supportingLine' | 'her
   </section>
 );
 
-const PageHero: React.FC<HeroProps & { kind: 'product' | 'coding' }> = ({ kind, badge, h1, subtitle, description, backgroundImage, backgroundAlt }) => (
-  <section className="hero-100vsh relative flex overflow-hidden border-b border-slate-100 bg-[#F8FBFA]">
+const PageHero: React.FC<HeroProps & { kind: 'product' | 'coding' | 'integrations' | 'why' | 'benefits' | 'about' | 'partners' | 'contact' }> = ({ kind, badge, h1, subtitle, description, backgroundImage }) => (
+  <section className={(kind === 'product' || kind === 'coding' || kind === 'integrations' || kind === 'why' || kind === 'benefits' || kind === 'about' || kind === 'partners' || kind === 'contact') ? 'relative flex aspect-[21/10] min-h-0 overflow-hidden border-b border-slate-100 bg-[#F8FBFA]' : 'hero-100vsh relative flex overflow-hidden border-b border-slate-100 bg-[#F8FBFA]'}>
     <div className="pointer-events-none absolute inset-0">
-      {backgroundImage && <img src={backgroundImage} alt={backgroundAlt ?? ''} className="h-full w-full object-cover object-right" loading="eager" fetchPriority="high" />}
+      {backgroundImage && <img src={backgroundImage} alt="" aria-hidden="true" className={`absolute inset-0 h-full w-full ${kind === 'product' ? 'object-cover object-center' : 'object-cover object-right'}`} />}
       <div className={heroImageOverlayClass} />
       <div className="absolute -right-[8%] top-[8%] h-[84%] w-[48%] rounded-full bg-nourdoc-primary/[0.08] blur-3xl" />
       <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/75 to-transparent" />
@@ -167,17 +159,17 @@ const PageHero: React.FC<HeroProps & { kind: 'product' | 'coding' }> = ({ kind, 
         {badge && <p className="text-xs font-semibold uppercase tracking-[0.14em] text-nourdoc-primary">{badge}</p>}
         <h1 className="mt-4 text-[clamp(2.125rem,4.5vw,4rem)] font-semibold leading-[1.04] tracking-[-0.025em] text-[#101827]">{kind === 'product' ? <>Meet <span className="text-nourdoc-primary">NourDoc</span></> : h1}</h1>
         {subtitle && <p className="mt-4 text-[clamp(1rem,1.3vw,1.125rem)] font-medium leading-relaxed text-nourdoc-primary">{subtitle}</p>}
-        {description && <p className="mt-4 max-w-[600px] whitespace-pre-line text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.6] text-slate-600">{description}</p>}
+        {description && <p className="mt-4 max-w-[600px] whitespace-pre-line text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.6] text-slate-700">{description}</p>}
         <HeroActions />
       </div>
     </div>
   </section>
 );
 
-const StandardHero: React.FC<HeroProps> = ({ badge, h1, description, backgroundImage, backgroundAlt }) => (
+const StandardHero: React.FC<HeroProps> = ({ badge, h1, description, backgroundImage }) => (
   <section className="hero-100vsh relative flex overflow-hidden border-b border-slate-100 bg-[#F8FBFA]">
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {backgroundImage && <img src={backgroundImage} alt={backgroundAlt ?? ''} className="h-full w-full object-cover object-right" loading="eager" fetchPriority="high" />}
+      {backgroundImage && <img src={backgroundImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-right" />}
       <div className={heroImageOverlayClass} />
       <div className="absolute -right-[12%] top-[12%] h-[72%] w-[48%] rounded-full bg-nourdoc-primary/[0.07] blur-3xl" />
       <div className="absolute left-0 top-0 h-full w-2/3 bg-[radial-gradient(circle_at_30%_40%,rgba(40,98,82,0.06),transparent_58%)]" />
@@ -186,7 +178,7 @@ const StandardHero: React.FC<HeroProps> = ({ badge, h1, description, backgroundI
       <div className="max-w-[630px]">
         {badge && <p className="text-xs font-semibold uppercase tracking-[0.14em] text-nourdoc-primary">{badge}</p>}
         <h1 className="mt-4 text-[clamp(2.125rem,4.5vw,4rem)] font-semibold leading-[1.04] tracking-[-0.025em] text-[#101827]">{h1}</h1>
-        {description && <p className="mt-5 max-w-[610px] whitespace-pre-line text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.6] text-slate-600">{description}</p>}
+        {description && <p className="mt-5 max-w-[610px] whitespace-pre-line text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.6] text-slate-700">{description}</p>}
         <HeroActions />
       </div>
     </div>
@@ -195,6 +187,6 @@ const StandardHero: React.FC<HeroProps> = ({ badge, h1, description, backgroundI
 
 export const Hero: React.FC<HeroProps> = (props) => {
   if (props.visualVariant === 'homeClinical') return <HomeHero description={props.description} supportingLine={props.supportingLine} heroImage={props.heroImage} heroImageAlt={props.heroImageAlt} headlineLines={props.headlineLines} />;
-  if (props.visualVariant === 'product' || props.visualVariant === 'coding') return <PageHero {...props} kind={props.visualVariant} />;
+  if (props.visualVariant === 'product' || props.visualVariant === 'coding' || props.visualVariant === 'integrations' || props.visualVariant === 'why' || props.visualVariant === 'benefits' || props.visualVariant === 'about' || props.visualVariant === 'partners' || props.visualVariant === 'contact') return <PageHero {...props} kind={props.visualVariant} />;
   return <StandardHero {...props} />;
 };

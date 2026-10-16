@@ -28,7 +28,8 @@ export const AboutPage: React.FC = () => {
         h1={page.hero.h1}
         description={page.hero.lead}
         showVisual={false}
-        backgroundImage="/images/hero/hero_about.jpg"
+        backgroundImage="/images/hero/hero_about_wide.png"
+        visualVariant="about"
       />
 
       {/* 2. Hero Human-Centered Editorial Visual Frame */}
@@ -148,9 +149,9 @@ export const AboutPage: React.FC = () => {
             {/* Canada Panel */}
             <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between overflow-hidden group">
               <div>
-                <div className="h-36 w-full rounded-xl overflow-hidden mb-4 relative">
+                <div className="aspect-[3/2] w-full rounded-xl overflow-hidden mb-4 relative bg-slate-100 shadow-[0_10px_24px_rgba(15,42,34,0.10)]">
                   <img
-                    src="/images/sections/about_canada.jpg"
+                    src="/images/sections/about_canada.png"
                     alt="Canadian healthcare ownership and governance"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
@@ -180,7 +181,7 @@ export const AboutPage: React.FC = () => {
             {/* Pakistan Panel */}
             <div className="bg-white rounded-2xl p-6 border-2 border-nourdoc-primary/30 shadow-md flex flex-col justify-between overflow-hidden group">
               <div>
-                <div className="h-36 w-full rounded-xl overflow-hidden mb-4 relative">
+                <div className="aspect-[3/2] w-full rounded-xl overflow-hidden mb-4 relative bg-slate-100 shadow-[0_10px_24px_rgba(15,42,34,0.10)]">
                   <img
                     src="/images/sections/about_pakistan.jpg"
                     alt="Pakistani AI and software engineering team at M3 Hive"
@@ -212,9 +213,9 @@ export const AboutPage: React.FC = () => {
             {/* Finland Panel */}
             <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between overflow-hidden group">
               <div>
-                <div className="h-36 w-full rounded-xl overflow-hidden mb-4 relative">
+                <div className="aspect-[3/2] w-full rounded-xl overflow-hidden mb-4 relative bg-slate-100 shadow-[0_10px_24px_rgba(15,42,34,0.10)]">
                   <img
-                    src="/images/sections/about_finland.jpg"
+                    src="/images/sections/about_finland.png"
                     alt="Finnish clinical research and healthcare evaluation laboratory"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"

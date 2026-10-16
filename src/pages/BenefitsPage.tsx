@@ -42,7 +42,8 @@ export const BenefitsPage: React.FC = () => {
         primaryCta={page.resultCta.primaryCta}
         secondaryCta={page.resultCta.secondaryCta}
         showVisual={false}
-        backgroundImage="/images/hero/hero_benefits.jpg"
+        backgroundImage="/images/hero/hero_benefits_wide.png"
+        visualVariant="benefits"
       />
 
       {/* Stakeholder Quick-Scan Navigation Bar */}
@@ -99,7 +100,7 @@ export const BenefitsPage: React.FC = () => {
           <div className="lg:col-span-5 space-y-4">
             <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 h-48 w-full relative">
               <img
-                src="/images/sections/benefit_clinician.jpg"
+                src="/images/sections/benefit_clinician.png"
                 alt="Clinician conducting patient-centered examination"
                 className="w-full h-full object-cover object-top"
                 loading="lazy"
@@ -120,7 +121,7 @@ export const BenefitsPage: React.FC = () => {
           <div className="lg:col-span-5 order-2 lg:order-1 space-y-4">
             <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 h-48 w-full relative">
               <img
-                src="/images/sections/benefit_practice.jpg"
+                src="/images/sections/benefit_practice.png"
                 alt="Medical practice team collaborating in modern healthcare clinic"
                 className="w-full h-full object-cover object-center"
                 loading="lazy"
@@ -170,7 +171,7 @@ export const BenefitsPage: React.FC = () => {
           {/* Subtle background photo tint */}
           <div className="absolute inset-0 z-0 pointer-events-none opacity-10">
             <img
-              src="/images/sections/benefit_hospital.jpg"
+              src="/images/sections/benefit_hospital.png"
               alt=""
               aria-hidden="true"
               className="w-full h-full object-cover"
@@ -247,7 +248,7 @@ export const BenefitsPage: React.FC = () => {
           <div className="lg:col-span-5 space-y-4">
             <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 h-48 w-full relative">
               <img
-                src="/images/sections/benefit_coding.jpg"
+                src="/images/sections/benefit_coding.png"
                 alt="Certified medical coding and clinical documentation specialist"
                 className="w-full h-full object-cover object-center"
                 loading="lazy"
@@ -280,15 +281,17 @@ export const BenefitsPage: React.FC = () => {
             {s.patients.desc}
           </p>
 
-          <div className="max-w-xl mx-auto h-48 rounded-2xl overflow-hidden shadow-sm border border-slate-200 relative mt-4">
+          <div className="relative isolate mx-auto mt-4 aspect-[3/2] w-full max-w-xl overflow-hidden rounded-2xl border border-nourdoc-primary/20 bg-nourdoc-primary-dark shadow-[0_16px_36px_rgba(15,42,34,0.16)]">
+            <img src="/images/sections/benefit_patient.png" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full scale-110 object-cover object-center opacity-35 blur-xl" />
+            <div className="absolute inset-0 bg-nourdoc-primary-dark/20" />
             <img
-              src="/images/sections/benefit_patient.jpg"
+              src="/images/sections/benefit_patient.png"
               alt="Compassionate doctor-patient consultation with direct eye contact"
-              className="w-full h-full object-cover object-center"
+              className="relative z-10 h-full w-full object-contain object-center"
               loading="lazy"
             />
-              <div className="absolute inset-0 bg-gradient-to-t from-nourdoc-primary-dark/60 via-transparent to-transparent" />
-            <div className="absolute bottom-2.5 left-4 text-xs font-mono text-emerald-300 font-bold">
+            <div className="absolute inset-x-0 bottom-0 z-20 h-24 bg-gradient-to-t from-nourdoc-primary-dark/80 via-nourdoc-primary-dark/20 to-transparent" />
+            <div className="absolute bottom-3 left-4 z-30 rounded-full border border-emerald-200/25 bg-nourdoc-primary-dark/55 px-3 py-1 text-[10px] font-mono font-bold text-emerald-200 backdrop-blur-sm">
               Uninterrupted Human Healthcare
             </div>
           </div>

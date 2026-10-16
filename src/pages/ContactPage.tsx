@@ -34,7 +34,8 @@ export const ContactPage: React.FC = () => {
         h1={page.hero.h1}
         description={page.hero.lead}
         showVisual={false}
-        backgroundImage="/images/hero/hero_contact.jpg"
+        backgroundImage="/images/hero/hero_contact_demo.png"
+        visualVariant="contact"
       />
 
       {/* 2. Interactive Contact Form, 4 Official Email Channels, and Audience Breakdown */}
