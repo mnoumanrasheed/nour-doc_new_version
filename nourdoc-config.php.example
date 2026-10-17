@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types=1);
+
+// Copy this file to a path OUTSIDE public_html, for example:
+// /home/CPANEL_USERNAME/nourdoc-config.php
+// Never upload the real file to the web root or commit it to Git.
+return [
+    // Resend: sender domain must be verified in the Resend dashboard.
+    'resend_api_key' => 'replace_with_real_resend_api_key',
+    'from_email' => 'website@nour-doc.com',
+    'from_name' => 'NourDoc Website',
+    'to_email' => 'hello@nour-doc.com',
+
+    // Google reCAPTCHA v2 Checkbox secret key. It must belong to the same site
+    // key supplied to the Vite build as VITE_RECAPTCHA_SITE_KEY.
+    'recaptcha_secret_key' => 'replace_with_recaptcha_v2_secret_key',
+
+    // Only domains registered on the reCAPTCHA key and allowed to submit here.
+    'allowed_hostnames' => ['nour-doc.com', 'www.nour-doc.com'],
+
+    // Optional request throttling.
+    'rate_limit_window_seconds' => 60,
+    'rate_limit_max_requests' => 5,
+];

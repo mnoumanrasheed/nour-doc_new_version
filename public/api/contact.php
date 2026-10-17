@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');
 
-// Keep credentials outside public_html. With /home/nourdoc/public_html/deployment/contact.php,
+// Keep credentials outside public_html. With /home/nourdoc/public_html/api/contact.php,
 // the default is /home/nourdoc/nourdoc-config.php.
 $configPath = getenv('NOURDOC_CONFIG_PATH') ?: dirname(__DIR__, 2) . '/nourdoc-config.php';
 if (!is_file($configPath)) {
@@ -29,8 +29,7 @@ if (!is_array($config)) {
 
 $requiredConfigKeys = [
     'resend_api_key', 'from_email', 'from_name', 'to_email',
-    'recaptcha_project_id', 'recaptcha_api_key', 'recaptcha_site_key',
-    'recaptcha_expected_action', 'recaptcha_min_score', 'allowed_hostnames',
+    'recaptcha_secret_key', 'allowed_hostnames',
 ];
 foreach ($requiredConfigKeys as $requiredConfigKey) {
     if (!array_key_exists($requiredConfigKey, $config) || $config[$requiredConfigKey] === '' || $config[$requiredConfigKey] === null) {
@@ -41,9 +40,12 @@ foreach ($requiredConfigKeys as $requiredConfigKey) {
 }
 
 $allowedHostnames = is_array($config['allowed_hostnames'])
-    ? array_values(array_filter(array_map('strtolower', $config['allowed_hostnames'])))
+    ? array_values(array_filter(array_map(
+        static fn($hostname): string => strtolower(rtrim(trim((string)$hostname), '.')),
+        $config['allowed_hostnames']
+    )))
     : [];
-if ($allowedHostnames !== ['nour-doc.com', 'www.nour-doc.com'] && $allowedHostnames !== ['www.nour-doc.com', 'nour-doc.com']) {
+if ($allowedHostnames === []) {
     http_response_code(500);
     echo json_encode(['message' => 'Form delivery is not configured on this server.']);
     exit;
@@ -141,73 +143,66 @@ if (!filter_var($fields['email'], FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-if (strlen($fields['message']) > 2000 || strlen($fields['name']) > 100 || strlen($fields['organization']) > 120) {
+if (strlen($fields['message']) > 2000 || strlen($fields['name']) > 100 || strlen($fields['organization']) > 120
+    || strlen($fields['role']) > 100 || strlen($fields['country']) > 80 || strlen($fields['email']) > 120
+    || strlen($fields['phone']) > 30) {
     http_response_code(422);
     echo json_encode(['message' => 'One or more fields exceed the allowed length.']);
     exit;
 }
 
 $recaptchaToken = trim((string)($payload['recaptchaToken'] ?? ''));
-$projectId = (string)($config['recaptcha_project_id'] ?? '');
-$recaptchaApiKey = (string)($config['recaptcha_api_key'] ?? '');
-$recaptchaSiteKey = (string)($config['recaptcha_site_key'] ?? '');
-$expectedAction = (string)($config['recaptcha_expected_action'] ?? 'contact_submit');
-$minimumScore = (float)($config['recaptcha_min_score'] ?? 0.5);
+$recaptchaSecretKey = (string)($config['recaptcha_secret_key'] ?? '');
 
-if ($recaptchaToken === '' || $projectId === '' || $recaptchaApiKey === '' || $recaptchaSiteKey === ''
-    || str_contains($projectId, 'your-google') || str_contains($recaptchaApiKey, 'XXXX') || str_contains($recaptchaSiteKey, 'XXXX')) {
+if ($recaptchaToken === '' || $recaptchaSecretKey === '' || str_contains($recaptchaSecretKey, 'XXXX')) {
     http_response_code(500);
     echo json_encode(['message' => 'Form protection is not configured on this server.']);
     exit;
 }
 
-// Google Cloud reCAPTCHA Enterprise CreateAssessment REST API.
-$assessmentUrl = 'https://recaptchaenterprise.googleapis.com/v1/projects/'
-    . rawurlencode($projectId) . '/assessments?key=' . rawurlencode($recaptchaApiKey);
-$assessmentRequest = json_encode([
-    'event' => [
-        'token' => $recaptchaToken,
-        'siteKey' => $recaptchaSiteKey,
-        'userIpAddress' => $_SERVER['REMOTE_ADDR'] ?? '',
-        'userAgent' => $_SERVER['HTTP_USER_AGENT'] ?? '',
-    ],
-]);
-$assessmentCurl = curl_init($assessmentUrl);
-curl_setopt_array($assessmentCurl, [
+// The browser uses the visible reCAPTCHA v2 checkbox (react-google-recaptcha),
+// so verify its token using Google's v2 siteverify endpoint. Do not add a v3
+// action check here: v2 checkbox tokens do not contain an action.
+if (!function_exists('curl_init')) {
+    http_response_code(500);
+    echo json_encode(['message' => 'Form delivery is unavailable on this server.']);
+    exit;
+}
+
+$verificationPayload = [
+    'secret' => $recaptchaSecretKey,
+    'response' => $recaptchaToken,
+    'remoteip' => $_SERVER['REMOTE_ADDR'] ?? '',
+];
+$verificationCurl = curl_init('https://www.google.com/recaptcha/api/siteverify');
+curl_setopt_array($verificationCurl, [
     CURLOPT_POST => true,
-    CURLOPT_POSTFIELDS => $assessmentRequest,
+    CURLOPT_POSTFIELDS => http_build_query($verificationPayload, '', '&'),
     CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
+    CURLOPT_HTTPHEADER => ['Content-Type: application/x-www-form-urlencoded'],
     CURLOPT_TIMEOUT => 15,
 ]);
-$assessmentResponse = curl_exec($assessmentCurl);
-$assessmentStatus = (int)curl_getinfo($assessmentCurl, CURLINFO_HTTP_CODE);
-$assessmentError = curl_error($assessmentCurl);
-curl_close($assessmentCurl);
+$verificationResponse = curl_exec($verificationCurl);
+$verificationStatus = (int)curl_getinfo($verificationCurl, CURLINFO_HTTP_CODE);
+$verificationError = curl_error($verificationCurl);
+curl_close($verificationCurl);
 
-if ($assessmentResponse === false || $assessmentError !== '' || $assessmentStatus < 200 || $assessmentStatus >= 300) {
+if ($verificationResponse === false || $verificationError !== '' || $verificationStatus < 200 || $verificationStatus >= 300) {
     http_response_code(502);
     echo json_encode(['message' => 'Security verification provider is unavailable. Please try again later.']);
     exit;
 }
 
-$assessment = json_decode($assessmentResponse, true);
-if (!is_array($assessment)) {
+$verification = json_decode($verificationResponse, true);
+if (!is_array($verification)) {
     http_response_code(502);
     echo json_encode(['message' => 'Security verification provider returned an invalid response.']);
     exit;
 }
 
-$tokenProperties = $assessment['tokenProperties'] ?? [];
-$riskAnalysis = $assessment['riskAnalysis'] ?? [];
-$assessmentHostname = strtolower((string)($tokenProperties['hostname'] ?? ''));
-$assessmentAction = (string)($tokenProperties['action'] ?? '');
-$assessmentScore = (float)($riskAnalysis['score'] ?? 0);
+$verificationHostname = strtolower(rtrim((string)($verification['hostname'] ?? ''), '.'));
 
-if (($tokenProperties['valid'] ?? false) !== true
-    || !in_array($assessmentHostname, $allowedHostnames, true)
-    || $assessmentAction !== $expectedAction
-    || $assessmentScore < $minimumScore) {
+if (($verification['success'] ?? false) !== true || !in_array($verificationHostname, $allowedHostnames, true)) {
     http_response_code(403);
     echo json_encode(['message' => 'Security verification failed. Please try again.']);
     exit;

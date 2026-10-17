@@ -185,5 +185,19 @@ npm run preview
 ## 8. Open Inputs & Asset Verification
 
 1. **iOS / App Store URL**: Currently pending owner provision. All app links route to the approved Google Play Store URL.
-2. **Live Backend Form API Endpoint**: The contact form currently displays the unconfigured delivery notice until a backend is intentionally connected.
+2. **Live Backend Form API Endpoint**: See the cPanel deployment instructions below before enabling form delivery.
+
+## Contact Form cPanel Deployment
+
+The form uses **Google reCAPTCHA v2 Checkbox**, not reCAPTCHA v3 or Enterprise. Create a v2 Checkbox key for `nour-doc.com` and `www.nour-doc.com`; its site key is public and is built into the frontend, while its secret key remains on the server.
+
+1. On the build machine, create `.env.production` with `VITE_RECAPTCHA_SITE_KEY=<your v2 Checkbox site key>`, then run `npm run build`.
+2. Upload the contents of `dist/` to cPanel's `public_html/`. Confirm `public_html/api/contact.php` exists. Do not upload source `.env` files.
+3. Before uploading, copy the repository's `nourdoc-config.php.example` to `/home/CPANEL_USERNAME/nourdoc-config.php` (one directory above `public_html`) in cPanel File Manager and replace every placeholder. This file is deliberately not included in `dist/`. Set file permissions to `600` when supported.
+4. Ensure the hosting PHP version is 8.0+ and enable the PHP cURL extension. The PHP file automatically loads `/home/CPANEL_USERNAME/nourdoc-config.php`; alternatively set the `NOURDOC_CONFIG_PATH` environment variable to an absolute path outside `public_html` if your host supports it.
+5. In Resend, verify the domain used by `from_email`, create an API key with permission to send email, and use a recipient address you control for `to_email`.
+
+Required server-side configuration keys: `resend_api_key`, `from_email`, `from_name`, `to_email`, `recaptcha_secret_key`, and `allowed_hostnames`. Optional keys: `rate_limit_window_seconds` and `rate_limit_max_requests`. The template contains no real credentials and must remain outside the web root.
+
+To verify delivery, submit a real browser request on `https://nour-doc.com/contact`, complete the checkbox, and confirm the success message plus receipt at `to_email`. Then check Resend's Emails/Logs page for a delivered event and confirm the message's Reply-To is the submitter's address. A `403` indicates reCAPTCHA/domain validation failure; a `502` generally means Google/Resend is unreachable or rejected the request; a `500` means the server configuration or cURL extension needs attention.
 3. **Editorial Review**: Flagged the verb *"entertain"* in the 1M+ daily encounter claim for owner confirmation.

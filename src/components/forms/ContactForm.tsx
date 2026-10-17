@@ -34,6 +34,8 @@ const audienceList = [
   'A distribution partner',
 ];
 
+const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY?.trim() ?? '';
+
 export const ContactForm: React.FC = () => {
   const [searchParams] = useSearchParams();
   const emails = contentData.brand.emails;
@@ -83,6 +85,12 @@ export const ContactForm: React.FC = () => {
   }, [urlTopic, isBookDemoIntent, setValue]);
 
   const onSubmit = async (formData: ContactFormData) => {
+    if (!recaptchaSiteKey) {
+      setSubmissionState('error');
+      setSubmittedNotice('Form protection is not configured. Please contact our team by email.');
+      return;
+    }
+
     if (!recaptchaToken) {
       setSubmissionState('error');
       setSubmittedNotice('Please verify that you are not a robot.');
@@ -104,7 +112,6 @@ export const ContactForm: React.FC = () => {
           role: formData.role,
           country: formData.country,
           phone: formData.phone,
-          interest: formData.topic,
           topic: formData.topic,
           intent: isBookDemoIntent ? 'bookDemo' : undefined,
           message: formData.message,
@@ -483,20 +490,26 @@ export const ContactForm: React.FC = () => {
           </div>
 
           <div className="pt-2">
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || ''}
-              onChange={(token: string | null) => setRecaptchaToken(token)}
-              onExpired={() => setRecaptchaToken(null)}
-              onErrored={() => setRecaptchaToken(null)}
-            />
+            {recaptchaSiteKey ? (
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={recaptchaSiteKey}
+                onChange={(token: string | null) => setRecaptchaToken(token)}
+                onExpired={() => setRecaptchaToken(null)}
+                onErrored={() => setRecaptchaToken(null)}
+              />
+            ) : (
+              <p className="mb-3 text-xs font-medium text-amber-800" role="alert">
+                Form protection is unavailable. Please use an official email channel.
+              </p>
+            )}
             <Button
               type="submit"
               variant="primary"
               size="lg"
               className="w-full justify-center"
               icon={true}
-              disabled={isSubmitting}
+              disabled={isSubmitting || !recaptchaSiteKey}
             >
               {isSubmitting ? 'PROCESSING...' : 'SEND MESSAGE'}
             </Button>
