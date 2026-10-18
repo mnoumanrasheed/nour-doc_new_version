@@ -8,6 +8,7 @@ header('Content-Type: application/json; charset=utf-8');
 // the default is /home/nourdoc/nourdoc-config.php.
 $configPath = getenv('NOURDOC_CONFIG_PATH') ?: dirname(__DIR__, 2) . '/nourdoc-config.php';
 if (!is_file($configPath)) {
+    header('X-NourDoc-Diagnostic: config-file-missing');
     http_response_code(500);
     echo json_encode(['message' => 'Form delivery is not configured on this server.']);
     exit;
@@ -15,17 +16,35 @@ if (!is_file($configPath)) {
 
 try {
     $config = require $configPath;
-} catch (Throwable) {
+} catch (Throwable $error) {
+    header('X-NourDoc-Diagnostic: config-load-failed');
     http_response_code(500);
     echo json_encode(['message' => 'Form delivery is not configured on this server.']);
     exit;
 }
 
 if (!is_array($config)) {
+    header('X-NourDoc-Diagnostic: config-not-array');
     http_response_code(500);
     echo json_encode(['message' => 'Form delivery is not configured on this server.']);
     exit;
 }
+
+// Support the original cPanel configuration key while using the current name.
+if (empty($config['recaptcha_secret_key']) && !empty($config['recaptcha_secret'])) {
+    $config['recaptcha_secret_key'] = $config['recaptcha_secret'];
+}
+
+// These defaults keep the endpoint compatible with an older config that only
+// stored the two provider secrets. They may be explicitly overridden in the
+// server-side config, except for the support recipient.
+$config['from_email'] = $config['from_email'] ?? 'website@nour-doc.com';
+$config['from_name'] = $config['from_name'] ?? 'NourDoc Website';
+$config['to_email'] = 'support@nour-doc.com';
+$config['allowed_hostnames'] = $config['allowed_hostnames'] ?? [
+    'nour-doc.com',
+    'www.nour-doc.com',
+];
 
 $requiredConfigKeys = [
     'resend_api_key', 'from_email', 'from_name', 'to_email',
@@ -33,6 +52,7 @@ $requiredConfigKeys = [
 ];
 foreach ($requiredConfigKeys as $requiredConfigKey) {
     if (!array_key_exists($requiredConfigKey, $config) || $config[$requiredConfigKey] === '' || $config[$requiredConfigKey] === null) {
+        header('X-NourDoc-Diagnostic: config-key-missing-' . $requiredConfigKey);
         http_response_code(500);
         echo json_encode(['message' => 'Form delivery is not configured on this server.']);
         exit;
@@ -41,11 +61,14 @@ foreach ($requiredConfigKeys as $requiredConfigKey) {
 
 $allowedHostnames = is_array($config['allowed_hostnames'])
     ? array_values(array_filter(array_map(
-        static fn($hostname): string => strtolower(rtrim(trim((string)$hostname), '.')),
+        static function ($hostname): string {
+            return strtolower(rtrim(trim((string) $hostname), '.'));
+        },
         $config['allowed_hostnames']
     )))
     : [];
 if ($allowedHostnames === []) {
+    header('X-NourDoc-Diagnostic: config-hostnames-invalid');
     http_response_code(500);
     echo json_encode(['message' => 'Form delivery is not configured on this server.']);
     exit;
@@ -86,7 +109,11 @@ if ($rateHandle !== false) {
     flock($rateHandle, LOCK_EX);
     $rateContents = stream_get_contents($rateHandle);
     $timestamps = json_decode($rateContents ?: '[]', true);
-    $timestamps = is_array($timestamps) ? array_values(array_filter($timestamps, static fn($time): bool => is_int($time) && $time > time() - $rateLimitWindow)) : [];
+    $timestamps = is_array($timestamps)
+        ? array_values(array_filter($timestamps, static function ($time) use ($rateLimitWindow): bool {
+            return is_int($time) && $time > time() - $rateLimitWindow;
+        }))
+        : [];
     if (count($timestamps) >= $rateLimitMax) {
         flock($rateHandle, LOCK_UN);
         fclose($rateHandle);
@@ -154,7 +181,8 @@ if (strlen($fields['message']) > 2000 || strlen($fields['name']) > 100 || strlen
 $recaptchaToken = trim((string)($payload['recaptchaToken'] ?? ''));
 $recaptchaSecretKey = (string)($config['recaptcha_secret_key'] ?? '');
 
-if ($recaptchaToken === '' || $recaptchaSecretKey === '' || str_contains($recaptchaSecretKey, 'XXXX')) {
+if ($recaptchaToken === '' || $recaptchaSecretKey === '' || strpos($recaptchaSecretKey, 'XXXX') !== false) {
+    header('X-NourDoc-Diagnostic: recaptcha-config-invalid');
     http_response_code(500);
     echo json_encode(['message' => 'Form protection is not configured on this server.']);
     exit;
@@ -164,6 +192,7 @@ if ($recaptchaToken === '' || $recaptchaSecretKey === '' || str_contains($recapt
 // so verify its token using Google's v2 siteverify endpoint. Do not add a v3
 // action check here: v2 checkbox tokens do not contain an action.
 if (!function_exists('curl_init')) {
+    header('X-NourDoc-Diagnostic: php-curl-missing');
     http_response_code(500);
     echo json_encode(['message' => 'Form delivery is unavailable on this server.']);
     exit;
@@ -209,13 +238,16 @@ if (($verification['success'] ?? false) !== true || !in_array($verificationHostn
 }
 
 $apiKey = (string)($config['resend_api_key'] ?? '');
-if ($apiKey === '' || str_contains($apiKey, 'xxxxxxxx')) {
+if ($apiKey === '' || strpos($apiKey, 'xxxxxxxx') !== false) {
+    header('X-NourDoc-Diagnostic: resend-config-invalid');
     http_response_code(500);
     echo json_encode(['message' => 'Form delivery is not configured on this server.']);
     exit;
 }
 
-$safe = static fn(string $value): string => htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+$safe = static function (string $value): string {
+    return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+};
 $isDemoSubmission = ($payload['intent'] ?? '') === 'bookDemo' || ($payload['formType'] ?? '') === 'bookDemo';
 $subject = $isDemoSubmission ? 'Live Platform Demo Inquiry' : 'NourDoc website inquiry: ' . $fields['topic'];
 $phoneHtml = $fields['phone'] !== ''

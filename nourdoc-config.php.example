@@ -10,7 +10,8 @@ return [
     'resend_api_key' => 'replace_with_real_resend_api_key',
     'from_email' => 'website@nour-doc.com',
     'from_name' => 'NourDoc Website',
-    'to_email' => 'hello@nour-doc.com',
+    // Website contact-form submissions are delivered to the Support inbox.
+    'to_email' => 'support@nour-doc.com',
 
     // Google reCAPTCHA v2 Checkbox secret key. It must belong to the same site
     // key supplied to the Vite build as VITE_RECAPTCHA_SITE_KEY.
