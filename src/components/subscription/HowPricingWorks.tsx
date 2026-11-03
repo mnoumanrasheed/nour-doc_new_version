@@ -9,7 +9,7 @@ export const HowPricingWorks: React.FC = () => {
       title: 'Choose a plan',
       subtitle: 'Capacity aligned with your clinical workload',
       description:
-        'Select the subscription tier matching your monthly patient encounters—from solo clinicians (Starter) to active group practices (Growth / Professional) and hospital networks (Enterprise).',
+        'Select the subscription tier matching your monthly patient encounters, from solo clinicians (Starter) to active group practices (Growth / Professional) and hospital networks (Enterprise).',
       icon: Layers,
     },
     {
@@ -119,7 +119,7 @@ export const HowPricingWorks: React.FC = () => {
                 <div>
                   <strong className="text-slate-900 font-semibold block">Proactive Capacity Threshold Notifications:</strong>
                   <span className="text-slate-600">
-                    Configurable alerts warn you at 70%, 90%, and 100% of included minutes. Overages require explicit approval or documented plan settings—no silent billing.
+                    Configurable alerts warn you at 70%, 90%, and 100% of included minutes. Overages require explicit approval or documented plan settings, with no silent billing.
                   </span>
                 </div>
               </div>
