@@ -3,15 +3,22 @@ import React from 'react';
 import { Check, Minus } from 'lucide-react';
 import { FEATURE_COMPARISON_MATRIX } from '../../data/pricingConfig';
 
-const PLANS = [
+type PlanKey = 'free' | 'starter' | 'growth' | 'professional' | 'enterprise';
+
+type PlanHeader = {
+  key: PlanKey;
+  label: string;
+  sub: string;
+  highlight?: boolean;
+};
+
+const PLANS: readonly PlanHeader[] = [
   { key: 'free', label: 'Free Trial', sub: '30 min' },
   { key: 'starter', label: 'Starter', sub: '300 min' },
   { key: 'growth', label: 'Growth', sub: '1,500 min', highlight: true },
   { key: 'professional', label: 'Professional', sub: '5,000 min' },
   { key: 'enterprise', label: 'Enterprise', sub: 'Custom' },
-] as const;
-
-type PlanKey = typeof PLANS[number]['key'];
+];
 
 const Cell: React.FC<{ value: string; highlight?: boolean }> = ({ value, highlight }) => {
   const base = `py-5 px-4 text-center align-middle ${highlight ? 'bg-nourdoc-primary/[0.04]' : ''}`;
