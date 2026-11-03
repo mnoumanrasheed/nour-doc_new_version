@@ -1,206 +1,412 @@
 // src/pages/SubscriptionPage.tsx
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Hero } from '../components/sections/Hero';
-import { PricingTierGrid } from '../components/sections/PricingTierGrid';
-import { RevealOnScroll } from '../components/common/RevealOnScroll';
-import { Button } from '../components/common/Button';
-import { GlobalCTA } from '../components/sections/GlobalCTA';
+/**
+ * NourDoc Subscription & Pricing Page
+ * Implementation Specification Version 1.0 (03 November 2026)
+ *
+ * Implements the 12 page sections:
+ * 01. Hero and primary CTA
+ * 02. Market and billing selector
+ * 03. Subscription plan cards
+ * 04. Usage calculator
+ * 05. How pricing works
+ * 06. Feature comparison
+ * 07. Trial explanation
+ * 08. Enterprise section
+ * 09. Payment methods
+ * 10. Trust and clinical responsibility
+ * 11. FAQs
+ * 12. Final conversion CTA and disclosures
+ */
+
+import React, { useState, useEffect } from 'react';
 import { 
-  Check, 
   ArrowRight, 
-  User, 
-  Users, 
+  Sparkles, 
+  CheckCircle2, 
   Building2, 
-  Cpu
+  Stethoscope
 } from 'lucide-react';
-import contentData from '../data.json';
+import { MarketBillingSelector } from '../components/subscription/MarketBillingSelector';
+import { SubscriptionPlanCards } from '../components/subscription/SubscriptionPlanCards';
+import { UsageCalculator } from '../components/subscription/UsageCalculator';
+import { HowPricingWorks } from '../components/subscription/HowPricingWorks';
+import { FeatureComparisonMatrix } from '../components/subscription/FeatureComparisonMatrix';
+import { TrialExplanation } from '../components/subscription/TrialExplanation';
+import { EnterpriseSection } from '../components/subscription/EnterpriseSection';
+import { PaymentMethods } from '../components/subscription/PaymentMethods';
+import { TrustResponsibility } from '../components/subscription/TrustResponsibility';
+import { PricingFAQ } from '../components/subscription/PricingFAQ';
+import { TrialModal } from '../components/subscription/TrialModal';
+import { 
+  PAKISTAN_PLANS, 
+  INTERNATIONAL_PLANS, 
+  type MarketCode, 
+  type BillingCycle, 
+  type PlanConfig 
+} from '../data/pricingConfig';
 
 export const SubscriptionPage: React.FC = () => {
-  const page = contentData.pages.subscription;
-  const custom = page.customEnterprise;
+  const [market, setMarket] = useState<MarketCode>('PK');
+  const [billingCycle, setBillingCycle] = useState<BillingCycle>('monthly');
+  const [selectedPlanForModal, setSelectedPlanForModal] = useState<PlanConfig | null>(null);
+  const [modalMode, setModalMode] = useState<'free_trial' | 'extended_trial' | 'plan_checkout'>('free_trial');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const growthStages = [
-    {
-      stage: '01',
-      title: 'Individual Clinician',
-      subtitle: 'Point-of-Care Assistant',
-      desc: 'Mobile ambient capture & instant SOAP drafting.',
-      icon: User,
-    },
-    {
-      stage: '02',
-      title: 'Practice & Team',
-      subtitle: 'Collaborative Practice',
-      desc: 'Team workflows, shared templates & ICD-10/CPT support.',
-      icon: Users,
-    },
-    {
-      stage: '03',
-      title: 'Hospital & Network',
-      subtitle: 'Departmental Integration',
-      desc: 'EHR/EMR/HIMS integration & centralized management.',
-      icon: Building2,
-    },
-    {
-      stage: '04',
-      title: 'Enterprise Operations',
-      subtitle: 'High-Volume Batch Engine',
-      desc: '1M+ encounters/day capability & multi-format RCM pipelines.',
-      icon: Cpu,
-    },
-  ];
+  const activePlans = market === 'PK' ? PAKISTAN_PLANS : INTERNATIONAL_PLANS;
+
+  // Handlers for modal interactions
+  const handleOpenFreeTrial = () => {
+    const freePlan = activePlans.find((p) => p.plan_id === 'free') || activePlans[0];
+    setSelectedPlanForModal(freePlan);
+    setModalMode('free_trial');
+    setIsModalOpen(true);
+  };
+
+  const handleOpenExtendedTrial = () => {
+    setSelectedPlanForModal(null);
+    setModalMode('extended_trial');
+    setIsModalOpen(true);
+  };
+
+  const handleSelectPlan = (plan: PlanConfig) => {
+    if (plan.plan_id === 'free') {
+      handleOpenFreeTrial();
+    } else {
+      setSelectedPlanForModal(plan);
+      setModalMode('plan_checkout');
+      setIsModalOpen(true);
+    }
+  };
+
+  const handleScrollToEnterprise = () => {
+    const el = document.getElementById('enterprise-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleScrollToPlans = () => {
+    const el = document.getElementById('plans-catalogue');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Set document canonical and meta dynamically if needed
+  useEffect(() => {
+    document.title = 'Clinical Documentation. Simplified. | NourDoc Subscription & Pricing';
+  }, []);
 
   return (
-    <div className="space-y-16 md:space-y-24">
-      {/* 1. Hero with Clinical Practice Photography Background */}
-      <Hero
-        badge="PLANS & PRICING"
-        h1={page.hero.h1}
-        description={page.hero.lead}
-        primaryCta={page.cta.primaryCta}
-        secondaryCta={page.cta.secondaryCta}
-        showVisual={false}
-        backgroundImage="/images/hero/hero_subscription_plans.webp"
-        visualVariant="subscription"
-      />
+    <div className="bg-white min-h-screen">
+      {/* =========================================================================
+          01. Hero and primary CTA
+          Headline: “Clinical Documentation. Simplified.”
+          Supporting line: “More time for patients. Less time on paperwork.”
+          Explain AI transcription, structured SOAP notes and clinical coding assistance.
+          Primary CTA: Start your free trial.
+          Secondary CTA: Explore plans / Book an enterprise demo.
+          Hero Image: South Asian physician reviewing note on laptop/tablet in consultation room.
+      ========================================================================= */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#F3F7F6] via-white to-white pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 border-b border-slate-100">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left Column: Headlines & Conversions */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <div className="inline-flex items-center gap-2 rounded-full border border-nourdoc-primary/20 bg-nourdoc-primary-light/70 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-nourdoc-primary shadow-2xs">
+                <Sparkles className="h-3.5 w-3.5 text-nourdoc-primary" />
+                <span>NourDoc Pricing & Subscription Architecture</span>
+              </div>
 
-      {/* 2. Four Tier Cards (Free / Starter / Professional / Enterprise) */}
-      <section className="bg-[#F7FAF9] py-16 sm:py-20">
-        <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
-          <RevealOnScroll className="mx-auto mb-10 max-w-2xl text-center" y={16}>
-            <p className="text-xs font-bold uppercase tracking-[0.12em] text-nourdoc-primary">
-              Tiered Healthcare Editions
-            </p>
-            <h2 className="mt-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-              Plans designed to scale with you
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
-              From individual clinicians to enterprise healthcare organizations.
-            </p>
-          </RevealOnScroll>
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 leading-[1.15]">
+                  Clinical Documentation. <br className="hidden sm:inline" />
+                  <span className="text-nourdoc-primary">Simplified.</span>
+                </h1>
+                <p className="text-lg sm:text-xl font-semibold text-slate-700">
+                  More time for patients. Less time on paperwork.
+                </p>
+              </div>
 
-          <PricingTierGrid tiers={page.tiers} />
-
-          <p className="mt-8 text-center text-sm text-slate-600">
-            Need help choosing a plan?{' '}
-            <Link to="/contact?topic=Subscription" className="inline-flex items-center gap-1 font-semibold text-nourdoc-primary hover:text-nourdoc-primary-hover hover:underline underline-offset-4">
-              Talk to our team <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </p>
-
-          {/* Ethical Transparency Notice */}
-          <div className="mx-auto mt-6 max-w-3xl rounded-xl border border-slate-200 bg-white/80 p-4 text-center">
-            <p className="text-xs leading-relaxed text-slate-500">
-              <strong className="text-slate-700">Notice:</strong> NourDoc plan tiers represent functional capability specifications. Every plan CTA connects directly to our onboarding channel or Google Play Store application. No hidden checkout fees or auto-renew charges are processed through this informational site.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Growth Pathway (Linear Journey) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-slate-50 border border-slate-200/90 p-8 sm:p-12 space-y-8">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="inline-block text-xs font-bold text-nourdoc-primary uppercase tracking-widest bg-nourdoc-primary-light px-3.5 py-1 rounded-full border border-nourdoc-primary/20">
-              Scalable Growth Pathway
-            </span>
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight">
-              A Smooth Pathway as Your Clinical Needs Evolve
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Start with mobile ambient assistance on your personal device and expand into enterprise-wide EHR integration.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
-            {growthStages.map((st, idx) => {
-              const Icon = st.icon;
-              return (
-                <div
-                  key={idx}
-                  className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-nourdoc-primary/40 hover:shadow-md transition-all flex flex-col justify-between space-y-4"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-nourdoc-primary-light text-nourdoc-primary flex items-center justify-center">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <span className="font-mono text-xs font-bold text-slate-400">
-                      PHASE {st.stage}
-                    </span>
-                  </div>
-                  <div>
-                    <h4 className="text-base font-extrabold text-slate-900 leading-tight">
-                      {st.title}
-                    </h4>
-                    <span className="text-xs font-bold text-nourdoc-primary block mt-0.5 mb-2">
-                      {st.subtitle}
-                    </span>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      {st.desc}
-                    </p>
-                  </div>
-                  <div className="pt-2 border-t border-slate-100 text-[11px] font-semibold text-slate-400 flex items-center gap-1">
-                    <span>Seamless Transition</span>
-                    <ArrowRight className="w-3 h-3 text-nourdoc-primary" />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Custom Enterprise Full-Width Configurability Panel */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl space-y-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-6 space-y-4">
-              <span className="inline-block text-xs font-bold text-nourdoc-secondary uppercase tracking-widest bg-white/5 px-3.5 py-1 rounded-full border border-white/10">
-                {custom.eyebrow}
-              </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
-                {custom.h2}
-              </h2>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                {custom.description}
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl">
+                NourDoc turns natural doctor-patient dialogues into comprehensive, structured SOAP notes and clinical coding suggestions. Built for solo clinicians, growing multi-specialty practices, and enterprise hospital systems across Pakistan and international markets.
               </p>
-              <div className="pt-2">
-                <Button
-                  to="/contact?topic=Enterprise+Deployment"
-                  variant="primary"
-                  size="lg"
-                  icon={true}
+
+              {/* Inclusions summary strip */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                  <CheckCircle2 className="h-4 w-4 text-nourdoc-primary shrink-0" />
+                  <span>Ambient AI Transcription</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                  <CheckCircle2 className="h-4 w-4 text-nourdoc-primary shrink-0" />
+                  <span>Structured SOAP Notes</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                  <CheckCircle2 className="h-4 w-4 text-nourdoc-primary shrink-0" />
+                  <span>ICD-10 & Coding Support</span>
+                </div>
+              </div>
+
+              {/* Primary & Secondary Conversions */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-4">
+                <button
+                  type="button"
+                  onClick={handleOpenFreeTrial}
+                  className="flex items-center justify-center gap-2 rounded-xl bg-nourdoc-primary px-6 py-3.5 text-sm font-bold text-white shadow-jade-glow transition-all hover:bg-nourdoc-primary-hover hover:-translate-y-0.5"
                 >
-                  {custom.cta.label}
-                </Button>
+                  <span>Start your free trial</span>
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleScrollToPlans}
+                  className="flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3.5 text-sm font-semibold text-slate-700 shadow-2xs transition-all hover:bg-slate-50 hover:text-nourdoc-primary"
+                >
+                  <span>Explore plans</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleScrollToEnterprise}
+                  className="flex items-center justify-center gap-2 rounded-xl border border-transparent bg-slate-100 px-5 py-3.5 text-sm font-semibold text-slate-700 transition-all hover:bg-slate-200"
+                >
+                  <Building2 className="h-4 w-4 text-nourdoc-primary" />
+                  <span>Book an enterprise demo</span>
+                </button>
+              </div>
+
+              <div className="flex items-center gap-4 text-xs text-slate-400 pt-1">
+                <span>✓ 30 minutes free trial</span>
+                <span>✓ Zero card required</span>
+                <span>✓ Cancel anytime</span>
               </div>
             </div>
 
-            <div className="lg:col-span-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                {custom.aspects.map((asp, idx) => (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/25 transition-all flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-100"
-                  >
-                    <div className="w-7 h-7 rounded-lg bg-nourdoc-primary/30 text-nourdoc-secondary flex items-center justify-center shrink-0">
-                      <Check className="w-4 h-4" />
-                    </div>
-                    <span>{asp}</span>
+            {/* Right Column: Recommended Hero Photography (Appendix A / Section 7.1) */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-[0_20px_50px_rgba(32,98,84,0.12)] bg-slate-100">
+                <img
+                  src="/images/hero/hero_subscription_plans.webp"
+                  alt="A confident South Asian physician in a contemporary consultation room, reviewing a clinical note on a laptop or tablet"
+                  className="w-full h-80 sm:h-96 lg:h-[440px] object-cover object-center"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
+                  <div className="inline-flex items-center gap-2 rounded-lg bg-black/40 backdrop-blur-md px-3 py-1 text-xs font-semibold text-emerald-300 border border-white/10 w-fit mb-1">
+                    <Stethoscope className="h-3.5 w-3.5" />
+                    <span>Point-of-Care Ambient Intelligence</span>
                   </div>
-                ))}
+                  <p className="text-xs text-slate-200">
+                    Trusted clinical documentation workflow designed for physicians and healthcare networks.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. Final Page CTA */}
-      <GlobalCTA
-        title={page.cta.h2}
-        primaryLabel={page.cta.primaryCta.label}
-        secondaryLabel={page.cta.secondaryCta.label}
+      {/* =========================================================================
+          02. Market and billing selector
+          Pakistan / International switch + Monthly / Annual toggle + Pricing Control notice
+      ========================================================================= */}
+      <section className="py-12 bg-white">
+        <MarketBillingSelector
+          market={market}
+          onMarketChange={setMarket}
+          billingCycle={billingCycle}
+          onBillingCycleChange={setBillingCycle}
+          annualBillingApproved={false}
+        />
+      </section>
+
+      {/* =========================================================================
+          03. Subscription plan cards
+          Free Trial, Starter, Growth (Recommended), Professional, Enterprise
+      ========================================================================= */}
+      <section id="plans-catalogue" className="py-8 sm:py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 mb-8 text-center">
+          <span className="text-xs font-bold uppercase tracking-widest text-nourdoc-primary bg-nourdoc-primary-light px-3.5 py-1 rounded-full border border-nourdoc-primary/20">
+            Transparent Tiered Subscriptions
+          </span>
+          <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Subscription Plans & Processing Allowances
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Select the plan matching your monthly consultation volume. Every tier includes billable processing minutes with deterministic overage rules and transparent governance.
+          </p>
+        </div>
+
+        <SubscriptionPlanCards
+          plans={activePlans}
+          onSelectPlan={handleSelectPlan}
+          onOpenEnterprise={handleScrollToEnterprise}
+          onOpenTrial={handleOpenFreeTrial}
+        />
+      </section>
+
+      {/* =========================================================================
+          04. Usage calculator
+          Estimate monthly processing volume, working days, number of clinicians
+      ========================================================================= */}
+      <section className="py-16 sm:py-20 bg-[#F4F8F7] border-y border-slate-200/60">
+        <UsageCalculator
+          market={market}
+          plans={activePlans}
+          onSelectPlan={handleSelectPlan}
+          onOpenEnterprise={handleScrollToEnterprise}
+        />
+      </section>
+
+      {/* =========================================================================
+          05. How pricing works
+          3 steps + Billable minute definition & metering policies
+      ========================================================================= */}
+      <section className="py-16 sm:py-20 bg-white">
+        <HowPricingWorks />
+      </section>
+
+      {/* =========================================================================
+          06. Feature comparison matrix
+          Complete matrix across Free, Starter, Growth, Professional, Enterprise
+      ========================================================================= */}
+      <section className="py-16 sm:py-20 bg-[#F4F8F7] border-y border-slate-200/60">
+        <FeatureComparisonMatrix />
+      </section>
+
+      {/* =========================================================================
+          07. Trial explanation
+          Free trial vs Paid extended trial, zero-charge guarantee, eligibility
+      ========================================================================= */}
+      <section className="py-16 sm:py-20 bg-white">
+        <TrialExplanation
+          market={market}
+          onOpenTrial={handleOpenFreeTrial}
+          onSelectExtendedTrial={handleOpenExtendedTrial}
+        />
+      </section>
+
+      {/* =========================================================================
+          08. Enterprise section
+          Capacity tiers (Silver, Gold, Enterprise 1M+), EHR integration, custom SLA & form
+      ========================================================================= */}
+      <section className="py-16 sm:py-20 bg-[#F4F8F7] border-y border-slate-200/60">
+        <EnterpriseSection />
+      </section>
+
+      {/* =========================================================================
+          09. Payment methods
+          Market-aware payment options (Cards, JazzCash, EasyPaisa, Wire, Apple/Google Pay)
+      ========================================================================= */}
+      <section className="py-16 sm:py-20 bg-white">
+        <PaymentMethods market={market} />
+      </section>
+
+      {/* =========================================================================
+          10. Trust and clinical responsibility
+          Security, encryption, clinician review requirement, verified communication
+      ========================================================================= */}
+      <section className="py-16 sm:py-20 bg-[#F4F8F7] border-y border-slate-200/60">
+        <TrustResponsibility />
+      </section>
+
+      {/* =========================================================================
+          11. FAQs
+          Accordion covering all 11 topics
+      ========================================================================= */}
+      <section className="py-16 sm:py-20 bg-white">
+        <PricingFAQ />
+      </section>
+
+      {/* =========================================================================
+          12. Final conversion CTA and disclosures footer
+          Conversion actions + Mobile photography + Compliance & terms links
+      ========================================================================= */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#183B33] via-[#206254] to-[#183B33] text-white py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-7 space-y-6">
+              <span className="inline-block text-xs font-bold text-[#8FB7AC] uppercase tracking-widest bg-white/10 px-3.5 py-1 rounded-full border border-white/10">
+                Ready to Reclaim Your Clinical Hours?
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+                Spend Less Time on Documentation. More Time with Patients.
+              </h2>
+              <p className="text-sm sm:text-base text-slate-200 leading-relaxed max-w-xl">
+                Join forward-thinking healthcare professionals using NourDoc to generate accurate, compliant clinical records at the point of care.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+                <button
+                  type="button"
+                  onClick={handleOpenFreeTrial}
+                  className="flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-nourdoc-primary shadow-lg transition-all hover:bg-slate-100 hover:-translate-y-0.5"
+                >
+                  <span>Start your free trial (30 mins)</span>
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleScrollToPlans}
+                  className="flex items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/10 px-5 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/20"
+                >
+                  <span>Compare Plans</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleScrollToEnterprise}
+                  className="flex items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/10 px-5 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/20"
+                >
+                  <span>Request Enterprise Proposal</span>
+                </button>
+              </div>
+
+              <div className="pt-4 border-t border-white/15 text-xs text-slate-300 space-y-1">
+                <p>
+                  Questions about institutional rollout? Email our healthcare partnerships team at{' '}
+                  <a href="mailto:support@nour-doc.com" className="font-semibold text-white underline underline-offset-2">
+                    support@nour-doc.com
+                  </a>
+                </p>
+                <p className="text-[11px] text-slate-400">
+                  All rights reserved © {new Date().getFullYear()} NourDoc. Clinical Documentation. Simplified.
+                </p>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5">
+              <div className="rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-white/5 backdrop-blur-sm">
+                <img
+                  src="/images/sections/home_app_doctor.webp"
+                  alt="Doctor holding a smartphone in a clinical corridor or consultation room"
+                  className="w-full h-72 sm:h-80 object-cover object-center"
+                  loading="lazy"
+                />
+                <div className="p-4 bg-slate-900/80 border-t border-white/10">
+                  <p className="text-xs font-semibold text-white">
+                    Available on Android Mobile & Clinic Workstations
+                  </p>
+                  <p className="text-[11px] text-slate-300 mt-0.5">
+                    Start documentation from your pocket in outpatient clinics, ward rounds, and private practice.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trial / Checkout Dialog Modal */}
+      <TrialModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        selectedPlan={selectedPlanForModal}
+        mode={modalMode}
       />
     </div>
   );

@@ -562,11 +562,11 @@
     "subscription": {
       "id": "subscription",
       "route": "/subscription",
-      "metaTitle": "NourDoc Subscriptions: Plans for Clinicians & Enterprises",
-      "metaDescription": "Explore NourDoc subscription tiers: Free trial on Android, Starter for solo clinicians, Professional for practice teams, and Custom Enterprise.",
+      "metaTitle": "Clinical Documentation. Simplified. | NourDoc Subscription & Pricing",
+      "metaDescription": "Explore NourDoc subscription tiers for Pakistan and international markets. Hybrid subscription model with processing minutes, free trial, paid extended trial, and enterprise capacity.",
       "hero": {
-        "h1": "NourDoc for Every Stage of Healthcare",
-        "lead": "Start with a free trial.\nScale with your practice.\nDeploy across your organization.\nProcess healthcare information at enterprise scale."
+        "h1": "Clinical Documentation. Simplified.",
+        "lead": "More time for patients. Less time on paperwork. NourDoc combines ambient AI transcription, structured SOAP notes, and clinical coding assistance for individual clinicians, practices, and health systems."
       },
       "tiers": [
         {
