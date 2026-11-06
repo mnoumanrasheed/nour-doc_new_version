@@ -112,15 +112,6 @@ export const ContactPage: React.FC = () => {
                 V6B 1L1<br />
                 Canada
               </address>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=450+West+Hastings+Street%2C+Vancouver%2C+BC+V6B+1L1%2C+Canada"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-nourdoc-primary underline decoration-nourdoc-primary/35 underline-offset-4 transition-colors hover:text-nourdoc-primary-hover hover:decoration-nourdoc-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nourdoc-primary focus-visible:ring-offset-4"
-              >
-                Get directions
-                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-              </a>
             </div>
             <div className="relative min-h-64 bg-nourdoc-primary">
               <img
