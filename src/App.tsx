@@ -15,6 +15,8 @@ const IntegrationsPage = lazy(() => import('./pages/IntegrationsPage').then(m =>
 const PartnersPage = lazy(() => import('./pages/PartnersPage').then(m => ({ default: m.PartnersPage })));
 const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
 const ContactPage = lazy(() => import('./pages/ContactPage').then(m => ({ default: m.ContactPage })));
+const SupportPage = lazy(() => import('./pages/SupportPage').then(m => ({ default: m.SupportPage })));
+const ContactSalesPage = lazy(() => import('./pages/ContactSalesPage').then(m => ({ default: m.ContactSalesPage })));
 const AboutContactPage = lazy(() => import('./pages/AboutContactPage').then(m => ({ default: m.AboutContactPage })));
 const DesignSystemPage = lazy(() => import('./pages/DesignSystemPage').then(m => ({ default: m.DesignSystemPage })));
 
@@ -45,7 +47,9 @@ export function App() {
             <Route path="/partners-collaborators" element={<PartnersPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/book-demo" element={<Navigate to="/contact?intent=bookDemo&topic=Other#contact-form" replace />} />
+            <Route path="/support" element={<SupportPage />} />
+            <Route path="/contact-sales" element={<ContactSalesPage />} />
+            <Route path="/book-demo" element={<ContactSalesPage />} />
             <Route path="/about-contact" element={<AboutContactPage />} />
             <Route path="/design-system" element={<DesignSystemPage />} />
             <Route path="/showcase" element={<Navigate to="/design-system" replace />} />

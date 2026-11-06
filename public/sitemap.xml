@@ -56,6 +56,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://nour-doc.com/support</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nour-doc.com/contact-sales</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nour-doc.com/book-demo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://nour-doc.com/about-contact</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

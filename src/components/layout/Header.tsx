@@ -98,7 +98,7 @@ export const Header: React.FC = () => {
     <header className={`fixed left-1/2 top-3 z-50 w-[calc(100%-24px)] max-w-[1440px] -translate-x-1/2 transition-all duration-300 ease-out ${scrolled ? 'h-[62px] top-2' : 'h-[70px]'}`}>
       <div className={`relative flex h-full items-center gap-4 rounded-[22px] border border-white/80 px-3.5 backdrop-blur-[20px] [backdrop-filter:saturate(180%)_blur(20px)] ring-1 ring-slate-900/[0.025] transition-all duration-300 ease-out ${scrolled ? 'bg-white/[0.92] shadow-[0_2px_3px_rgba(16,24,40,0.04),0_14px_38px_rgba(16,24,40,0.12)]' : 'bg-white/[0.78] shadow-[0_2px_3px_rgba(16,24,40,0.03),0_12px_32px_rgba(16,24,40,0.09)]'}`}>
         <Link to="/" onClick={closeNavigation} className="group flex shrink-0 items-center gap-2.5 rounded-xl px-1.5 py-1 focus-visible:outline-none" aria-label="NourDoc Home">
-          <img src="/logo.png" alt="NourDoc emblem" className="h-10 w-10 rounded-xl border border-nourdoc-primary/10 bg-white object-contain p-0.5 shadow-[0_4px_12px_rgba(40,98,82,0.10)] transition-transform duration-300 group-hover:scale-[1.06] group-hover:-rotate-2" />
+          <img src="/logo-transparent.png" alt="NourDoc emblem" className="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-[1.06] group-hover:-rotate-2" />
           <span className="text-[20px] font-bold leading-none tracking-[-0.045em] text-slate-900 transition-colors duration-200 group-hover:text-nourdoc-primary">NourDoc</span>
         </Link>
 

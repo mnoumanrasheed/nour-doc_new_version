@@ -85,6 +85,24 @@ const routes = [
     h1: data.pages.contact.hero.h1,
   },
   {
+    path: '/support',
+    title: 'NourDoc Support Hub',
+    description: 'Explore NourDoc resources, plans, security information, and ways to contact our support team.',
+    h1: 'How can we help?',
+  },
+  {
+    path: '/contact-sales',
+    title: 'Contact NourDoc Sales',
+    description: 'Talk to the NourDoc team about plans, enterprise deployment, integrations, and clinical workflows.',
+    h1: 'Let’s talk about your workflow.',
+  },
+  {
+    path: '/book-demo',
+    title: 'Book a NourDoc Demo',
+    description: 'Talk to the NourDoc team about plans, enterprise deployment, integrations, and clinical workflows.',
+    h1: 'Let’s talk about your workflow.',
+  },
+  {
     path: '/about-contact',
     title: data.pages.contact.metaTitle,
     description: data.pages.contact.metaDescription,
