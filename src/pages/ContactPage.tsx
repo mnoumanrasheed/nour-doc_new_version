@@ -27,6 +27,41 @@ const contactPaths = [
   },
 ] as const;
 
+const offices = [
+  {
+    city: 'Vancouver, Canada',
+    address: ['450 West Hastings Street', 'Vancouver, BC V6B 1L1', 'Canada'],
+    image: '/images/sections/about_canada.webp',
+    alt: 'Vancouver, Canada skyline and waterfront',
+    captionLabel: 'NourDoc headquarters',
+    caption: 'Building calmer, more connected clinical workflows.',
+  },
+  {
+    city: 'Reykjavik, Iceland',
+    address: ['Eskihlid', 'Reykjavik 105', 'Iceland'],
+    image: '/images/sections/office_reykjavik.webp',
+    alt: 'Reykjavik city street with Hallgrimskirkja and mountains in Iceland',
+    captionLabel: 'Iceland office',
+    caption: 'Supporting thoughtful clinical work across every time zone.',
+  },
+  {
+    city: 'Muscat, Oman',
+    address: ['Al-Azaibah', 'Muscat, Oman'],
+    image: '/images/sections/office_muscat.webp',
+    alt: 'Contemporary Omani architecture and mountains in Muscat',
+    captionLabel: 'Oman office',
+    caption: 'Creating room for clinicians to focus on every conversation.',
+  },
+  {
+    city: 'Cape Town, South Africa',
+    address: ['11 Langeberg Rd', 'Eversdal, 7550', 'Cape Town, South Africa'],
+    image: '/images/sections/office_cape_town.webp',
+    alt: 'Cape Town cityscape with Table Mountain in South Africa',
+    captionLabel: 'South Africa office',
+    caption: 'Connecting teams with simpler, more human documentation.',
+  },
+] as const;
+
 export const ContactPage: React.FC = () => {
   const { emails } = contentData.brand;
 
@@ -96,36 +131,44 @@ export const ContactPage: React.FC = () => {
               Our office
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
-              The NourDoc team is based in Vancouver and is always happy to connect.
+              With teams across the globe, NourDoc is always happy to connect.
             </p>
           </div>
 
-          <article className="mt-10 grid overflow-hidden rounded-[30px] border border-nourdoc-primary/10 bg-white shadow-[0_12px_40px_rgba(40,98,82,0.08)] lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="p-8 sm:p-10 lg:p-12">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-nourdoc-primary text-white shadow-jade-glow">
-                <MapPin className="h-6 w-6" aria-hidden="true" />
-              </div>
-              <h3 className="mt-7 text-2xl font-extrabold tracking-[-0.035em] text-slate-900 sm:text-3xl">Vancouver, Canada</h3>
-              <address className="mt-5 not-italic text-base leading-8 text-slate-600">
-                450 West Hastings Street<br />
-                Vancouver, BC<br />
-                V6B 1L1<br />
-                Canada
-              </address>
-            </div>
-            <div className="relative min-h-64 bg-nourdoc-primary">
-              <img
-                src="/images/sections/about_canada.webp"
-                alt="Vancouver, Canada"
-                className="absolute inset-0 h-full w-full object-cover opacity-80 mix-blend-luminosity"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(24,59,51,0.35),rgba(40,98,82,0.68))]" />
-              <div className="absolute inset-x-8 bottom-8 rounded-2xl border border-white/20 bg-white/10 p-5 text-white backdrop-blur-md sm:inset-x-10 sm:bottom-10">
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/75">NourDoc headquarters</p>
-                <p className="mt-2 text-lg font-bold leading-snug">Building calmer, more connected clinical workflows.</p>
-              </div>
-            </div>
-          </article>
+          <div className="mt-10 space-y-8 lg:space-y-10">
+            {offices.map(({ city, address, image, alt, captionLabel, caption }, index) => (
+              <article key={city} className="grid overflow-hidden rounded-[30px] border border-nourdoc-primary/10 bg-white shadow-[0_12px_40px_rgba(40,98,82,0.08)] lg:grid-cols-[1.1fr_0.9fr]">
+                <div className="p-8 sm:p-10 lg:p-12">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-nourdoc-primary text-white shadow-jade-glow">
+                    <MapPin className="h-6 w-6" aria-hidden="true" />
+                  </div>
+                  <h3 className="mt-7 text-2xl font-extrabold tracking-[-0.035em] text-slate-900 sm:text-3xl">{city}</h3>
+                  <address className="mt-5 not-italic text-base leading-8 text-slate-600">
+                    {address.map((line, lineIndex) => (
+                      <React.Fragment key={line}>
+                        {line}
+                        {lineIndex < address.length - 1 && <br />}
+                      </React.Fragment>
+                    ))}
+                  </address>
+                </div>
+                <div className="relative min-h-64 bg-nourdoc-primary">
+                  <img
+                    src={image}
+                    alt={alt}
+                    className="absolute inset-0 h-full w-full object-cover opacity-80 mix-blend-luminosity"
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(24,59,51,0.35),rgba(40,98,82,0.68))]" />
+                  <div className="absolute inset-x-8 bottom-8 rounded-2xl border border-white/20 bg-white/10 p-5 text-white backdrop-blur-md sm:inset-x-10 sm:bottom-10">
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/75">{captionLabel}</p>
+                    <p className="mt-2 text-lg font-bold leading-snug">{caption}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
