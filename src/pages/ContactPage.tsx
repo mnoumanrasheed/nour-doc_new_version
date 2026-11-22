@@ -152,15 +152,15 @@ export const ContactPage: React.FC = () => {
                     ))}
                   </address>
                 </div>
-                <div className="relative min-h-64 bg-nourdoc-primary">
+                <div className="relative min-h-64 bg-slate-900">
                   <img
                     src={image}
                     alt={alt}
-                    className="absolute inset-0 h-full w-full object-cover opacity-80 mix-blend-luminosity"
+                    className="absolute inset-0 h-full w-full object-cover"
                     loading={index === 0 ? 'eager' : 'lazy'}
                     decoding="async"
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(24,59,51,0.35),rgba(40,98,82,0.68))]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,rgba(15,23,42,0.58)_100%)]" />
                   <div className="absolute inset-x-8 bottom-8 rounded-2xl border border-white/20 bg-white/10 p-5 text-white backdrop-blur-md sm:inset-x-10 sm:bottom-10">
                     <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/75">{captionLabel}</p>
                     <p className="mt-2 text-lg font-bold leading-snug">{caption}</p>
