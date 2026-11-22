@@ -76,7 +76,7 @@ export const SalesLeadForm: React.FC = () => {
       const result = (await response.json().catch(() => ({}))) as { message?: string; success?: boolean };
       if (!response.ok || result.success === false) throw new Error(result.message || 'We could not send your enquiry. Please try again.');
 
-      setNotice({ kind: 'success', message: result.message || 'Thanks — our sales team will be in touch shortly.' });
+      setNotice({ kind: 'success', message: result.message || 'Thanks, our sales team will be in touch shortly.' });
       setLead(emptyLead);
       setRecaptchaToken(null);
       recaptchaRef.current?.reset();

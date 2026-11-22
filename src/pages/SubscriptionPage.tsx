@@ -32,6 +32,8 @@ import { PaymentMethods } from '../components/subscription/PaymentMethods';
 import { TrustResponsibility } from '../components/subscription/TrustResponsibility';
 import { PricingFAQ } from '../components/subscription/PricingFAQ';
 import { TrialModal } from '../components/subscription/TrialModal';
+import { SubscriptionBenefitsStrip } from '../components/subscription/SubscriptionBenefitsStrip';
+import { PrivateDeploymentSection } from '../components/subscription/PrivateDeploymentSection';
 import { 
   PAKISTAN_PLANS, 
   INTERNATIONAL_PLANS, 
@@ -149,6 +151,8 @@ export const SubscriptionPage: React.FC = () => {
         />
       </section>
 
+      <SubscriptionBenefitsStrip />
+
       {/* =========================================================================
           04. Usage calculator
           Estimate monthly processing volume, working days, number of clinicians
@@ -191,6 +195,8 @@ export const SubscriptionPage: React.FC = () => {
       </section>
 
       <PremiumEnterpriseCTA />
+
+      <PrivateDeploymentSection />
 
       {/* =========================================================================
           09. Payment methods
@@ -239,14 +245,13 @@ export const SubscriptionPage: React.FC = () => {
 
           {/* CTAs */}
           <div className="mt-4 flex flex-col items-center justify-center gap-2.5 sm:flex-row">
-            <button
-              type="button"
-              onClick={handleOpenFreeTrial}
+            <a
+              href="/contact?topic=Try+NourDoc#contact-form"
               className="inline-flex items-center gap-2 rounded-xl bg-nourdoc-primary px-6 py-3 text-sm font-bold text-white shadow-[0_8px_18px_rgba(40,98,82,0.20)] transition-all hover:-translate-y-0.5 hover:bg-nourdoc-primary-hover"
             >
               <span>Start your free trial: 30 mins</span>
               <ArrowRight className="h-4 w-4" />
-            </button>
+            </a>
             <button
               type="button"
               onClick={handleScrollToEnterprise}

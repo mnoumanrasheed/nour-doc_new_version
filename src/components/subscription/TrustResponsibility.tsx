@@ -1,6 +1,6 @@
 // src/components/subscription/TrustResponsibility.tsx
 import React from 'react';
-import { UserCheck, Lock, EyeOff, FileText } from 'lucide-react';
+import { UserCheck, Lock, EyeOff } from 'lucide-react';
 
 export const TrustResponsibility: React.FC = () => {
   return (
@@ -56,17 +56,6 @@ export const TrustResponsibility: React.FC = () => {
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               Your clinical notes and patient interactions are never monetized, brokered, or used for open foundation AI model training without explicit consent. Audio is strictly processed for the encounter and handled under documented retention policies.
             </p>
-          </div>
-        </div>
-
-        {/* Regulatory Governance Note */}
-        <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5 flex items-start gap-3">
-          <FileText className="h-5 w-5 text-nourdoc-primary shrink-0 mt-0.5" />
-          <div className="text-xs text-slate-600 leading-relaxed">
-            <strong className="text-slate-800 font-semibold block mb-0.5">
-              Verified Compliance & Transparent Communication:
-            </strong>
-            NourDoc adheres to ethical healthcare communication. We state our technical specifications honestly and never advertise unverified medical device certifications, regulatory clearances, or speculative diagnostic claims.
           </div>
         </div>
       </div>
