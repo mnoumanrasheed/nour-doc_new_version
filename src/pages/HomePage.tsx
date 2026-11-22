@@ -1,4 +1,4 @@
-// src/pages/HomePage.tsx
+﻿// src/pages/HomePage.tsx
 import React from 'react';
 import { Hero } from '../components/sections/Hero';
 import { ProcessPipeline } from '../components/diagrams/ProcessPipeline';
@@ -21,7 +21,6 @@ const stakeholderImpactDetails = [
 
 export const HomePage: React.FC = () => {
   const page = contentData.pages.home;
-  const appStoreUrl = contentData.brand.appStoreUrl;
 
   return (
     <div className="space-y-16 md:space-y-24">
@@ -132,8 +131,8 @@ export const HomePage: React.FC = () => {
               </p>
               <div className="pt-2">
                 <Button
-                  href={appStoreUrl}
-                  external={true}
+                  to="/contact-sales"
+                  
                   variant="primary"
                   size="lg"
                   icon={true}
@@ -171,10 +170,10 @@ export const HomePage: React.FC = () => {
                     <span className="text-[10px] font-mono text-emerald-400 font-bold">SOAP READY</span>
                   </div>
                   <div className="text-[11px] text-slate-300 bg-white/5 p-3 rounded-xl border border-white/10 font-mono space-y-1">
-                    <div className="text-emerald-400">✓ Subjective & Chief Complaint</div>
-                    <div className="text-emerald-400">✓ Objective Examination</div>
-                    <div className="text-emerald-400">✓ Clinical Assessment</div>
-                    <div className="text-emerald-400">✓ Care & Treatment Plan</div>
+                    <div className="text-emerald-400">âœ“ Subjective & Chief Complaint</div>
+                    <div className="text-emerald-400">âœ“ Objective Examination</div>
+                    <div className="text-emerald-400">âœ“ Clinical Assessment</div>
+                    <div className="text-emerald-400">âœ“ Care & Treatment Plan</div>
                   </div>
                   <div className="pt-1 flex items-center justify-between text-[10px] text-slate-400">
                     <span>Google Play Available</span>
@@ -248,3 +247,6 @@ export const HomePage: React.FC = () => {
     </div>
   );
 };
+
+
+

@@ -1,4 +1,4 @@
-// src/pages/AboutPage.tsx
+﻿// src/pages/AboutPage.tsx
 import React from 'react';
 import { Hero } from '../components/sections/Hero';
 import { SectionHeading } from '../components/common/SectionHeading';
@@ -253,10 +253,11 @@ export const AboutPage: React.FC = () => {
         primaryLabel="TRY NOURDOC FREE"
         primaryIsApp={true}
         secondaryLabel="BOOK A DEMO"
-        secondaryTarget="/contact?intent=bookDemo&topic=Other#contact-form"
+        secondaryTarget="/contact-sales"
       />
     </div>
   );
 };
 
 export default AboutPage;
+

@@ -140,12 +140,12 @@ export const PartnersPage: React.FC = () => {
         primaryCta={{
           label: page.cta.primaryCta.label,
           type: 'route',
-          target: page.cta.primaryCta.target || '/contact?topic=Partnership',
+          target: '/contact-sales',
         }}
         secondaryCta={{
           label: page.cta.secondaryCta.label,
           type: 'demo',
-          target: '/contact?intent=bookDemo&topic=Other#contact-form',
+          target: '/contact-sales',
         }}
         showVisual={false}
         backgroundImage="/images/hero/hero_partners_wide.webp"
@@ -216,7 +216,7 @@ export const PartnersPage: React.FC = () => {
 
                 <div className="pt-3 border-t border-slate-100 mt-auto">
                   <Link
-                    to={`/contact?topic=${encodeURIComponent(opp.actionTopic)}`}
+                    to="/contact-sales"
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-nourdoc-primary hover:text-nourdoc-primary-hover transition-colors"
                   >
                     <span>Discuss Collaboration</span>
@@ -233,10 +233,10 @@ export const PartnersPage: React.FC = () => {
       <GlobalCTA
         title={page.cta.h2}
         primaryLabel={page.cta.primaryCta.label}
-        primaryTarget={page.cta.primaryCta.target || '/contact?topic=Partnership'}
+        primaryTarget="/contact-sales"
         primaryIsApp={false}
         secondaryLabel={page.cta.secondaryCta.label}
-        secondaryTarget="/contact?intent=bookDemo&topic=Other#contact-form"
+        secondaryTarget="/contact-sales"
       />
     </div>
   );

@@ -36,7 +36,7 @@ export const PremiumEnterpriseCTA: React.FC = () => (
             <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">Enterprise Capacity &amp; Dedicated Infrastructure</h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">Purpose-built volume commitments, deployment options, and support for hospitals and healthcare networks.</p>
           </div>
-          <Link to="/contact?intent=bookDemo&topic=Enterprise+Deployment#contact-form" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl border border-nourdoc-primary/25 bg-white px-5 py-3 text-sm font-bold text-nourdoc-primary transition-colors hover:bg-nourdoc-primary-light">
+          <Link to="/contact-sales" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl border border-nourdoc-primary/25 bg-white px-5 py-3 text-sm font-bold text-nourdoc-primary transition-colors hover:bg-nourdoc-primary-light">
             Speak with an expert <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -51,7 +51,7 @@ export const PremiumEnterpriseCTA: React.FC = () => (
               <p className="mt-4 text-sm leading-relaxed text-slate-600">{tier.description}</p>
               <div className="mt-auto border-t border-slate-200 pt-4">
                 <div className="flex items-start gap-2 text-xs leading-relaxed text-slate-600"><Users className="mt-0.5 h-4 w-4 shrink-0 text-nourdoc-primary" />{tier.scope}</div>
-                <Link to="/contact?topic=Enterprise+Deployment" className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-nourdoc-primary px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-nourdoc-primary-hover">Select this volume tier <ArrowRight className="h-3.5 w-3.5" /></Link>
+                <Link to="/contact-sales" className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-nourdoc-primary px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-nourdoc-primary-hover">Select this volume tier <ArrowRight className="h-3.5 w-3.5" /></Link>
               </div>
             </article>
           ))}

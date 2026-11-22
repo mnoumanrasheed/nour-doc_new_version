@@ -1,4 +1,4 @@
-// src/components/subscription/PremiumBenefitsSection.tsx
+﻿// src/components/subscription/PremiumBenefitsSection.tsx
 import React from 'react';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -30,7 +30,7 @@ export const PremiumBenefitsSection: React.FC = () => {
         </div>
         <div className="mt-10 text-center">
           <Link
-            to="/contact?topic=Start+Free+Trial"
+            to="/contact-sales"
             className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-3 text-sm font-bold text-slate-950 shadow-md hover:bg-emerald-400"
           >
             Explore Plans
@@ -41,4 +41,5 @@ export const PremiumBenefitsSection: React.FC = () => {
     </section>
   );
 };
+
 

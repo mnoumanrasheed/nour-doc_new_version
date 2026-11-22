@@ -1,7 +1,6 @@
-// src/components/sections/GlobalCTA.tsx
+﻿// src/components/sections/GlobalCTA.tsx
 import React from 'react';
 import { Button } from '../common/Button';
-import contentData from '../../data.json';
 
 interface GlobalCTAProps {
   eyebrow?: string;
@@ -19,12 +18,9 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
   title,
   subtitle,
   primaryLabel = 'TRY NOURDOC FREE',
-  primaryTarget,
   primaryIsApp = true,
   secondaryLabel = 'BOOK A DEMO',
-  secondaryTarget = '/contact?intent=bookDemo&topic=Other#contact-form',
 }) => {
-  const appStoreUrl = contentData.brand.appStoreUrl;
 
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-white via-nourdoc-primary-surface to-white border-t border-slate-100">
@@ -48,8 +44,8 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
         <div className="flex flex-wrap items-center justify-center gap-4">
           {primaryIsApp ? (
             <Button
-              href={appStoreUrl}
-              external={true}
+              to="/contact-sales"
+              
               variant="primary"
               size="lg"
               icon={true}
@@ -58,7 +54,7 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
             </Button>
           ) : (
             <Button
-              to={primaryTarget || '/contact?intent=bookDemo&topic=Other#contact-form'}
+              to="/contact-sales"
               variant="primary"
               size="lg"
             >
@@ -67,7 +63,7 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
           )}
 
           <Button
-            to={secondaryTarget}
+            to="/contact-sales"
             variant="outline"
             size="lg"
           >
@@ -79,3 +75,8 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
     </section>
   );
 };
+
+
+
+
+

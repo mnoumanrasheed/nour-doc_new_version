@@ -1,9 +1,8 @@
-// src/components/sections/PricingTierGrid.tsx
+﻿// src/components/sections/PricingTierGrid.tsx
 import React from 'react';
 import { Check, Sparkles } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 import { Button } from '../common/Button';
-import contentData from '../../data.json';
 
 interface Tier {
   id: string;
@@ -25,7 +24,6 @@ interface PricingTierGridProps {
 }
 
 export const PricingTierGrid: React.FC<PricingTierGridProps> = ({ tiers }) => {
-  const appStoreUrl = contentData.brand.appStoreUrl;
   const shouldReduceMotion = useReducedMotion();
 
   return (
@@ -92,8 +90,8 @@ export const PricingTierGrid: React.FC<PricingTierGridProps> = ({ tiers }) => {
             <div className="mt-6 [&>div]:w-full">
               {isFree ? (
                 <Button
-                  href={appStoreUrl}
-                  external={true}
+                  to="/contact-sales"
+                  
                   variant="primary"
                   size="md"
                   icon={true}
@@ -103,7 +101,7 @@ export const PricingTierGrid: React.FC<PricingTierGridProps> = ({ tiers }) => {
                 </Button>
               ) : isEnterprise ? (
                 <Button
-                  to="/contact?topic=Enterprise+Deployment"
+                  to="/contact-sales"
                   variant="primary"
                   size="md"
                   className="w-full min-h-[44px] justify-center py-3"
@@ -112,7 +110,7 @@ export const PricingTierGrid: React.FC<PricingTierGridProps> = ({ tiers }) => {
                 </Button>
               ) : (
                 <Button
-                  to={tier.cta.target || '/contact?topic=Subscription'}
+                  to="/contact-sales"
                   variant={isProfessional ? 'primary' : 'outline'}
                   size="md"
                   className="w-full min-h-[44px] justify-center py-3"
@@ -127,3 +125,7 @@ export const PricingTierGrid: React.FC<PricingTierGridProps> = ({ tiers }) => {
     </div>
   );
 };
+
+
+
+

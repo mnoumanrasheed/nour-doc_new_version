@@ -32,7 +32,7 @@ export const MedicalCodingPage: React.FC = () => {
         h1={page.hero.h1}
         description={page.hero.description}
         primaryCta={{ label: 'BOOK AN ENTERPRISE DEMO', type: 'demo' }}
-        secondaryCta={{ label: 'TALK TO OUR TEAM', type: 'route', target: '/contact?topic=Batch+Processing' }}
+        secondaryCta={{ label: 'TALK TO OUR TEAM', type: 'route', target: '/contact-sales' }}
         backgroundImage="/images/hero/cand_505751_wide.webp"
         backgroundAlt="Stethoscope and clinical writing instruments on a medical surface"
         visualVariant="coding"
@@ -75,7 +75,7 @@ export const MedicalCodingPage: React.FC = () => {
 
             <div className="flex flex-wrap items-center justify-start gap-4 pt-2">
               <Button
-                to="/contact?intent=bookDemo&topic=Other#contact-form"
+                to="/contact-sales"
                 variant="primary"
                 size="lg"
                 icon={true}
@@ -83,7 +83,7 @@ export const MedicalCodingPage: React.FC = () => {
                 BOOK AN ENTERPRISE DEMO
               </Button>
               <Button
-                to="/contact?topic=Batch+Processing"
+                to="/contact-sales"
                 variant="outline"
                 size="lg"
               >
@@ -265,10 +265,10 @@ export const MedicalCodingPage: React.FC = () => {
         title={page.cta.h2}
         subtitle={page.cta.lead}
         primaryLabel={page.cta.primaryCta.label}
-        primaryTarget="/contact?intent=bookDemo&topic=Other#contact-form"
+        primaryTarget="/contact-sales"
         primaryIsApp={false}
         secondaryLabel="TALK TO OUR TEAM"
-        secondaryTarget="/contact?topic=Batch+Processing"
+        secondaryTarget="/contact-sales"
       />
     </div>
   );

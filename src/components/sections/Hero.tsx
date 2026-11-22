@@ -1,6 +1,5 @@
-import React from 'react';
+﻿import React from 'react';
 import { Button } from '../common/Button';
-import contentData from '../../data.json';
 
 interface HeroProps {
   badge?: string;
@@ -20,7 +19,7 @@ interface HeroProps {
   showBrandMark?: boolean;
 }
 
-const demoPath = '/contact?intent=bookDemo&topic=Other#contact-form';
+const demoPath = '/contact-sales';
 
 // Keep every page hero's photo treatment aligned with the home hero.
 const heroImageOverlayClass = 'absolute inset-0 bg-[linear-gradient(90deg,rgba(248,251,250,0.97)_0%,rgba(248,251,250,0.90)_28%,rgba(248,251,250,0.58)_40%,rgba(248,251,250,0.14)_48%,transparent_55%),radial-gradient(ellipse_at_18%_78%,rgba(248,251,250,0.68)_0%,rgba(248,251,250,0.34)_24%,transparent_42%)] max-[899px]:bg-[linear-gradient(180deg,rgba(248,251,250,0.94)_0%,rgba(248,251,250,0.78)_42%,rgba(248,251,250,0.46)_70%,rgba(248,251,250,0.12)_88%,transparent_100%)]';
@@ -28,7 +27,7 @@ const benefitsHeroOverlayClass = 'absolute inset-0 bg-[linear-gradient(90deg,rgb
 
 const HeroActions: React.FC = () => (
   <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center [&>div]:w-full sm:[&>div]:w-auto">
-    <Button href={contentData.brand.appStoreUrl} external variant="primary" size="lg" icon={false} className="h-[50px] w-full rounded-xl px-7 text-[15px] shadow-[0_8px_22px_rgba(40,98,82,0.22)] sm:w-auto">
+    <Button to="/contact-sales" variant="primary" size="lg" icon={false} className="h-[50px] w-full rounded-xl px-7 text-[15px] shadow-[0_8px_22px_rgba(40,98,82,0.22)] sm:w-auto">
       Try NourDoc Free
     </Button>
     <Button to={demoPath} variant="outline" size="lg" icon={false} className="h-[50px] w-full rounded-xl border-nourdoc-primary bg-white/75 px-7 text-[15px] text-nourdoc-primary backdrop-blur-sm hover:bg-white sm:w-auto">
@@ -58,7 +57,7 @@ const HomeHero: React.FC<Pick<HeroProps, 'description' | 'supportingLine' | 'her
         <div className="mt-5 max-w-[500px] rounded-2xl border border-nourdoc-primary/20 bg-white/75 px-5 py-4 shadow-[0_12px_30px_rgba(15,42,34,0.08)] backdrop-blur-sm">
           <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-nourdoc-primary">Global Collaboration</p>
           <p className="mt-2 text-base font-bold tracking-[-0.01em] text-slate-900">
-            Canada <span className="mx-2 text-nourdoc-primary/50">·</span> Finland <span className="mx-2 text-nourdoc-primary/50">·</span> Pakistan
+            Canada <span className="mx-2 text-nourdoc-primary/50">Â·</span> Finland <span className="mx-2 text-nourdoc-primary/50">Â·</span> Pakistan
           </p>
           <p className="mt-1.5 text-xs italic leading-relaxed text-slate-600">
             Built through international healthcare, research and engineering collaboration.
@@ -123,3 +122,5 @@ export const Hero: React.FC<HeroProps> = (props) => {
   if (props.visualVariant === 'product' || props.visualVariant === 'coding' || props.visualVariant === 'integrations' || props.visualVariant === 'why' || props.visualVariant === 'benefits' || props.visualVariant === 'about' || props.visualVariant === 'partners' || props.visualVariant === 'contact' || props.visualVariant === 'subscription') return <PageHero {...props} kind={props.visualVariant} />;
   return <StandardHero {...props} />;
 };
+
+

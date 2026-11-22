@@ -1,4 +1,4 @@
-// src/pages/SubscriptionPage.tsx
+﻿// src/pages/SubscriptionPage.tsx
 /**
  * NourDoc Subscription & Pricing Page
  * Implementation Specification Version 1.0 (03 November 2026)
@@ -19,6 +19,8 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { MarketBillingSelector } from '../components/subscription/MarketBillingSelector';
 import { SubscriptionPlanCards } from '../components/subscription/SubscriptionPlanCards';
@@ -31,9 +33,6 @@ import { PremiumHeroSection } from '../components/subscription/PremiumHeroSectio
 import { PaymentMethods } from '../components/subscription/PaymentMethods';
 import { TrustResponsibility } from '../components/subscription/TrustResponsibility';
 import { PricingFAQ } from '../components/subscription/PricingFAQ';
-import { TrialModal } from '../components/subscription/TrialModal';
-import { SubscriptionBenefitsStrip } from '../components/subscription/SubscriptionBenefitsStrip';
-import { PrivateDeploymentSection } from '../components/subscription/PrivateDeploymentSection';
 import { 
   PAKISTAN_PLANS, 
   INTERNATIONAL_PLANS, 
@@ -43,36 +42,23 @@ import {
 } from '../data/pricingConfig';
 
 export const SubscriptionPage: React.FC = () => {
+  const navigate = useNavigate();
   const [market, setMarket] = useState<MarketCode>('PK');
   const [billingCycle, setBillingCycle] = useState<BillingCycle>('monthly');
-  const [selectedPlanForModal, setSelectedPlanForModal] = useState<PlanConfig | null>(null);
-  const [modalMode, setModalMode] = useState<'free_trial' | 'extended_trial' | 'plan_checkout'>('free_trial');
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const activePlans = market === 'PK' ? PAKISTAN_PLANS : INTERNATIONAL_PLANS;
 
   // Handlers for modal interactions
   const handleOpenFreeTrial = () => {
-    const freePlan = activePlans.find((p) => p.plan_id === 'free') || activePlans[0];
-    setSelectedPlanForModal(freePlan);
-    setModalMode('free_trial');
-    setIsModalOpen(true);
+    navigate('/contact-sales');
   };
 
   const handleOpenExtendedTrial = () => {
-    setSelectedPlanForModal(null);
-    setModalMode('extended_trial');
-    setIsModalOpen(true);
+    navigate('/contact-sales');
   };
 
-  const handleSelectPlan = (plan: PlanConfig) => {
-    if (plan.plan_id === 'free') {
-      handleOpenFreeTrial();
-    } else {
-      setSelectedPlanForModal(plan);
-      setModalMode('plan_checkout');
-      setIsModalOpen(true);
-    }
+  const handleSelectPlan = (_plan: PlanConfig) => {
+    navigate('/contact-sales');
   };
 
   const handleScrollToEnterprise = () => {
@@ -81,7 +67,7 @@ export const SubscriptionPage: React.FC = () => {
       el.scrollIntoView({ behavior: 'smooth' });
       return;
     }
-    window.location.assign('/contact?intent=bookDemo&topic=Enterprise+Deployment#contact-form');
+    navigate('/contact-sales');
   };
 
   const _handleScrollToPlans = () => {
@@ -100,8 +86,8 @@ export const SubscriptionPage: React.FC = () => {
     <div className="bg-white min-h-screen">
       {/* =========================================================================
           01. Hero and primary CTA
-          Headline: “Clinical Documentation. Simplified.”
-          Supporting line: “More time for patients. Less time on paperwork.”
+          Headline: â€œClinical Documentation. Simplified.â€
+          Supporting line: â€œMore time for patients. Less time on paperwork.â€
           Explain AI transcription, structured SOAP notes and clinical coding assistance.
           Primary CTA: Start your free trial.
           Secondary CTA: Explore plans / Book an enterprise demo.
@@ -151,8 +137,6 @@ export const SubscriptionPage: React.FC = () => {
         />
       </section>
 
-      <SubscriptionBenefitsStrip />
-
       {/* =========================================================================
           04. Usage calculator
           Estimate monthly processing volume, working days, number of clinicians
@@ -195,8 +179,6 @@ export const SubscriptionPage: React.FC = () => {
       </section>
 
       <PremiumEnterpriseCTA />
-
-      <PrivateDeploymentSection />
 
       {/* =========================================================================
           09. Payment methods
@@ -245,13 +227,13 @@ export const SubscriptionPage: React.FC = () => {
 
           {/* CTAs */}
           <div className="mt-4 flex flex-col items-center justify-center gap-2.5 sm:flex-row">
-            <a
-              href="/contact?topic=Try+NourDoc#contact-form"
+            <Link
+              to="/contact-sales"
               className="inline-flex items-center gap-2 rounded-xl bg-nourdoc-primary px-6 py-3 text-sm font-bold text-white shadow-[0_8px_18px_rgba(40,98,82,0.20)] transition-all hover:-translate-y-0.5 hover:bg-nourdoc-primary-hover"
             >
               <span>Start your free trial: 30 mins</span>
               <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
             <button
               type="button"
               onClick={handleScrollToEnterprise}
@@ -263,23 +245,25 @@ export const SubscriptionPage: React.FC = () => {
 
           {/* Trust micro-copy */}
           <p className="pt-3 text-xs text-slate-500">
-            No card required &nbsp;·&nbsp; Cancel anytime &nbsp;·&nbsp;{' '}
             <a href="mailto:support@nour-doc.com" className="text-nourdoc-primary hover:underline">
               support@nour-doc.com
             </a>
           </p>
         </div>
       </section>
-
-      {/* Trial / Checkout Dialog Modal */}
-      <TrialModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        selectedPlan={selectedPlanForModal}
-        mode={modalMode}
-      />
     </div>
   );
 };
 
 export default SubscriptionPage;
+
+
+
+
+
+
+
+
+
+
+

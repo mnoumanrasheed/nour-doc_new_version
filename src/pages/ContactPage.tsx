@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CalendarDays, Handshake, Headphones, MapPin, ArrowUpRight } from 'lucide-react';
-import contentData from '../data.json';
 
 const contactPaths = [
   {
@@ -63,8 +62,6 @@ const offices = [
 ] as const;
 
 export const ContactPage: React.FC = () => {
-  const { emails } = contentData.brand;
-
   return (
     <div className="overflow-hidden bg-[#fbfcfb]">
       <section className="hero-100vsh relative isolate flex items-center overflow-hidden border-b border-slate-100 bg-[#F8FBFA]">
@@ -169,18 +166,6 @@ export const ContactPage: React.FC = () => {
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="bg-white px-4 py-16 text-center sm:px-6 sm:py-24 lg:px-8">
-        <div className="mx-auto max-w-2xl">
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-nourdoc-primary">NourDoc</p>
-          <h2 className="mt-4 text-3xl font-black tracking-[-0.05em] text-slate-900 sm:text-4xl">Care should come first.</h2>
-          <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">Let NourDoc help with the clinical documentation that comes after every conversation.</p>
-          <a href={`mailto:${emails.sales}?subject=Talk%20to%20NourDoc`} className="mt-8 inline-flex items-center gap-2 rounded-xl bg-nourdoc-primary px-6 py-3.5 text-sm font-bold text-white shadow-jade-glow transition-colors hover:bg-nourdoc-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nourdoc-primary focus-visible:ring-offset-4">
-            Start a conversation
-            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-          </a>
         </div>
       </section>
     </div>
