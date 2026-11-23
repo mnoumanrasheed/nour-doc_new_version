@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { Button } from '../common/Button';
@@ -30,7 +30,8 @@ export const Header: React.FC = () => {
   const location = useLocation();
   const navRef = useRef<HTMLElement>(null);
   const frameRef = useRef<number | null>(null);
-  const demoPath = '/contact-sales';
+  const demoPath = '/contact';
+  const appPath = 'https://play.google.com/store/apps/details?id=com.m3hive.medicalai&pli=1';
   const isActive = (path: string) => location.pathname === path;
   const groupIsActive = (group: MenuGroup) => group.items.some((item) => isActive(item.path));
 
@@ -117,7 +118,7 @@ export const Header: React.FC = () => {
         </nav>
 
         <div className="hidden shrink-0 items-center gap-1.5 lg:flex">
-          <Button to="/contact-sales" variant="ghost" size="sm" className="h-10 rounded-xl whitespace-nowrap px-3.5 text-[14px] font-semibold text-slate-700 hover:bg-nourdoc-primary-light/70">Try Free</Button>
+          <Button href={appPath} external variant="ghost" size="sm" className="h-10 rounded-xl whitespace-nowrap px-3.5 text-[14px] font-semibold text-slate-700 hover:bg-nourdoc-primary-light/70">Try Free</Button>
           <Button to={demoPath} variant="primary" size="sm" className="h-[44px] rounded-xl whitespace-nowrap border border-white/15 bg-[linear-gradient(135deg,#286252_0%,#1F4E42_100%)] px-5 text-[14px] font-bold shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_8px_20px_rgba(40,98,82,0.25)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_12px_24px_rgba(40,98,82,0.30)]">Book a Demo</Button>
         </div>
 
@@ -136,7 +137,7 @@ export const Header: React.FC = () => {
           </nav>
         </div>
         <div className="space-y-3 border-t border-slate-100 bg-white p-5 pb-7">
-          <Button to="/contact-sales" variant="ghost" size="md" className="h-12 w-full justify-center rounded-xl text-base">Try Free</Button>
+          <Button href={appPath} external variant="ghost" size="md" className="h-12 w-full justify-center rounded-xl text-base">Try Free</Button>
           <Button to={demoPath} onClick={() => setIsOpen(false)} variant="primary" size="md" className="h-12 w-full justify-center rounded-xl text-base shadow-[0_6px_16px_rgba(40,98,82,0.2)]">Book a Demo</Button>
         </div>
         <button type="button" onClick={() => setIsOpen(false)} className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-lg text-slate-700 hover:bg-slate-100 focus-visible:outline-none" aria-label="Close menu"><X className="h-6 w-6" /></button>

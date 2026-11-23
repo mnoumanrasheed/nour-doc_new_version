@@ -1,4 +1,4 @@
-﻿// src/components/sections/GlobalCTA.tsx
+// src/components/sections/GlobalCTA.tsx
 import React from 'react';
 import { Button } from '../common/Button';
 
@@ -11,7 +11,10 @@ interface GlobalCTAProps {
   primaryIsApp?: boolean;
   secondaryLabel?: string;
   secondaryTarget?: string;
+  secondaryIsApp?: boolean;
 }
+
+const appPath = 'https://play.google.com/store/apps/details?id=com.m3hive.medicalai&pli=1';
 
 export const GlobalCTA: React.FC<GlobalCTAProps> = ({
   eyebrow,
@@ -20,6 +23,9 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
   primaryLabel = 'TRY NOURDOC FREE',
   primaryIsApp = true,
   secondaryLabel = 'BOOK A DEMO',
+  primaryTarget = '/contact-sales',
+  secondaryTarget = '/contact',
+  secondaryIsApp = false,
 }) => {
 
   return (
@@ -44,7 +50,8 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
         <div className="flex flex-wrap items-center justify-center gap-4">
           {primaryIsApp ? (
             <Button
-              to="/contact-sales"
+              href={appPath}
+              external
               
               variant="primary"
               size="lg"
@@ -54,7 +61,7 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
             </Button>
           ) : (
             <Button
-              to="/contact-sales"
+              to={primaryTarget}
               variant="primary"
               size="lg"
             >
@@ -62,13 +69,15 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
             </Button>
           )}
 
-          <Button
-            to="/contact-sales"
-            variant="outline"
-            size="lg"
-          >
-            {secondaryLabel}
-          </Button>
+          {secondaryIsApp ? (
+            <Button href={appPath} external variant="outline" size="lg" icon={true}>
+              {secondaryLabel}
+            </Button>
+          ) : (
+            <Button to={secondaryTarget} variant="outline" size="lg">
+              {secondaryLabel}
+            </Button>
+          )}
         </div>
 
       </div>

@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Button } from '../common/Button';
 
 interface HeroProps {
@@ -19,20 +19,36 @@ interface HeroProps {
   showBrandMark?: boolean;
 }
 
-const demoPath = '/contact-sales';
+const demoPath = '/contact';
+const appPath = 'https://play.google.com/store/apps/details?id=com.m3hive.medicalai&pli=1';
 
 // Keep every page hero's photo treatment aligned with the home hero.
 const heroImageOverlayClass = 'absolute inset-0 bg-[linear-gradient(90deg,rgba(248,251,250,0.97)_0%,rgba(248,251,250,0.90)_28%,rgba(248,251,250,0.58)_40%,rgba(248,251,250,0.14)_48%,transparent_55%),radial-gradient(ellipse_at_18%_78%,rgba(248,251,250,0.68)_0%,rgba(248,251,250,0.34)_24%,transparent_42%)] max-[899px]:bg-[linear-gradient(180deg,rgba(248,251,250,0.94)_0%,rgba(248,251,250,0.78)_42%,rgba(248,251,250,0.46)_70%,rgba(248,251,250,0.12)_88%,transparent_100%)]';
 const benefitsHeroOverlayClass = 'absolute inset-0 bg-[linear-gradient(90deg,rgba(248,251,250,0.98)_0%,rgba(248,251,250,0.94)_27%,rgba(248,251,250,0.76)_40%,rgba(248,251,250,0.42)_53%,rgba(248,251,250,0.12)_64%,transparent_73%),radial-gradient(ellipse_at_15%_78%,rgba(248,251,250,0.74)_0%,rgba(248,251,250,0.30)_31%,transparent_52%)] max-[899px]:bg-[linear-gradient(180deg,rgba(248,251,250,0.96)_0%,rgba(248,251,250,0.82)_45%,rgba(248,251,250,0.44)_72%,rgba(248,251,250,0.10)_92%,transparent_100%)]';
 
-const HeroActions: React.FC = () => (
+const HeroActions: React.FC<{ primaryCta?: HeroProps['primaryCta']; secondaryCta?: HeroProps['secondaryCta'] }> = ({
+  primaryCta,
+  secondaryCta,
+}) => (
   <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center [&>div]:w-full sm:[&>div]:w-auto">
-    <Button to="/contact-sales" variant="primary" size="lg" icon={false} className="h-[50px] w-full rounded-xl px-7 text-[15px] shadow-[0_8px_22px_rgba(40,98,82,0.22)] sm:w-auto">
-      Try NourDoc Free
-    </Button>
-    <Button to={demoPath} variant="outline" size="lg" icon={false} className="h-[50px] w-full rounded-xl border-nourdoc-primary bg-white/75 px-7 text-[15px] text-nourdoc-primary backdrop-blur-sm hover:bg-white sm:w-auto">
-      Book a Demo
-    </Button>
+    {primaryCta?.type === 'app' ? (
+      <Button href={appPath} external variant="primary" size="lg" icon={false} className="h-[50px] w-full rounded-xl px-7 text-[15px] shadow-[0_8px_22px_rgba(40,98,82,0.22)] sm:w-auto">
+        {primaryCta.label}
+      </Button>
+    ) : (
+      <Button to={primaryCta?.target ?? demoPath} variant="primary" size="lg" icon={false} className="h-[50px] w-full rounded-xl px-7 text-[15px] shadow-[0_8px_22px_rgba(40,98,82,0.22)] sm:w-auto">
+        {primaryCta?.label ?? 'Try NourDoc Free'}
+      </Button>
+    )}
+    {secondaryCta?.type === 'app' ? (
+      <Button href={appPath} external variant="outline" size="lg" icon={false} className="h-[50px] w-full rounded-xl border-nourdoc-primary bg-white/75 px-7 text-[15px] text-nourdoc-primary backdrop-blur-sm hover:bg-white sm:w-auto">
+        {secondaryCta.label}
+      </Button>
+    ) : (
+      <Button to={secondaryCta?.target ?? demoPath} variant="outline" size="lg" icon={false} className="h-[50px] w-full rounded-xl border-nourdoc-primary bg-white/75 px-7 text-[15px] text-nourdoc-primary backdrop-blur-sm hover:bg-white sm:w-auto">
+        {secondaryCta?.label ?? 'Book a Demo'}
+      </Button>
+    )}
   </div>
 );
 
@@ -57,7 +73,7 @@ const HomeHero: React.FC<Pick<HeroProps, 'description' | 'supportingLine' | 'her
         <div className="mt-5 max-w-[500px] rounded-2xl border border-nourdoc-primary/20 bg-white/75 px-5 py-4 shadow-[0_12px_30px_rgba(15,42,34,0.08)] backdrop-blur-sm">
           <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-nourdoc-primary">Global Collaboration</p>
           <p className="mt-2 text-base font-bold tracking-[-0.01em] text-slate-900">
-            Canada <span className="mx-2 text-nourdoc-primary/50">Â·</span> Finland <span className="mx-2 text-nourdoc-primary/50">Â·</span> Pakistan
+            Canada <span className="mx-2 text-nourdoc-primary/50">•</span> Finland <span className="mx-2 text-nourdoc-primary/50">•</span> Pakistan
           </p>
           <p className="mt-1.5 text-xs italic leading-relaxed text-slate-600">
             Built through international healthcare, research and engineering collaboration.
@@ -70,7 +86,7 @@ const HomeHero: React.FC<Pick<HeroProps, 'description' | 'supportingLine' | 'her
   </section>
 );
 
-const PageHero: React.FC<HeroProps & { kind: 'product' | 'coding' | 'integrations' | 'why' | 'benefits' | 'about' | 'partners' | 'contact' | 'subscription' }> = ({ kind, badge, h1, subtitle, description, backgroundImage, showBrandMark }) => (
+const PageHero: React.FC<HeroProps & { kind: 'product' | 'coding' | 'integrations' | 'why' | 'benefits' | 'about' | 'partners' | 'contact' | 'subscription' }> = ({ kind, badge, h1, subtitle, description, backgroundImage, showBrandMark, primaryCta, secondaryCta }) => (
   <section className={(kind === 'product' || kind === 'coding' || kind === 'integrations' || kind === 'why' || kind === 'benefits' || kind === 'about' || kind === 'partners' || kind === 'contact' || kind === 'subscription') ? 'relative flex aspect-[21/10] min-h-0 overflow-hidden border-b border-slate-100 bg-[#F8FBFA]' : 'hero-100vsh relative flex overflow-hidden border-b border-slate-100 bg-[#F8FBFA]'}>
     <div className="pointer-events-none absolute inset-0">
       {backgroundImage && <img src={backgroundImage} alt="" aria-hidden="true" className={`absolute inset-0 h-full w-full ${kind === 'product' ? 'object-cover object-center' : 'object-cover object-right'}`} fetchPriority="high" decoding="async" />}
@@ -91,7 +107,7 @@ const PageHero: React.FC<HeroProps & { kind: 'product' | 'coding' | 'integration
         <h1 className="mt-4 text-[clamp(2.125rem,4.5vw,4rem)] font-semibold leading-[1.04] tracking-[-0.025em] text-[#101827]">{kind === 'product' ? <>Meet <span className="text-nourdoc-primary">NourDoc</span></> : h1}</h1>
         {subtitle && <p className="mt-4 text-[clamp(1rem,1.3vw,1.125rem)] font-medium leading-relaxed text-nourdoc-primary">{subtitle}</p>}
         {description && <p className="mt-4 max-w-[600px] whitespace-pre-line text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.6] font-medium text-slate-800">{description}</p>}
-        <HeroActions />
+        <HeroActions primaryCta={primaryCta} secondaryCta={secondaryCta} />
       </div>
     </div>
   </section>

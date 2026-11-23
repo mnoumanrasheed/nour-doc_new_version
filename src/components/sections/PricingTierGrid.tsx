@@ -3,6 +3,7 @@ import React from 'react';
 import { Check, Sparkles } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 import { Button } from '../common/Button';
+import contentData from '../../data.json';
 
 interface Tier {
   id: string;
@@ -90,8 +91,8 @@ export const PricingTierGrid: React.FC<PricingTierGridProps> = ({ tiers }) => {
             <div className="mt-6 [&>div]:w-full">
               {isFree ? (
                 <Button
-                  to="/contact-sales"
-                  
+                  href={contentData.brand.appStoreUrl}
+                  external
                   variant="primary"
                   size="md"
                   icon={true}

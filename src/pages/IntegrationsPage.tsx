@@ -45,6 +45,7 @@ export const IntegrationsPage: React.FC = () => {
         h1={page.hero.h1}
         description={page.hero.lead}
         primaryCta={page.cta.primaryCta}
+        secondaryCta={{ label: 'TRY NOURDOC FREE', type: 'app' }}
         showVisual={false}
         backgroundImage="/images/hero/hero_integrations_original_emblem.webp"
         visualVariant="integrations"

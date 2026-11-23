@@ -17,59 +17,62 @@ import {
  */
 export const ClinicalDialogueVisual: React.FC<{ className?: string }> = ({ className = '' }) => {
   return (
-    <div className={`relative rounded-2xl bg-gradient-to-br from-nourdoc-primary-dark via-nourdoc-primary-dark to-nourdoc-primary-hover text-white p-6 sm:p-8 border border-white/10 shadow-xl overflow-hidden ${className}`}>
+    <div
+      className={`relative isolate overflow-hidden rounded-[26px] border border-white/10 p-5 text-white shadow-[0_24px_60px_rgba(15,42,34,0.24)] sm:p-7 ${className}`}
+      style={{ background: 'linear-gradient(145deg, #0d342d 0%, #174c40 58%, #123d34 100%)' }}
+    >
       {/* Subtle radial glow */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-nourdoc-primary/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-nourdoc-secondary/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-emerald-300/10 blur-3xl" />
+      <div className="pointer-events-none absolute right-8 top-16 h-32 w-32 rounded-full border border-emerald-200/10" />
+      <div className="pointer-events-none absolute right-14 top-22 h-20 w-20 rounded-full border border-emerald-200/10" />
 
       {/* Header bar */}
-      <div className="relative z-10 flex items-center justify-between pb-4 mb-5 border-b border-white/10">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-xs font-mono font-bold text-nourdoc-secondary uppercase tracking-wider">
-            Ambient Consultation Session
-          </span>
+      <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4">
+        <div>
+          <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-emerald-200/75">
+            <span className="h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_12px_rgba(110,231,183,0.9)] animate-pulse" />
+            Live ambient session
+          </div>
+          <p className="mt-1.5 text-sm font-semibold text-white/90">Listening for clinical meaning</p>
         </div>
-        <span className="text-[10px] font-mono text-slate-400 bg-white/10 px-2.5 py-1 rounded-md border border-white/10">
-          NourDoc Engine v1.0
-        </span>
+        <span className="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[9px] font-mono text-emerald-100/75">NOURDOC / 01</span>
       </div>
 
       {/* Main visual composition */}
-      <div className="relative z-10 space-y-4">
+      <div className="relative z-10 mt-5 space-y-3">
         {/* Dialogue Stream */}
-        <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2">
-          <div className="flex items-center justify-between text-xs text-slate-300">
-            <span className="flex items-center gap-1.5 font-bold text-slate-200">
+        <div className="rounded-2xl border border-white/10 bg-white/[0.07] p-4">
+          <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-100/75">
+            <span className="flex items-center gap-1.5">
               <Mic className="w-3.5 h-3.5 text-nourdoc-secondary" />
-              Natural Dialogue Capture
+              Speech signal
             </span>
-            <span className="text-[10px] font-mono text-nourdoc-secondary">SPEECH WAVEFORM ACTIVE</span>
+            <span className="text-emerald-300">Active</span>
           </div>
 
           {/* SVG Animated-feel waveform */}
-          <div className="h-8 flex items-center justify-between gap-1 px-2 py-1 bg-white/5 rounded-lg border border-white/10">
+          <div className="mt-4 flex h-10 items-center justify-between gap-1 rounded-xl border border-white/10 bg-black/10 px-3">
             {[40, 75, 30, 90, 60, 100, 45, 80, 55, 95, 35, 70, 85, 40, 90, 65, 30, 80, 50, 95, 60, 40, 75].map((h, i) => (
               <div
                 key={i}
-                className="w-1 rounded-full bg-gradient-to-t from-nourdoc-primary to-nourdoc-secondary"
-                style={{ height: `${h}%` }}
+                className="w-1 rounded-full bg-gradient-to-t from-emerald-500/50 to-emerald-200 animate-pulse"
+                style={{ height: `${h}%`, animationDelay: `${i * 80}ms` }}
               />
             ))}
           </div>
         </div>
 
         {/* Real-time AI Extraction Box */}
-        <div className="p-4 rounded-xl bg-nourdoc-primary/15 border border-nourdoc-primary/40 space-y-2">
-          <div className="flex items-center justify-between text-xs font-bold text-nourdoc-secondary">
+        <div className="rounded-2xl border border-emerald-200/20 bg-emerald-100/[0.08] p-4">
+          <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-100/75">
             <span className="flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-nourdoc-secondary" />
-              Clinical Understanding & Structuring
+              Clinical synthesis
             </span>
-            <span className="text-[10px] font-mono text-emerald-400">ASSISTIVE AI</span>
+            <span className="text-emerald-300">Ready</span>
           </div>
 
-          <div className="grid grid-cols-2 gap-2 text-[11px] font-mono">
+          <div className="mt-3 grid grid-cols-2 gap-2 text-[11px] font-mono">
             <div className="bg-white/5 p-2.5 rounded-lg border border-white/10">
               <span className="text-nourdoc-secondary block font-bold mb-0.5">Assessment:</span>
               <span className="text-slate-300">Acute bronchitis with mild dyspnea</span>
@@ -83,12 +86,12 @@ export const ClinicalDialogueVisual: React.FC<{ className?: string }> = ({ class
       </div>
 
       {/* Footer verification tag */}
-      <div className="relative z-10 mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400">
+      <div className="relative z-10 mt-5 flex items-center justify-between border-t border-white/10 pt-4 text-[10px] font-medium text-white/55">
         <span className="flex items-center gap-1.5">
           <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-          Physician In Full Review Control
+          Physician remains in control
         </span>
-        <span className="text-nourdoc-secondary font-mono">EHR-Ready</span>
+        <span className="font-mono text-emerald-200/70">ENCRYPTED</span>
       </div>
     </div>
   );

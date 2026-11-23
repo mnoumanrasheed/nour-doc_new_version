@@ -143,9 +143,8 @@ export const PartnersPage: React.FC = () => {
           target: '/contact-sales',
         }}
         secondaryCta={{
-          label: page.cta.secondaryCta.label,
-          type: 'demo',
-          target: '/contact-sales',
+          label: 'TRY NOURDOC FREE',
+          type: 'app',
         }}
         showVisual={false}
         backgroundImage="/images/hero/hero_partners_wide.webp"
@@ -235,8 +234,8 @@ export const PartnersPage: React.FC = () => {
         primaryLabel={page.cta.primaryCta.label}
         primaryTarget="/contact-sales"
         primaryIsApp={false}
-        secondaryLabel={page.cta.secondaryCta.label}
-        secondaryTarget="/contact-sales"
+        secondaryLabel="TRY NOURDOC FREE"
+        secondaryIsApp={true}
       />
     </div>
   );

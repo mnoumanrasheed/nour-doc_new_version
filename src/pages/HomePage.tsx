@@ -131,8 +131,8 @@ export const HomePage: React.FC = () => {
               </p>
               <div className="pt-2">
                 <Button
-                  to="/contact-sales"
-                  
+                  href={contentData.brand.appStoreUrl}
+                  external
                   variant="primary"
                   size="lg"
                   icon={true}

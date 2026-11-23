@@ -167,9 +167,9 @@ export const BenefitsPage: React.FC = () => {
 
       {/* 4. For Hospitals */}
       <section id="hospitals" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
-        <div className="nourdoc-ambient-surface rounded-3xl bg-nourdoc-primary-dark text-white p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl space-y-8 relative overflow-hidden">
+        <div className="relative overflow-hidden rounded-[30px] border border-nourdoc-primary/25 bg-gradient-to-br from-[#0f3029] via-[#16483c] to-[#0b2923] p-6 text-white shadow-[0_24px_70px_rgba(15,42,34,0.22)] sm:p-9 lg:p-12">
           {/* Subtle background photo tint */}
-          <div className="absolute inset-0 z-0 pointer-events-none opacity-10">
+          <div className="pointer-events-none absolute inset-0 z-0 opacity-20">
             <img
               src="/images/sections/benefit_hospital.webp"
               alt=""
@@ -178,34 +178,38 @@ export const BenefitsPage: React.FC = () => {
               loading="lazy"
             />
           </div>
+          <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-br from-[#0f3029]/95 via-[#16483c]/75 to-[#0b2923]/95" />
 
-          <div className="relative z-10 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-nourdoc-primary/30 text-nourdoc-secondary flex items-center justify-center">
-              <Hospital className="w-5 h-5" />
+          <div className="relative z-10 flex flex-col justify-between gap-5 border-b border-white/10 pb-7 sm:flex-row sm:items-end">
+            <div className="flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-200/20 bg-emerald-200/10 text-emerald-200 shadow-[0_0_24px_rgba(110,231,183,0.10)]">
+                <Hospital className="h-5 w-5" />
+              </div>
+              <div>
+                <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-200/80">Enterprise governance</span>
+                <h2 className="mt-1 text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">{s.hospitals.title}</h2>
+              </div>
             </div>
-            <div>
-              <span className="text-xs font-bold text-nourdoc-secondary uppercase tracking-wider block">Enterprise Governance</span>
-              <h2 className="text-2xl sm:text-3xl font-black text-white">{s.hospitals.title}</h2>
-            </div>
+            <span className="w-fit rounded-full border border-emerald-200/20 bg-white/[0.06] px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-[0.12em] text-emerald-100/75">Built for healthcare networks</span>
           </div>
 
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="relative z-10 mt-7 grid grid-cols-1 gap-3.5 md:grid-cols-3">
             {s.hospitals.items.map((item, idx) => (
               <RevealOnScroll
                 key={idx}
                 delay={idx * 0.1}
-                className="bg-white/5 rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between space-y-4"
+                className="group flex flex-col justify-between space-y-5 rounded-2xl border border-white/10 bg-white/[0.075] p-5 backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-emerald-200/35 hover:bg-white/[0.12] sm:p-6"
               >
                 <div>
-                  <div className="flex items-center gap-2 mb-3 text-nourdoc-secondary">
-                    <CheckCircle2 className="w-4 h-4" />
+                  <div className="mb-3 flex items-center gap-2 text-emerald-200">
+                    <CheckCircle2 className="h-4 w-4" />
                     <h3 className="text-base font-bold text-white">{item.title}</h3>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{item.desc}</p>
+                  <p className="text-sm leading-relaxed text-emerald-50/70">{item.desc}</p>
                 </div>
-                <div className="text-[10px] font-mono text-nourdoc-secondary pt-3 border-t border-white/10 flex items-center gap-1.5">
-                  <Sparkles className="w-3 h-3" />
-                  <span>Hospital Capability 0{idx + 1}</span>
+                <div className="flex items-center justify-between border-t border-white/10 pt-3 text-[10px] font-mono font-bold uppercase tracking-[0.1em] text-emerald-200/65">
+                  <span>Capability 0{idx + 1}</span>
+                  <Sparkles className="h-3.5 w-3.5 text-emerald-300/80 transition-transform group-hover:rotate-12" />
                 </div>
               </RevealOnScroll>
             ))}
@@ -265,34 +269,42 @@ export const BenefitsPage: React.FC = () => {
 
       {/* 6. For Patients */}
       <section id="patients" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
-        <div className="rounded-3xl bg-gradient-to-br from-nourdoc-primary-light via-white to-slate-50 border-2 border-nourdoc-primary/20 p-8 sm:p-12 lg:p-16 text-center max-w-4xl mx-auto shadow-sm space-y-6 relative overflow-hidden">
-          <div className="w-14 h-14 rounded-2xl bg-white text-nourdoc-primary flex items-center justify-center mx-auto shadow-sm border border-nourdoc-primary/20">
-            <Heart className="w-7 h-7 text-nourdoc-primary" />
-          </div>
-          <div>
-            <span className="inline-block text-xs font-bold text-nourdoc-primary uppercase tracking-widest bg-white px-4 py-1.5 rounded-full mb-3 border border-nourdoc-primary/20 shadow-xs">
-              {s.patients.title}
-            </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
-              {s.patients.h2}
-            </h2>
-          </div>
-          <p className="text-sm sm:text-base text-slate-700 leading-relaxed max-w-2xl mx-auto font-medium">
-            {s.patients.desc}
-          </p>
-
-          <div className="relative isolate mx-auto mt-4 aspect-[3/2] w-full max-w-xl overflow-hidden rounded-2xl border border-nourdoc-primary/20 bg-nourdoc-primary-dark shadow-[0_16px_36px_rgba(15,42,34,0.16)]">
-            <img src="/images/sections/benefit_patient.webp" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full scale-110 object-cover object-center opacity-35 blur-xl" />
-            <div className="absolute inset-0 bg-nourdoc-primary-dark/20" />
+        <div className="relative grid overflow-hidden rounded-[28px] border border-nourdoc-primary/15 bg-white shadow-[0_18px_55px_rgba(15,42,34,0.10)] lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="relative min-h-[300px] overflow-hidden bg-nourdoc-primary-dark sm:min-h-[380px] lg:min-h-[440px]">
             <img
               src="/images/sections/benefit_patient.webp"
               alt="Compassionate doctor-patient consultation with direct eye contact"
-              className="relative z-10 h-full w-full object-contain object-center"
+              className="absolute inset-0 h-full w-full object-cover object-center"
               loading="lazy"
             />
-            <div className="absolute inset-x-0 bottom-0 z-20 h-24 bg-gradient-to-t from-nourdoc-primary-dark/80 via-nourdoc-primary-dark/20 to-transparent" />
-            <div className="absolute bottom-3 left-4 z-30 rounded-full border border-emerald-200/25 bg-nourdoc-primary-dark/55 px-3 py-1 text-[10px] font-mono font-bold text-emerald-200 backdrop-blur-sm">
-              Uninterrupted Human Healthcare
+            <div className="absolute inset-0 bg-gradient-to-t from-nourdoc-primary-dark/75 via-nourdoc-primary-dark/10 to-transparent" />
+            <div className="absolute bottom-5 left-5 rounded-full border border-white/25 bg-nourdoc-primary-dark/55 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-100 backdrop-blur-sm sm:left-7 sm:bottom-7">
+              Uninterrupted human healthcare
+            </div>
+          </div>
+
+          <div className="flex flex-col justify-center bg-[linear-gradient(135deg,#f4faf7_0%,#ffffff_72%)] px-6 py-8 sm:px-10 sm:py-10 lg:px-14 lg:py-12">
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white text-nourdoc-primary shadow-sm ring-1 ring-nourdoc-primary/15">
+                <Heart className="h-5 w-5" />
+              </div>
+              <span className="rounded-full border border-nourdoc-primary/15 bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-nourdoc-primary">
+                {s.patients.title}
+              </span>
+            </div>
+            <h2 className="mt-6 max-w-xl text-3xl font-black leading-[1.08] tracking-[-0.045em] text-slate-900 sm:text-4xl lg:text-[2.7rem]">
+              {s.patients.h2}
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
+              {s.patients.desc}
+            </p>
+            <div className="mt-7 grid max-w-xl grid-cols-1 gap-2.5 sm:grid-cols-2">
+              {['More eye contact', 'Less screen time', 'Calmer consultations', 'Better human connection'].map((benefit) => (
+                <div key={benefit} className="flex items-center gap-2.5 rounded-xl border border-nourdoc-primary/10 bg-white/80 px-3.5 py-2.5 text-sm font-semibold text-slate-700">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-nourdoc-primary" />
+                  {benefit}
+                </div>
+              ))}
             </div>
           </div>
         </div>

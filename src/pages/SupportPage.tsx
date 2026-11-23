@@ -1,7 +1,6 @@
 import React from 'react';
 import { ArrowRight, BookOpen, CreditCard, LockKeyhole, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import contentData from '../data.json';
 
 const resources = [
   { title: 'Explore NourDoc', description: 'Understand the platform, clinical documentation workflows, and key capabilities.', to: '/product', icon: BookOpen },
@@ -10,8 +9,6 @@ const resources = [
 ];
 
 export const SupportPage: React.FC = () => {
-  const { support } = contentData.brand.emails;
-
   return (
     <div className="bg-[#fbfcfb]">
       <section className="border-b border-nourdoc-primary/10 bg-nourdoc-primary-surface px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
@@ -35,7 +32,7 @@ export const SupportPage: React.FC = () => {
         </div>
         <div className="mt-10 flex flex-col items-start justify-between gap-6 rounded-[26px] bg-nourdoc-primary p-8 text-white sm:flex-row sm:items-center sm:p-10">
           <div><MessageCircle className="h-6 w-6 text-nourdoc-accent-hover" /><h2 className="mt-4 text-2xl font-extrabold tracking-[-0.035em]">Still need a hand?</h2><p className="mt-2 max-w-xl text-sm leading-6 text-white/80">Our support team is ready to help with your NourDoc questions.</p></div>
-          <a href={`mailto:${support}`} className="shrink-0 rounded-xl bg-white px-5 py-3 text-sm font-bold text-nourdoc-primary transition-colors hover:bg-nourdoc-primary-light">Email support</a>
+          <Link to="/contact-sales" className="shrink-0 rounded-xl bg-white px-5 py-3 text-sm font-bold text-nourdoc-primary transition-colors hover:bg-nourdoc-primary-light">Contact Sales</Link>
         </div>
       </section>
     </div>

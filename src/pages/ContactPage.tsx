@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CalendarDays, Handshake, Headphones, MapPin, ArrowUpRight } from 'lucide-react';
+import { Button } from '../components/common/Button';
+import contentData from '../data.json';
 
 const contactPaths = [
   {
@@ -165,6 +167,25 @@ export const ContactPage: React.FC = () => {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-slate-100 bg-white px-4 py-16 sm:px-6 md:py-20 lg:px-8" aria-labelledby="trial-cta-heading">
+        <div className="mx-auto max-w-5xl text-center">
+          <span className="inline-block rounded-full bg-nourdoc-primary-light px-3 py-1 text-xs font-bold uppercase tracking-widest text-nourdoc-primary">
+            Start with NourDoc
+          </span>
+          <h2 id="trial-cta-heading" className="mx-auto mt-4 max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+            Start your free trial today.
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
+            See how much more time your team can make for patient care with ambient clinical intelligence.
+          </p>
+          <div className="mt-7 flex justify-center">
+            <Button href={contentData.brand.appStoreUrl} external variant="primary" size="lg" icon={true}>
+              Start Free Trial
+            </Button>
           </div>
         </div>
       </section>

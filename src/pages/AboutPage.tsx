@@ -1,4 +1,4 @@
-﻿// src/pages/AboutPage.tsx
+// src/pages/AboutPage.tsx
 import React from 'react';
 import { Hero } from '../components/sections/Hero';
 import { SectionHeading } from '../components/common/SectionHeading';
@@ -150,17 +150,40 @@ export const AboutPage: React.FC = () => {
           <div className="lg:col-span-6">
             <ClinicalDialogueVisual />
           </div>
-          <div className="lg:col-span-6 space-y-4">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold text-nourdoc-primary uppercase tracking-widest bg-nourdoc-primary-light px-3.5 py-1.5 rounded-full">
-              <Sparkles className="w-3.5 h-3.5 text-nourdoc-primary" />
-              Core Philosophy
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              Technology That Listens, Understands, and Gives Time Back
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              NourDoc was created on the conviction that the clinical consultation is fundamentally human. By managing complex documentation, medical coding support, and downstream data integration, our platform enables clinicians to focus completely on diagnosis, care, and patient relationships.
-            </p>
+          <div className="relative overflow-hidden rounded-[28px] border border-nourdoc-primary/15 bg-[linear-gradient(145deg,#ffffff_0%,#f3faf7_100%)] p-7 shadow-[0_18px_50px_rgba(15,42,34,0.08)] sm:p-9 lg:p-10">
+            <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-nourdoc-primary/10 blur-3xl" />
+            <div className="pointer-events-none absolute bottom-0 left-0 h-1 w-2/5 bg-gradient-to-r from-nourdoc-primary to-nourdoc-secondary" />
+
+            <div className="relative">
+              <div className="flex items-center justify-between gap-4">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-nourdoc-primary/10 bg-white px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest text-nourdoc-primary shadow-sm">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  Core philosophy
+                </span>
+                <span className="text-[10px] font-mono font-bold uppercase tracking-[0.15em] text-nourdoc-primary/60">Human-first AI</span>
+              </div>
+
+              <h2 className="mt-7 max-w-xl text-3xl font-black leading-[1.08] tracking-[-0.045em] text-slate-900 sm:text-4xl">
+                Technology That Listens, Understands, and Gives Time Back
+              </h2>
+              <p className="mt-5 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
+                NourDoc was created on the conviction that the clinical consultation is fundamentally human. By managing complex documentation, medical coding support, and downstream data integration, our platform enables clinicians to focus completely on diagnosis, care, and patient relationships.
+              </p>
+
+              <div className="mt-7 grid gap-2.5 sm:grid-cols-3">
+                {['Listen naturally', 'Structure intelligently', 'Keep clinicians in control'].map((value, index) => (
+                  <div key={value} className="rounded-xl border border-nourdoc-primary/10 bg-white/80 px-3.5 py-3">
+                    <span className="text-[10px] font-mono font-bold text-nourdoc-primary/60">0{index + 1}</span>
+                    <p className="mt-1 text-xs font-bold leading-snug text-slate-800">{value}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-7 flex items-center gap-2 border-t border-nourdoc-primary/10 pt-5 text-sm font-bold text-nourdoc-primary">
+                <span>Care stays at the center</span>
+                <ArrowRight className="h-4 w-4" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -253,7 +276,7 @@ export const AboutPage: React.FC = () => {
         primaryLabel="TRY NOURDOC FREE"
         primaryIsApp={true}
         secondaryLabel="BOOK A DEMO"
-        secondaryTarget="/contact-sales"
+        secondaryTarget="/contact"
       />
     </div>
   );
