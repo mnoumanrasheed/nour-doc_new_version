@@ -150,7 +150,7 @@ export const AboutPage: React.FC = () => {
           <div className="lg:col-span-6">
             <ClinicalDialogueVisual />
           </div>
-          <div className="relative overflow-hidden rounded-[28px] border border-nourdoc-primary/15 bg-[linear-gradient(145deg,#ffffff_0%,#f3faf7_100%)] p-7 shadow-[0_18px_50px_rgba(15,42,34,0.08)] sm:p-9 lg:p-10">
+          <div className="relative overflow-hidden rounded-[28px] border border-nourdoc-primary/15 bg-[linear-gradient(145deg,#ffffff_0%,#f3faf7_100%)] p-7 shadow-[0_18px_50px_rgba(15,42,34,0.08)] sm:p-9 lg:col-span-6 lg:p-10">
             <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-nourdoc-primary/10 blur-3xl" />
             <div className="pointer-events-none absolute bottom-0 left-0 h-1 w-2/5 bg-gradient-to-r from-nourdoc-primary to-nourdoc-secondary" />
 
@@ -179,10 +179,6 @@ export const AboutPage: React.FC = () => {
                 ))}
               </div>
 
-              <div className="mt-7 flex items-center gap-2 border-t border-nourdoc-primary/10 pt-5 text-sm font-bold text-nourdoc-primary">
-                <span>Care stays at the center</span>
-                <ArrowRight className="h-4 w-4" />
-              </div>
             </div>
           </div>
         </div>
